@@ -102,6 +102,9 @@ theme_set(theme) # setting ggplot theme instead of using theme function
 
 # Introduction
 
+@osborne2017good
+@jokipii2008cyclical
+
 # Literature
 
 # Methodology
