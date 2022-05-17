@@ -103,7 +103,25 @@ theme_set(theme) # setting ggplot theme instead of using theme function
 # Introduction
 
 @osborne2017good
+
 @jokipii2008cyclical
+
+@gambacorta2004does
+
+@schwert2018bank
+
+@kim2017effect
+
+@carlson2013capital
+
+@tabak2011bank
+
+@altunbas2004bank
+
+@gambacorta2018bank
+
+@berrospide2010effects
+
 
 # Literature
 
@@ -113,4 +131,5 @@ theme_set(theme) # setting ggplot theme instead of using theme function
 
 # Conclusion
 
+\newpage
 # References
