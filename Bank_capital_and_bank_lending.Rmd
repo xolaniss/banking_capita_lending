@@ -122,6 +122,22 @@ theme_set(theme) # setting ggplot theme instead of using theme function
 
 @berrospide2010effects
 
+# Data
+
+```{r}
+#| capbuf,
+#| fig.cap = "Capital buffers. Source: South African Reserve Bank (2022) REMOVE",
+#| fig.height = 5,
+#| cache = FALSE,
+#| include = FALSE
+
+capital_buffers <- read_rds(here("Outputs", "artifacts_capital_buffers.rds"))
+
+capital_buffers$graphs$big_banks_gg  #delete from the final draft
+
+```
+
+
 # Methodology
 
 # Results

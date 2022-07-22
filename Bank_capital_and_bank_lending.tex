@@ -33,12 +33,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage[margin=1in]{geometry}
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
@@ -102,6 +96,12 @@
 \fi
 \usepackage[round]{natbib}
 \bibliographystyle{sarb.bst}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \author{}
 \date{\vspace{-2.5em}}
@@ -153,6 +153,9 @@ Xolani Sibande\footnote{South African Reserve Bank, South Africa; Email: xolani.
 \citet{gambacorta2018bank}
 
 \citet{berrospide2010effects}
+
+\hypertarget{data}{%
+\section{Data}\label{data}}
 
 \hypertarget{methodology}{%
 \section{Methodology}\label{methodology}}
