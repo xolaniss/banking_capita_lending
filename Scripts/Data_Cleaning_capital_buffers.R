@@ -45,7 +45,7 @@ capital_buffers_tbl <-
     Date,
     Bank,
     `Minimum required capital and reserve funds`,
-    `Aggregate amount of qualifying capital and reserve funds`,
+    # `Aggregate amount of qualifying capital and reserve funds`,
     `Surplus capital`
   ) %>% 
   drop_na() %>% 
@@ -64,7 +64,7 @@ bank_capital_buffer_gg <- function(data, variables_color = 3, ...) {
                  names_to = "Series") %>%
     filter(Bank %in% ...) %>%
     unite("Series", Bank:Series, sep = ": ") %>%
-    fx_nopivot_plot(variables_color = variables_color, scale = "free") +
+    fx_nopivot_plot(variables_color = variables_color, scale = "free", ncol = 2) +
     scale_y_continuous(labels = scales::label_percent())
   ggplot
 }
@@ -85,6 +85,13 @@ big_banks_gg <-
 
 # Export ------------------------------------------------------------------
 artifacts_capital_buffers <-
-  list(Data = list(capital_buffers_tbl),
-       Graphs = list(big_banks_gg)) %>% 
-  write_rds(file = here("Outputs", "artifacts_capital_buffers.rds"))
+  list(
+    data = list(
+      capital_buffers_tbl = capital_buffers_tbl
+      ),
+    graphs = list(
+      big_banks_gg = big_banks_gg
+      )
+    )
+
+write_rds(artifacts_capital_buffers, file = here("Outputs", "artifacts_capital_buffers.rds"))
