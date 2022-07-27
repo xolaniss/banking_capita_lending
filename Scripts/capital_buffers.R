@@ -64,6 +64,7 @@ bank_capital_buffer_gg <- function(data, variables_color = 3, ...) {
                  names_to = "Series") %>%
     filter(Bank %in% ...) %>%
     unite("Series", Bank:Series, sep = ": ") %>%
+    mutate(Series = str_to_title(Series)) %>% 
     fx_nopivot_plot(variables_color = variables_color, scale = "free", ncol = 2) +
     scale_y_continuous(labels = scales::label_percent())
   ggplot
