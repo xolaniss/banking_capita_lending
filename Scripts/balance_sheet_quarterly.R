@@ -27,15 +27,8 @@ library(scales)
 # Functions ---------------------------------------------------------------
 source(here("Functions", "fx_plot.R"))
 source(here("Functions", "balance_sheet_rename_gg.R"))
-summarise_quarter_last <- function(data) {
-  data %>% 
-    group_by(Series) %>% 
-    summarise_by_time(
-      .date_var = Date,
-      .by = "quarter",
-      Value = last(Value)
-    )
-}
+source(here("Functions", "summarise_quarter_last.R"))
+
 # Import -------------------------------------------------------------
 balance_sheet <- read_rds(here("Outputs", "artifacts_ba900.rds"))
 Totals_tbl <-  balance_sheet$data$total_filtered_tbl
