@@ -1,11 +1,14 @@
 fx_plot <-
-function (data, plotname = " ", variables_color = 12) {
+function (data, plotname = " ", 
+          variables_color = 12, 
+          scale = "free", 
+          ncol = NULL) {
   ggplot(
     pivot_longer(data,-Date, names_to = "Series", values_to = "Value"),
     aes(x = Date, y = Value, col = Series)
   ) +
     geom_line() +
-    facet_wrap (. ~ Series, scale = "free") +
+    facet_wrap (. ~ Series, scale = scale, ncol = ncol) +
     theme_bw() +
     theme(
       legend.position = "none",
@@ -56,12 +59,12 @@ fx_recode_plot <-
   }
 
 fx_nopivot_plot <-
-  function (data, plotname = " ", variables_color = 12, scale = "fixed", ncol = 3) {
+  function (data, plotname = " ", variables_color = 12, scale = "free", ncol = 3) {
     ggplot(
       data = data,
-      aes(x = Date, y = Value, fill = Series)
+      aes(x = Date, y = Value, color = Series)
     ) +
-      geom_area() +
+      geom_line() +
       facet_wrap (. ~ Series, scale = scale, ncol = ncol) +
       theme_bw() +
       theme(
@@ -80,5 +83,5 @@ fx_nopivot_plot <-
         plot.tag = element_text(size = 8)
       ) +
       labs(x = "", y = plotname) +
-      scale_fill_manual(name = "", values = pnw_palette("Winter", variables_color))
+      scale_color_manual(name = "", values = pnw_palette("Winter", variables_color))
   }

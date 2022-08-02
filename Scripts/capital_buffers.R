@@ -1,3 +1,6 @@
+# Description
+# Cleaning up capital buffers and graphing
+
 # Packages ----------------------------------------------------------------
 library(tidyverse)
 library(readr)
