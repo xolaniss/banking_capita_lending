@@ -37,6 +37,6 @@ balance_sheet_rename_quartely_gg <-
       fx_nopivot_plot(ncol = 2, variables_color = 10) +
       scale_y_continuous(labels = scales::label_dollar(prefix = "R", 
                                                        scale_cut = cut_long_scale()))  +
-      scale_x_date(breaks = scales::breaks_pretty(n = 10))
+      scale_x_date(breaks = scales::breaks_pretty(n = 20))
     
   }

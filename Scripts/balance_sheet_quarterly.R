@@ -86,7 +86,7 @@ capitec_quartely_gg <-
   balance_sheet_rename_quartely_gg()
   
 # Export ---------------------------------------------------------------
-artifacts_balance_sheet_to_GDP <- list (
+artifacts_balance_sheet_quartely <- list (
   quarterly_data = list(
     Totals_quarter_tbl = Totals_quarter_tbl,
     absa_quarter_tbl = absa_quarter_tbl,
@@ -107,7 +107,7 @@ artifacts_balance_sheet_to_GDP <- list (
   
 )
 
-write_rds("artifacts_balance_sheet_to_GDP", 
-          file = here("Outputs", "artifacts_balance_sheet_to_GDP.rds"))
+write_rds("artifacts_balance_sheet_quartely", 
+          file = here("Outputs", "artifacts_balance_sheet_quartely.rds"))
 
 
