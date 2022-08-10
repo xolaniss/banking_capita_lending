@@ -100,7 +100,7 @@ artifacts_balance_sheet_quartely <- list (
   
 )
 
-write_rds("artifacts_balance_sheet_quartely", 
+write_rds(artifacts_balance_sheet_quartely, 
           file = here("Outputs", "artifacts_balance_sheet_quartely.rds"))
 
 

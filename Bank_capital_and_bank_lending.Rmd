@@ -10,7 +10,7 @@ output:
     includes:
       in_header: preamble.tex
       before_body: title.tex
-      after_body: appendix_backcover.tex
+      # after_body: appendix_backcover.tex
   bookdown::word_document2:
     fig_width: 5 
     fig_height: 4
@@ -48,7 +48,7 @@ knitr::opts_chunk$set(echo = FALSE,
                       fig.pos = "H", 
                       fig.align = "left", 
                       fig.env= 'figure', 
-                      out.height = '50%', 
+                      fig.height = 8,
                       tab.topcaption = FALSE,
                       ft.align = "left")
 options(xtable.floating = TRUE,
@@ -93,12 +93,11 @@ theme <-
 theme_set(theme) # setting ggplot theme instead of using theme function
 ```
 
-```{r, functions}
-
-```
-
 # Introduction
+The paper investigates the impact of Basel III regulation on bank lending in South Africa. This introduction is an overview of the paper
 
+# Context
+A review of policy context, with focus on South Africa but also reference to other emerging markets. Further detail in Appendix 1 and 2a.
 
 # Literature
 
@@ -122,27 +121,164 @@ theme_set(theme) # setting ggplot theme instead of using theme function
 
 @berrospide2010effects
 
-# Data
+# Model specification
+
+
+# Estimation Results
+
+# Conclusion
+
+\newpage
+# Appendix: Descriptive Analysis
+
+## Data
+
+### Capital Buffers
 
 ```{r}
 #| capbuf,
 #| fig.cap = "Capital buffers. Source: South African Reserve Bank (2022) REMOVE",
-#| fig.height = 5,
 #| cache = FALSE,
-#| include = FALSE
+#| include = TRUE
 
 capital_buffers <- read_rds(here("Outputs", "artifacts_capital_buffers.rds"))
 
 capital_buffers$graphs$big_banks_gg  #delete from the final draft
 
 ```
+### BA 900 Quartelty Data
 
 
-# Methodology
+```{r}
+#| ba900totals,
+#| fig.cap = "Bank lending totals. Source: South African Reserve Bank (2022)",
+#| cache = FALSE,
+#| include = TRUE
 
-# Results
+ba900 <- read_rds(here("Outputs", "artifacts_balance_sheet_quartely.rds"))
+ba900$quartely_graphs$Total_quartely_gg
+```
 
-# Conclusion
+
+```{r}
+#| ba900absa,
+#| fig.cap = "Absa bank lending. Source: South African Reserve Bank (2022) ",
+#| cache = FALSE,
+#| include = TRUE
+
+ba900$quartely_graphs$absa_quartely_gg
+```
+
+
+```{r}
+#| ba900fnb,
+#| fig.cap = "FNB bank lending. Source: South African Reserve Bank (2022) ",
+#| cache = FALSE,
+#| include = TRUE
+
+ba900$quartely_graphs$fnb_quartely_gg
+```
+
+
+```{r}
+#| ba900nedbank,
+#| fig.cap = "Nedbank bank lending. Source: South African Reserve Bank (2022) ",
+#| cache = FALSE,
+#| include = TRUE
+
+ba900$quartely_graphs$nedbank_quartely_gg
+```
+
+```{r}
+#| ba900standard,
+#| fig.cap = "Standard bank lending. Source: South African Reserve Bank (2022) ",
+#| cache = FALSE,
+#| include = TRUE
+
+ba900$quartely_graphs$standard_quartely_gg
+```
+
+```{r}
+#| ba900capitec,
+#| fig.cap = "Capitec bank lending. Source: South African Reserve Bank (2022)",
+#| cache = FALSE,
+#| include = TRUE
+
+ba900$quartely_graphs$capitec_quartely_gg
+```
+
+
+### BA 900 to GDP
+
+```{r}
+#| nominal,
+#| fig.cap = "Nominal GDP. Source: South African Reserve Bank (2022)",
+#| cache = FALSE,
+#| fig.height = 3,
+#| include = TRUE
+
+balance_sheet_gdp <- read_rds(here("Outputs", "artifacts_balance_sheet_gdp.rds"))
+balance_sheet_gdp$graphs$nominal_GDP_gg
+```
+
+
+```{r}
+#| ba900gdptotals,
+#| fig.cap = "Total bank lending as a percent of GDP. Source: South African Reserve Bank (2022)",
+#| cache = FALSE,
+#| include = TRUE
+
+balance_sheet_gdp$graphs$total_gdp_gg
+```
+```{r}
+#| ba900gdpfnb,
+#| fig.cap = "FNB lending as a percent of GDP. Source: South African Reserve Bank (2022)",
+#| cache = FALSE,
+#| include = TRUE
+
+balance_sheet_gdp$graphs$fnb_gdp_gg
+```
+
+```{r}
+#| ba900gdpabsa,
+#| fig.cap = "Absa lending as a percent of GDP. Source: South African Reserve Bank (2022)",
+#| cache = FALSE,
+#| include = TRUE
+
+balance_sheet_gdp$graphs$absa_gdp_gg
+```
+
+```{r}
+#| ba900gdpstandard,
+#| fig.cap = "Standard bank lending as percent of GDP. Source: South African Reserve Bank (2022)",
+#| cache = FALSE,
+#| include = TRUE
+
+balance_sheet_gdp$graphs$standard_gdp_gg
+```
+
+```{r}
+#| ba900gdpnedbank,
+#| fig.cap = "Nedbank lending as percent of GDP. Source: South African Reserve Bank (2022)",
+#| cache = FALSE,
+#| include = TRUE
+
+balance_sheet_gdp$graphs$nedbank_gdp_gg
+```
+
+```{r}
+#| ba900gdpcapitec,
+#| fig.cap = "Capitec lending as percent of GDP. Source: South African Reserve Bank (2022)",
+#| cache = FALSE,
+#| include = TRUE
+
+balance_sheet_gdp$graphs$capitec_gdp_gg
+```
+
+\newpage
+# Appendix: Detailed Literature Review
+
+More detailed literature review
 
 \newpage
 # References

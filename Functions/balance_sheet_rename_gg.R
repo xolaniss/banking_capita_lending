@@ -20,7 +20,8 @@ balance_sheet_rename <-
              "Residential mortgages" = 
                "Residential mortgages: (total of items 156 to 158)"
       ) %>% 
-      pivot_longer(-Date, names_to = "Series", values_to = "Value")
+      pivot_longer(-Date, names_to = "Series", values_to = "Value") %>% 
+      mutate(Value = Value * 1000)   # to include scaling ("000)
   }
 
 balance_sheet_rename_gg <-
@@ -28,7 +29,7 @@ balance_sheet_rename_gg <-
     data %>% 
       fx_nopivot_plot(ncol = 2, variables_color = 10) +
       scale_y_continuous(labels = scales::label_dollar(prefix = "R", 
-                                                       scale_cut = cut_long_scale())) 
+                                                       scale_cut = cut_short_scale())) 
   }
 
 balance_sheet_rename_quartely_gg <-
@@ -36,7 +37,7 @@ balance_sheet_rename_quartely_gg <-
     data %>% 
       fx_nopivot_plot(ncol = 2, variables_color = 10) +
       scale_y_continuous(labels = scales::label_dollar(prefix = "R", 
-                                                       scale_cut = cut_long_scale()))  +
-      scale_x_date(breaks = scales::breaks_pretty(n = 20))
+                                                       scale_cut = cut_short_scale()))  +
+      scale_x_date(breaks = scales::breaks_pretty())
     
   }

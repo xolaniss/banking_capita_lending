@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.10.4)  22 JUL 2022 16:02
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.10.4)  10 AUG 2022 12:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1262,21 +1262,210 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line 121.
 [1
 
-] [2] (./Bank_capital_and_bank_lending.bbl) [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 181.
+] [2]
+File: Bank_capital_and_bank_lending_files/figure-latex/capbuf-1.pdf Graphic fil
+e (type pdf)
+<use Bank_capital_and_bank_lending_files/figure-latex/capbuf-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
+
+ []
+
+File: Bank_capital_and_bank_lending_files/figure-latex/ba900totals-1.pdf Graphi
+c file (type pdf)
+<use Bank_capital_and_bank_lending_files/figure-latex/ba900totals-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--197
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--197
+
+ []
+
+[3]
+File: Bank_capital_and_bank_lending_files/figure-latex/ba900absa-1.pdf Graphic 
+file (type pdf)
+<use Bank_capital_and_bank_lending_files/figure-latex/ba900absa-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
+
+ []
+
 [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 181.
+File: Bank_capital_and_bank_lending_files/figure-latex/ba900fnb-1.pdf Graphic f
+ile (type pdf)
+<use Bank_capital_and_bank_lending_files/figure-latex/ba900fnb-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
+
+ []
+
+[5]
+File: Bank_capital_and_bank_lending_files/figure-latex/ba900nedbank-1.pdf Graph
+ic file (type pdf)
+<use Bank_capital_and_bank_lending_files/figure-latex/ba900nedbank-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 217--218
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 217--218
+
+ []
+
+[6]
+File: Bank_capital_and_bank_lending_files/figure-latex/ba900standard-1.pdf Grap
+hic file (type pdf)
+<use Bank_capital_and_bank_lending_files/figure-latex/ba900standard-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--225
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--225
+
+ []
+
+[7]
+File: Bank_capital_and_bank_lending_files/figure-latex/ba900capitec-1.pdf Graph
+ic file (type pdf)
+<use Bank_capital_and_bank_lending_files/figure-latex/ba900capitec-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
+
+ []
+
+[8]
+File: Bank_capital_and_bank_lending_files/figure-latex/nominal-1.pdf Graphic fi
+le (type pdf)
+<use Bank_capital_and_bank_lending_files/figure-latex/nominal-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 241--242
+
+ []
+
+[9]
+File: Bank_capital_and_bank_lending_files/figure-latex/ba900gdptotals-1.pdf Gra
+phic file (type pdf)
+<use Bank_capital_and_bank_lending_files/figure-latex/ba900gdptotals-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--249
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--249
+
+ []
+
+File: Bank_capital_and_bank_lending_files/figure-latex/ba900gdpfnb-1.pdf Graphi
+c file (type pdf)
+<use Bank_capital_and_bank_lending_files/figure-latex/ba900gdpfnb-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--255
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--255
+
+ []
+
+[10] [11]
+File: Bank_capital_and_bank_lending_files/figure-latex/ba900gdpabsa-1.pdf Graph
+ic file (type pdf)
+<use Bank_capital_and_bank_lending_files/figure-latex/ba900gdpabsa-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 261--262
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 261--262
+
+ []
+
+[12]
+File: Bank_capital_and_bank_lending_files/figure-latex/ba900gdpstandard-1.pdf G
+raphic file (type pdf)
+<use Bank_capital_and_bank_lending_files/figure-latex/ba900gdpstandard-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
+
+ []
+
+[13]
+File: Bank_capital_and_bank_lending_files/figure-latex/ba900gdpnedbank-1.pdf Gr
+aphic file (type pdf)
+<use Bank_capital_and_bank_lending_files/figure-latex/ba900gdpnedbank-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 275--276
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 275--276
+
+ []
+
+[14]
+File: Bank_capital_and_bank_lending_files/figure-latex/ba900gdpcapitec-1.pdf Gr
+aphic file (type pdf)
+<use Bank_capital_and_bank_lending_files/figure-latex/ba900gdpcapitec-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 282--283
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 282--283
+
+ []
+
+[15] [16] [17] (./Bank_capital_and_bank_lending.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 299.
+[18]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 299.
 (./Bank_capital_and_bank_lending.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 181.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 181.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 299.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 299.
  ) 
 Here is how much of TeX's memory you used:
- 31448 strings out of 492916
- 565134 string characters out of 6133345
- 827682 words of memory out of 5000000
- 35175 multiletter control sequences out of 15000+600000
- 536854 words of font info for 65 fonts, out of 8000000 for 9000
+ 31534 strings out of 492916
+ 569050 string characters out of 6133345
+ 829421 words of memory out of 5000000
+ 35246 multiletter control sequences out of 15000+600000
+ 536846 words of font info for 64 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  59i,11n,115p,828b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Bank_capital_and_bank_lending.pdf (4 pages).
+Output written on Bank_capital_and_bank_lending.pdf (18 pages).

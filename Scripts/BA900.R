@@ -149,7 +149,7 @@ filter_vec <-
 )
 
 filter_vec <- filter_vec
-total_filtered_tbl <- filter_and_strings(total_tbl, filter_vec) %>%  balance_sheet_rename()
+total_filtered_tbl <- filter_and_strings(total_tbl, filter_vec) %>%  balance_sheet_rename() 
 total_filtered_tbl 
 absa_filtered_tbl <- filter_and_strings(absa_tbl, filter_vec) %>%  balance_sheet_rename()
 absa_filtered_tbl
