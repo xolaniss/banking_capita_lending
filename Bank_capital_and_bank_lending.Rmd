@@ -12,8 +12,8 @@ output:
       before_body: title.tex
       # after_body: appendix_backcover.tex
   bookdown::word_document2:
-    fig_width: 5 
-    fig_height: 4
+    fig_width: 3 
+    fig_height: 3
     reference_docx: new_template_no_numbering.docx
 # title: "A Pandoc Markdown Article Starter and Template"
 # thanks: "Replication files are available on the author's Github account..."
@@ -139,7 +139,7 @@ A review of policy context, with focus on South Africa but also reference to oth
 #| capbuf,
 #| fig.cap = "Capital buffers. Source: South African Reserve Bank (2022) REMOVE",
 #| cache = FALSE,
-#| include = TRUE
+#| include = FALSE
 
 capital_buffers <- read_rds(here("Outputs", "artifacts_capital_buffers.rds"))
 
