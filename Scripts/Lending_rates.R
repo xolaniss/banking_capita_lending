@@ -54,18 +54,19 @@ lending_rate <-
     col_types = c("text", "text", "numeric", "numeric", "numeric", "numeric", "numeric") 
   )) 
 
+# Cleaning -----------------------------------------------------------------
 lending_rate_no_names <- 
   lending_rate %>%
   map(~bind_rows(., .id = "Banks")) %>% 
   map(~dplyr::select(., 1:6)) 
 names <-   c(
-     "Banks"     
-    ,"Description"                            
-    ,"Date"          
-    ,"Item" 
-    ,"Outstanding balance at month" 
-    ,"Weighted average rate (%)"
-  )
+  "Banks"     
+  ,"Description"                            
+  ,"Date"          
+  ,"Item" 
+  ,"Outstanding balance at month" 
+  ,"Weighted average rate (%)"
+)
 
 colnames(lending_rate_no_names$`2008`) <- names
 colnames(lending_rate_no_names$`2009`) <- names
@@ -85,17 +86,17 @@ colnames(lending_rate_no_names$`2022`) <- names
 
 lending_rate_tbl <- 
   lending_rate_no_names %>% 
-  bind_rows(.id = "Year") 
-  # separate(Date, into = c("Month", "delete"), sep =  " ") %>% 
-  # dplyr::select(-delete) %>% 
-  # relocate(Month,.before = Year) %>% 
-  # unite("Date", Month:Year, sep = "-") 
-
-unique(lending_rate_tbl$Date) 
-  
-
-
-# Cleaning -----------------------------------------------------------------
+  map(~separate(., Date, into = c("Month", "Year"), sep =  " ")) %>% 
+  map(~relocate(., Year,.before = Banks)) %>% 
+  map(~relocate(., Month,.before = Year)) %>% 
+  bind_rows() %>% 
+  filter(!Month == "LENDING") %>% 
+  filter(!is.na(Month)) %>% 
+  mutate(Date = str_c(Month,"-", Year)) %>% 
+  relocate(., Date,.before = Month) %>% 
+  mutate(Date = parse_date_time(Date, "b-Y")) %>% 
+  mutate(Description = na.locf(Description)) %>% 
+  mutate(Description = str_c(Description, "-", Month, "-", Year)) 
 
 
 # Transformations --------------------------------------------------------
@@ -106,7 +107,9 @@ unique(lending_rate_tbl$Date)
 
 # Export ---------------------------------------------------------------
 artifacts_lending_rates <- list (
-
+  data = list(
+    lending_rate_tbl = lending_rate_tbl
+  )
 )
 
 write_rds(artifacts_lending_rates, file = here("Outputs", "artifacts_lending_rates.rds"))
