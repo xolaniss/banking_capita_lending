@@ -98,10 +98,6 @@ lending_rate_tbl <-
   mutate(Description = na.locf(Description)) %>% 
   mutate(Description = str_c(Description, "-", Month, "-", Year)) 
 
-
-# Transformations --------------------------------------------------------
-
-
 # Graphing ---------------------------------------------------------------
 
 
