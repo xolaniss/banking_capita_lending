@@ -31,12 +31,12 @@ source(here("Functions", "summarise_quarter_last.R"))
 
 # Import -------------------------------------------------------------
 balance_sheet <- read_rds(here("Outputs", "artifacts_ba900.rds"))
-Totals_tbl <-  balance_sheet$data$total_filtered_tbl
-absa_tbl <- balance_sheet$data$absa_filtered_tbl
-fnb_tbl <- balance_sheet$data$fnb_filtered_tbl
-nedbank_tbl <- balance_sheet$data$nedbank_filtered_tbl
-standard_tbl <- balance_sheet$data$standard_filtered_tbl
-capitec_tbl <- balance_sheet$data$capitec_filtered_tbl
+Totals_tbl <-  balance_sheet$aggregated_data$total_aggregation_tbl
+absa_tbl <- balance_sheet$aggregated_data$absa_aggregation_tbl
+fnb_tbl <- balance_sheet$aggregated_data$fnb_aggregation_tbl
+nedbank_tbl <- balance_sheet$aggregated_data$nedbank_aggregation_tbl
+standard_tbl <- balance_sheet$aggregated_data$standard_aggregation_tbl
+capitec_tbl <- balance_sheet$aggregated_data$capitec_aggregation_tbl
 
 # Transformations ---------------------------------------------------------
 Totals_quarter_tbl <- 

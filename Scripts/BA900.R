@@ -22,6 +22,7 @@ library(purrr)
 library(pins)
 library(fDMA)
 library(uniqtag)
+library(scales)
 
 # Functions ---------------------------------------------------------------
 source(here("Functions", "fx_plot.R"))
@@ -30,6 +31,7 @@ source(here("Functions", "excel_import_sheet.R"))
 source(here("Functions", "cleanup.R"))
 source(here("Functions", "filter_and_stings.R"))
 source(here("Functions", "balance_sheet_rename_gg.R"))
+source(here("Functions", "ba900_aggregation.R"))
 
 # Import ------------------------------------------------------------------
 path = here("Data", "BA900_Line_items_103_to_277.xlsx")
@@ -58,10 +60,12 @@ nedbank_tbl <- cleanup(ba900_assets$Nedbank)
 standard_tbl <- cleanup(ba900_assets$`Standard Bank`)
 capitec_tbl <- cleanup(ba900_assets$Capitec)
 
+unique(total_tbl$Series)
+
 # Filtering loans and advances --------------------------------------------
 filter_vec <- 
   c(  
-     # "DEPOSITS, LOANS AND ADVANCES (total of items 111, 117, 118, 126, 135, 139, 150, 166, 171 and 180, less item 194)"                                            
+     "DEPOSITS, LOANS AND ADVANCES (total of items 111, 117, 118, 126, 135, 139, 150, 166, 171 and 180, less item 194)"
      # , "SA banksb (total of items 112 and 116)"                                                                                                                      
      # , "NCDs/PNsc issued by banks, with an unexpired maturity of: (total of items 113 to 115)"                                                                       
      # , "Up to 1 month"                                                                                                                                               
@@ -93,8 +97,8 @@ filter_vec <-
      # , "Instalment debtors, suspensive sales and leases (total of items 140 and 145)"                                                                                
      # , "Instalment sales (total of items 141 to 144)"                                                                                                                
      # , "Financial corporate sector"                                                                                                                                  
-     # , "Non-financial corporate sector-1"                                                                                                                            
-     # , "Household sector"                                                                                                                                            
+      , "Non-financial corporate sector-1"
+     , "Household sector"
      # , "Otherb"                                                                                                                                                      
      # , "Leasing transactions (total of items 146 to 149)"                                                                                                            
      # , "Financial corporate sector-1"                                                                                                                                
@@ -102,7 +106,7 @@ filter_vec <-
      # , "Household sector-1"                                                                                                                                          
      # , "Otherb-1"                                                                                                                                                    
       # "Mortgage advances (total of items 151, 155 and 159)"                                                                                                         
-      "Farm mortgages: (total of items 152 to 154)"                                                                                                                 
+      # "Farm mortgages: (total of items 152 to 154)"                                                                                                                 
      # , "Corporate sector"                                                                                                                                            
      # , "Household sector-2"                                                                                                                                          
      # , "Otherb-2"                                                                                                                                                    
@@ -110,7 +114,7 @@ filter_vec <-
      # , "Corporate sector-1"                                                                                                                                          
      # , "Household sector-3"                                                                                                                                          
      # , "Otherb-3"                                                                                                                                                    
-     , "Commercial and other mortgage advances: (total of items 160 to 165)"                                                                                         
+     , "Commercial and other mortgage advances: (total of items 160 to 165)"
      # , "Public financial corporate sector"                                                                                                                           
      # , "Public non-financial corporate sector"                                                                                                                       
      # , "Private financial corporate sector"                                                                                                                          
@@ -119,8 +123,8 @@ filter_vec <-
      # , "Otherb-4"                                                                                                                                                    
      # , "Credit-card debtors (total of items 167 to 170)"                                                                                                             
      # , "Financial corporate sector-2"                                                                                                                                
-     # , "Non-financial corporate sector-3"                                                                                                                            
-     , "Household sector-5"                                                                                                                                          
+     , "Non-financial corporate sector-3"
+     , "Household sector-5"
      # , "Otherb-5"                                                                                                                                                    
      # , "Overdrafts, loans and advances: public sector (total of items 172 to 179)"                                                                                   
      # , "Central government of the Republic (excluding social security funds)"                                                                                        
@@ -134,18 +138,18 @@ filter_vec <-
      # , "Overdrafts, loans and advances: private sector (total of items 181, 187 and 188)"                                                                            
      # , "Overdrafts, including overdrafts under cash-management schemes: (total of items 182 to 186)"                                                                 
      # , "Financial corporate sector-3"                                                                                                                                
-     , "Non-financial corporate sector-4"                                                                                                                            
-     , "Unincorporated business enterprises of households"                                                                                                           
-     , "Households"                                                                                                                                                  
+     , "Non-financial corporate sector-4"
+     , "Unincorporated business enterprises of households"
+     , "Households"
      # , "Non-profit organisations serving households"                                                                                                                 
-     , "Factoring debtors"                                                                                                                                           
-     , "Other loans and advances: (total of items 189 to 193)"                                                                                                       
+     , "Factoring debtors"
+     # , "Other loans and advances: (total of items 189 to 193)"                                                                                                       
      # , "Financial corporate sector-4"                                                                                                                                
-     # , "Non-financial corporate sector-5"                                                                                                                            
-     # , "Unincorporated business enterprises of households-1"                                                                                                         
-     # , "Households-1"                                                                                                                                                
+     , "Non-financial corporate sector-5"
+     , "Unincorporated business enterprises of households-1"
+     , "Households-1"
      # , "Non-profit organisations serving households-1"                                                                                                               
-     , "Less: credit impairments in respect of loans and advances" 
+     # , "Less: credit impairments in respect of loans and advances" 
 )
 
 filter_vec <- filter_vec
@@ -164,6 +168,8 @@ capitec_filtered_tbl
 
 
 # Graphing ---------------------------------------------------------------
+
+## Detail graphs ----
 totals_gg <- 
   total_filtered_tbl %>% 
   balance_sheet_rename_gg()
@@ -183,13 +189,45 @@ capitec_gg <-
   capitec_filtered_tbl %>% 
   balance_sheet_rename_gg()
 
+## Aggregated graphs ----
+
+total_aggregation_tbl <- ba900_aggregration(total_filtered_tbl)
+total_aggregation_gg <- 
+  total_aggregation_tbl %>% 
+  balance_sheet_rename_gg(variable_color = 7)
+
+absa_aggregation_tbl <- ba900_aggregration(absa_filtered_tbl)
+absa_aggregation_gg <- 
+  absa_aggregation_tbl %>% 
+  balance_sheet_rename_gg(variable_color = 7)
+
+fnb_aggregation_tbl <- ba900_aggregration(fnb_filtered_tbl)
+fnb_aggregation_gg <- 
+  fnb_aggregation_tbl %>% 
+  balance_sheet_rename_gg(variable_color = 7)
+
+nedbank_aggregation_tbl <- ba900_aggregration(nedbank_filtered_tbl)
+nedbank_aggregation_gg <- 
+  nedbank_aggregation_tbl %>% 
+  balance_sheet_rename_gg(variable_color = 7)
+
+standard_aggregation_tbl <- ba900_aggregration(standard_filtered_tbl)
+standard_aggregation_gg <- 
+  standard_aggregation_tbl %>% 
+ balance_sheet_rename_gg(variable_color = 7)
+
+capitec_aggregation_tbl <- ba900_aggregration(capitec_filtered_tbl)
+capitec_aggregation_gg <- 
+  capitec_aggregation_tbl %>% 
+  balance_sheet_rename_gg(variable_color = 7)
+  
 # Export ------------------------------------------------------------------
 artifacts_ba900 <- 
   list(
     keys = list(
       filter_vec
     ),
-    data = list(
+    filtered_data = list(
       total_filtered_tbl = total_filtered_tbl,
       absa_filtered_tbl = absa_filtered_tbl, 
       fnb_filtered_tbl = fnb_filtered_tbl,
@@ -197,14 +235,30 @@ artifacts_ba900 <-
       standard_filtered_tbl = standard_filtered_tbl,
       capitec_filtered_tbl = capitec_filtered_tbl
     ),
-    graphs = list(
+    aggregated_data = list(
+      total_aggregation_tbl = total_aggregation_tbl,
+      absa_aggregation_tbl = absa_aggregation_tbl,
+      fnb_aggregation_tbl = fnb_aggregation_tbl,
+      nedbank_aggregation_tbl = nedbank_aggregation_tbl,
+      standard_aggregation_tbl = standard_aggregation_tbl,
+      capitec_aggregation_tbl = capitec_aggregation_tbl
+    ),
+   filtered_graphs = list(
       totals_gg = totals_gg,
       absa_gg = absa_gg,
       fnb_gg = fnb_gg,
       nedbank_gg = nedbank_gg,
       standard_gg = standard_gg,
       capitec_gg = capitec_gg
-    )
+    ),
+   aggregated_graphs = list(
+     total_aggregation_gg = total_aggregation_gg,
+     absa_aggregation_gg = absa_aggregation_gg,
+     fnb_aggregation_gg = fnb_aggregation_gg,
+     standard_aggregation_tbl = standard_aggregation_tbl,
+     capitec_aggregation_tbl = capitec_aggregation_tbl
+     
+   )
 )
 
 write_rds(artifacts_ba900, file = here("Outputs", "artifacts_ba900.rds"))
