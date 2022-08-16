@@ -24,6 +24,7 @@ library(scales)
 library(urca)
 library(mFilter)
 
+
 # Functions ---------------------------------------------------------------
 source(here("Functions", "fx_plot.R"))
 source(here("Functions", "Sheets_import.R"))
@@ -53,6 +54,7 @@ lending_rate <-
     skip = 5,
     col_types = c("text", "text", "numeric", "numeric", "numeric", "numeric", "numeric") 
   )) 
+
 
 # Cleaning -----------------------------------------------------------------
 lending_rate_no_names <- 
@@ -95,11 +97,19 @@ lending_rate_tbl <-
   mutate(Date = str_c(Month,"-", Year)) %>% 
   relocate(., Date,.before = Month) %>% 
   mutate(Date = parse_date_time(Date, "b-Y")) %>% 
-  mutate(Description = na.locf(Description)) %>% 
-  mutate(Description = str_c(Description, "-", Month, "-", Year)) 
+  mutate(Description = na.locf(Description))
+  # mutate(Description = str_c(Description, "-", Month, "-", Year)) 
 
 # Graphing ---------------------------------------------------------------
-
+lending_rate_tbl %>% 
+  mutate(Description = str_c(Banks,":", Description)) %>% 
+  dplyr::select(-Month, -Year, -Banks, -Item, -`Outstanding balance at month`) %>% 
+  rename(
+    "Series" = "Description",
+    "Value" = "Weighted average rate (%)") %>% 
+  drop_na() %>% 
+  filter(str_detect(Series, 'Absa')) %>% 
+  fx_nopivot_plot(variables_color = 30)
 
 # Export ---------------------------------------------------------------
 artifacts_lending_rates <- list (
