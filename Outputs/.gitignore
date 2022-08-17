@@ -1,2 +1,3 @@
 artifacts_capital_buffers.rds
-artifacts_lending_rates.rds
+artifacts_lending_rates_v1.rds
+artifacts_lending_rates_v2.rds
