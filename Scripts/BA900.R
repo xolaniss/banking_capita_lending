@@ -172,10 +172,10 @@ capitec_filtered_tbl
 ## Detail graphs ----
 totals_gg <- 
   total_filtered_tbl %>% 
-  balance_sheet_rename_gg()
+  balance_sheet_rename_gg(variable_color = 14)
 absa_gg <-
   absa_filtered_tbl %>% 
-  balance_sheet_rename_gg()
+  balance_sheet_rename_gg(variable_color = 14)
 fnb_gg <- 
   fnb_filtered_tbl %>% 
   balance_sheet_rename_gg()

@@ -118,7 +118,14 @@ lending_rate_gg <- function(bank = "Total Banks"){
   
   lending_rate_pivot_tbl %>% 
     fx_nopivot_plot(variables_color = 35, ncol = 5) +
-    scale_y_continuous(labels = scales::label_percent())
+    theme(
+      text = element_text(size = 5),
+      strip.background = element_rect(colour = "white", fill = "white"),
+      axis.text.x = element_text(angle = 90),
+      axis.title = element_text(size = 5),
+      plot.tag = element_text(size = 5)
+    ) +
+    scale_y_continuous(labels = scales::label_percent()) 
 }
 
 Total_banks_gg <- lending_rate_gg("Total Banks")
@@ -144,5 +151,9 @@ artifacts_lending_rates_v2 <- list (
 )
 
 write_rds(artifacts_lending_rates_v2, file = here("Outputs", "artifacts_lending_rates_v2.rds"))
+
+
+
+
 
 
