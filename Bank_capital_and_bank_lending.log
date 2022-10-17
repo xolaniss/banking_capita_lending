@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.10.4)  20 SEP 2022 13:30
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.10.4)  17 OCT 2022 09:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -856,50 +856,110 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \tabu@hleads=\box63
 \tabu@vleads=\box64
 \tabu@cellskip=\skip77
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2019/01/01 v2.4 Span multiple rows of a table
+\multirow@colwidth=\skip78
+\multirow@cntb=\count319
+\multirow@dima=\skip79
+\bigstrutjot=\dimen261
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2018/12/27 v1.8v multicolumn formatting (FMi)
+\c@tracingmulticols=\count320
+\mult@box=\box65
+\multicol@leftmargin=\dimen262
+\c@unbalance=\count321
+\c@collectmore=\count322
+\doublecol@number=\count323
+\multicoltolerance=\count324
+\multicolpretolerance=\count325
+\full@width=\dimen263
+\page@free=\dimen264
+\premulticols=\dimen265
+\postmulticols=\dimen266
+\multicolsep=\skip80
+\multicolbaselineskip=\skip81
+\partial@page=\box66
+\last@line=\box67
+\maxbalancingoverflow=\dimen267
+\mult@rightbox=\box68
+\mult@grightbox=\box69
+\mult@gfirstbox=\box70
+\mult@firstbox=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\c@columnbadness=\count326
+\c@finalcolumnbadness=\count327
+\last@try=\dimen268
+\multicolovershoot=\dimen269
+\multicolundershoot=\dimen270
+\mult@nat@firstbox=\box89
+\colbreak@box=\box90
+\mc@col@check@num=\count328
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2018/12/12 v1.0d Color table columns (DPC)
+\everycr=\toks31
+\minrowclearance=\skip82
+) (/usr/local/texlive/2019/texmf-dist/tex/latex/tools/hhline.sty
+Package: hhline 2014/10/28 v2.03 Table rule package (DPC)
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/bookmark.sty
 Package: bookmark 2016/05/17 v1.26 PDF bookmarks (HO)
 (/usr/local/texlive/2019/texmf-dist/tex/latex/oberdiek/bkm-dvipdfm.def
 File: bkm-dvipdfm.def 2016/05/17 v1.26 bookmark driver for dvipdfm (HO)
-\BKM@id=\count319
+\BKM@id=\count329
 )) (/usr/local/texlive/2019/texmf-dist/tex/latex/xurl/xurl.sty
 Package: xurl 2018/12/23 v 0.07 modify URL breaks
 ) (./Bank_capital_and_bank_lending.aux)
 \openout1 = `Bank_capital_and_bank_lending.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 117.
+LaTeX Font Info:    ... okay on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 109.
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 109.
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 109.
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 109.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 109.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 109.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 117.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 109.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 117.
 
 Package fontspec Info: latinmodern-math scale = 1.
 
@@ -928,7 +988,7 @@ DFLT;"
 (fontspec)             - 'bold small caps'  (bx/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 109.
+(Font)              scaled to size 10.0pt on input line 117.
 
 Package fontspec Info: latinmodern-math scale = 1.
 
@@ -966,18 +1026,18 @@ DFLT;"
 (fontspec)             - 'bold small caps'  (bx/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 109.
+(Font)              scaled to size 10.0pt on input line 117.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 109.
+(Font)              `operators' in the math version `normal' on input line 117.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input
- line 109.
+ line 117.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 109.
+(Font)              `operators' in the math version `bold' on input line 117.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/bx/n on inp
-ut line 109.
+ut line 117.
 
 Package fontspec Info: latinmodern-math scale = 1.
 
@@ -1064,15 +1124,15 @@ uage=DFLT;"
 (fontspec)             \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 109.
+(Font)              `symbols' in the math version `normal' on input line 117.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
 (Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
-t line 109.
+t line 117.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 109.
+(Font)              `symbols' in the math version `bold' on input line 117.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/bx/n on inp
-ut line 109.
+ut line 117.
 
 Package fontspec Info: latinmodern-math scale = 1.
 
@@ -1142,17 +1202,17 @@ uage=DFLT;"
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
 (Font)              `largesymbols' in the math version `normal' on input line 1
-09.
+17.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on inpu
-t line 109.
+t line 117.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 109
+(Font)              `largesymbols' in the math version `bold' on input line 117
 .
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/bx/n on inp
-ut line 109.
-LaTeX Info: Redefining \microtypecontext on input line 109.
+ut line 117.
+LaTeX Info: Redefining \microtypecontext on input line 117.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -1197,19 +1257,19 @@ ern Roman (RS)
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\AtBeginShipoutBox=\box65
-Package hyperref Info: Link coloring OFF on input line 109.
+\AtBeginShipoutBox=\box91
+Package hyperref Info: Link coloring OFF on input line 117.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count320
+\c@section@level=\count330
 )
-LaTeX Info: Redefining \ref on input line 109.
-LaTeX Info: Redefining \pageref on input line 109.
-LaTeX Info: Redefining \nameref on input line 109.
-\c@maskedRefs=\count321
+LaTeX Info: Redefining \ref on input line 117.
+LaTeX Info: Redefining \pageref on input line 117.
+LaTeX Info: Redefining \nameref on input line 117.
+\c@maskedRefs=\count331
 (/usr/local/texlive/2019/texmf-dist/tex/latex/apacite/english.apc
 File: english.apc 2013/07/21 v6.03 apacite language file
 LaTeX Info: Redefining \BPBI on input line 129.
@@ -1220,46 +1280,46 @@ Package caption Info: rotating package is loaded.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 121.
+(Font)              scaled to size 12.0pt on input line 129.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 121.
+(Font)              scaled to size 8.0pt on input line 129.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 121.
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 121.
+(Font)              scaled to size 6.0pt on input line 129.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 129.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.00128pt on input line 121.
+(Font)              scaled to size 12.00128pt on input line 129.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00085pt on input line 121.
+(Font)              scaled to size 8.00085pt on input line 129.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00064pt on input line 121.
+(Font)              scaled to size 6.00064pt on input line 129.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 121.
+(Font)              scaled to size 11.99872pt on input line 129.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 121.
+(Font)              scaled to size 7.99915pt on input line 129.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 121.
-LaTeX Font Info:    Try loading font information for U+msa on input line 121.
+(Font)              scaled to size 5.99936pt on input line 129.
+LaTeX Font Info:    Try loading font information for U+msa on input line 129.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 121.
+LaTeX Font Info:    Try loading font information for U+msb on input line 129.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2019/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 121.
+(Font)              scaled to size 5.0pt on input line 129.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line 121.
+(Font)              scaled to size 5.00053pt on input line 129.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 121.
+(Font)              scaled to size 4.99947pt on input line 129.
 [1
 
 ] [2]
@@ -1269,28 +1329,406 @@ aphic file (type pdf)
 File: Bank_capital_and_bank_lending_files/figure-latex/unnamed-chunk-2-1.pdf Gr
 aphic file (type pdf)
 <use Bank_capital_and_bank_lending_files/figure-latex/unnamed-chunk-2-1.pdf>
-File: Bank_capital_and_bank_lending_files/figure-latex/unnamed-chunk-5-1.pdf Gr
+File: Bank_capital_and_bank_lending_files/figure-latex/unnamed-chunk-3-1.pdf Gr
 aphic file (type pdf)
-<use Bank_capital_and_bank_lending_files/figure-latex/unnamed-chunk-5-1.pdf>
+<use Bank_capital_and_bank_lending_files/figure-latex/unnamed-chunk-3-1.pdf>
 [3]
 File: Bank_capital_and_bank_lending_files/figure-latex/unnamed-chunk-6-1.pdf Gr
 aphic file (type pdf)
 <use Bank_capital_and_bank_lending_files/figure-latex/unnamed-chunk-6-1.pdf>
-[4] [5] [6] [7] (./Bank_capital_and_bank_lending.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 235.
-[8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 235.
+[4]
+File: Bank_capital_and_bank_lending_files/figure-latex/unnamed-chunk-7-1.pdf Gr
+aphic file (type pdf)
+<use Bank_capital_and_bank_lending_files/figure-latex/unnamed-chunk-7-1.pdf>
+[5] [6]
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+
+Package fontspec Info: Helvetica/B scale = 0.8128409117664755.
+
+
+Package fontspec Info: Helvetica/I scale = 0.8272610121836926.
+
+
+Package fontspec Info: Helvetica/BI scale = 0.801807451220236.
+
+
+Package fontspec Info: Font family 'Helvetica(0)' created for font 'Helvetica'
+(fontspec)             with options
+(fontspec)             [Scale=MatchLowercase,Ligatures=TeX,Scale=1].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"Helvetica/AAT:mapping=tex-text;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (bx/n) with NFSS spec.:
+(fontspec)             <->s*[1]"Helvetica/B/AAT:mapping=tex-text;"
+(fontspec)             - 'bold small caps'  (bx/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"Helvetica/I/AAT:mapping=tex-text;"
+(fontspec)             - 'italic small caps'  (m/itsc) with NFSS spec.: 
+(fontspec)             - 'bold italic' (bx/it) with NFSS spec.:
+(fontspec)             <->s*[1]"Helvetica/BI/AAT:mapping=tex-text;"
+(fontspec)             - 'bold italic small caps'  (bx/itsc) with NFSS spec.: 
+
+LaTeX Info: Redefining \rmfamily on input line 228.
+LaTeX Font Info:    Font shape `TU/Helvetica(0)/m/n' will be
+(Font)              scaled to size 11.0pt on input line 228.
+
+Package fontspec Info: Helvetica scale = 1.
+
+
+Package fontspec Info: Helvetica scale = 1.
+
+
+Package fontspec Info: Helvetica/B scale = 0.9825688625417596.
+
+
+Package fontspec Info: Helvetica/I scale = 1.
+
+
+Package fontspec Info: Helvetica/BI scale = 0.9692315235595743.
+
+
+Package fontspec Info: Font family 'Helvetica(1)' created for font 'Helvetica'
+(fontspec)             with options [Scale=MatchLowercase].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"Helvetica/AAT"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (bx/n) with NFSS spec.:
+(fontspec)             <->s*[0.9825688625417596]"Helvetica/B/AAT"
+(fontspec)             - 'bold small caps'  (bx/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"Helvetica/I/AAT"
+(fontspec)             - 'italic small caps'  (m/itsc) with NFSS spec.: 
+(fontspec)             - 'bold italic' (bx/it) with NFSS spec.:
+(fontspec)             <->s*[0.9692315235595743]"Helvetica/BI/AAT"
+(fontspec)             - 'bold italic small caps'  (bx/itsc) with NFSS spec.: 
+
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  TU/lmr/m/n --> TU/Helvetica(1)/m/n on input line 228.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  TU/lmr/m/it --> TU/Helvetica(1)/m/it on input line 228.
+
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  TU/lmr/bx/n --> TU/Helvetica(1)/bx/n on input line 228.
+
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 228.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 228.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 228.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 228.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 228.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 228.
+
+Overfull \hbox (28.21434pt too wide) in alignment at lines 222--232
+[] [] [] [] [] [] [] 
+ []
+
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 236.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 236.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 236.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 236.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 236.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 236.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 236.
+
+Overfull \hbox (28.21434pt too wide) in alignment at lines 232--238
+[] [] [] [] [] [] [] 
+ []
+
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 242.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 242.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 242.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 242.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 242.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 242.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 242.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 248.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 248.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 248.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 248.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 248.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 248.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 248.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 254.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 254.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 254.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 254.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 254.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 254.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 254.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 260.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 260.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 260.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 260.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 260.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 260.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 260.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 266.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 266.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 266.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 266.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 266.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 266.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 266.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 272.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 272.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 272.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 272.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 272.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 272.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 272.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 278.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 278.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 278.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 278.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 278.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 278.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 278.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 284.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 284.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 284.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 284.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 284.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 284.
+
+Package fontspec Info: Helvetica scale = 0.8272610121836926.
+
+LaTeX Info: Redefining \rmfamily on input line 284.
+
+Overfull \hbox (28.21434pt too wide) in alignment at lines 238--291
+[] [] [] [] [] [] [] 
+ []
+
+[7] [8] [9] (./Bank_capital_and_bank_lending.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 328.
+[10]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 328.
 (./Bank_capital_and_bank_lending.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 235.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 235.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 328.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 328.
  ) 
 Here is how much of TeX's memory you used:
- 31486 strings out of 492916
- 566524 string characters out of 6133345
- 828411 words of memory out of 5000000
- 35208 multiletter control sequences out of 15000+600000
- 536846 words of font info for 64 fonts, out of 8000000 for 9000
+ 31776 strings out of 492916
+ 571647 string characters out of 6133345
+ 850732 words of memory out of 5000000
+ 35461 multiletter control sequences out of 15000+600000
+ 536934 words of font info for 75 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 59i,11n,115p,828b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 59i,12n,124p,1661b,537s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Bank_capital_and_bank_lending.pdf (8 pages).
+Output written on Bank_capital_and_bank_lending.pdf (10 pages).

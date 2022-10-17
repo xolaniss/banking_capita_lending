@@ -154,6 +154,20 @@ A review of policy context, with focus on South Africa but also reference to oth
 \newpage
 # Developments in South African Banking
 
+```{r}
+#| fig.cap = "Internatinal Comparison. Source: World Bank (2022)",
+#| cache = FALSE,
+#| include = TRUE,
+#| fig.height = 3
+
+internation_comp <- read_rds(here("Outputs", "artifacts_int_comp.rds"))
+internation_comp$graph$int_comp_average_gg
+
+
+```
+
+
+
 
 
 ```{r}
@@ -343,8 +357,31 @@ lending_rates_cleaned_tbl %>%
   
   
 ```
-
+\newpage
 # Specification
+
+
+```{r}
+#| cache = FALSE,
+#| include = TRUE,
+
+
+
+combined_data <- read_rds(here("Outputs", "artifacts_combined_data.rds" ))
+descriptives_tbl <- combined_data$descriptives_tbl
+source(here("Functions", "flextable_word.R"))
+
+descriptives_tbl %>% 
+  flextable_word(
+  caption = "Descriptives"
+  ) %>% 
+  align(j = 1, align = "left", part = "header") %>% 
+  align(j = 1, align = "left") %>% 
+  autofit(add_w = -0.05)
+
+
+```
+
 
 
 # Estimation Results
