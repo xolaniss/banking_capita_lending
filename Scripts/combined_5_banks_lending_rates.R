@@ -173,6 +173,6 @@ artifacts_combined_lending <- list (
   combined_lending_tbl = combined_lending_tbl
 )
 
-write_rds(artifacts_combined_lending , file = here("Outputs", "artifacts_combined_lending .rds"))
+write_rds(artifacts_combined_lending , file = here("Outputs", "artifacts_combined_lending.rds"))
 
 
