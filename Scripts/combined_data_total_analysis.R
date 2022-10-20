@@ -100,12 +100,12 @@ descriptives_tbl <- ba900_gdp_ratio_combined_tbl %>%
 
 
 # Export ---------------------------------------------------------------
-artifacts_combined_data <- list (
+artifacts_combined_totals_data <- list (
   descriptives_tbl = descriptives_tbl,
   ba900_gdp_ratio_combined_tbl = ba900_gdp_ratio_combined_tbl,
   ba900_levels_combined_tbl = ba900_levels_combined_tbl
 )
 
-write_rds(artifacts_combined_data, file = here("Outputs", "artifacts_combined_data.rds"))
+write_rds(artifacts_combined_totals_data, file = here("Outputs", "artifacts_combined_totals_data.rds"))
 
 
