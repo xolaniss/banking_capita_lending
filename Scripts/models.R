@@ -39,11 +39,7 @@ library(car)
 source(here("Functions", "fx_plot.R"))
 
 # Import -------------------------------------------------------------
-ba900 <- read_rds(here("Outputs", "artifacts_ba900.rds"))
-balance_sheet_gdp <- read_rds(here("Outputs", "artifacts_balance_sheet_gdp.rds"))
-lending_rates <- read_rds(here("Outputs", "artifacts_lending_rates_v2.rds"))
-capital_buffers <- read_rds(here("Outputs", "artifacts_capital_buffers.rds"))
-general <- read_rds(here("Outputs", "artifacts_general.rds"))
+preprocessed_data <- read_rds(here("Outputs", "artifacts_preprocessing.rds"))
 
 # Combining data  ---------------------------------------------------------
 

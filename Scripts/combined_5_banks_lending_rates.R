@@ -67,6 +67,17 @@ lending_rate_cleanup <- function(data, bank = "Total Banks"){
 lending_rates <- read_rds(here("Outputs", "artifacts_lending_rates_v2.rds"))
 
 # Combining-----------------------------------------------------------
+total_lending_rate_tbl <- lending_rates$data$lending_rate_tbl %>% 
+  lending_rate_cleanup(bank = "Total Banks") %>% 
+  mutate(`Series` = str_replace_all(`Series`, "Total banks credit cards-" , "Total banks credit cards")) %>% 
+  mutate(`Series` = str_replace_all(`Series`, "Total banks - fixed rate installment sale agreements" , "Total banks installment sale agreements- fixed rate")) %>% 
+  mutate(`Series` = str_replace_all(`Series`, "Total banks - fixed rate leasing transactions" , "Total banks leasing transactions- fixed rate")) %>% 
+  mutate(`Series` = str_replace_all(`Series`, "Total banks - fixed rate mortgage advances" , "Total banks mortgage advances- fixed rate" )) %>% 
+  mutate(`Series` = str_replace_all(`Series`, "Total banks " , "" )) %>% 
+  mutate(Series = str_to_sentence(Series))
+unique(total_lending_rate_tbl$`Item Description`)
+unique(total_lending_rate_tbl$Series)
+
 absa_lending_rate_tbl <- lending_rates$data$lending_rate_tbl %>% 
   lending_rate_cleanup(bank = "Absa Bank") %>% 
   mutate(`Series` = str_replace_all(`Series`, "Absa bank credit cards-" , "Absa bank credit cards")) %>% 
@@ -119,15 +130,18 @@ capitec_lending_rate_tbl <- lending_rates$data$lending_rate_tbl %>%
   mutate(Series = str_to_sentence(Series))
 unique(capitec_lending_rate_tbl$`Item Description`)  
 
+
+# Combined data -----------------------------------------------------------
 combined_lending_tbl <- 
-  list("ABSA BANK" = absa_lending_rate_tbl,
+  list("TOTAL BANKS" = total_lending_rate_tbl,
+      "ABSA BANK" = absa_lending_rate_tbl,
       "FIRSTRAND BANK" = fnb_lending_rate_tbl,
       "STANDARD BANK" = standard_lending_rate_tbl,
       "NEDBANK" = nedbank_lending_rate_tbl,
       "CAPITEC BANK" = capitec_lending_rate_tbl
        ) %>% 
   bind_rows(.id = "Bank") %>% 
-  group_by(Bank, Series) %>% 
+  group_by(Bank, Series, `Item Description`) %>% 
   summarise_by_time(
     .date_var = Date,
     .by = "quarter",
@@ -140,8 +154,8 @@ combined_lending_tbl <-
 # Descriptives -----------------------------------------------------------
 descriptives_tbl <- combined_lending_tbl  %>% 
   drop_na() %>% 
-  pivot_longer(-c(Date, Bank), names_to = "Variable", values_to = "Value") %>% 
-  group_by(Variable) %>% 
+  pivot_longer(-c(Date, Bank, `Item Description`), names_to = "Variable", values_to = "Value") %>% 
+  group_by(Variable, `Item Description`) %>% 
   summarise(across(.cols = -c(Date, Bank),
                    .fns = list(Median = median, 
                                SD = sd,
@@ -153,8 +167,8 @@ descriptives_tbl <- combined_lending_tbl  %>%
 
 descriptives_by_bank_tbl <- combined_lending_tbl %>% 
   drop_na() %>% 
-  pivot_longer(-c(Date, Bank), names_to = "Variable", values_to = "Value") %>% 
-  group_by(Bank, Variable) %>% 
+  pivot_longer(-c(Date, Bank, `Item Description`), names_to = "Variable", values_to = "Value") %>% 
+  group_by(Bank, Variable, `Item Description`) %>% 
   summarise(across(.cols = -c(Date),
                    .fns = list(Median = median, 
                                SD = sd,
