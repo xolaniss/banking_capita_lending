@@ -59,7 +59,7 @@ combined_data_gdp_ratio_banks_tbl <- combined_data$ba900_gdp_ratio_combined_tbl
 
 # 1.2.2 Lending Rates -----------------------------------------------------
 combined_lending_banks_tbl <- combined_lending$combined_lending_tbl %>% 
-  filter(!Bank == "TOTAL BANKS")  ## waiting for Alister to advice on consolidatoin the data to align with the asset data
+  dplyr::select(- contains("fixed rate")) # removing fixed rate data
 
 # 1.3 Macro  ------------------------------------------------
 repo_rate_tbl <- read_excel(here("Data", "Repo.xlsx")) %>% 

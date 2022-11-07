@@ -102,25 +102,25 @@ filter_vec <-
      # , "Otherb"                                                                                                                                                      
      # , "Leasing transactions (total of items 146 to 149)"                                                                                                            
      # , "Financial corporate sector-1"                                                                                                                                
-     # , "Non-financial corporate sector-2"                                                                                                                            
-     # , "Household sector-1"                                                                                                                                          
+     , "Non-financial corporate sector-2"
+     , "Household sector-1"
      # , "Otherb-1"                                                                                                                                                    
       # "Mortgage advances (total of items 151, 155 and 159)"                                                                                                         
       # "Farm mortgages: (total of items 152 to 154)"                                                                                                                 
-     # , "Corporate sector"                                                                                                                                            
-     # , "Household sector-2"                                                                                                                                          
-     # , "Otherb-2"                                                                                                                                                    
-     ,"Residential mortgages: (total of items 156 to 158)"                                                                                                          
-     # , "Corporate sector-1"                                                                                                                                          
-     # , "Household sector-3"                                                                                                                                          
-     # , "Otherb-3"                                                                                                                                                    
-     , "Commercial and other mortgage advances: (total of items 160 to 165)"
+     , "Corporate sector"
+     , "Household sector-2"
+     , "Otherb-2"
+     # ,"Residential mortgages: (total of items 156 to 158)"                                                                                                          
+     , "Corporate sector-1"
+     , "Household sector-3"
+     , "Otherb-3"
+     # , "Commercial and other mortgage advances: (total of items 160 to 165)"
      # , "Public financial corporate sector"                                                                                                                           
      # , "Public non-financial corporate sector"                                                                                                                       
      # , "Private financial corporate sector"                                                                                                                          
-     # , "Private non-financial corporate sector"                                                                                                                      
-     # , "Household sector-4"                                                                                                                                          
-     # , "Otherb-4"                                                                                                                                                    
+     , "Private non-financial corporate sector"
+     , "Household sector-4"
+     , "Otherb-4"
      # , "Credit-card debtors (total of items 167 to 170)"                                                                                                             
      # , "Financial corporate sector-2"                                                                                                                                
      , "Non-financial corporate sector-3"
@@ -141,18 +141,18 @@ filter_vec <-
      , "Non-financial corporate sector-4"
      , "Unincorporated business enterprises of households"
      , "Households"
-     # , "Non-profit organisations serving households"                                                                                                                 
+     , "Non-profit organisations serving households"
      , "Factoring debtors"
      # , "Other loans and advances: (total of items 189 to 193)"                                                                                                       
      # , "Financial corporate sector-4"                                                                                                                                
      , "Non-financial corporate sector-5"
      , "Unincorporated business enterprises of households-1"
      , "Households-1"
-     # , "Non-profit organisations serving households-1"                                                                                                               
+     , "Non-profit organisations serving households-1"
      # , "Less: credit impairments in respect of loans and advances" 
 )
 
-filter_vec <- filter_vec
+
 total_filtered_tbl <- filter_and_strings(total_tbl, filter_vec) %>%  balance_sheet_rename() 
 total_filtered_tbl 
 absa_filtered_tbl <- filter_and_strings(absa_tbl, filter_vec) %>%  balance_sheet_rename()
@@ -194,32 +194,33 @@ capitec_gg <-
 total_aggregation_tbl <- ba900_aggregration(total_filtered_tbl)
 total_aggregation_gg <- 
   total_aggregation_tbl %>% 
-  balance_sheet_rename_gg(variable_color = 7)
+  balance_sheet_rename_gg(variable_color = 10)
 
+absa_aggregation_tbl <- ba900_aggregration(absa_filtered_tbl)
 absa_aggregation_tbl <- ba900_aggregration(absa_filtered_tbl)
 absa_aggregation_gg <- 
   absa_aggregation_tbl %>% 
-  balance_sheet_rename_gg(variable_color = 7)
+  balance_sheet_rename_gg(variable_color = 10)
 
 fnb_aggregation_tbl <- ba900_aggregration(fnb_filtered_tbl)
 fnb_aggregation_gg <- 
   fnb_aggregation_tbl %>% 
-  balance_sheet_rename_gg(variable_color = 7)
+  balance_sheet_rename_gg(variable_color = 10)
 
 nedbank_aggregation_tbl <- ba900_aggregration(nedbank_filtered_tbl)
 nedbank_aggregation_gg <- 
   nedbank_aggregation_tbl %>% 
-  balance_sheet_rename_gg(variable_color = 7)
+  balance_sheet_rename_gg(variable_color = 10)
 
 standard_aggregation_tbl <- ba900_aggregration(standard_filtered_tbl)
 standard_aggregation_gg <- 
   standard_aggregation_tbl %>% 
- balance_sheet_rename_gg(variable_color = 7)
+ balance_sheet_rename_gg(variable_color = 10)
 
 capitec_aggregation_tbl <- ba900_aggregration(capitec_filtered_tbl)
 capitec_aggregation_gg <- 
   capitec_aggregation_tbl %>% 
-  balance_sheet_rename_gg(variable_color = 7)
+  balance_sheet_rename_gg(variable_color = 10)
   
 # Export ------------------------------------------------------------------
 artifacts_ba900 <- 
