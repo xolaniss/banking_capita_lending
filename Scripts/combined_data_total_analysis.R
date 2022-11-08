@@ -39,19 +39,12 @@ library(car)
 source(here("Functions", "fx_plot.R"))
 
 # Import -------------------------------------------------------------
-capital_buffers <- read_rds(here("Outputs", "artifacts_capital_buffers.rds"))
 balance_sheet_to_gdp <- read_rds(here("Outputs", "artifacts_balance_sheet_gdp.rds"))
 ba900_quartely <- read_rds(here("Outputs", "artifacts_balance_sheet_quartely.rds"))
-general <- read_rds(here("Outputs", "artifacts_general.rds"))
+
 
 
 # Transformation ---------------------------------------------------------------
-quarterly_capital_buffer_tbl <- 
-  general$data$car_tbl %>% 
-  dplyr::select(Date, `Surplus capital`) %>% 
-  summarise_by_time(.date_var = Date, 
-                    .by = "quarter", 
-                    `Capital buffer` = mean(`Surplus capital`))
 
 balance_sheet_to_gdp_tbl <- 
   balance_sheet_to_gdp$data$total_gdp_tbl %>% 
@@ -97,8 +90,6 @@ descriptives_tbl <- ba900_gdp_ratio_combined_tbl %>%
                    .names = "{.fn}"))
 
   
-
-
 # Export ---------------------------------------------------------------
 artifacts_combined_totals_data <- list (
   descriptives_tbl = descriptives_tbl,

@@ -38,25 +38,12 @@ library(car)
 source(here("Functions", "fx_plot.R"))
 
 # Import -------------------------------------------------------------
-capital_buffers <- read_rds(here("Outputs", "artifacts_capital_buffers.rds"))
 balance_sheet_to_gdp <- read_rds(here("Outputs", "artifacts_balance_sheet_gdp.rds"))
 ba900_quartely <- read_rds(here("Outputs", "artifacts_balance_sheet_quartely.rds"))
 general <- read_rds(here("Outputs", "artifacts_general.rds"))
 
 
 # Cleaning ----------------------------------------------------------------
-capital_buffers_tbl <- 
-  capital_buffers$data$capital_buffers_tbl %>% 
-  dplyr::filter(Bank %in% c("ABSA BANK", "CAPITEC BANK", "FIRSTRAND BANK", "NEDBANK", "STANDARD BANK")) %>% 
-  pivot_longer(-c(Date, Bank), names_to = "Series", values_to = "Value") %>% 
-  group_by(Bank, Series) %>% 
-  summarise_by_time(
-    .date_var = Date, 
-    .by = "quarter",
-    Value = mean(Value)
-  ) %>% 
-  pivot_wider(names_from = Series, values_from = Value)
-
 ba900_quarterly_levels_tbl <- 
   list("ABSA BANK" = ba900_quartely$quarterly_data$absa_quarter_tbl , 
        "FIRSTRAND BANK" = ba900_quartely$quarterly_data$fnb_quarter_tbl,
@@ -81,8 +68,7 @@ ba900_quarterly_gdp_ratio_tbl <-
 
 # Joining -----------------------------------------------------------------
 combined_5_banks_tbl <- 
-  capital_buffers_tbl %>% 
-  left_join(., ba900_quarterly_levels_tbl, by = c("Date" = "Date", "Bank" = "Bank")) %>% 
+  ba900_quarterly_levels_tbl %>% 
   left_join(., ba900_quarterly_gdp_ratio_tbl, by = c("Date" = "Date", "Bank" = "Bank"))
 
 
@@ -119,7 +105,9 @@ descriptives_by_bank_tbl <- combined_5_banks_tbl %>%
 artifacts_combined_banks <- list (
   descriptives_tbl = descriptives_tbl,
   descriptives_by_bank_tbl = descriptives_by_bank_tbl,
-  combined_5_banks_tbl = combined_5_banks_tbl
+  combined_5_banks_tbl = combined_5_banks_tbl,
+  ba900_quarterly_gdp_ratio_tbl = ba900_quarterly_gdp_ratio_tbl,
+  ba900_quarterly_levels_tbl = ba900_quarterly_levels_tbl
 )
 
 write_rds(artifacts_combined_banks, file = here("Outputs", "artifacts_combined_banks.rds"))
