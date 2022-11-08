@@ -58,6 +58,9 @@ combined_data_level_banks_tbl <- combined_banks_data$combined_5_banks_tbl
 combined_data_gdp_ratio_banks_tbl <- combined_data$ba900_gdp_ratio_combined_tbl
 
 # 1.2.2 Lending Rates -----------------------------------------------------
+combined_lending$total_lending_rate_tbl
+
+
 combined_lending_banks_tbl <- combined_lending$combined_lending_tbl %>% 
   dplyr::select(- contains("fixed rate")) # removing fixed rate data
 

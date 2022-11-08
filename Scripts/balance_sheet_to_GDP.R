@@ -36,12 +36,13 @@ combine_gdp <- function(data){
     mutate(across(-Date, .fns = ~ . / `Nominal GDP  (SAA)`)) %>% 
     dplyr::select(-`Nominal GDP  (SAA)`) %>% 
     rename(
-      "Commercial and other mortgage advances / GDP" = "Commercial and other mortgage advances",
-      "Household sector unsecured lending / GDP"  = "Household sector unsecured lending" ,
-      "Non-financial corporate unsecured credit / GDP" = "Non-financial corporate unsecured credit",
+      "Household sector secured credit / GDP" = "Household sector secured credit",
+      "Household sector unsecured credit / GDP"  = "Household sector unsecured credit" ,
+      "Households residential mortgages / GDP" = "Households residential mortgages" ,
       "Other assets / GDP" = "Other assets",
-      "Residential mortgages / GDP"= "Residential mortgages",
-      "Unicorporated enterprise credit / GDP" = "Unicorporated enterprise credit"
+      "Non-financial corporate sector mortgages / GDP"= "Non-financial corporate sector mortgages",
+      "Non-financial corporate secured credit / GDP" = "Non-financial corporate secured credit",
+      "Non-financial corporate unsecured credit / GDP" = "Non-financial corporate unsecured credit"
     ) %>% 
     pivot_longer(-Date, values_to = "Value", names_to = "Series")
 }
