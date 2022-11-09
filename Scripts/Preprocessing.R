@@ -109,9 +109,11 @@ macro_tbl <- combined_data$ba900_gdp_ratio_combined_tbl %>%
   left_join(., repo_rate_tbl, by = c("Date" = "Date"))
 
 # 4. Controls ------------------------------------------------------------
-
-## To get to the PA -- called on 31 October 2022
-
+controls <- read_rds(here("Outputs", "artifacts_controls.rds"))
+controls_tbl <- 
+  controls$controls_tbl %>% 
+  relocate(Date, .before = "Bank") %>% 
+  pivot_wider(values_from = Value, names_from = Series)
 
 
 # 5. Master tibble -----------------------------------------------------------
@@ -124,8 +126,8 @@ total_master_tbl <-
 banks_master_tbl <- combined_data_level_banks_tbl %>% 
   left_join(., combined_data_gdp_ratio_banks_tbl, by = c("Date" = "Date", "Bank" = "Bank")) %>% 
   left_join(., combined_lending_banks_tbl, by = c("Date" = "Date", "Bank" = "Bank")) %>% 
-  left_join(., capital_buffers_banks_tbl, by = c("Date" = "Date", "Bank" = "Bank")) 
-
+  left_join(., capital_buffers_banks_tbl, by = c("Date" = "Date", "Bank" = "Bank")) %>% 
+  left_join(., controls_tbl, by = c("Date" = "Date", "Bank" = "Bank")) 
 
 # 6. Modelling transformations -----------------------------------------------
 
