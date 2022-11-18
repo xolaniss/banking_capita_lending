@@ -50,7 +50,8 @@ knitr::opts_chunk$set(echo = FALSE,
                       fig.env= 'figure', 
                       fig.height = 8,
                       tab.topcaption = FALSE,
-                      ft.align = "left")
+                      ft.align = "left",
+                      ft.arraystretch = 0.6)
 options(xtable.floating = TRUE,
         xtable.caption.placement = 'top', # notice \floatsetup overrides
         xtable.include.rownames = FALSE,
@@ -113,7 +114,7 @@ multi_line_plot <- function(data, plotname = "",
       strip.background = element_rect(colour = "white", fill = "white"),
       axis.text.x = element_text(angle = 90),
       axis.title = element_text(size = 7),
-      plot.tag = element_text(size = 8)
+      plot.tag = element_text(size = 7)
     ) +
     labs(x = "", y = plotname) +
     scale_color_manual(values = pnw_palette("Cascades", variables_color)) 
@@ -121,12 +122,12 @@ multi_line_plot <- function(data, plotname = "",
 
 ```
 
-
-
 # Introduction
+
 The paper investigates the impact of Basel III regulation on bank lending in South Africa. This introduction is an overview of the paper
 
 # Context
+
 A review of policy context, with focus on South Africa but also reference to other emerging markets. Further detail in Appendix 1 and 2a.
 
 # Literature
@@ -152,6 +153,7 @@ A review of policy context, with focus on South Africa but also reference to oth
 @berrospide2010effects
 
 \newpage
+
 # Developments in South African Banking
 
 ```{r}
@@ -160,15 +162,14 @@ A review of policy context, with focus on South Africa but also reference to oth
 #| include = TRUE,
 #| fig.height = 3
 
+preprocessing <-  read_rds(here("Outputs", "artifacts_preprocessing.rds"))
+
+
 internation_comp <- read_rds(here("Outputs", "artifacts_int_comp.rds"))
 internation_comp$graph$int_comp_average_gg
 
 
 ```
-
-
-
-
 
 ```{r}
 #| fig.cap = "Credit Cycle. Source: South African Reserve Bank (2022)",
@@ -219,7 +220,6 @@ credit_cyle_gg <-
 credit_cyle_gg
 ```
 
-
 ```{r}
 #| fig.cap = "Capital Buffers. Source: South African Reserve Bank (2022)",
 #| cache = FALSE,
@@ -237,18 +237,17 @@ car_gg <- general$data$car_tbl %>%
 car_gg
 ```
 
-
-
 ```{r}
 #| cache = FALSE,
 #| include = FALSE,
 #| fig.height = 3
 
 
-BA_900_quarterly <- read_rds(here("Outputs", "artifacts_balance_sheet_quartely.rds"))
+BA_900_quarterly_tbl <- preprocessing$Totals$combined_level_data_tbl
 BA_900_quarterly_combined_gg <- 
-  BA_900_quarterly$quarterly_data$Totals_quarter_tbl %>% 
-  multi_line_plot(variables_color = 6, legend_position = "none") +
+  BA_900_quarterly_tbl %>% 
+  pivot_longer(-Date, values_to = "Value", names_to = "Series") %>% 
+  multi_line_plot(variables_color = 7, legend_position = "none") +
      scale_y_continuous(labels = scales::label_dollar(prefix =  "R", 
                                                        scale_cut = cut_short_scale())) +
   facet_wrap(~ Series, scales = "free_y") +
@@ -257,16 +256,17 @@ BA_900_quarterly_combined_gg <-
 
 ```
 
-
-
 ```{r}
 #| cache = FALSE,
 #| include = FALSE,
 #| fig.height = 3
 
-BA_900_to_GDP <-  read_rds(here("Outputs", "artifacts_balance_sheet_gdp.rds"))
-BA_900_to_GDP_combined_gg <- BA_900_to_GDP$data$total_gdp_tbl %>% 
-  multi_line_plot(variables_color = 6, legend_position = "none") +
+BA_900_to_GDP_tbl <- preprocessing$Totals$combined_gdp_ratio_data_tbl 
+  
+BA_900_to_GDP_combined_gg <- BA_900_to_GDP_tbl %>% 
+   mutate(across(.cols = -Date, .fns = ~.x/100)) %>% 
+   pivot_longer(-Date, values_to = "Value", names_to = "Series") %>% 
+  multi_line_plot(variables_color = 7, legend_position = "none") +
      scale_y_continuous(labels = scales::label_percent()) +
   facet_wrap(~ Series, scales = "free_y") +
   labs(subtitle = "Bank assets as a percentage of GDP" )
@@ -285,110 +285,80 @@ BA_900_quarterly_combined_gg  / BA_900_to_GDP_combined_gg
 
 ```
 
-
 ```{r}
 #| fig.cap = "Lending Rates. Source: South African Reserve Bank (2022)",
 #| cache = FALSE,
 #| include = TRUE,
-#| fig.height = 6
-lending_rate_cleanup <- function(data, bank = "Total Banks"){
-  data %>% 
-    mutate(Description = str_c(Banks, " ", Description)) %>% 
-    dplyr::select(-Banks, -Item, -`Outstanding balance at month`) %>% 
-    rename(
-      "Series" = "Description",
-      "Value" = "Weighted average rate (%)") %>% 
-    drop_na() %>% 
-    filter(str_detect(Series, bank)) %>% 
-    mutate(Value = Value/100) %>% 
-    mutate(Series = str_to_sentence(Series)) %>% 
-    mutate(Series = str_remove_all(Series, "\"")) %>% 
-    mutate(Series = str_replace_all(Series, ":", "-")) %>% 
-    mutate(Series = str_replace_all(Series, "- -", "-")) %>% 
-    mutate(`Item Description` = str_replace_all(`Item Description`, "leasing transactions", "")) %>% 
-    mutate(`Item Description` = str_replace_all(`Item Description`, "installment sale agreements", "")) %>% 
-    mutate(`Item Description` = str_replace_all(`Item Description`, " mortgage advances", "")) %>% 
-    mutate(`Item Description` = str_replace_all(`Item Description`, "corporate sector ", "corporate sector")) %>%
-    mutate(`Item Description` = str_replace_all(`Item Description`, "household sector " , "household sector" )) %>% 
-    mutate(`Item Description` = str_replace_all(`Item Description`, "domestic private sector " , "Domestic private sector" )) %>% 
-    mutate(`Series` = str_replace_all(`Series`, "-corporate sector", "")) %>% 
-    mutate(`Series` = str_replace_all(`Series`, "-household sector", "")) %>% 
-    mutate(`Series` = str_replace_all(`Series`, "-domestic private sector", ""))
-}
+#| fig.height = 4
 
-lending_rates <- read_rds(here("Outputs", "artifacts_lending_rates_v2.rds"))
-
-lending_rates_cleaned_tbl <- 
-  lending_rates$data$lending_rate_tbl %>% 
-  lending_rate_cleanup() %>% 
-  filter(!`Item Description` %in% c("Micro loans", "Interbank lending rate", "foreign sector" )) %>% 
-  mutate(`Item Description` = str_to_sentence(`Item Description`)) %>% 
-  mutate(`Series` = str_replace_all(`Series`, "Total banks credit cards-" , "Total banks credit cards")) %>% 
-  mutate(`Series` = str_replace_all(`Series`, "Total banks - fixed rate installment sale agreements" , "Total banks installment sale agreements- fixed rate")) %>% 
-  mutate(`Series` = str_replace_all(`Series`, "Total banks - fixed rate leasing transactions" , "Total banks leasing transactions- fixed rate")) %>% 
-  mutate(`Series` = str_replace_all(`Series`, "Total banks - fixed rate mortgage advances" , "Total banks mortgage advances- fixed rate" )) %>% 
-  mutate(`Series` = str_replace_all(`Series`, "Total banks " , "" )) %>% 
-  mutate(Series = str_to_sentence(Series))
-
-# unique(lending_rates_cleaned_tbl$`Item Description`)   
-# unique(lending_rates_cleaned_tbl$Series)  
+lending_rates_cleaned_tbl <- preprocessing$Totals$combined_lending_tbl
 
 lending_rates_cleaned_tbl %>% 
-  ggplot(aes(x = Date, y = Value)) +
-  geom_line(aes(color = `Item Description`, linetype = `Item Description`), size = 1) +
-  theme_bw() +
-    theme(
-      legend.position = "top",
-      legend.title = element_blank(),
-      panel.grid.major = element_blank(),
-      panel.grid.minor = element_blank(),
-      axis.line = element_line(colour = "black"),
-      panel.border = element_blank(),
-      text = element_text(size = 8),
-      strip.background = element_rect(colour = "white", fill = "white"),
-      axis.text.x = element_text(angle = 90),
-      axis.title = element_text(size = 7),
-      plot.tag = element_text(size = 8)
-    ) +
-    labs(x = "", y = "") +
-    scale_color_manual(values = pnw_palette("Cascades", 3)) +
-    scale_y_continuous(labels = scales::label_percent()) +
-    facet_wrap( ~ Series , scales = "free")
+  mutate(across(.cols = -Date, .fns = ~.x/100)) %>% 
+  pivot_longer(-Date, values_to = "Value", names_to = "Series") %>% 
+   multi_line_plot(variables_color = 7, legend_position = "none") +
+     scale_y_continuous(labels = scales::label_percent()) +
+  facet_wrap(~ Series, scales = "free_y")
+  
+  
   
   
 ```
+
 \newpage
+
 # Specification
 
+
+# Estimation Results
 
 ```{r}
 #| cache = FALSE,
 #| include = TRUE,
 
-
-
-combined_data <- read_rds(here("Outputs", "artifacts_combined_data.rds" ))
-descriptives_tbl <- combined_data$descriptives_tbl
 source(here("Functions", "flextable_word.R"))
 
-descriptives_tbl %>% 
+set_flextable_defaults(
+  font.size = 7
+)
+
+preprocessing$masters$total_master_tbl %>% 
+  mutate(across(.cols = 2:8, .fns = ~.x/1000000000)) %>% 
+  pivot_longer(-Date, names_to = "Series", values_to = "Value") %>% 
+  mutate(Groups = case_when(
+    str_detect(Series, "GDP") ~ "Total Assets/GDP (%)",
+    str_detect(Series, "rate$") ~ "Lending Rates (%)",
+    str_detect(Series, "Surplus|Minimum") ~ "Regulatory Capital (%)",
+    TRUE ~ "Total Assets (R Billions)"
+  )) %>% 
+  drop_na() %>% 
+  group_by(Groups, Series) %>% 
+  summarise(across(.cols = -c(Date),
+                   .fns = list(Median = median, 
+                               SD = sd,
+                               Min = min,
+                               Max = max,
+                               # IQR = IQR,
+                               Obs = ~ n()), 
+                   .names = "{.fn}")) %>% 
+  as_grouped_data(groups = "Groups") %>% 
   flextable_word(
-  caption = "Descriptives"
-  ) %>% 
-  align(j = 1, align = "left", part = "header") %>% 
-  align(j = 1, align = "left") %>% 
-  autofit(add_w = -0.05)
+  caption = "Descriptives",
+  ) %>%
+  align(align = "left", part = "all") %>%
+  autofit() %>% 
+  set_header_labels(
+    Groups = " ",
+    Series = " "
+  )
 
 
 ```
 
-
-
-# Estimation Results
-
 # Conclusion
 
 \newpage
+
 # Appendix: Descriptive Analysis
 
 ## Data
@@ -419,7 +389,6 @@ ba900 <- read_rds(here("Outputs", "artifacts_balance_sheet_quartely.rds"))
 ba900$quartely_graphs$Total_quartely_gg
 ```
 
-
 ```{r, include=FALSE}
 #| ba900absa,
 #| fig.cap = "Absa bank lending. Source: South African Reserve Bank (2022) ",
@@ -429,7 +398,6 @@ ba900$quartely_graphs$Total_quartely_gg
 ba900$quartely_graphs$absa_quartely_gg
 ```
 
-
 ```{r, include=FALSE}
 #| ba900fnb,
 #| fig.cap = "FNB bank lending. Source: South African Reserve Bank (2022) ",
@@ -438,7 +406,6 @@ ba900$quartely_graphs$absa_quartely_gg
 
 ba900$quartely_graphs$fnb_quartely_gg
 ```
-
 
 ```{r}
 #| ba900nedbank,
@@ -467,7 +434,6 @@ ba900$quartely_graphs$standard_quartely_gg
 ba900$quartely_graphs$capitec_quartely_gg
 ```
 
-
 ### BA 900 to GDP
 
 ```{r}
@@ -481,7 +447,6 @@ balance_sheet_gdp <- read_rds(here("Outputs", "artifacts_balance_sheet_gdp.rds")
 balance_sheet_gdp$graphs$nominal_GDP_gg
 ```
 
-
 ```{r}
 #| ba900gdptotals,
 #| fig.cap = "Total bank lending as a percent of GDP. Source: South African Reserve Bank (2022)",
@@ -490,7 +455,6 @@ balance_sheet_gdp$graphs$nominal_GDP_gg
 
 balance_sheet_gdp$graphs$total_gdp_gg
 ```
-
 
 ```{r}
 #| ba900gdpfnb,
@@ -538,9 +502,11 @@ balance_sheet_gdp$graphs$capitec_gdp_gg
 ```
 
 \newpage
+
 # Appendix: Detailed Literature Review
 
 More detailed literature review
 
 \newpage
+
 # References

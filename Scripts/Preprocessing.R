@@ -29,7 +29,6 @@ library(skimr)
 # econometrics
 library(tseries)
 library(strucchange)
-library(fDMA)
 library(vars)
 library(urca)
 library(mFilter)
@@ -151,7 +150,7 @@ artifacts_preprocessing <- list (
     macro_tbl = macro_tbl
   ),
   Control = list(
-    
+    controls_tbl = controls_tbl
   ),
   masters = list(
     total_master_tbl = total_master_tbl,

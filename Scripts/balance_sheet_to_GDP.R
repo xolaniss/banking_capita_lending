@@ -19,7 +19,6 @@ library(strucchange)
 library(timetk)
 library(purrr)
 library(pins)
-library(fDMA)
 library(uniqtag)
 library(scales)
 
