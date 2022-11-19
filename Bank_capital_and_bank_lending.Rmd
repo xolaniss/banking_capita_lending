@@ -52,18 +52,7 @@ knitr::opts_chunk$set(echo = FALSE,
                       tab.topcaption = FALSE,
                       ft.align = "left",
                       ft.arraystretch = 0.6)
-options(xtable.floating = TRUE,
-        xtable.caption.placement = 'top', # notice \floatsetup overrides
-        xtable.include.rownames = FALSE,
-        xtable.comment = FALSE,
-        xtable.booktabs = TRUE,
-        xtable.table.placement = "H",
-        xtable.tabular.environment = "tabularx",
-        xtable.NA.string = "NA", 
-        xtable.width = "\\textwidth", 
-        xtable.size = "\\tiny", 
-        xtable.hline.after = c(-1,0)
-        )
+
 
 ```
 
@@ -120,6 +109,11 @@ multi_line_plot <- function(data, plotname = "",
     scale_color_manual(values = pnw_palette("Cascades", variables_color)) 
 }
 
+source(here("Functions", "flextable_word.R"))
+
+set_flextable_defaults(
+  font.size = 7
+)
 ```
 
 # Introduction
@@ -313,14 +307,9 @@ lending_rates_cleaned_tbl %>%
 # Estimation Results
 
 ```{r}
+
 #| cache = FALSE,
 #| include = TRUE,
-
-source(here("Functions", "flextable_word.R"))
-
-set_flextable_defaults(
-  font.size = 7
-)
 
 preprocessing$masters$total_master_tbl %>% 
   mutate(across(.cols = 2:8, .fns = ~.x/1000000000)) %>% 
@@ -337,8 +326,6 @@ preprocessing$masters$total_master_tbl %>%
                    .fns = list(Median = median, 
                                SD = sd,
                                Min = min,
-                               Max = max,
-                               # IQR = IQR,
                                Obs = ~ n()), 
                    .names = "{.fn}")) %>% 
   as_grouped_data(groups = "Groups") %>% 
@@ -359,11 +346,354 @@ preprocessing$masters$total_master_tbl %>%
 
 \newpage
 
+# Appendix
+
+## Data Sources
+
+```{r}
+#| data,
+#| cache = FALSE,
+#| include = TRUE
+
+tibble(
+  " " = c("BA900", 
+          "BA930", 
+          "Controls",
+          "GDP",
+          "Capital buffer",
+          "Credit cycle",
+          "Country comparison"
+          ),
+  "Description" = c("Banking sector balance sheet data at a bank level",
+                    "Banking sector lending rates at a bank level",
+                    "Banking sector performance data at a bank level",
+                    "Nominal and real gross domestic product
+in a calendar year",
+                    "Basel III regulatory capital buffer requirement",
+                    "Composite index of lending conditions in South Africa",
+                    "International data on:
+domestic credit to private sector (% of GDP), 
+bank return on assets (%, before tax), 
+bank capital to total assets (%), 
+and bank concentration (%)
+                    "
+                    ),
+  "Frequency" = c("Monthly",
+                  "Monthly",
+                  "Monthly",
+                  "Quarterly",
+                  "Monthly",
+                  "Monthly",
+                  "Yearly"
+                  ),
+  
+  "Availability" = c("Public data",
+                     "Aggregated data is public. 
+Bank specific data is private",
+                     "Aggregated data is public. 
+Bank specific data is private",
+                     "Public data",
+                     "Aggregated data is public. 
+Bank specific data is private",
+                     "Public data",
+                      "Public data"
+                     ),
+  "Source" = c("SARB",
+               "SARB",
+               "PA",
+               "PA",
+               "Statssa",
+               "SARB",
+               "World Bank"
+               )
+) %>% 
+  flextable_word(caption = "Data Description") %>%
+  align(align = "left", part = "all") %>%
+  autofit(add_w = 0)
+
+
+
+```
+
+\newpage
+## Aggregation schema
+
+The following tabulation is derived from the BA900s is the balance sheet return loan data (lines 103 to 277) and  gives relative magnitudes by financial corporate sector, non-financial corporate sector and household sector. This is the most granular data provided. The missing item numbers are all aggregations of these numbers.
+
+```{r}
+#| scheme,
+#| fig.cap = "BA900s schema",
+#| cache = FALSE,
+#| include = TRUE,
+
+tibble(
+  "BA 900 Categories" = 
+    c(
+      "Installment sales",
+      "",
+      "",
+      "",
+      "Leasing transactions",
+      "",
+      "",
+      "",
+      "Farm Mortgages",
+      "",
+      "",
+      "Residential Mortgages",
+      "",
+      "",
+      "Commercial and Other mortgages",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Credit cards",
+      "",
+      "",
+      "",
+      "Overdrafts",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Factoring"
+    ),
+  "Item Number" = c(
+    141,
+    142,
+    143,
+    144,
+    146,
+    147,
+    148,
+    149,
+    152,
+    153,
+    154,
+    156,
+    157,
+    158,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    167,
+    168,
+    169,
+    170,
+    172-179,
+    181,
+    182,
+    183,
+    184,
+    185,
+    187
+  ),
+  "Sector" = c(
+    "Financial corporate sector",
+    "Non financial corporate sector",
+    "Household sector",
+    "Other",
+    "Financial corporate sector",
+    "Non financial corporate sector",
+    "Household sector",
+    "Other",
+    "Non financial corporate sector",
+    "Household sector",
+    "Other",
+    "Non financial corporate sector",
+    "Household sector",
+    "Other",
+    "Public financial corporates",
+    "Public non-financial corporates",
+    "Private financial corporate",
+    "Private non-financial corporates",
+    "Household sector",
+    "Other",
+    "Financial corporate sector",
+    "Non financial corporate sector",
+    "Household sector",
+    "Other",
+    "Public sector (includes public corporations and local government)",
+    "Financial corporate sector",
+    "Non financial corporate sector",
+    "Unincorporated business enterprises",
+    "Other Household sector",
+    "Non-profit organisations serving households",
+    ""
+  ),
+  "Aggregation Key" = c(
+    "-",
+    "a",
+    "c",
+    "a",
+    "-",
+    "a",
+    "c",
+    "a",
+    "b",
+    "b",
+    "b",
+    "b",
+    "d",
+    "b",
+    "-",
+    "-",
+    "-",
+    "b",
+    "b",
+    "b",
+    "-",
+    "a",
+    "c",
+    "c",
+    "-",
+    "-",
+    "a",
+    "e",
+    "c",
+    "c",
+    "a"
+  ),
+) %>% 
+  flextable_word(caption = "Aggregation schema") %>% 
+  align(align = "left", part = "all") %>%
+  colformat_num(digits = 0, j = 2) %>% 
+  autofit(add_w = -0.05)
+
+
+```
+
+The following aggregation scheme which results in six categories was followed based on Table \@ref(tab:scheme), with unincorporated enterprise credit as part of household unsecured lending.
+
+a.	Non-financial corporate sector secured credit: Items 142 + 147 
+b.	Non-financial corporate sector unsecured credit: Items 168 + 182 + 187+ 190
+c.	Non-financial corporate sector mortgages (commercial and other mortgage advances): Items 152 + 153 + 154 + 156 + 158 + 163 + 164 + 165
+d.	Household sector secured credit: Items 143 + 148  
+e.	Household sector unsecured credit: Items 169 + 184 + 185 +  192 + 193 + 183 + 191 (note includes unincorporated business enterprise credit last two items)
+f.	Household sector residential mortgages: Item 157
+
+\newpage
+The loans quantities from the BA900s are then linked to the lending rate data from the BA930s using table to create six lending rate categories the schema on Table \@ref(tab:schemelend).
+
+```{r}
+#| schemelend,
+#| cache = FALSE,
+#| include = TRUE,
+
+tibble(
+  "Sector" = c(
+   "Corporate sector",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Household sector",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ),
+  "BA 930 Categories" = c(
+    "Overdrafts",
+    "Instalment sale agreements flexible rate",
+    "Instalment sale fixed rate",
+    "Leasing transactions flexible rate",
+    "Leasing transactions fixed rate",
+    "Mortgage advances flexible rate",
+    "Mortgage advances fixed rate",
+    "Credit cards",
+    "Other",
+    "Overdrafts",
+    "Instalment sale agreements flexible rate",
+    "Instalment sale fixed rate",
+    "Leasing transactions flexible rate",
+    "Leasing transactions fixed rate",
+    "Mortgage advances flexible rate",
+    "Mortgage advances fixed rate",
+    "Credit cards",
+    "Other"
+  ),
+  "Item Number" = c(
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66
+  ),
+  "Weighting Key" = c(
+    "b",
+    "a",
+    "-",
+    "a",
+    "-",
+    "c",
+    "-",
+    "b",
+    "b",
+    "e",
+    "d",
+    "-",
+    "d",
+    "-",
+    "f",
+    "-",
+    "e",
+    "e"
+  )
+) %>% 
+  flextable_word(caption = "Weighting schema") %>% 
+  align(align = "left", part = "all") %>%
+  colformat_num(digits = 0, j = 2) %>% 
+  autofit(add_w = .5)
+
+
+
+
+```
+
+The six categories, therefore, are as follows:
+
+a. Non-financial corporate sector secured credit rate: Weighted average of items 49 + 51
+b. Non-financial corporate sector unsecured credit rate: Weighted average items 48 + 55 + 56
+c. Non-financial corporate sector mortgage rate: Item 53
+d. Household sector secured credit rate: Weighted average of items 59 + 61
+e. Household sector unsecured credit rate: Weighted average of items 58 + 65 + 66
+f. Household sector residential mortgages: Item 63
+
+\newpage
 # Appendix: Descriptive Analysis
 
-## Data
 
-### Capital Buffers
+<!-- ## Data -->
+
+<!-- ### Capital Buffers -->
 
 ```{r}
 #| capbuf,
@@ -377,7 +707,7 @@ capital_buffers$graphs$big_banks_gg  #delete from the final draft
 
 ```
 
-### BA 900 Quartelty Data
+<!-- ### BA 900 Quartelty Data -->
 
 ```{r}
 #| ba900totals,
@@ -434,7 +764,7 @@ ba900$quartely_graphs$standard_quartely_gg
 ba900$quartely_graphs$capitec_quartely_gg
 ```
 
-### BA 900 to GDP
+<!-- ### BA 900 to GDP -->
 
 ```{r}
 #| nominal,
@@ -503,6 +833,7 @@ balance_sheet_gdp$graphs$capitec_gdp_gg
 
 \newpage
 
+\newpage
 # Appendix: Detailed Literature Review
 
 More detailed literature review

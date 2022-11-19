@@ -551,6 +551,7 @@ descriptives_by_bank_tbl <- combined_lending_tbl %>%
                                Obs = ~ n()), 
                    .names = "{.fn}"))
 
+
 # Export ---------------------------------------------------------------
 artifacts_combined_lending <- list (
   total_lending_rate_tbl = total_lending_rate_tbl,
