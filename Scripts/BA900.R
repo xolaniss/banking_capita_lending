@@ -33,7 +33,7 @@ source(here("Functions", "balance_sheet_rename_gg.R"))
 source(here("Functions", "ba900_aggregation.R"))
 
 # Import ------------------------------------------------------------------
-path = here("Data", "BA900_Line_items_103_to_277.xlsx")
+path = here("Data", "BA900_line_item_103_to_277_updated_to_Nov_2022.xlsx")
 sheet_list = list(
   "Total Banks" = "Sheet1", 
   "Absa Bank"  = "Sheet2",
@@ -41,7 +41,7 @@ sheet_list = list(
   "Nedbank" = "Sheet5",
   "Standard Bank" = "Sheet6",
   "Capitec" = "Sheet12")
-col_types = c("text", rep(x = "numeric", 148))
+col_types = c("text", rep(x = "numeric", 179))
 
 ba900_assets <- 
   excel_import_sheet(
@@ -52,7 +52,7 @@ ba900_assets <-
     ) 
 
 # Cleaning ----------------------------------------------------------
-total_tbl <- cleanup(ba900_assets$`Total Banks`, date_size = 176) 
+total_tbl <- cleanup(ba900_assets$`Total Banks`, date_size = 175) 
 absa_tbl <- cleanup(ba900_assets$`Absa Bank`)
 fnb_tbl <- cleanup(ba900_assets$FNB)
 nedbank_tbl <- cleanup(ba900_assets$Nedbank)
@@ -171,7 +171,7 @@ capitec_filtered_tbl
 ## Detail graphs ----
 totals_gg <- 
   total_filtered_tbl %>% 
-  balance_sheet_rename_gg(variable_color = 14)
+  balance_sheet_rename_gg(variable_color = 25)
 absa_gg <-
   absa_filtered_tbl %>% 
   balance_sheet_rename_gg(variable_color = 14)

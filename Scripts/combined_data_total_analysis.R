@@ -29,7 +29,6 @@ library(skimr)
 # econometrics
 library(tseries)
 library(strucchange)
-library(fDMA)
 library(vars)
 library(urca)
 library(mFilter)
@@ -41,8 +40,6 @@ source(here("Functions", "fx_plot.R"))
 # Import -------------------------------------------------------------
 balance_sheet_to_gdp <- read_rds(here("Outputs", "artifacts_balance_sheet_gdp.rds"))
 ba900_quartely <- read_rds(here("Outputs", "artifacts_balance_sheet_quartely.rds"))
-
-
 
 # Transformation ---------------------------------------------------------------
 
@@ -58,21 +55,19 @@ ba900_quartely_tbl <-
   ba900_quartely$quarterly_data$Totals_quarter_tbl %>% 
   pivot_wider(names_from = Series, values_from = Value)
 
-real_gdp_tbl <- 
-  general$data$credit_cycle_tbl %>% 
-  pivot_wider(names_from = Cycles, values_from = value) %>% 
-  dplyr::select(-Credit)
+# real_gdp_tbl <- 
+#   general$data$credit_cycle_tbl %>% 
+#   pivot_wider(names_from = Cycles, values_from = value) %>% 
+#   dplyr::select(-Credit)
 
 # Joining -----------------------------------------------------------------
 ba900_gdp_ratio_combined_tbl <- 
   balance_sheet_to_gdp_tbl %>% 
-  left_join(., quarterly_capital_buffer_tbl, by = c("Date" = "Date")) %>% 
   left_join(., real_gdp_tbl, by = c("Date" = "Date"))
 
 
 ba900_levels_combined_tbl <- 
   ba900_quartely_tbl %>% 
-  left_join(., quarterly_capital_buffer_tbl, by = c("Date" = "Date")) %>% 
   left_join(., real_gdp_tbl, by = c("Date" = "Date"))
 
 
@@ -97,6 +92,6 @@ artifacts_combined_totals_data <- list (
   ba900_levels_combined_tbl = ba900_levels_combined_tbl
 )
 
-write_rds(artifacts_combined_totals_data, file = here("Outputs", "artifacts_combined_totals_data.rds"))
+write_rds(artifacts_combined_totals_data, file = here("Outputs", "artifacts_combined_totals_data_quarterly.rds"))
 
 

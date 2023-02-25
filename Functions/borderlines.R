@@ -1,14 +1,14 @@
 borderlines <- function(table) {
   table %>%
-    vline_left(border = fp_border(color = "white"), part = "all") %>%
-    vline_right(border = fp_border(color = "white"), part = "all") %>%
-    vline(j = c(1, 3, 5),
+    vline_left(border = fp_border(color = "white", style = "solid"), part = "all") %>%
+    vline_right(border = fp_border(color = "white", style = "solid"), part = "all") %>%
+    vline(j = c(1, 4),
           border = border,
           part = c("body")) %>%
-    vline(j = c(1, 3, 5),
+    vline(j = c(1, 4),
           border = border,
           part = c("header")) %>%
-    hline(border = fp_border(color = "white"), part = "footer") %>%
+    hline(border = fp_border(color = "white", style = "solid"), part = "footer") %>%
     hline_bottom(border = border, part = "footer")
   
 }
