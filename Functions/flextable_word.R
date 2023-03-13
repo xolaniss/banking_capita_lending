@@ -2,9 +2,10 @@ flextable_word <- function(data,
                            caption = "Add title",
                            caption_style = "normal",
                            width_add = 0,
-                           heigth_add = 0) {
+                           heigth_add = 0,
+                           digits = 3) {
   flextable(data = data, theme_fun = theme_apa) %>%
-    colformat_double() %>% 
+    colformat_double(digits = digits) %>% 
     set_caption(caption = caption, style = caption_style) %>%
     border_inner(border = fp_border(color = "white"), part = "all") %>%
     vline_left(border = fp_border(color = "white"), part = "all") %>%

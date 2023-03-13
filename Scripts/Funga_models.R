@@ -125,9 +125,6 @@ preprocessed_data_banks_base_tbl <-
   filter(date > "2013-01-01")
 
   
-preprocessed_data_banks_base_tbl %>%
-  group_by(bank) %>% 
-  skim()
 
 preprocessed_data_banks_base_tbl %>% glimpse()
 
@@ -162,9 +159,45 @@ preprocessed_data_banks_base_tbl %>%
   mutate(
     change_in_required_capital_dummy = if_else(date <= "2012-12-01", 0, change_in_required_capital_dummy)
     ) 
-  
-  
 
+
+# Summaries ---------------------------------------------------------------
+summaries_tbl <- 
+  preprocessed_data_banks_base_tbl %>% 
+  dplyr::select(date, 
+                bank, 
+                change_in_log_of_household_sector_unsecured_credit,
+                change_in_log_of_household_sector_secured_credit,
+                change_in_log_of_households_residential_mortgages,
+                change_in_log_of_non_financial_corporate_unsecured_credit,
+                change_in_log_of_non_financial_corporate_secured_credit,
+                change_in_log_of_non_financial_corporate_sector_mortgages,
+                change_in_interest_margin_using_household_unsecured_credit_rate,
+                change_in_interest_margin_using_household_secured_credit_rate,
+                change_in_interest_margin_using_household_mortage_rate,
+                change_in_interest_margin_using_corporate_unsecured_credit_rate,
+                change_in_interest_margin_using_corporate_secured_credit_rate,
+                change_in_interest_margin_using_corporate_mortage_rate,
+                change_in_surplus_capital,
+                change_in_required_capital_dummy,
+                return_on_equity,
+                return_on_assets,
+                log_of_level_one_high_quality_liquid_assets_required_to_be_held
+                ) %>% 
+  drop_na() %>% 
+  pivot_longer(-c(date,bank), names_to = "variable", values_to = "value") %>% 
+  group_by(variable) %>% 
+  summarise(across(.cols = -c(bank, date),
+                   .fns = list(Median = median, 
+                               SD = sd,
+                               Min = min,
+                               Max = max,
+                               # IQR = IQR,
+                               Obs = ~ n()), 
+                   .names = "{.fn}"))
+
+  
+preprocessed_data_banks_base_tbl %>% glimpse()
 
 # Graphing ----------------------------------------------------------------
 Surplus_gg <-
@@ -471,6 +504,7 @@ predictor_vec_household_secured_control = c(
 predictor_vec_household_unsecured_control = c(
   "change_in_required_capital_dummy",
   "change_in_surplus_capital",
+  "change_in_interest_margin_using_household_unsecured_credit_rate",
   # "lag(log_of_total_assets)",
   "lag(return_on_assets)",
   "lag(return_on_equity)",
@@ -964,18 +998,25 @@ result_hh_mortgage_gg <-
 
 
 ## Patchwork ---------------------------------------------------------------
-
-(result_hh_unsecured_gg + result_hh_secured_gg + result_hh_mortgage_gg)/
-(result_nfc_unsecured_gg + result_nfc_secured_gg + result_nfc_mortgage_gg)
-
+path_gg <- (result_hh_unsecured_gg + result_hh_secured_gg) /
+            (result_hh_mortgage_gg + result_nfc_unsecured_gg)/
+            (result_nfc_secured_gg + result_nfc_mortgage_gg)
 
 # Export ---------------------------------------------------------------
 artifacts_base_model <- list (
   lm_models = list(
-
+    one_month_buffer_ols_model_list = one_month_buffer_ols_model_list,
+    one_month_buffer_surplus_ols_model_list = one_month_buffer_surplus_ols_model_list,
+    one_month_buffer_surplus_demand_ols_model_list = one_month_buffer_surplus_demand_ols_model_list,
+    one_month_buffer_surplus_control_ols_model_list = one_month_buffer_surplus_control_ols_model_list,
+    one_month_buffer_surplus_demand_control_ols_model_list = one_month_buffer_surplus_demand_control_ols_model_list
   ),
   coef_models = list(
-
+    one_month_buffer_coeftest_model_list = one_month_buffer_coeftest_model_list,
+    one_month_buffer_surplus_coeftest_model_list = one_month_buffer_surplus_coeftest_model_list,
+    one_month_buffer_surplus_demand_coeftest_model_list = one_month_buffer_surplus_demand_coeftest_model_list,
+    one_month_buffer_surplus_control_coeftest_model_list = one_month_buffer_surplus_control_coeftest_model_list,
+    one_month_buffer_surplus_demand_control_coeftest_model_list = one_month_buffer_surplus_demand_control_coeftest_model_list
   ),
   joint_test  = list(
     joint_test_buffer = joint_test_buffer,
@@ -987,7 +1028,13 @@ artifacts_base_model <- list (
     joint_test_buffer_surplus_control_bottom_return_on_assets = joint_test_buffer_surplus_control_bottom_return_on_assets,
     joint_test_buffer_surplus_control_top_liqudity = joint_test_buffer_surplus_control_top_liqudity
   ),
-  data = list(preprocessed_data_banks_base_tbl = preprocessed_data_banks_base_tbl)
+  data = list(preprocessed_data_banks_base_tbl = preprocessed_data_banks_base_tbl),
+  graphs = list(
+    path_gg  = path_gg
+  ),
+  summaries = list(
+    summaries_tbl = summaries_tbl
+  )
 )
 
 write_rds(artifacts_base_model,
