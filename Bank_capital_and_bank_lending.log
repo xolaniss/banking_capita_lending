@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.5)  13 MAR 2023 11:11
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.5)  14 MAR 2023 10:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -708,11 +708,7 @@ File: bkm-dvipdfm.def 2020-11-06 v1.29 bookmark driver for dvipdfm (HO)
 \BKM@id=\count348
 )) (/usr/local/texlive/2022/texmf-dist/tex/latex/xurl/xurl.sty
 Package: xurl 2022/01/09 v 0.10 modify URL breaks
-) (./Bank_capital_and_bank_lending.aux
-
-LaTeX Warning: Label `tab:bs' multiply defined.
-
-)
+) (./Bank_capital_and_bank_lending.aux)
 \openout1 = `Bank_capital_and_bank_lending.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 125.
@@ -1133,62 +1129,49 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 9.99893pt on input line 180.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 6.99925pt on input line 180.
-[3] [4] [5] [6]
-File: Bank_capital_and_bank_lending_files/figure-latex/unnamed-chunk-1-1.pdf Gr
-aphic file (type pdf)
-<use Bank_capital_and_bank_lending_files/figure-latex/unnamed-chunk-1-1.pdf>
+[3] [4] [5] [6] [7]
+File: Bank_capital_and_bank_lending_files/figure-latex/capital-1.pdf Graphic fi
+le (type pdf)
+<use Bank_capital_and_bank_lending_files/figure-latex/capital-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 313--314
+Underfull \hbox (badness 10000) in paragraph at lines 342--343
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 313--314
+Underfull \hbox (badness 10000) in paragraph at lines 342--343
 
  []
 
-[7] [8]
-File: Bank_capital_and_bank_lending_files/figure-latex/unnamed-chunk-2-1.pdf Gr
-aphic file (type pdf)
-<use Bank_capital_and_bank_lending_files/figure-latex/unnamed-chunk-2-1.pdf>
+[8]
+File: Bank_capital_and_bank_lending_files/figure-latex/assets-1.pdf Graphic fil
+e (type pdf)
+<use Bank_capital_and_bank_lending_files/figure-latex/assets-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
+Underfull \hbox (badness 10000) in paragraph at lines 353--354
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
+Underfull \hbox (badness 10000) in paragraph at lines 353--354
 
  []
 
-[9]
-File: Bank_capital_and_bank_lending_files/figure-latex/unnamed-chunk-8-1.pdf Gr
-aphic file (type pdf)
-<use Bank_capital_and_bank_lending_files/figure-latex/unnamed-chunk-8-1.pdf>
+[9] [10] [11]
 
-Underfull \hbox (badness 10000) in paragraph at lines 346--347
-[][]
- []
+Package fontspec Info: Arial scale = 0.8311517618498812.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 346--347
-
- []
+Package fontspec Info: Arial scale = 0.8311517618498812.
 
 
-Package fontspec Info: Arial scale = 0.8311527808940205.
+Package fontspec Info: Arial/B scale = 0.8311517618498812.
 
 
-Package fontspec Info: Arial scale = 0.8311527808940205.
+Package fontspec Info: Arial/I scale = 0.8311517618498812.
 
 
-Package fontspec Info: Arial/B scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial/I scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial/BI scale = 0.8311527808940205.
+Package fontspec Info: Arial/BI scale = 0.8311517618498812.
 
 
 Package fontspec Info: Font family 'Arial(0)' created for font 'Arial' with
@@ -1215,21 +1198,21 @@ ex-text;"
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/Arial(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 374.
+(Font)              scaled to size 6.0pt on input line 392.
 
-Package fontspec Info: Arial scale = 0.9999963218120226.
-
-
-Package fontspec Info: Arial scale = 0.9999963218120226.
+Package fontspec Info: Arial scale = 0.9999950957553764.
 
 
-Package fontspec Info: Arial/B scale = 0.9999963218120226.
+Package fontspec Info: Arial scale = 0.9999950957553764.
 
 
-Package fontspec Info: Arial/I scale = 0.9999963218120226.
+Package fontspec Info: Arial/B scale = 0.9999950957553764.
 
 
-Package fontspec Info: Arial/BI scale = 0.9999963218120226.
+Package fontspec Info: Arial/I scale = 0.9999950957553764.
+
+
+Package fontspec Info: Arial/BI scale = 0.9999950957553764.
 
 
 Package fontspec Info: Font family 'Arial(1)' created for font 'Arial' with
@@ -1239,98 +1222,28 @@ Package fontspec Info: Font family 'Arial(1)' created for font 'Arial' with
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->s*[0.9999963218120226]"Arial/OT:script=latn;language=
+(fontspec)             <->s*[0.9999950957553764]"Arial/OT:script=latn;language=
 dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 (fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->s*[0.9999963218120226]"Arial/B/OT:script=latn;languag
+(fontspec)             <->s*[0.9999950957553764]"Arial/B/OT:script=latn;languag
 e=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->s*[0.9999963218120226]"Arial/I/OT:script=latn;languag
+(fontspec)             <->s*[0.9999950957553764]"Arial/I/OT:script=latn;languag
 e=dflt;"
 (fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->s*[0.9999963218120226]"Arial/BI/OT:script=latn;langua
+(fontspec)             <->s*[0.9999950957553764]"Arial/BI/OT:script=latn;langua
 ge=dflt;"
 (fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
 
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/Arial(1)/m/n on input line 374.
+(Font)                  TU/lmr/m/n --> TU/Arial(1)/m/n on input line 392.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  TU/lmr/m/it --> TU/Arial(1)/m/it on input line 374.
+(Font)                  TU/lmr/m/it --> TU/Arial(1)/m/it on input line 392.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  TU/lmr/bx/n --> TU/Arial(1)/b/n on input line 374.
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-[10]
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/b/n' will be
-(Font)              scaled to size 10.0pt on input line 412.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/b/n' will be
-(Font)              scaled to size 7.0pt on input line 412.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/b/n' will be
-(Font)              scaled to size 5.0pt on input line 412.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
-(Font)              scaled to size 10.00092pt on input line 412.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
-(Font)              scaled to size 7.00064pt on input line 412.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/b/n' will be
-(Font)              scaled to size 5.00046pt on input line 412.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
-(Font)              scaled to size 9.99893pt on input line 412.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
-(Font)              scaled to size 6.99925pt on input line 412.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/b/n' will be
-(Font)              scaled to size 4.99947pt on input line 412.
-[11]
-
-Package fontspec Info: Arial scale = 0.8311517618498812.
-
-LaTeX Font Info:    Font shape `TU/Arial(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 451.
+(Font)                  TU/lmr/bx/n --> TU/Arial(1)/b/n on input line 392.
 
 Package fontspec Info: Arial scale = 0.8311517618498812.
 
@@ -1766,6 +1679,8 @@ Package fontspec Info: Arial scale = 0.8311517618498812.
 
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
+LaTeX Font Info:    Font shape `TU/Arial(0)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 537.
 
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
@@ -1782,7 +1697,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (31.24081pt too wide) in alignment at lines 590--598
+Overfull \hbox (31.24081pt too wide) in alignment at lines 531--539
 [] [] [] [] [] [] 
  []
 
@@ -1796,7 +1711,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (31.24081pt too wide) in alignment at lines 598--604
+Overfull \hbox (31.24081pt too wide) in alignment at lines 539--545
 [] [] [] [] [] [] 
  []
 
@@ -1804,7 +1719,7 @@ Overfull \hbox (31.24081pt too wide) in alignment at lines 598--604
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 LaTeX Font Info:    Font shape `TU/Arial(0)/b/n' will be
-(Font)              scaled to size 8.0pt on input line 608.
+(Font)              scaled to size 8.0pt on input line 549.
 
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
@@ -2667,7 +2582,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (31.24081pt too wide) in alignment at lines 604--896
+Overfull \hbox (31.24081pt too wide) in alignment at lines 545--837
 [] [] [] [] [] [] 
  []
 
@@ -2690,7 +2605,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (28.3505pt too wide) in alignment at lines 920--928
+Overfull \hbox (28.3505pt too wide) in alignment at lines 861--869
 [] [] [] [] [] [] 
  []
 
@@ -2704,7 +2619,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (28.3505pt too wide) in alignment at lines 928--934
+Overfull \hbox (28.3505pt too wide) in alignment at lines 869--875
 [] [] [] [] [] [] 
  []
 
@@ -3573,7 +3488,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (28.3505pt too wide) in alignment at lines 934--1226
+Overfull \hbox (28.3505pt too wide) in alignment at lines 875--1167
 [] [] [] [] [] [] 
  []
 
@@ -3584,12 +3499,12 @@ File: Bank_capital_and_bank_lending_files/figure-latex/path-1.pdf Graphic file
 (type pdf)
 <use Bank_capital_and_bank_lending_files/figure-latex/path-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 1240--1241
+Underfull \hbox (badness 10000) in paragraph at lines 1181--1182
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1240--1241
+Underfull \hbox (badness 10000) in paragraph at lines 1181--1182
 
  []
 
@@ -4061,7 +3976,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (8.8373pt too wide) in alignment at lines 1519--1527
+Overfull \hbox (8.8373pt too wide) in alignment at lines 1460--1468
 [] [] [] [] 
  []
 
@@ -4075,7 +3990,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (8.8373pt too wide) in alignment at lines 1527--1533
+Overfull \hbox (8.8373pt too wide) in alignment at lines 1468--1474
 [] [] [] [] 
  []
 
@@ -4512,7 +4427,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (8.8373pt too wide) in alignment at lines 1533--1753
+Overfull \hbox (8.8373pt too wide) in alignment at lines 1474--1694
 [] [] [] [] 
  []
 
@@ -4530,7 +4445,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (9.50124pt too wide) in alignment at lines 1788--1796
+Overfull \hbox (9.50124pt too wide) in alignment at lines 1729--1737
 [] [] [] [] 
  []
 
@@ -4685,7 +4600,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (9.50124pt too wide) in alignment at lines 1796--1848
+Overfull \hbox (9.50124pt too wide) in alignment at lines 1737--1789
 [] [] [] [] 
  []
 
@@ -4694,7 +4609,7 @@ Overfull \hbox (9.50124pt too wide) in alignment at lines 1796--1848
 Package fontspec Info: Arial scale = 0.8311509466163689.
 
 LaTeX Font Info:    Font shape `TU/Arial(0)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 1882.
+(Font)              scaled to size 5.0pt on input line 1823.
 
 Package fontspec Info: Arial scale = 0.8311509466163689.
 
@@ -4711,7 +4626,7 @@ Package fontspec Info: Arial scale = 0.8311509466163689.
 Package fontspec Info: Arial scale = 0.8311509466163689.
 
 
-Overfull \hbox (11.20879pt too wide) in alignment at lines 1876--1884
+Overfull \hbox (11.20879pt too wide) in alignment at lines 1817--1825
 [] [] [] [] [] [] 
  []
 
@@ -4908,7 +4823,7 @@ Package fontspec Info: Arial scale = 0.8311509466163689.
 Package fontspec Info: Arial scale = 0.8311509466163689.
 
 
-Overfull \hbox (11.20879pt too wide) in alignment at lines 1884--1924
+Overfull \hbox (11.20879pt too wide) in alignment at lines 1825--1865
 [] [] [] [] [] [] 
  []
 
@@ -4928,7 +4843,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (4.44292pt too wide) in alignment at lines 1957--1965
+Overfull \hbox (4.44292pt too wide) in alignment at lines 1898--1906
 [] [] [] [] 
  []
 
@@ -5377,12 +5292,12 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (4.44292pt too wide) in alignment at lines 1965--2191
+Overfull \hbox (4.44292pt too wide) in alignment at lines 1906--2132
 [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2215--2217
+Underfull \hbox (badness 10000) in paragraph at lines 2156--2158
 
  []
 
@@ -5399,7 +5314,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (9.50014pt too wide) in alignment at lines 2236--2244
+Overfull \hbox (9.50014pt too wide) in alignment at lines 2177--2185
 [] [] [] [] 
  []
 
@@ -5620,7 +5535,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (9.50014pt too wide) in alignment at lines 2244--2356
+Overfull \hbox (9.50014pt too wide) in alignment at lines 2185--2297
 [] [] [] [] 
  []
 
@@ -6538,7 +6453,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (11.7276pt too wide) in alignment at lines 2736--2744
+Overfull \hbox (11.7276pt too wide) in alignment at lines 2677--2685
 [] [] [] [] [] [] 
  []
 
@@ -6552,7 +6467,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (11.7276pt too wide) in alignment at lines 2744--2750
+Overfull \hbox (11.7276pt too wide) in alignment at lines 2685--2691
 [] [] [] [] [] [] 
  []
 
@@ -7421,23 +7336,19 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (11.7276pt too wide) in alignment at lines 2750--3042
+Overfull \hbox (11.7276pt too wide) in alignment at lines 2691--2983
 [] [] [] [] [] [] 
  []
 
-[23] (./Bank_capital_and_bank_lending.bbl) [24] (./Bank_capital_and_bank_lendin
-g.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+[23] (./Bank_capital_and_bank_lending.bbl [24]) [25] (./Bank_capital_and_bank_l
+ending.aux) ) 
 Here is how much of TeX's memory you used:
- 23946 strings out of 476179
- 444416 string characters out of 5809545
- 1077856 words of memory out of 5000000
- 44278 multiletter control sequences out of 15000+600000
- 477323 words of font info for 110 fonts, out of 8000000 for 9000
+ 23908 strings out of 476179
+ 442604 string characters out of 5809545
+ 1077423 words of memory out of 5000000
+ 44250 multiletter control sequences out of 15000+600000
+ 475870 words of font info for 101 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 108i,12n,128p,3026b,549s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,15n,128p,3026b,604s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Bank_capital_and_bank_lending.pdf (24 pages).
+Output written on Bank_capital_and_bank_lending.pdf (25 pages).

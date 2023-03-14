@@ -134,7 +134,7 @@ This paper investigates the impact of bank capital and bank liquidity on the sup
 
 Following the approach most widely used in the literature, the investigation reported here focuses on the impact of changes in minimum required levels of bank capital and bank liquidity and also of changes in the ‘buffers’ of capital and liquidity above these minima.
 
-The principal data employed is monthly balance sheet data, from January 2008 to [June 2022] , for the five largest South  African banks, which together account for more than []\% of bank assets in South Africa. This data is both higher frequency (monthly) and more detailed (distinguishing several categories of both corporate and household credit) than the accounting statement data used in most empirical studies of bank capital and lending. 
+The principal data employed is monthly balance sheet data, from 2008 to 2022, for the five largest South  African banks, which together account for more than 80\% of bank assets in South Africa. This data is both higher frequency (monthly) and more detailed (distinguishing several categories of both corporate and household credit) than the accounting statement data used in most empirical studies of bank capital and lending. 
 
 This focus on a small set of large banks has some advantages. We can pay close attention to key institutional features: the use by all these institutions of sophisticated tools of capital management and the substantial volumes of wholesale deposits from non-financial corporates and non-bank financial institutions which impacts in particular on their Basel III net stable funding ratios. It also though has the disadvantage of providing only a relative small data set, with few periods in which banks faced substantial problems of balance sheet capital or liquidity management. 
 
@@ -155,19 +155,42 @@ Section IV describes our data set and sets out our empirical specification. Sect
 
 ## A conceptual framework drawing on corporate finance and banking theory
 
-A large literature examines the impact of regulatory capital requirements on bank credit supply. To draw a consistent picture of the findings from this literature, it is helpful to review the mechanisms linking bank capital to credit supply, employing a conceptual framework based on standard corporate finance theory.  In the complete markets setting of Modigliani-Miller (1958) the mix of equity and debt funding, and therefore also capital regulation, is irrelevant; but there are several reasons why the mix of funding will in practice impact on lending and other business decisions.  Some of these reasons apply broadly to banks, non-bank financial intermediaries and non-financial corporates, while others are bank specific.
+A large literature examines the impact of regulatory capital requirements on bank credit supply. To draw a consistent picture of the findings from this literature, it is helpful to review the mechanisms linking bank capital to credit supply, employing a conceptual framework based on standard corporate finance theory.  In the complete markets setting of @modigliani58 the mix of equity and debt funding, and therefore also capital regulation, is irrelevant; but there are several reasons why the mix of funding will in practice impact on lending and other business decisions.  Some of these reasons apply broadly to banks, non-bank financial intermediaries and non-financial corporates, while others are bank specific.
 
 The focus of what follows is on how capital structure and capital regulation impacts on the on the overall costs of bank funding and hence on the supply of bank credit; and in empirical estimation on distinguishing credit supply from the demand for credit:
 $$
-L^d =\alpha_0+\alpha_1 r^l+\alpha_2 y + \mu \label{loandemand1}\\
-$$
-
-$$
-L^s =\beta_0+\beta_1 (r^l-\omega)+\nu \label{loansupply1}
+\begin{split}
+L^d =\alpha_0+\alpha_1 r^l+\alpha_2 y + \mu\\
+L^s =\beta_0+\beta_1 (r^l-\omega)+\nu 
+\end{split}
 $$
 
 Where $\beta$ represents the cost of bank funding and $y$ represents factors such as income and expected income growth that affect the demand for bank credit. 
 
+
+The composition of the bank balance sheet can be represented, schematically as:
+\begin{center}
+\begin{tabular}{ l | r}
+Assets	& Liabilities \\
+\hline
+$L_1$	& $D$ \\
+$L_2$	& $W$ \\
+$B$ & $E$ \\
+\hline
+\end{tabular}
+\end{center}
+
+distinguishing different categories of loans ($L_1$, $L_2$), security investments ($B$), core deposits ($D$), wholesale funding ($W$) and equity capital ($E$). 
+
+Bank capitalisation $c$, the buffer of capital $c^b$ above the minimum regulatory capital requirement, funding liquidity $\lambda$ and the liquidity buffer above minimum regulatory liquidity ratio (the NSF $\lambda^{min}$) can then be represented (with risk weights $w_1$, $w_2$) as
+$$
+\begin{split}
+c=E/(w_1 L_1+ w_2 L_2)\\
+c^b =c-c^{min}\\
+\lambda =(D+E)/(L_1+L_2)\\
+\lambda^{b}=\lambda-\lambda^{min}
+\end{split}
+$$
 
 For capital structure and capital regulation to have any impact at all: equity must be more expensive than debt funding, whether in the form of core deposits or in other forms of debt. If there are then also costs associated with renegotiation of debt obligations or any corporate restructuring following a default on debt obligations, then the expected frequency and hence costs of debt default costs will rise as leverage is increased 
 
@@ -175,7 +198,7 @@ This implies that there is a desired target or market driven level of capitalisa
 
 A further  factors determining the desired capital buffer is the ‘charter’ or ‘franchise’ value of an institution and the extent to which a bank can alter the balance of risk and returns on its balance sheet without outside stakeholders especially debt holders and regulators being aware. Charter value loosely represents the value of claims on future earnings lost in the event of a reorganisation following a breach of minimum levels of capital and liquidity that triggers a resolution and reorganisation of the liabilities with equity holders potentially losing their claims. 
 
-The observation of risk taking is critical because of the possibility of ‘moral hazard’, that if an institution can take high risks without a corresponding increase in the costs of debt finance then it may be induced to take deliberately high levels of risks that create value through ‘risk shifting’ i.e. transferring the costs of risk and resulting resolution from equity to debt holders. One insight from theoretical modelling of bank capital buffers (e.g. Milne and Whalley (2002)) is that there are two potential qualitatively different solutions: one with a relatively high charter value, in which incentives for risk shifting are low and are dominated by the desire to preserve charter value, so there is as a result an ‘internal optimum’ with a high level of desired capital and relatively low levels of risk taking; the other with low charter value in which incentives for risk shifting dominate those for preservation of charter value, leading to a  ‘corner solution’ in which capital buffers are maintained at very low levels and there are high levels of risk taking.
+The observation of risk taking is critical because of the possibility of ‘moral hazard’, that if an institution can take high risks without a corresponding increase in the costs of debt finance then it may be induced to take deliberately high levels of risks that create value through ‘risk shifting’ i.e. transferring the costs of risk and resulting resolution from equity to debt holders. One insight from theoretical modelling of bank capital buffers [for example; @milne2002bank] is that there are two potential qualitatively different solutions: one with a relatively high charter value, in which incentives for risk shifting are low and are dominated by the desire to preserve charter value, so there is as a result an ‘internal optimum’ with a high level of desired capital and relatively low levels of risk taking; the other with low charter value in which incentives for risk shifting dominate those for preservation of charter value, leading to a  ‘corner solution’ in which capital buffers are maintained at very low levels and there are high levels of risk taking.
 
 The overall cost of funding ($\omega$) will depend on the market rate of interest ($r$), the departure between actual and desired bank capital and actual and desired liquidity:
 $$
@@ -196,7 +219,6 @@ $<0$&$<0$&$<0$&$<0$&$>0$&$>0$&$>0$
 \end{tabular}
 \end{center}
 
-Or, graphically [we can produce a 3-D illustration in R]: 
 
 These higher cost of funding ($\omega - r = f(c-c^\ast,\lambda-\lambda^\ast )>\gamma$) arise because of the costs of altering capital and liquidity towards their desired or target levels. Again there is a trade-off: the further capital or liquidity falls below target the more balance sheet resources are allocated to increasing capital and liquidity and the less to the funding of lending. We can expect the expected rate of accumulation of capital and liquidity to be (approximately) proportional to the marginal costs of reduced capital or liquidity 
 $$
@@ -222,13 +244,16 @@ $<0$&$<0$&$<0$&$>0$&$>0$
 
 ## Implications for empirical modelling
 
-How are the costs of funding $f(c-c^\ast,\lambda-\lambda^\ast)$ impacted by minimum capital and liquidity requirements $c^min$ and $\lambda^min$? It is necessary to distinguish long term and short term impacts. 
+How are the costs of funding $f(c-c^\ast,\lambda-\lambda^\ast)$ impacted by minimum capital and liquidity requirements $c^{min}$ and $\lambda^{min}$? It is necessary to distinguish long term and short term impacts. 
 	
-Over the longer run the desired target of market level of capitalisation is increased but with a relatively small impacts on the cost of funding $f(c-c^\ast,\lambda-\lambda^\ast)$ and supply of credit. Standard corporate finance theory suggests, somewhat against the intuitions of banking practitioners,  that regulatory capital and liquidity requirements will have only a minor long-run impact on the cost of bank funding and the supply of bank credit (for elaboration see Brealey, Admati and Hellwig). This is because the marginal benefits of higher leverage resulting from the separation of ownership and control and resulting agency costs of equity depend upon the threat of intervention and consequent loss of managerial control. A breach of regulatory minimum capital or liquidity requirements triggers intervention and disciplines management in much the same way as a default on debt payments. Therefore, the relevant leverage is that based on the buffer of excess capital or liquidity ratios over and above the required regulatory minima. 
-If these buffers are independent of the regulatory minima i.e. if the desired capital and desired liquidity are determined by a fixed buffers $c^(b\ast)$ and $\lambda^(b\ast)$ independently of the regulatory minima $c^{min}$  and $\lambda^{min}$ so:
+Over the longer run the desired target of market level of capitalisation is increased but with a relatively small impacts on the cost of funding $f(c-c^\ast,\lambda-\lambda^\ast)$ and supply of credit. Standard corporate finance theory suggests, somewhat against the intuitions of banking practitioners,  that regulatory capital and liquidity requirements will have only a minor long-run impact on the cost of bank funding and the supply of bank credit [for elaboration see; @hellwig2014bankers]. This is because the marginal benefits of higher leverage resulting from the separation of ownership and control and resulting agency costs of equity depend upon the threat of intervention and consequent loss of managerial control. A breach of regulatory minimum capital or liquidity requirements triggers intervention and disciplines management in much the same way as a default on debt payments. Therefore, the relevant leverage is that based on the buffer of excess capital or liquidity ratios over and above the required regulatory minima. 
+
+If these buffers are independent of the regulatory minima i.e. if the desired capital and desired liquidity are determined by a fixed buffers $c^{(b^*)}$ and $\lambda^{(b^*)}$ independently of the regulatory minima $c^{min}$  and $\lambda^{min}$ so:
 $$
-c^\ast=c^(b*)+c^{min} 
-\lambda^\ast=\lambda^(b*)+\lambda^{min} 
+\begin{split}
+c^*=c^{(b^*)}+c^{min} \\
+\lambda^\ast=\lambda^{(b^*)}+\lambda^{min} 
+\end{split}
 $$
 
 Over the longer run, once balance sheets have fully adjusted, $c$ and $\lambda$ increase in line with $c^\ast$ and $\lambda^\ast$ and there is no impact on funding costs or credit supply.
@@ -246,22 +271,12 @@ For example, following an increase in regulatory capital requirements or an unex
 
 ## Implications for empirical modelling
 
-This discussion of coporate finance and banking theory, leads to an insight that can be exploited empirically in estimating the impact of requlatory requirements on the supply of lending.  The short term impact of an increase in required bank capital or liquidity will be quantitatively very similar to a decline in actual capital or liquidity resulting from earnings of balance sheet shocks. is useful because it allows conclusions about the impact of higher capital and liquidity requirements on the costs and  volume of loans, from to be based on observations of the impact shocks to observed bank capital and liquidity due to market, credit or other risks.
+This discussion of corporate finance and banking theory, leads to an insight that can be exploited empirically in estimating the impact of regulatory requirements on the supply of lending.  The short term impact of an increase in required bank capital or liquidity will be quantitatively very similar to a decline in actual capital or liquidity resulting from earnings of balance sheet shocks. is useful because it allows conclusions about the impact of higher capital and liquidity requirements on the costs and  volume of loans, from to be based on observations of the impact shocks to observed bank capital and liquidity due to market, credit or other risks.
 
-All this indicates that empirical modelling of the impact on regulatory requirements on capital and liquidity on the supply of bank lending is a challenging research task.    This task is made even more challenging by variation in bank risk appetite and in the perception of loan and other asset risks, both cross-sectionally between banks and in time series cyclically. Some banks may have relatively conservative business models seeking to avoid substantial portfolio tail risk and doing all they can to avoid potential financial distress; other business models may involve much greater risk taking. These differences affect both desired capital buffers and the response to discrepancy between desired and actual capital.  In periods of credit expansion banks across the industry may perceive risks of loss as relatively small and be unconcerned about low levels of capital buffers; while episodes of credit loss and especially  systemic financial crisis may trigger perceptions of high levels risk and more cautious behaviour. 
+All this indicates that empirical modelling of the impact on regulatory requirements on capital and liquidity on the supply of bank lending is a challenging research task.  This task is made even more challenging by variation in bank risk appetite and in the perception of loan and other asset risks, both cross-sectionally between banks and in time series cyclically. Some banks may have relatively conservative business models seeking to avoid substantial portfolio tail risk and doing all they can to avoid potential financial distress; other business models may involve much greater risk taking. These differences affect both desired capital buffers and the response to discrepancy between desired and actual capital.  In periods of credit expansion banks across the industry may perceive risks of loss as relatively small and be unconcerned about low levels of capital buffers; while episodes of credit loss and especially  systemic financial crisis may trigger perceptions of high levels risk and more cautious behaviour. 
 
-Further discussion of the determinants of funding costs: law, governance and transparency
 
-Like many other studies we are employing bank panel data for empirical estimation. These considerations indicate that we must introduce additional factors, not directly observed, that impact not only the demand for lending over time ($y_t$) and the supply both over time and across banks ($x_it$). Amending (\ref{loandemand1}) and \ref{loansupply1} and introducing both an index $i$ distinguishing banks as well as a index of time $t$, this yields: 
-
-$$
-L^d_{it}=\alpha_0+\alpha_1 r^l_{it}+\alpha_2 y_t+ \mu_{it} \label{loandemand2}
-$$
-$$
-L^s_{it}=\beta_0+\beta_1 (r^l_{it}-r_{t}-f(c_{it}-c^\ast_{it},\lambda_{it}-\lambda^\ast_{it}))+\beta_2 x_it+\nu_{it} \label{loansupply2}
-$$
-
-Relatively high costs of bank equity arise for several reasons, most obviously agency costs arising from the separation of ownership and control in larger institutions: senior management are disciplined by greater leverage and the resulting greater impact of their decisions on returns to equity holders. Debt may also have relatively lower cost than equity for institutional reasons, for example tax deductibility or access to strong retail deposit franchises, reasons that are especially important in an environment of high nominal interest rates. Arguably short-term wholesale debt funding is also relatively less costly than long term debt or equity because it exerts a stronger disciplinary role on management (Calomiris and Kahn).  
+Relatively high costs of bank equity arise for several reasons, most obviously agency costs arising from the separation of ownership and control in larger institutions: senior management are disciplined by greater leverage and the resulting greater impact of their decisions on returns to equity holders. Debt may also have relatively lower cost than equity for institutional reasons, for example tax deductibility or access to strong retail deposit franchises, reasons that are especially important in an environment of high nominal interest rates. Arguably short-term wholesale debt funding is also relatively less costly than long term debt or equity because it exerts a stronger disciplinary role on management [@calomiris1991role].  
 
 Costs of debt renegotiation and corporate restructuring are more difficult to characterise, arising for several reasons including: (i) the legal and administrative costs of valuing assets and assessing liabilities; (ii) the loss of value associated with finding purchasers of illiquid assets in ‘fire sales’  and (iii) resolution of conflicting claims in debt renegotiation or corporate restructuring; (iv) the loss of value from not continuing future value creating operations or selling them at a discount, what is referred to in the banking context as loss of ‘charter’ or ‘franchise’ value. Offsetting these costs, creating value for equity and debt holders, is the possibility of ‘risk shifting’ i.e. transferring losses onto third parties, in particular through government backed bailouts or deposit insurance arrangements. 
 
@@ -269,17 +284,13 @@ A further factor magnifying the costs and reducing the supply of bank credit is 
 
 ## Empirical studies of the impact of bank capital and capital regulation on credit supply
 
-Some studies exploit differences in capitalisation of bank holding companies and bank subsidiaries/ branches (to correct for the endogeneity of bank capital, resulting from the impact of credit demand on bank earnings and hence capital) to quantify the impact of a fall of capitalisation on the supply of bank credit. @peek1997international  find that in the period 1989H1 to 1995H2 a 1% reduction  in the Japanese bank parent risk-based capital ratio, due to the Japanese financial crisis , reduces the six-monthly growth rate of total lending by Japanese bank branches in the US by approximately 1.9\% of total branch assets and C&I lending by 0.8\% of total assets. @houston1997capital find that loan growth in US bank subsidiaries increases by 2\% following a 1\% addition to holding company capital, but there is no statistically significant impact from an addition to subsidiary capital, a supply effected resulting from the internal allocation of bank capital [see, @calomiris2003fundamentals; @calomiris1998bank on losses in the 1930s]. Several other papers find lower rates of credit expansion for banks close the regulatory minimum level of capital [see, @hancock1994bank; @berger1994lines; @nier2005bank; @van2008welfare; @gambacorta2004does; @berrospide2010effects].
+Some studies exploit differences in capitalisation of bank holding companies and bank subsidiaries/ branches (to correct for the endogeneity of bank capital, resulting from the impact of credit demand on bank earnings and hence capital) to quantify the impact of a fall of capitalisation on the supply of bank credit. @peek1997international  find that in the period 1989:H1 to 1995:H2 a 1% reduction in the Japanese bank parent risk-based capital ratio, due to the Japanese financial crisis, reduces the six-monthly growth rate of total lending by Japanese bank branches in the US by approximately 1.9\% of total branch assets and C&I lending by 0.8\% of total assets. @houston1997capital find that loan growth in US bank subsidiaries increases by 2\% following a 1\% addition to holding company capital, but there is no statistically significant impact from an addition to subsidiary capital, a supply effected resulting from the internal allocation of bank capital [see, @calomiris2003fundamentals; @calomiris1998bank on losses in the 1930s]. Several other papers find lower rates of credit expansion for banks close the regulatory minimum level of capital [see, @hancock1994bank; @berger1994lines; @nier2005bank; @van2008welfare; @gambacorta2004does; @berrospide2010effects].
  
 Another branch of the empirical literature investigates the impact of bank specific changes in regulatory capital requirements on bank credit growth. Much of this work has been undertaken using UK data, where bank regulators have set frequently adjusted individual bank ‘trigger ratios’ for minimum risk-weighted capital, higher than the Basel international minima, breach of which prompts additional supervisory intervention. @francis2012capital investigate the impact of changes in buffer capital, finding that a decline of risk weighted capital relative to an estimated target of 1\% reduces risk-weighted assets by 7\% (but the impact is relatively small when the result of a recent change in capital requirements and has not statistically significant impact on unweighted lending or total assets). @aiyar2014international and @aiyar2016does exploit the same UK data individual changes in bank capital requirements to quantify the direct impact of a change in the UK trigger ratios. @aiyar2014international investigate the impact on credit growth, using quarterly data for the period 1998-2007, employing a the current and three lags of changes in the trigger ratio (i.e. a similar specification to that used in this paper). They report that “an increase in the capital requirement ratio of 100 basis points, induces on average a  cumulative fall in loan growth of 5.7 and 6 percentage points.” These estimates include a bank specific credit demand proxy, based on weighted average employment growth in 14 industrial sectors and bank lending shares, but this proxy is not statistically significant. @aiyar2016does extend the specification to include changes in interest rates, reporting a similar only slightly smaller loan responses to changes in the trigger ratio. @aiyar2016does focus on impact on international lending by UK banks, allowing a stronger control for credit demand based on country specific time effects, reporting cumulative fall of international lending of between 5.5\%. 
 
 Related investigations for other countries obtain similar magnitude impacts: @jimenez2017macroprudential, exploiting the dynamic forward looking loan loss provisioning in Spain combined with firm-bank level data to identify credit supply impacts, find that countercyclical reductions in capital requirements in “bad times”, in the 2008:Q4 and 2009Q4, help sustain credit growth  (A 1 percentage point increase in capital buffers extends credit to firms by 9 percentage points);
 
-
-<!-- # Paragraph on role of bank capital in the empirical literature on money transmission. -->
-
 Relatively few studies for emerging markets investigating the impact of bank capital requirements on credit supply in emerging markets. @fang2020bank model bank loan growth, using a specification similar to @aiyar2016does, including a similar demand proxy, and quarterly bank data 2005- 2016 for Peru, including the period 2010-2011 when Basel III was phased  in together with an additional capital buffer in 2011. “A one percentage increase in anticipated KR reduces lending by 4-6 percent in the same quarter, but the impact is short lived, becoming statistically insignificant only two quarters later and with a larger impact on weak banks in difficult economic periods.”
-
 
 
 # Developments in South African Banking
@@ -287,11 +298,10 @@ Relatively few studies for emerging markets investigating the impact of bank cap
 ## Economic background.
 During the first fifteen years of democracy, from 1993 to 2008, real South African GDP grew at more than 3.5\% per year^[Macroeconomic data, except where otherwise specified, is from the IMF data mapper https://www.imf.org/external/datamapper/profile/ZAF];  supported by the post-apartheid reintegration into the global economy, trade liberalisation, a diversification of economic activity and a policy regime emphasising both fiscal and monetary discipline^[@nowak2005first; @nowak2006post].  Public debt was reduced from 48\% of GDP in 1995 to 28\% in 2007 ^[See the 2010 IMF Article IV consultation, Sept 2010, highlighting South Africa’s strong economic performance since the mid-1990s.].  Inflation fell from 9.1\% in 1993-95 to 3.2\% in 2004-2005,  with inflation targeting formally introduced in February 2000.
 
-
 ```{r}
 #| fig.cap = "Long term economic developments. Source: World Bank (2022)",
 #| cache = FALSE,
-#| include = TRUE,
+#| include = FALSE,
 #| eval = TRUE,
 #| fig.height = 3
 
@@ -313,7 +323,6 @@ long_term_gg
 ```
 
 
-
 South Africa was also financially stable with a profitable and well capitalised albeit concentrated banking sector. GDP growth slowed temporarily on occasion, triggered by capital outflows and pressure on the exchange rate, both in 1998 during the aftermath of the Asian financial crisis and in 2001 during the post-dot.com global economic slowdown. There were some small bank failures during the latter episode, but neither episode had any systemic financial impact and demand and growth recovered relatively quickly.
 
 There were underlying economic weaknesses: most prominently high levels of poverty, unemployment and inequality, together with relatively low levels of educational achievement and skills-shortages. There was also a reliance for growth in domestic demand, with increasing household debt to income ratios, especially from mortgage borrowing by higher income households and rising prices for property and other assets. This bias is reflected in a comparatively high private sector credit to GDP ratio and a widening current account deficit, increasing from an average of -1\% in 1994-1999 to -3\% in 2003-2008. 
@@ -324,31 +333,23 @@ The global pandemic had a substantial impact on the South African economy, with 
 
 ## Banking sector: structure and regulation
 
-There are 34 active licensed banks in South Africa^[https://www.resbank.co.za/en/home/what-we-do/Prudentialregulation/sa-registered-banks-and-representative-offices, January 2022; these consisted of 13 branches of foreign banks, 4 foreign controlled commercial bank subsidiaries, 14 locally controlled commercial banks and 3 mutual banks.];  but of these five domestically controlled commercial banks together account for around 90\% of banking sector assets^[As of April, 2020, these were (\% of banking sector assets): Standard Bank of South Africa (24.1\%), First Rand (20.4\%), ABSA (19.8\%), Nedbank (17.0\%) and Investec (7.8\%); the next largest bank is Capitec (2\%).].  South Africa also has a sophisticated non-bank financial services industry with large life- insurance, pension and unit-trust sectors. The ratio of bank assets to GDP is [check 112\%] while total financial sector assets amount to [298\%] of GDP. 
+There are 34 active licensed banks in South Africa^[https://www.resbank.co.za/en/home/what-we-do/Prudentialregulation/sa-registered-banks-and-representative-offices, January 2022; these consisted of 13 branches of foreign banks, 4 foreign controlled commercial bank subsidiaries, 14 locally controlled commercial banks and 3 mutual banks.];  but of these five domestically controlled commercial banks together account for around 90\% of banking sector assets^[As of April, 2020, these were (\% of banking sector assets): Standard Bank of South Africa (24.1\%), First Rand (20.4\%), ABSA (19.8\%), Nedbank (17.0\%) and Investec (7.8\%); the next largest bank is Capitec (2\%).].  South Africa also has a sophisticated non-bank financial services industry with large life- insurance, pension and unit-trust sectors. The ratio of bank assets to GDP is 112\% while total financial sector assets amount to 298\% of GDP. 
+
+South Africa has an well-developed regime of financial regulation that has evolved in line with international financial standards.  By the mid-2000s Basel II risk-based capital requirements were introduced for the large commercial banks. Higher Basel III requirements were phased in between 2013 and 2020 (with some countercyclical reduction in required capital as a response to the pandemic). The buffer of bank capital, over minimum regulatory requirements, for the sector has varied, rising from around 2\%, in 2008 to 6\% in 2013, but with the introduction of the higher Basel III requirements has since fallen, fluctuating in range of 2-4\% since 2015 (see Figure \@ref(fig:capital)). A solvency regime, similar to the EU Solvency II, for the life insurance sector was introduced in 2011, along with a program of regulatory reform including a shift to a ‘twin peaks’ organisational structure legislated in 2017, with the SARB responsible for prudential and systemic risk while the Financial Sector Conduct Authority for market conduct and consumer protection. 
 
 ```{r}
-#| fig.cap = "Bank assets. Source: South African Reserve Bank (2022)",
+#| inter,
+#| fig.cap = "Internatinal Comparison. Source: World Bank (2022)",
 #| cache = FALSE,
-#| include = TRUE,
-#| fig.height = 4
+#| include = FALSE,
+#| eval = TRUE,
+#| fig.height = 3
 
-preprocessing_quarterly <-  read_rds(here("Outputs", "artifacts_preprocessing_quartely.rds"))
-
-BA_900_to_GDP_tbl <- preprocessing_quarterly$Totals$combined_gdp_ratio_data_tbl 
-  
-BA_900_to_GDP_combined_gg <- BA_900_to_GDP_tbl %>% 
-   mutate(across(.cols = -Date, .fns = ~.x/100)) %>% 
-   pivot_longer(-Date, values_to = "Value", names_to = "Series") %>% 
-  multi_line_plot(variables_color = 7, legend_position = "none") +
-     scale_y_continuous(labels = scales::label_percent()) +
-  facet_wrap(~ Series, scales = "free_y") +
-  labs(subtitle = "Bank assets as a percentage of GDP" )
-
-BA_900_to_GDP_combined_gg 
-
+internation_comp <- read_rds(here("Outputs", "artifacts_int_comp.rds"))
+internation_comp$graph$int_comp_average_gg
+ 
 ```
 
-South Africa has an well-developed regime of financial regulation that has evolved in line with international financial standards. By the mid-2000s Basel II risk-based capital requirements were introduced for the large commercial banks. Higher Basel III requirements were phased in between 2013 and 2020 (with some countercyclical reduction in required capital as a response to the pandemic). The buffer of bank capital, over minimum regulatory requirements, for the sector has varied, rising from around 2\%, in 2008 to 6\% in 2013 , but with the introduction of the higher Basel III requirements [and a decline in bank profits ?] has since fallen, fluctuating in range of 2-4\% since 2015. A solvency regime, similar to the EU Solvency II, for the life insurance sector was introduced in 2011 [?], along with a program of regulatory reform including a shift to a ‘twin peaks’ organisational structure legislated in 2017, with the SARB responsible for prudential and systemic risk while the Financial Sector Conduct Authority for market conduct and consumer protection. 
 
 ```{r}
 #| cache = FALSE,
@@ -388,39 +389,60 @@ preprocessing_monthly$masters$total_master_tbl %>%
 
 
 ```{r}
+#| capital,
+#| fig.cap = "Capital requirements. Source: South African Reserve Bank (2022)",
 #| cache = FALSE,
-#| include = FALSE,
+#| include = TRUE,
 #| fig.height = 3
 
+preprocessing_monthly <-  read_rds(here("Outputs", "artifacts_preprocessing_monthly.rds"))
 
-BA_900_quarterly_tbl <- preprocessing_quarterly$Totals$combined_level_data_tbl
-BA_900_quarterly_combined_gg <- 
-  BA_900_quarterly_tbl %>% 
+Capital_monthly_tbl <- preprocessing_monthly$Totals$capital_buffer_tbl %>% 
+  mutate(`Total capital held` = `Minimum requirement` + `Surplus capital`) %>% 
+  rename(
+    "Minimum capital requirement" = `Minimum requirement`,
+    "Surplus capital held" = `Surplus capital`)
+Capital_monthly_combined_gg <- 
+  Capital_monthly_tbl %>% 
+  mutate(across(.cols = -Date, .fns = ~.x/100)) %>% 
   pivot_longer(-Date, values_to = "Value", names_to = "Series") %>% 
   multi_line_plot(variables_color = 7, legend_position = "none") +
-     scale_y_continuous(labels = scales::label_dollar(prefix =  "R", 
-                                                       scale_cut = cut_short_scale())) +
-  facet_wrap(~ Series, scales = "free_y") +
-  labs(subtitle = "Bank assets in Rand" )
+     scale_y_continuous(labels = scales::label_percent()) +
+  facet_wrap(~ Series) 
   
-
+Capital_monthly_combined_gg
 ```
 
-This prudential regulation and South Africa’s well-capitalised banking sector has prevented the emergence any systemic financial crisis. There is concern about the reliance of the main South African banks on wholesale deposit funding, from non-financial corporates and non-bank financial institutions, which has created some challenges in meeting the Basel III ‘net stable funding requirements’ NSFR ratio. None of the episodes of financial stress, though, in the past three decade have triggered systemic financial problems. These episodes are the exchange rate depreciations of 1998 and 2001, the latter associated with a number of small bank failures, the impact of the 2008 GFC, the failure of a small lender Africa Bank in 2014 or the 2020 pandemic. Non-performing loans have risen substantially, as a share of bank loans, both in the early 2000’s and following the 2008 GFC and the 2020 pandemic to reach around 5\% of gross loans outstanding [IMF financial soundness indicators]. But the banking sector has remained profitable with return on assets close to 1.5\% and return on equity around 15\% over the years 2008-2020. 
+This prudential regulation and South Africa’s well-capitalised banking sector has prevented the emergence any systemic financial crisis. There is concern about the reliance of the main South African banks on wholesale deposit funding, from non-financial corporates and non-bank financial institutions, which has created some challenges in meeting the Basel III ‘net stable funding requirements’ NSFR ratio. None of the episodes of financial stress, though, in the past three decade have triggered systemic financial problems. These episodes are the exchange rate depreciations of 1998 and 2001, the latter associated with a number of small bank failures, the impact of the 2008 GFC, the failure of a small lender Africa Bank in 2014 or the 2020 pandemic. Non-performing loans have risen substantially, as a share of bank loans, both in the early 2000’s and following the 2008 GFC and the 2020 pandemic to reach around 5\% of gross loans outstanding ^[IMF financial soundness indicators]. But the banking sector has remained profitable with return on assets close to 1.5\% and return on equity around 15\% over the years 2008-2020. 
 
-While banks have remained profitable, the growth of private sector credit in South Africa slowed substantially after the GFC. The share of banking sector household mortgage lending to GDP fell from 26\% in 2008 to 18\% in 2020 [need to check any off balance sheet developments]. Other forms of household credit, secured and unsecured, grew by around 2\% of GDP between 2008 and 2013 but have since fallen back. Credit to non-financial corporations has also fallen somewhat since 2008. 
+
+While banks have remained profitable, the growth of private sector credit in South Africa slowed substantially after the GFC (see Figure \@ref(fig:assets)). The share of banking sector household mortgage lending to GDP fell from 26\% in 2008 to 18\% in 2020. Other forms of household credit, secured and unsecured, grew by around 2\% of GDP between 2008 and 2013 but have since fallen back. Credit to non-financial corporations has also fallen somewhat since 2008. 
+
 
 ```{r}
-#| fig.cap = "Internatinal Comparison. Source: World Bank (2022)",
+#| assets,
+#| fig.cap = "Bank assets. Source: South African Reserve Bank (2022)",
 #| cache = FALSE,
-#| include = FALSE,
-#| eval = TRUE,
-#| fig.height = 3
+#| include = TRUE,
+#| fig.height = 5
 
-internation_comp <- read_rds(here("Outputs", "artifacts_int_comp.rds"))
-internation_comp$graph$int_comp_average_gg
- 
+
+preprocessing_quarterly <-  read_rds(here("Outputs", "artifacts_preprocessing_quartely.rds"))
+
+BA_900_to_GDP_tbl <- preprocessing_quarterly$Totals$combined_gdp_ratio_data_tbl
+  
+BA_900_to_GDP_combined_gg <- BA_900_to_GDP_tbl %>% 
+   mutate(across(.cols = -Date, .fns = ~.x/100)) %>% 
+   pivot_longer(-Date, values_to = "Value", names_to = "Series") %>% 
+  multi_line_plot(variables_color = 7, legend_position = "none") +
+     scale_y_continuous(labels = scales::label_percent()) +
+  facet_wrap(~ Series, ncol = 2, scales = "free_y") +
+  labs(subtitle = "Bank assets as a percentage of GDP" )
+
+BA_900_to_GDP_combined_gg 
+
 ```
+
 
 ```{r}
 #| fig.cap = "Credit Cycle. Source: South African Reserve Bank (2022)",
@@ -488,7 +510,7 @@ combined_BA900_gg
 ```{r}
 #| fig.cap = "Lending Rates. Source: South African Reserve Bank (2022)",
 #| cache = FALSE,
-#| include = TRUE,
+#| include = FALSE,
 #| fig.height = 4
 
 lending_rates_cleaned_tbl <- preprocessing_quarterly$Totals$combined_lending_tbl
@@ -508,48 +530,8 @@ lending_rates_cleaned_gg
   
 ```
 
+
 # Methodology and Data
-
-The goal of this study is  model the impact of capital on loan supply. However, in general it is difficult to disentangle factors which impact on loan supply from loan demand. That is, changes in overall loans can be as a result of both supply and demand factors. Theoretically, this interplay can be highlighted in the following manner. 
-
-
-```{r}
-#| bs
-
-tibble(
-" " = c("Loan type 1", "Loan type 2" , "Securities" ),
-"Assets" = c("L_1", "L_2", "S"),
-"Liabilities" = c("D", "F", "C"),
-"  " = c("Deposits", "Funding", "Capital")
-)	%>% flextable_word(
-  caption = "Hyphothetical Balance Sheet",
-  ) %>%
-  align(align = "left", part = "all") %>%
-  align(j = c(2,3), align = "center", part = "all") %>% 
-  align(j = 4, align = "right", part = "all") %>% 
-  autofit(add_w = 0.9) %>% 
-  vline(j = c(1, 3), border = border, part = "all") %>% 
-  compose(i = 1, j = 2, part = "body", value = as_paragraph(as_equation("L_1"))) %>% 
-  compose(i = 2, j = 2, part = "body", value = as_paragraph(as_equation("L_2"))) %>% 
-  compose(i = 3, j = 2, part = "body", value = as_paragraph(as_equation("S"))) %>% 
-  compose(i = 1, j = 3, part = "body", value = as_paragraph(as_equation("D"))) %>% 
-  compose(i = 2, j = 3, part = "body", value = as_paragraph(as_equation("F"))) %>% 
-  compose(i = 3, j = 3, part = "body", value = as_paragraph(as_equation("C")))
-
-```
-
-	
-	
-Given the hypothetical balance sheet in Table \@ref(tab:bs), the demand for the two types is given as follows:
-	
-$$L_1^d = D_1(r_1^-, \boldsymbol{y}), $$ and 
-$$L_2^d = D_2(r_2^-, \boldsymbol{y}), $$
-where $r_1$ and $r_2$ are the interest rates or price of the loans, and $\boldsymbol{y}$ is a set of independent factors such as economic growth which can have a bearing on loan demand and supply.
-	
-The hypothetical bank then targets a minimum level of capital ($C_{min}$) as a loan weighted average of its costs of capital $C_{min} = w_1L_1 + w_2L_2$. The optimal level of  capital  ($C^*$) can be given by some fraction ($\alpha$) of $C_{min}$ such that $C^* = (1+\alpha)C_{min}$. The capital surplus, therefore, is $C - C_{min}$. Given a market rate $r$ which can be thought of a policy rate, and the interest margin on the loans (for example, $r_{1} -r$), the supply of loans is:
-$$L_1^s = D_1((r_1 - r)^+,  (C - C_{min})^+, \boldsymbol{y}),$$ and 
-$$L_2^s = D_2((r_2 - r)^+,  (C - C_{min})^+, \boldsymbol{y}).$$ 
-
 
 This indicates that we can expect to see bank capital requirements impacting both the interest rate margin and the level of lending. The full impact will take account of both direct impact on bank lending and any indirect impact on loan margins. Therefore, our specification follows @fang2020bank and @aiyar2016does. However we ignore their demand variable. Demand will be captured by control variables, including  time dummies and allowing for both the direct impact of capital on loan margins. Lastly we incorporate three quarter lags to capture the gradual impact on changes in loan supply ($\Delta L_{b,t}$). Therefore we postulate the following specification:
 
