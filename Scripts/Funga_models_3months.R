@@ -97,12 +97,12 @@ preprocessed_data_banks_base_tbl <-
   )) %>%
   mutate(across(
     .cols = matches("Return on assets"),
-    .fns = ~  .x - lag(.x),
+    .fns = ~  .x - lag(.x, n =3),
     .names = "Change in {.col}"
   )) %>%
   mutate(across(
     .cols = matches("Return on equity"),
-    .fns = ~  .x - lag(.x),
+    .fns = ~  .x - lag(.x, n =3),
     .names = "Change in {.col}"
   )) %>%
   mutate(across(
@@ -112,7 +112,7 @@ preprocessed_data_banks_base_tbl <-
   )) %>%     # logging liquidity
   mutate(across(
     .cols = contains("Log of level one high"),
-    .fns = ~  .x - lag(.x),
+    .fns = ~  .x - lag(.x, n =3),
     .names = "Change in {.col}"
   )) %>%
   mutate(across(

@@ -76,6 +76,7 @@ library(gt)
 library(officer)
 library(modelsummary)
 library(plm)
+library(datawizard)
 
 theme <-
   theme_minimal(base_size = 6) +
@@ -138,7 +139,7 @@ The principal data employed is monthly balance sheet data, from 2008 to 2022, fo
 
 This focus on a small set of large banks has some advantages. We can pay close attention to key institutional features: the use by all these institutions of sophisticated tools of capital management and the substantial volumes of wholesale deposits from non-financial corporates and non-bank financial institutions which impacts in particular on their Basel III net stable funding ratios. It also though has the disadvantage of providing only a relative small data set, with few periods in which banks faced substantial problems of balance sheet capital or liquidity management. 
 
-Section II is our literature review. This first briefly summarises  the findings of similar empirical studies of the impact of changes in capital and liquidity on bank credit supply , most of which are for developed countries. It then provides an intuitive review of the mechanisms through which balance sheet constraints can be expected to impact on the supply of bank credit, drawing on a substantial theoretical and empirical literature. This identifies several key points shaping the empirical investigation.
+Section \@ref(literature) is our literature review. This first briefly summarises  the findings of similar empirical studies of the impact of changes in capital and liquidity on bank credit supply , most of which are for developed countries. It then provides an intuitive review of the mechanisms through which balance sheet constraints can be expected to impact on the supply of bank credit, drawing on a substantial theoretical and empirical literature. This identifies several key points shaping the empirical investigation.
 
 \begin{itemize}
     \item Consistent with the observed behaviour of banks in South Africa, banks can be expected to manage their balance sheets by maintaining buffers of excess capital and liquidity, over and above required regulatory minima.
@@ -147,11 +148,11 @@ Section II is our literature review. This first briefly summarises  the findings
     \item These impacts are portfolio wide, affecting all categories of credit, allowing us to explore the imposition of cross equation restrictions to increase the power of our hypothesis testing.  
 \end{itemize}
 
-Section III summarise the key developments in South African banking over our sample period. These include: the recovery of the banking sector from the impact of the global financial crisis 2009-2011 and an associated rebuilding of capital buffers; the phasing in of Basel III from 2013 to 2019; the impact of from 2014 onwards of emerging structural economic problems, reducing economic growth and increasing non-performing loans and the Covid-19 pandemic
+Section \@ref(economic) summarise the key developments in South African banking over our sample period. These include: the recovery of the banking sector from the impact of the global financial crisis 2009-2011 and an associated rebuilding of capital buffers; the phasing in of Basel III from 2013 to 2019; the impact of from 2014 onwards of emerging structural economic problems, reducing economic growth and increasing non-performing loans and the Covid-19 pandemic
 
-Section IV describes our data set and sets out our empirical specification. Section V reports our empirical results. Section VI concludes.
+Section \@ref(data) describes our data set and sets out our empirical specification. Section \@ref(results) reports our empirical results. Section \@ref(conclusion) concludes.
 
-# Conceptual framework and literature
+# Conceptual framework and literature {#literature}
 
 ## A conceptual framework drawing on corporate finance and banking theory
 
@@ -293,7 +294,7 @@ Related investigations for other countries obtain similar magnitude impacts: @ji
 Relatively few studies for emerging markets investigating the impact of bank capital requirements on credit supply in emerging markets. @fang2020bank model bank loan growth, using a specification similar to @aiyar2016does, including a similar demand proxy, and quarterly bank data 2005- 2016 for Peru, including the period 2010-2011 when Basel III was phased  in together with an additional capital buffer in 2011. “A one percentage increase in anticipated KR reduces lending by 4-6 percent in the same quarter, but the impact is short lived, becoming statistically insignificant only two quarters later and with a larger impact on weak banks in difficult economic periods.”
 
 
-# Developments in South African Banking
+# Developments in South African Banking {#economic}
 
 ## Economic background.
 During the first fifteen years of democracy, from 1993 to 2008, real South African GDP grew at more than 3.5\% per year^[Macroeconomic data, except where otherwise specified, is from the IMF data mapper https://www.imf.org/external/datamapper/profile/ZAF];  supported by the post-apartheid reintegration into the global economy, trade liberalisation, a diversification of economic activity and a policy regime emphasising both fiscal and monetary discipline^[@nowak2005first; @nowak2006post].  Public debt was reduced from 48\% of GDP in 1995 to 28\% in 2007 ^[See the 2010 IMF Article IV consultation, Sept 2010, highlighting South Africa’s strong economic performance since the mid-1990s.].  Inflation fell from 9.1\% in 1993-95 to 3.2\% in 2004-2005,  with inflation targeting formally introduced in February 2000.
@@ -335,20 +336,162 @@ The global pandemic had a substantial impact on the South African economy, with 
 
 There are 34 active licensed banks in South Africa^[https://www.resbank.co.za/en/home/what-we-do/Prudentialregulation/sa-registered-banks-and-representative-offices, January 2022; these consisted of 13 branches of foreign banks, 4 foreign controlled commercial bank subsidiaries, 14 locally controlled commercial banks and 3 mutual banks.];  but of these five domestically controlled commercial banks together account for around 90\% of banking sector assets^[As of April, 2020, these were (\% of banking sector assets): Standard Bank of South Africa (24.1\%), First Rand (20.4\%), ABSA (19.8\%), Nedbank (17.0\%) and Investec (7.8\%); the next largest bank is Capitec (2\%).].  South Africa also has a sophisticated non-bank financial services industry with large life- insurance, pension and unit-trust sectors. The ratio of bank assets to GDP is 112\% while total financial sector assets amount to 298\% of GDP. 
 
-South Africa has an well-developed regime of financial regulation that has evolved in line with international financial standards.  By the mid-2000s Basel II risk-based capital requirements were introduced for the large commercial banks. Higher Basel III requirements were phased in between 2013 and 2020 (with some countercyclical reduction in required capital as a response to the pandemic). The buffer of bank capital, over minimum regulatory requirements, for the sector has varied, rising from around 2\%, in 2008 to 6\% in 2013, but with the introduction of the higher Basel III requirements has since fallen, fluctuating in range of 2-4\% since 2015 (see Figure \@ref(fig:capital)). A solvency regime, similar to the EU Solvency II, for the life insurance sector was introduced in 2011, along with a program of regulatory reform including a shift to a ‘twin peaks’ organisational structure legislated in 2017, with the SARB responsible for prudential and systemic risk while the Financial Sector Conduct Authority for market conduct and consumer protection. 
+South Africa has an well-developed regime of financial regulation that has evolved in line with international financial standards. A solvency regime, similar to the EU Solvency II, for the life insurance sector was introduced in 2011, along with a program of regulatory reform including a shift to a ‘twin peaks’ organisational structure legislated in 2017, with the SARB responsible for prudential and systemic risk while the Financial Sector Conduct Authority for market conduct and consumer protection.   
+
+This prudential regulation and South Africa’s well-capitalised banking sector has prevented the emergence any systemic financial crisis. There is concern about the reliance of the main South African banks on wholesale deposit funding, from non-financial corporates and non-bank financial institutions, which has created some challenges in meeting the Basel III ‘net stable funding requirements’ NSFR ratio. None of the episodes of financial stress, though, in the past three decade have triggered systemic financial problems. These episodes are the exchange rate depreciations of 1998 and 2001, the latter associated with a number of small bank failures, the impact of the 2008 GFC, the failure of a small lender Africa Bank in 2014 or the 2020 pandemic. Non-performing loans have risen substantially, as a share of bank loans, both in the early 2000’s and following the 2008 GFC and the 2020 pandemic to reach around 5\% of gross loans outstanding ^[IMF financial soundness indicators]. But the banking sector has remained profitable with return on assets close to 1.5\% and return on equity around 15\% over the years 2008-2020. 
+
+
 
 ```{r}
-#| inter,
-#| fig.cap = "Internatinal Comparison. Source: World Bank (2022)",
+#| assets,
+#| fig.cap = "Bank assets. Source: South African Reserve Bank (2022)",
 #| cache = FALSE,
-#| include = FALSE,
-#| eval = TRUE,
-#| fig.height = 3
+#| include = TRUE,
+#| fig.height = 5
 
-internation_comp <- read_rds(here("Outputs", "artifacts_int_comp.rds"))
-internation_comp$graph$int_comp_average_gg
- 
+
+preprocessing_quarterly <-  read_rds(here("Outputs", "artifacts_preprocessing_quartely.rds"))
+
+BA_900_to_GDP_tbl <- preprocessing_quarterly$Totals$combined_gdp_ratio_data_tbl
+  
+BA_900_to_GDP_combined_gg <- BA_900_to_GDP_tbl %>% 
+   mutate(across(.cols = -Date, .fns = ~.x/100)) %>% 
+   pivot_longer(-Date, values_to = "Value", names_to = "Series") %>% 
+  multi_line_plot(variables_color = 7, legend_position = "none") +
+     scale_y_continuous(labels = scales::label_percent()) +
+  facet_wrap(~ Series, ncol = 2, scales = "free_y") +
+  labs(subtitle = "Bank assets as a percentage of GDP" )
+
+BA_900_to_GDP_combined_gg 
+
 ```
+
+
+While banks have remained profitable, the growth of private sector credit in South Africa slowed substantially after the GFC (see Figure \@ref(fig:assets)). The share of banking sector household mortgage lending to GDP fell from 26\% in 2008 to 18\% in 2020. Other forms of household credit, secured and unsecured, grew by around 2\% of GDP between 2008 and 2013 but have since fallen back. Credit to non-financial corporations has also fallen somewhat since 2008. 
+
+## Capital requirements reforms in South Africa {#capital-requirements}
+
+In line with international standards, South Africa implemented the Basel III bank capital regulation framework between 2013 and 2019. The structure of the regulations was well in line with the international norms (see Table \@ref(tab:basel). Although the framework is specific to common equity Tier 1^[Mainly common shares, paid-in capital and retained earning.] and Tier 1^[common equity Tier 1 plus other instruments with no fixed maturity subordinate to debt.] capital, this study focuses on the total capital requirements. The structure of the requirements starts with the base minimum, which is the same as international standards. Pillar 2A is the systemic risk requirement; Pillar 2B is the bank-specific individual capital requirement and a range of buffers which can apply to domestic systemically important banks.
+
+
+```{r}
+#| basel,
+#| ft.arraystretch = 0.8
+
+tibble(
+  " " = c(
+    "Basel III minima",
+    "South African minima",
+    "Pillar 2A",
+    "South Africa base minima",
+    "Pillar 2B (ICR)",
+    "Prudential minima",
+    "Systemically important buffer",
+    "Capital conservation buffer",
+    "Countercyclical buffer"
+         ),
+  "Percent" = c(
+    "8", 
+    "8", 
+    "0.5 to 2", 
+    "8+Pillar 2A", 
+    "no specific range",
+    "8+Pillar2A+ICR",
+    "0.5 to 2.5",
+    "0 to 2.5",
+    "0 to 2.5") 
+) %>% 
+  flextable_word(
+    caption = "Basel III capital requirements structure"
+  ) %>% 
+  autofit(add_w = 1.8) 
+
+
+```
+
+The authorities^[see Annexure A and B of Directive 5 of 2013 by the Office of the Register of Banks, South African Reserve Bank] stipulated the phase-in period shown in Table \@ref(tab:phasein). Of interest is that the conservation buffer, countercyclical buffers, and the high liquid asset requirement for domestic systemically important banks were only introduced in 2016. At the same time, the systemic risk capital requirement (Pillar 2A) was reduced to avoid double counting. In the main, the authorities persisted with the phase-in schedule will only minor deviations regarding the range-bound measures.
+
+
+```{r}
+#| phasein
+  
+tibble(
+  " " = c(
+    "Basel III minima",
+    "Pillar 2A for Total Capital",
+    "Minimum Total Capital Plus 2A",
+    "Phasing in of specified charge for systemically important banks (as % of Pillar 2A)",
+    "Capital conservation buffer",
+    "Countercyclical buffer"
+  ),
+  "2013" = c(
+    "8",
+    "1.5",
+    "9.5",
+    "",
+    "",
+    ""
+  ),
+  "2014" = c(
+    "8",
+    "2",
+    "10",
+    "",
+    "",
+    ""
+  ),
+  "2015" = c(
+    "8",
+    "2",
+    "10",
+    "",
+    "",
+    ""
+  ),
+  "2016" = c(
+    "8",
+    "1.8",
+    "9.8",
+    "25",
+    "0.625",
+    "0.625"
+  ),
+  "2017" = c(
+    "8",
+    "1.5",
+    "9.5",
+    "50",
+    "1.25",
+    "1.25"
+  ),
+  "2018" = c(
+    "8",
+    "1.3",
+    "9.3",
+    "75",
+    "1.875",
+    "1.875"
+  ),
+  "2019" = c(
+    "8",
+    "1",
+    "9",
+    "100",
+    "2.5",
+    "2.5"
+  )
+) %>% 
+  flextable_word(
+    caption = "Basel III implementation (%)"
+  ) %>% 
+  autofit(add_w = -.15) 
+
+
+```
+
+
+
+Regarding bank regulations^[That is regulation 38 of the Bank Regulations (Bank Act, 1990)], South African banks must hold a discretionary buffer above the regulated minimum requirements. This discretionary buffer is determined, amongst others, by environmental factors. For example, the buffer of bank capital over minimum regulatory requirements for the sector has varied, rising from around 2\% in 2008 to 6\% in 2013, but with the introduction of the higher Basel III requirements has since fallen, fluctuating in range of 2-4\% since 2015 (see Figure \@ref(fig:capital)). 
 
 
 ```{r}
@@ -401,7 +544,7 @@ Capital_monthly_tbl <- preprocessing_monthly$Totals$capital_buffer_tbl %>%
   mutate(`Total capital held` = `Minimum requirement` + `Surplus capital`) %>% 
   rename(
     "Minimum capital requirement" = `Minimum requirement`,
-    "Surplus capital held" = `Surplus capital`)
+    "Capital buffer" = `Surplus capital`)
 Capital_monthly_combined_gg <- 
   Capital_monthly_tbl %>% 
   mutate(across(.cols = -Date, .fns = ~.x/100)) %>% 
@@ -413,142 +556,31 @@ Capital_monthly_combined_gg <-
 Capital_monthly_combined_gg
 ```
 
-This prudential regulation and South Africa’s well-capitalised banking sector has prevented the emergence any systemic financial crisis. There is concern about the reliance of the main South African banks on wholesale deposit funding, from non-financial corporates and non-bank financial institutions, which has created some challenges in meeting the Basel III ‘net stable funding requirements’ NSFR ratio. None of the episodes of financial stress, though, in the past three decade have triggered systemic financial problems. These episodes are the exchange rate depreciations of 1998 and 2001, the latter associated with a number of small bank failures, the impact of the 2008 GFC, the failure of a small lender Africa Bank in 2014 or the 2020 pandemic. Non-performing loans have risen substantially, as a share of bank loans, both in the early 2000’s and following the 2008 GFC and the 2020 pandemic to reach around 5\% of gross loans outstanding ^[IMF financial soundness indicators]. But the banking sector has remained profitable with return on assets close to 1.5\% and return on equity around 15\% over the years 2008-2020. 
 
 
-While banks have remained profitable, the growth of private sector credit in South Africa slowed substantially after the GFC (see Figure \@ref(fig:assets)). The share of banking sector household mortgage lending to GDP fell from 26\% in 2008 to 18\% in 2020. Other forms of household credit, secured and unsecured, grew by around 2\% of GDP between 2008 and 2013 but have since fallen back. Credit to non-financial corporations has also fallen somewhat since 2008. 
 
+# Data and Methodology {#data}
 
-```{r}
-#| assets,
-#| fig.cap = "Bank assets. Source: South African Reserve Bank (2022)",
-#| cache = FALSE,
-#| include = TRUE,
-#| fig.height = 5
+We collected data on the four major South African banks; Absa Bank, Standard Bank, First National Bank, and Nedbank. Together these constitute over 80\% of the banking sector assets. Our main data sources were the monthly Banks Act (BA) statutory disclosures collected by the South African Reserve Bank (SARB). The Banks Act obliges the SARB to collect and publish bank balance sheets and other data to understand the country's banking activity scale. We mainly utilised the BA900s (bank economic returns) and the BA930s (bank product lending rates). The Basel III capital requirements (BA700s) data was collected from the South African Prudential Authority (PA) - the financial sector regulator. From the same source, we also collected the controls data. Tables \@ref(tab:data) and \@ref(tab:data1) in the Appendix summarise the specific data. Lastly, most bank-level data is private or internal to the SARB; however, the BA900s bank-level data is public.
 
+Our focus is on the effect of higher capital buffer requirements on real economic activity lending. Real economic activity lending in the BA900s is represented by lending to households and non-financial corporations. However, the BA900s only report granular lending categories to households and non-financial corporations. Therefore, some aggregation was necessary. The process of aggregation, or combining related granular lending categories into broader categories, is clearly explained in Section \@ref(aggregation) in the Appendix. The result is lending three categories for households and non-financial corporations: unsecured credit, secured credit, and mortgages. These six categories form the foundation of our analysis. 
 
-preprocessing_quarterly <-  read_rds(here("Outputs", "artifacts_preprocessing_quartely.rds"))
+Following @fang2020bank and @aiyar2016does, we transformed some data for modelling purposes as summarised in Table \@ref(tab:summaries). In the literature section, we explained the challenges in separating the bank lending effect of specific Basel III actions from banks' normal risk and portfolio adjustment actions. To solve the identification problem, we distinguish between Basel III "jumps" and normal bank activity "wiggles" (see Figure \@ref(fig:capital)). Therefore, $\Delta KR$ or minimum capital buffer requirement is a dummy that isolates the specific Basel III changes to the regulatory capital buffer requirements as explained in Section \@ref(capital-requirements). To reflect the its importance in the South African context, we clearly distinguish between the excess capital that the banks choose to hold above the minimum capital buffer requirement ($\Delta KS$). As explained in Section \@ref(capital-requirements) South African banks are encouraged to hold a significant portion in excess capital.
 
-BA_900_to_GDP_tbl <- preprocessing_quarterly$Totals$combined_gdp_ratio_data_tbl
-  
-BA_900_to_GDP_combined_gg <- BA_900_to_GDP_tbl %>% 
-   mutate(across(.cols = -Date, .fns = ~.x/100)) %>% 
-   pivot_longer(-Date, values_to = "Value", names_to = "Series") %>% 
-  multi_line_plot(variables_color = 7, legend_position = "none") +
-     scale_y_continuous(labels = scales::label_percent()) +
-  facet_wrap(~ Series, ncol = 2, scales = "free_y") +
-  labs(subtitle = "Bank assets as a percentage of GDP" )
+@fang2020bank construct a demand measure based on sector-specific lending weights as a proportion of sector output. This approach is impossible as we do not have sector-specific lending weights. However, we can utilise the lending rates corresponding to our six broad lending categories (see Figure \@ref(fig:lending) in the Appendix). We define $\Delta Demand$ as the change in the interest rate margin (lending rate less the SARB policy rate) as a measure of lending demand.
 
-BA_900_to_GDP_combined_gg 
+After adjusting the data in Table \@ref(tab:summaries) for outliers (winsorizing the data with a 1\% threshold), we estimate the following equation, for the six lending categories, using the ordinary least squares estimator:
 
-```
+$$
+\Delta LOAN^i_{t, t-s} = \beta \Delta KR^i_{t, t-1} + \lambda \Delta KS^i_{t, t-1} + \alpha \Delta Demand^i_{t, t-1} + \gamma'  \pmb{X}^i_{t-s} + \phi^i + \tau_t + \varepsilon^i_t
+$$
 
-
-```{r}
-#| fig.cap = "Credit Cycle. Source: South African Reserve Bank (2022)",
-#| cache = FALSE,
-#| include = FALSE,
-#| eval = FALSE,
-#| fig.height = 3
-
-credit_cyle_gg <- 
-  general$data$credit_cycle_tbl %>% 
-  mutate(value = value/100) %>% 
-  ggplot(aes(x = Date, y = value, linetype = Cycles)) +
-  geom_rect( 
-           fill = "grey", 
-           alpha = .01,
-           aes(xmin = as.Date(c("2008-01-01")), 
-           xmax = as.Date(c("2009-10-01")),
-           ymin = -Inf,
-           ymax = Inf)) +
-  geom_rect( 
-           fill = "grey", 
-           alpha = .01,
-           aes(xmin = as.Date(c("2014-01-01")), 
-           xmax = as.Date(c("2020-04-01")),
-           ymin = -Inf,
-           ymax = Inf)) +
-  geom_line(aes(color = Cycles), size = 1) +
-  scale_x_date(date_labels = ("%Y")) +
-  labs(x = "", y = "year on year percentage change" , caption = "Shaded area represent downward phases of the business cycle.") +
-  theme_bw() +
-    theme(
-      legend.position = "top",
-      legend.title = element_blank(),
-      panel.grid.major = element_blank(),
-      panel.grid.minor = element_blank(),
-      axis.line = element_line(colour = "black"),
-      panel.border = element_blank(),
-      text = element_text(size = 8),
-      strip.background = element_rect(colour = "white", fill = "white"),
-      axis.text.x = element_text(angle = 90),
-      axis.title = element_text(size = 7),
-      plot.tag = element_text(size = 8)
-    ) +
-    labs(x = "", y = "") +
-    scale_color_manual(values = pnw_palette("Cascades", 2)) +
-    scale_y_continuous(labels = scales::label_percent()) 
-  
-credit_cyle_gg 
-  
-```
-
-```{r}
-#| fig.cap = "Bank assets. Source: South African Reserve Bank (2022)",
-#| cache = FALSE,
-#| include = FALSE,
-#| eval = FALSE,
-#| fig.height = 6
-
-combined_BA900_gg <- BA_900_quarterly_combined_gg  / BA_900_to_GDP_combined_gg 
-
-combined_BA900_gg 
-
-```
-
-```{r}
-#| fig.cap = "Lending Rates. Source: South African Reserve Bank (2022)",
-#| cache = FALSE,
-#| include = FALSE,
-#| fig.height = 4
-
-lending_rates_cleaned_tbl <- preprocessing_quarterly$Totals$combined_lending_tbl
-
-lending_rates_cleaned_gg <- 
-  lending_rates_cleaned_tbl %>% 
-  mutate(across(.cols = -Date, .fns = ~.x/100)) %>% 
-  pivot_longer(-Date, values_to = "Value", names_to = "Series") %>% 
-   multi_line_plot(variables_color = 7, legend_position = "none") +
-     scale_y_continuous(labels = scales::label_percent()) +
-  facet_wrap(~ Series, scales = "free_y") 
-
-lending_rates_cleaned_gg 
-  
-  
-  
-  
-```
-
-
-# Methodology and Data
-
-This indicates that we can expect to see bank capital requirements impacting both the interest rate margin and the level of lending. The full impact will take account of both direct impact on bank lending and any indirect impact on loan margins. Therefore, our specification follows @fang2020bank and @aiyar2016does. However we ignore their demand variable. Demand will be captured by control variables, including  time dummies and allowing for both the direct impact of capital on loan margins. Lastly we incorporate three quarter lags to capture the gradual impact on changes in loan supply ($\Delta L_{b,t}$). Therefore we postulate the following specification:
-
-$$\Delta L_{b,t} = \alpha_0 + \sum_{j=0}^{3} \alpha_1^j \Delta (r_{b,t-j}-r_{t-j})+ \sum_{j=0}^{3}\alpha_2^j \Delta (C_{b,t-j}-C_{b,t-j}^{min}) +\alpha_3 \Omega_{b,t} + \phi_b + \gamma_t + \epsilon_{b,t},$$ 
-and on the demand side we estimate the impact of changes in surplus capital on the interest margin as follows:
-
-$$\Delta (r_{b,t}-r_t) = \beta_0 + \sum_{j=0}^{3}\beta_1^j \Delta (C_{b,t-j}-C_{b,t-j}^{min}) +\beta_2 \Omega_{b,t}+ \phi_b + \gamma_t + \epsilon_{b,t},$$
-
-
-where $\Delta L_{bt}$ is the log difference in the various loan categories ($b$). $\Delta (r_{b,t-j}-r_{t-j})$ is the difference of the bank specific interest margin (where $r_t$ is the central bank policy rate) up to lag $t-j$. $\Delta(C_{b,t-j}-C_{b,t-j}^{min})$ is the log difference of bank specific capital surplus up to lag $t-j$. $\Omega_{bt}$ is then a set of bank specific controls on bank size, liquidity, and profitability. In addition, $\phi_b$ and $\gamma_t$ are bank and time effects, respectively. 
-
-In our sample $b$ refers to the six loan categories (household unsecured credit, household secured credit, household residential mortgages, Non-financial corporations unsecured credit, Non-financial corporations secured credit, and Non-financial corporations mortages). These six loan categories are as a result of a aggregation exercise explained in Section 8 below. At a monthly frequency, our sample ranges from January 2008 to April 2022. As shown in Table \@ref(tab:data) we use a mixture of public and private data mainly from the South Africa Reserve Bank, to construct our panel.
-
+$\Delta LOAN^i_{t, t-s}$ is the log difference of lending between months $t$ and $t-s$ for bank $i$. $\Delta KR^i_{t, t-1}$ is the bank level change in the minimum capital buffer between months $t$ and $t-1$, and similarly $\Delta KS^i_{t, t-1}$ is the change in the bank-level surplus capital between months $t$ and $t-1$. $\Delta Demand^i_{t, t-1}$ is the lending demand proxy represented by the bank-level change in the interest rate margin between months $t$ and $t-1$. $\pmb{X}^i_{t-s}$ is a bank level controls set at month $t-s$. Our choice of controls flows from @fang2020bank, which are at a bank-level return on assets, return on equity (profitability), and high liquid assets held (liquidity). The fixed effects ($\phi^i$) estimate other unobserved differences in bank characteristics. To account for other factors, such as changes in the macroeconomic environment, we employ time-fixed effects ($\tau_t$). In summary, we estimate this specification for each of the lending category with a panel of four banks between 2013 and 2019. As shown in Section \@ref(results) this amounts to six regressions per estimation, that is, three regressions for households and non-financial corporations (unsecured credit, secured credit and mortgages), respectively.
 
 \blandscape
 
 ```{r}
+#| summaries,
 #| ft.arraystretch = 1.5
 
 models <- read_rds(here("Outputs", "artifacts_base_model.rds"))
@@ -645,8 +677,14 @@ flextable_word(
 \elandscape
 
 \newpage
-# Estimation Results
+#  Results {#results}
 
+
+@de2020bank
+
+@imbierowicz2018time
+
+\newpage
 
 ```{r}
 #| HH1,
@@ -1355,7 +1393,7 @@ flextable(
 
 
 
-# Conclusion
+# Conclusion {#conclusion}
 
 
 \newpage
@@ -1509,7 +1547,33 @@ total capital adequacy ratio, and leverage ratio."
 
 \newpage
 
-## Aggregation schema
+## Lending Rates (BA930s)
+
+```{r}
+#| lending,
+#| fig.cap = "Lending Rates. Source: South African Reserve Bank (2022)",
+#| cache = FALSE,
+#| include = TRUE,
+#| fig.height = 4
+
+lending_rates_cleaned_tbl <- preprocessing_quarterly$Totals$combined_lending_tbl
+
+lending_rates_cleaned_gg <- 
+  lending_rates_cleaned_tbl %>% 
+  mutate(across(.cols = -Date, .fns = ~.x/100)) %>% 
+  mutate(across(.cols = -Date, .fns = ~ winsorize(.x, threshold = .01))) %>%
+  pivot_longer(-Date, values_to = "Value", names_to = "Series") %>% 
+   multi_line_plot(variables_color = 7, legend_position = "none") +
+     scale_y_continuous(labels = scales::label_percent()) +
+  facet_wrap(~ Series, scales = "free_y") 
+
+lending_rates_cleaned_gg 
+  
+```
+
+
+\newpage
+## Aggregation schema {#aggregation}
 
 The following tabulation is derived from the BA900s is the balance sheet return loan data (lines 103 to 277) and  gives relative magnitudes by financial corporate sector, non-financial corporate sector and household sector. This is the most granular data provided. The missing item numbers are all aggregations of these numbers.
 
@@ -2067,9 +2131,9 @@ estimates <- c(
   "\\Delta KR_{t, t-1}",
   "\\Delta KS_{t, t-1} ",
   "\\Delta Demand_{t, t-1}",
-  "ROA_{t-1}",
-  "ROE_{t-1}",
-  "Liquidity_{t-1}"
+  "ROA_{t-3}",
+  "ROE_{t-3}",
+  "Liquidity_{t-3}"
 )
 
 flextable(

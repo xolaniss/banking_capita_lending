@@ -858,13 +858,13 @@ result_nfc_unsecured <-
                   "log_of_level_one_high_quality_liquid_assets_required_to_be_held"),
   lags_exog_data = 1,
   confint = 1.96,
-  hor = 24
+  hor = 6
 )
 
 result_nfc_unsecured_gg <- 
   plot(result_nfc_unsecured) +
   labs(x = "Month (0 is the moment of implementation and the shock)", 
-       y = "Shock to loans growth",
+       y = "Loan growth reponse",
        title = "Non-financial corporations unsecured") 
 
 
@@ -885,13 +885,13 @@ result_nfc_secured <-
                     "log_of_level_one_high_quality_liquid_assets_required_to_be_held"),
     lags_exog_data = 1,
     confint = 1.96,
-    hor = 24
+    hor = 6
   )
 
 result_nfc_secured_gg <- 
   plot(result_nfc_secured) +
   labs(x = "Month (0 is the moment of implementation and the shock)", 
-       y = "Shock to loans growth",
+       y = "Loan growth reponse",
        title = "Non-financial corporations secured") 
 
 # Corporations mortgages --------------------------------------------------
@@ -910,13 +910,13 @@ result_nfc_mortgage <-
                     "log_of_level_one_high_quality_liquid_assets_required_to_be_held"),
     lags_exog_data = 1,
     confint = 1.96,
-    hor = 24
+    hor = 6
   )
 
 result_nfc_mortgage_gg <- 
   plot(result_nfc_mortgage) +
   labs(x = "Month (0 is the moment of implementation and the shock)", 
-       y = "Shock to loans growth",
+       y = "Loan growth reponse",
        title = "Non-financial corporations mortgages") 
 
 ## Household unsecured --------------------------------------------------
@@ -935,13 +935,13 @@ result_hh_unsecured <-
                     "log_of_level_one_high_quality_liquid_assets_required_to_be_held"),
     lags_exog_data = 1,
     confint = 1.96,
-    hor = 24
+    hor = 6
   )
 
 result_hh_unsecured_gg <- 
   plot(result_hh_unsecured) +
   labs(x = "Month (0 is the moment of implementation and the shock)", 
-       y = "Shock to loans growth",
+       y = "Loan growth reponse",
        title = "Household unsecured") 
 
 
@@ -961,13 +961,13 @@ result_hh_secured <-
                     "log_of_level_one_high_quality_liquid_assets_required_to_be_held"),
     lags_exog_data = 1,
     confint = 1.96,
-    hor = 24
+    hor = 6
   )
 
 result_hh_secured_gg <- 
   plot(result_hh_secured) +
   labs(x = "Month (0 is the moment of implementation and the shock)", 
-       y = "Shock to loans growth",
+       y = "Loan growth reponse",
        title = "Household secured") 
 
 ## Household mortgages --------------------------------------------------
@@ -986,13 +986,13 @@ result_hh_mortgage <-
                     "log_of_level_one_high_quality_liquid_assets_required_to_be_held"),
     lags_exog_data = 1,
     confint = 1.96,
-    hor = 24
+    hor = 6
   )
 
 result_hh_mortgage_gg <- 
   plot(result_hh_mortgage) +
   labs(x = "Month (0 is the moment of implementation and the shock)", 
-       y = "Capital requirement",
+       y = "Loan growth reponse",
        title = "Household residential mortgages") 
 
 
