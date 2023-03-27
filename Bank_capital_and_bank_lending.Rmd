@@ -39,6 +39,7 @@ natbiboptions: round
 # indent: TRUE
 ---
 
+
 ```{r setup, include=FALSE}
 options(scipen=999)
 knitr::opts_chunk$set(echo = FALSE, 
@@ -571,16 +572,23 @@ Following @fang2020bank and @aiyar2016does, we transformed some data for modelli
 After adjusting the data in Table \@ref(tab:summaries) for outliers (winsorizing the data with a 1\% threshold), we estimate the following equation, for the six lending categories, using the ordinary least squares estimator:
 
 $$
-\Delta LOAN^i_{t, t-s} = \beta \Delta KR^i_{t, t-1} + \lambda \Delta KS^i_{t, t-1} + \alpha \Delta Demand^i_{t, t-1} + \gamma'  \pmb{X}^i_{t-s} + \phi^i + \tau_t + \varepsilon^i_t
+\Delta LOAN^i_{t, t-s} = \beta \Delta KR^i_{t, t-1} + \lambda \Delta KS^i_{t, t-1} + \alpha \Delta Demand^i_{t, t-1} + \gamma'  \pmb{X}^i_{t-s} + \phi^i + \tau_t + \varepsilon^i_t.
 $$
 
-$\Delta LOAN^i_{t, t-s}$ is the log difference of lending between months $t$ and $t-s$ for bank $i$. $\Delta KR^i_{t, t-1}$ is the bank level change in the minimum capital buffer between months $t$ and $t-1$, and similarly $\Delta KS^i_{t, t-1}$ is the change in the bank-level surplus capital between months $t$ and $t-1$. $\Delta Demand^i_{t, t-1}$ is the lending demand proxy represented by the bank-level change in the interest rate margin between months $t$ and $t-1$. $\pmb{X}^i_{t-s}$ is a bank level controls set at month $t-s$. Our choice of controls flows from @fang2020bank, which are at a bank-level return on assets, return on equity (profitability), and high liquid assets held (liquidity). The fixed effects ($\phi^i$) estimate other unobserved differences in bank characteristics. To account for other factors, such as changes in the macroeconomic environment, we employ time-fixed effects ($\tau_t$). In summary, we estimate this specification for each of the lending category with a panel of four banks between 2013 and 2019. As shown in Section \@ref(results) this amounts to six regressions per estimation, that is, three regressions for households and non-financial corporations (unsecured credit, secured credit and mortgages), respectively.
+$\Delta LOAN^i_{t, t-s}$ is the log difference of lending between months $t$ and $t-s$ for bank $i$. $\Delta KR^i_{t, t-1}$ is the bank level change in the minimum capital requirement between months $t$ and $t-1$, and similarly $\Delta KS^i_{t, t-1}$ is the change in the bank-level capital buffer between months $t$ and $t-1$. $\Delta Demand^i_{t, t-1}$ is the lending demand proxy represented by the bank-level change in the interest rate margin between months $t$ and $t-1$. $\pmb{X}^i_{t-s}$ is a bank level controls set at month $t-s$. Our choice of controls flows from @fang2020bank, which are at a bank-level return on assets, return on equity (profitability), and high liquid assets held (liquidity). The fixed effects ($\phi^i$) estimate other unobserved differences in bank characteristics. To account for other factors, such as changes in the macroeconomic environment, we employ time-fixed effects ($\tau_t$). In summary, we estimate this specification for each of the lending category with a panel of four banks between 2013 and 2019. As shown in Section \@ref(results) this amounts to six regressions per estimation, that is, three regressions for households and non-financial corporations (unsecured credit, secured credit and mortgages), respectively.
 
 
 #  Results {#results}
  
 ## Main results
-Appendix \@ref(main)
+
+Tables \@ref(tab:HH1) and \@ref(tab:NFC1) in Section \@ref(main) of the Appendix report the main results. To ensure the robustness of the results, we increasingly add variables between columns 1 to 5. In column 1, we take the baseline impact of Basel III changes in capital requirements on credit growth. In column 2, we add the capital buffers; we add our lending demand proxies in column 3. Lastly, in columns 4 and 5, we add the bank-specific controls whilst excluding the demand proxy in column 4. As the methodology section explains, we estimate the regressions with month and bank effects in all cases. Lastly, we report on our estimates' joint significance (test for equality).
+
+The household results reveal a clear contemporaneous effect from changes in capital requirements, with highly significant estimates, for all credit categories (see Table \@ref(tab:HH1)). For households, a one percentage point change in the capital requirement is associated with a 0.23 to 0.8 percentage reduction in lending for the same month. Quarterly this equates to a reduction in lending of 0.69 to 2.4 percentage points. The same effect for the non-financial corporations was only significant for the secured credit category, and the reduction in lending was between 0.48 and 1.02 percentage points. The other categories were insignificant. Only non-financial corporations mortgages had a strong contemporaneous effect on changes in the capital buffer, which indicates strong risk aversion behaviour in this category.
+
+However, the effect of changes in capital requirements on lending categories did not dissipate immediately. The results of the effect of changes in capital requirements on a three-month change in lending were also significant (see Tables \@ref(tab:HH2) and \@ref(tab:NFC2)). That is, the effect fades gradually as the three-month change in lending results are generally less significant than the contemporaneous results. However, this gradual fading is not in all categories as, for example, the non-financial corporations unsecured credit category was highly significant over the 3-month period and was also positive. 
+
+
 
 <!-- Variable description table -->
 \blandscape 
@@ -682,20 +690,23 @@ flextable_word(
 \newpage
 
 
+
+Almost all the household credit categories were jointly significant. This joint significance means adding more variables to the regressions added more information, which is evident in the relatively stable capital requirements estimates ($\Delta KR$) from columns 1 to 5. We found the same joint significance for non-financial corporation categories, except for the unsecured credit category. Lastly, we note cursory evidence of a demand effect in the capital requirement estimates. For example, the inclusion of the demand proxy in the household secured credit category resulted in a decline in the capital requirement estimate from -0.01 to -0.0048. This decline is well in line with the intuition that the demand factors reduce the effect of capital requirements on lending. However, we say this is cursory because this decline is inconsistent throughout all the credit categories.
+
 ## Transition results
 
+A natural concern about the contemporaneous effect is endogeneity in the capital requirements. We addressed the question of identification by using the Basel III related 'jumps' in the capital requirements and ignored the endogenous 'wiggles' that point to simultaneous changes in the balance sheets. Despite this, it is still possible that changes in the balance sheet composition (or what constitutes the risk-weighted assets (RWA)) could affect the size of these 'jumps'. 
 
-
-
-$n_l$ and $n_f$
-
+According to @fang2020bank, this change in the composition can bias our estimates upward. That is, suppose that the adjustment to the capital buffer is proportional to the change in credit growth due to changes to RWA or balance sheet composition. Then, this would have no operational impact. In the best-case scenario, this effect would be equivalent to an exogenous change in credit growth. However, if the change in credit growth were not proportional, the bank would have forgone opportunities due to the change in capital requirements. Therefore, not taking balance sheet composition changes would bias our estimates upward. One way to test for this is to allow for anticipation effects. Anticipation effects suggest that banks act or adjust balance sheets before implementing the change in the capital requirement. We do this by adjusting our initial specification to allow for a gradual change in the capital requirement by setting up a change window in the following manner: 
 
 $$
-\Delta LOAN^i_{t, t-s} = \sum_{s = -n_l}^{+n_f}\beta_s\Delta KR^i_{t+s, t+s-1} + \lambda \Delta KS^i_{t, t-1} + \gamma'  \pmb{X}^i_{t-s} + \phi^i + \tau_t + \varepsilon^i_t
+\Delta LOAN^i_{t, t-s} = \sum_{s = -n_l}^{+n_f}\beta_s\Delta KR^i_{t+s, t+s-1} + \lambda \Delta KS^i_{t, t-1} + \gamma'  \pmb{X}^i_{t-s} + \phi^i + \tau_t + \varepsilon^i_t.
 $$
 
+The first term on the right-hand side is the important change to this specification compared to the main results. Also,  given that the demand term may be endogenous to separate its supply and demand effects, we excluded it. We add lead ($n_l$) and lag ($n_f$) terms to the capital requirement change ($\Delta KR^i$). The leads point to the anticipation effect and the lags to the lagged effect. The results are summarised in Section \@ref(transition) in the Appendix. In Tables \@ref(tab:trans1) and \@ref(tab:trans2) between columns 1 to 3, we increasingly introduce more lags and leads.
 
-Appendix \@ref(transition)
+Similar to the main results, all household credit categories have a clear lagged effect. The lagged effect was also mainly negative. The lagged effect evidence was mixed in the financial corporations' credit categories except for unsecured credit, which had a clear lagged effect. Therefore, statistically speaking, endogeneity is not a major issue. The anticipation effect evidence on the household side was convincing, except for mortgages which showed some significance. This was also the case for financial corporations. In most categories, the combined effect (that the sum of the $\beta_s$ is different from zero) of the leads and lags was insignificant. However, there was strong significance in household mortgages and financial corporations' secured and unsecured credit. Therefore, the results suggest that anticipation effects are limited. Lastly, one key observation is the impact of the capital requirement tends to last for up to a quarter or three months and can also be positive in some months.  
+
 
 ## Discussion
 @de2020bank
@@ -1342,7 +1353,7 @@ balance_sheet_gdp$graphs$capitec_gdp_gg
 ```{r}
 #| HH1,
 #| ft.arraystretch = .9,
-#| cache = TRUE
+#| cache = FALSE
 
 models_full_list <- list(
   household_secured_list  = list(
@@ -1535,7 +1546,7 @@ flextable(
 ```{r}
 #| NFC1,
 #| ft.arraystretch = .95,
-#| cache = TRUE
+#| cache = FALSE
 
 models_full_list_NFC <- list(
   corporation_secured_list  = list(
@@ -1639,8 +1650,8 @@ flextable(
   corporation_mortgage_model$body$dataset
   ) %>% 
     add_row(.before = 1," " = "Non-financial corporations secured credit model") %>% 
-    add_row(.after = 14, " " = "Non-Financial corporations unsecured credit model") %>% 
-    add_row(.after = 28, " " = "Non-Financial corporations mortgage credit model") %>% 
+    add_row(.after = 14, " " = "Non-financial corporations unsecured credit model") %>% 
+    add_row(.after = 28, " " = "Non-financial corporations mortgage credit model") %>% 
     add_row(.after = 14, 
             " " = "Test of equality (p-value)",  
             "(1)" = as.character(corporation_secured_joint_test_vec[1]), 
@@ -2005,9 +2016,9 @@ flextable(
   corporation_unsecured_model$body$dataset,
   corporation_mortgage_model$body$dataset
   ) %>% 
-    add_row(.before = 1," " = "Non-Financial corporations secured credit model") %>% 
-    add_row(.after = 16, " " = "Non-Financial corporations unsecured credit model") %>% 
-    add_row(.after = 32, " " = "Non-Financial corporations mortgage credit model") %>% 
+    add_row(.before = 1," " = "Non-financial corporations secured credit model") %>% 
+    add_row(.after = 16, " " = "Non-financial corporations unsecured credit model") %>% 
+    add_row(.after = 32, " " = "Non-financial corporations mortgage credit model") %>% 
     add_row(.after = 16, 
             " " = "Adj.R squared",  
             "(1)" = as.character(corporation_secured_r_squared_vec[1]), 
@@ -2265,7 +2276,7 @@ flextable(
   flextable::align(j =1, part = "header", align = "left") %>% 
   add_footer_row(values = as_paragraph("Note: Household sector results with longer 3 month loan growth period. The depandant variables in loan growth at bank level at a monthly frequency, calculated as the log difference at t and t -3. All control variables are defined in Table 2. Standard errors are clustered at a bank level. All equations include both bank and monthly effects. A test for equality p-value of < 0.1 is significant.", " " , as_equation("*** p < 0.01, ** p < 0.05, * p < 0.1")), colwidths = 6) %>% 
   hline(border = border, part = "footer" ) %>% 
-  autofit(add_w = 0.1)
+  autofit(add_w = 0.2)
 
 
 ```

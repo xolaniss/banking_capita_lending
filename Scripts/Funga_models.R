@@ -122,7 +122,7 @@ preprocessed_data_banks_base_tbl <-
   )) %>%
   clean_names() %>%
   mutate(month = lubridate::month(date)) %>% 
-  filter(date > "2013-01-01")
+  filter(date > "2013-01-01") 
 
   
 

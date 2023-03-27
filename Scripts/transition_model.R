@@ -96,7 +96,8 @@ preprocessed_data_banks_transition_tbl <-
     d = first_lead_of_change_in_required_capital_dummy - change_in_required_capital_dummy,
     e = second_lead_of_change_in_required_capital_dummy - first_lead_of_change_in_required_capital_dummy,
     f = third_lead_of_change_in_required_capital_dummy - second_lead_of_change_in_required_capital_dummy 
-  )
+  ) %>% 
+  filter(date > "2013-01-01")
   
 
 preprocessed_data_banks_transition_tbl %>% glimpse()
