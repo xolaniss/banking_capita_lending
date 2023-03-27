@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.5)  17 MAR 2023 15:08
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.5)  27 MAR 2023 09:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1484,7 +1484,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 524--525
 Package fontspec Info: Arial scale = 0.8311517618498812.
 
 LaTeX Font Info:    Font shape `TU/Arial(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 568.
+(Font)              scaled to size 6.0pt on input line 576.
 
 Package fontspec Info: Arial scale = 0.8311517618498812.
 
@@ -1932,13 +1932,1137 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
+Overfull \hbox (9.50124pt too wide) in alignment at lines 740--748
+[] [] [] [] 
+ []
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (31.24081pt too wide) in alignment at lines 713--721
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Overfull \hbox (9.50124pt too wide) in alignment at lines 748--800
+[] [] [] [] 
+ []
+
+[15]
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+LaTeX Font Info:    Font shape `TU/Arial(0)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 834.
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Overfull \hbox (11.20879pt too wide) in alignment at lines 828--836
+[] [] [] [] [] [] 
+ []
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Overfull \hbox (11.20879pt too wide) in alignment at lines 836--876
+[] [] [] [] [] [] 
+ []
+
+[16
+
+]
+File: Bank_capital_and_bank_lending_files/figure-latex/lending-1.pdf Graphic fi
+le (type pdf)
+<use Bank_capital_and_bank_lending_files/figure-latex/lending-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 897--898
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 897--898
+
+ []
+
+[17
+
+]
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Overfull \hbox (4.44292pt too wide) in alignment at lines 921--929
+[] [] [] [] 
+ []
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Overfull \hbox (4.44292pt too wide) in alignment at lines 929--1155
+[] [] [] [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1179--1181
+
+ []
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Overfull \hbox (9.50014pt too wide) in alignment at lines 1200--1208
+[] [] [] [] 
+ []
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Overfull \hbox (9.50014pt too wide) in alignment at lines 1208--1320
+[] [] [] [] 
+ []
+
+[18] [19]
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Overfull \hbox (31.24081pt too wide) in alignment at lines 1368--1376
 [] [] [] [] [] [] 
  []
 
@@ -1952,7 +3076,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (31.24081pt too wide) in alignment at lines 721--727
+Overfull \hbox (31.24081pt too wide) in alignment at lines 1376--1382
 [] [] [] [] [] [] 
  []
 
@@ -1960,7 +3084,7 @@ Overfull \hbox (31.24081pt too wide) in alignment at lines 721--727
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 LaTeX Font Info:    Font shape `TU/Arial(0)/b/n' will be
-(Font)              scaled to size 8.0pt on input line 731.
+(Font)              scaled to size 8.0pt on input line 1386.
 
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
@@ -2823,2268 +3947,934 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (31.24081pt too wide) in alignment at lines 727--1019
+Overfull \hbox (31.24081pt too wide) in alignment at lines 1382--1674
 [] [] [] [] [] [] 
- []
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Overfull \hbox (28.3505pt too wide) in alignment at lines 1043--1051
-[] [] [] [] [] [] 
- []
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Overfull \hbox (28.3505pt too wide) in alignment at lines 1051--1057
-[] [] [] [] [] [] 
- []
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Overfull \hbox (28.3505pt too wide) in alignment at lines 1057--1349
-[] [] [] [] [] [] 
- []
-
-[15]
-File: Bank_capital_and_bank_lending_files/figure-latex/path-1.pdf Graphic file 
-(type pdf)
-<use Bank_capital_and_bank_lending_files/figure-latex/path-1.pdf>
-
-Underfull \hbox (badness 10000) in paragraph at lines 1363--1364
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1363--1364
-
- []
-
-[16] [17]
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-[18]
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Overfull \hbox (8.8373pt too wide) in alignment at lines 1642--1650
-[] [] [] [] 
- []
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Overfull \hbox (8.8373pt too wide) in alignment at lines 1650--1656
-[] [] [] [] 
- []
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Overfull \hbox (8.8373pt too wide) in alignment at lines 1656--1876
-[] [] [] [] 
- []
-
-[19]
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Overfull \hbox (9.50124pt too wide) in alignment at lines 1911--1919
-[] [] [] [] 
- []
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Overfull \hbox (9.50124pt too wide) in alignment at lines 1919--1971
-[] [] [] [] 
  []
 
 [20]
 
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-LaTeX Font Info:    Font shape `TU/Arial(0)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 2005.
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
+Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Package fontspec Info: Arial scale = 0.8311509466163689.
+Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Package fontspec Info: Arial scale = 0.8311509466163689.
+Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Package fontspec Info: Arial scale = 0.8311509466163689.
+Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Package fontspec Info: Arial scale = 0.8311509466163689.
+Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (11.20879pt too wide) in alignment at lines 1999--2007
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Overfull \hbox (28.3505pt too wide) in alignment at lines 1700--1708
 [] [] [] [] [] [] 
  []
 
 
-Package fontspec Info: Arial scale = 0.8311509466163689.
+Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Package fontspec Info: Arial scale = 0.8311509466163689.
+Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Package fontspec Info: Arial scale = 0.8311509466163689.
+Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Package fontspec Info: Arial scale = 0.8311509466163689.
-
-
-Overfull \hbox (11.20879pt too wide) in alignment at lines 2007--2047
+Overfull \hbox (28.3505pt too wide) in alignment at lines 1708--1714
 [] [] [] [] [] [] 
  []
 
-[21
 
-]
-File: Bank_capital_and_bank_lending_files/figure-latex/lending-1.pdf Graphic fi
-le (type pdf)
-<use Bank_capital_and_bank_lending_files/figure-latex/lending-1.pdf>
+Package fontspec Info: Arial scale = 0.8311527808940205.
 
-Underfull \hbox (badness 10000) in paragraph at lines 2068--2069
-[][]
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Overfull \hbox (28.3505pt too wide) in alignment at lines 1714--2006
+[] [] [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2068--2069
+Package fontspec Info: Arial scale = 0.8311527808940205.
 
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Overfull \hbox (18.23274pt too wide) in alignment at lines 2033--2041
+[] [] [] [] 
  []
 
-[22
-
-]
 
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
@@ -5095,10 +4885,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Overfull \hbox (4.44292pt too wide) in alignment at lines 2092--2100
+Overfull \hbox (18.23274pt too wide) in alignment at lines 2041--2047
 [] [] [] [] 
  []
 
@@ -5547,16 +5334,233 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (4.44292pt too wide) in alignment at lines 2100--2326
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Overfull \hbox (18.23274pt too wide) in alignment at lines 2047--2375
+[] [] [] [] 
+ []
+
+[21] [22]
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Overfull \hbox (32.68652pt too wide) in alignment at lines 2401--2409
 [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2350--2352
-
- []
-
-
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
@@ -5566,10 +5570,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Overfull \hbox (9.50014pt too wide) in alignment at lines 2371--2379
+Overfull \hbox (32.68652pt too wide) in alignment at lines 2409--2415
 [] [] [] [] 
  []
 
@@ -5790,11 +5791,443 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (9.50014pt too wide) in alignment at lines 2379--2491
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Package fontspec Info: Arial scale = 0.8311527808940205.
+
+
+Overfull \hbox (32.68652pt too wide) in alignment at lines 2415--2743
 [] [] [] [] 
  []
 
-[23] [24]
+[23]
 
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
@@ -6686,7 +7119,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
-[25]
+[24]
 
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
@@ -6706,7 +7139,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (11.7276pt too wide) in alignment at lines 2871--2879
+Overfull \hbox (11.7276pt too wide) in alignment at lines 3104--3112
 [] [] [] [] [] [] 
  []
 
@@ -6720,7 +7153,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (11.7276pt too wide) in alignment at lines 2879--2885
+Overfull \hbox (11.7276pt too wide) in alignment at lines 3112--3118
 [] [] [] [] [] [] 
  []
 
@@ -7589,19 +8022,19 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (11.7276pt too wide) in alignment at lines 2885--3177
+Overfull \hbox (11.7276pt too wide) in alignment at lines 3118--3410
 [] [] [] [] [] [] 
  []
 
-[26] (./Bank_capital_and_bank_lending.bbl [27]) [28] (./Bank_capital_and_bank_l
+[25] (./Bank_capital_and_bank_lending.bbl [26]) [27] (./Bank_capital_and_bank_l
 ending.aux) ) 
 Here is how much of TeX's memory you used:
- 23933 strings out of 476179
- 443379 string characters out of 5809545
- 1078613 words of memory out of 5000000
+ 23932 strings out of 476179
+ 442867 string characters out of 5809545
+ 1054621 words of memory out of 5000000
  44274 multiletter control sequences out of 15000+600000
  475870 words of font info for 101 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  108i,15n,128p,3026b,549s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Bank_capital_and_bank_lending.pdf (28 pages).
+Output written on Bank_capital_and_bank_lending.pdf (27 pages).

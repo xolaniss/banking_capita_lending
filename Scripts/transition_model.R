@@ -73,11 +73,29 @@ preprocessed_data_banks_transition_tbl <-
     .fns = ~  lag(.x, n = 4),
     .names = "Fourth lag of {.col}"
   )) %>%
+  mutate(across(
+    .cols = 65,
+    .fns = ~  lead(.x, n = 1),
+    .names = "First lead of {.col}"
+  )) %>%    
+  mutate(across(
+    .cols = 65,
+    .fns = ~  lead(.x, n = 2),
+    .names = "Second lead of {.col}"
+  )) %>% 
+  mutate(across(
+    .cols = 65,
+    .fns = ~  lead(.x, n = 3),
+    .names = "Third lead of {.col}"
+  )) %>% 
   clean_names() %>%
   mutate(
-    first_change = first_lag_of_change_in_required_capital_dummy -  second_lag_of_change_in_required_capital_dummy,
-    second_change = second_lag_of_change_in_required_capital_dummy -  third_lag_of_change_in_required_capital_dummy,
-    third_change = third_lag_of_change_in_required_capital_dummy -  fourth_lag_of_change_in_required_capital_dummy
+    a = first_lag_of_change_in_required_capital_dummy -  second_lag_of_change_in_required_capital_dummy,
+    b = second_lag_of_change_in_required_capital_dummy -  third_lag_of_change_in_required_capital_dummy,
+    c = third_lag_of_change_in_required_capital_dummy -  fourth_lag_of_change_in_required_capital_dummy,
+    d = first_lead_of_change_in_required_capital_dummy - change_in_required_capital_dummy,
+    e = second_lead_of_change_in_required_capital_dummy - first_lead_of_change_in_required_capital_dummy,
+    f = third_lead_of_change_in_required_capital_dummy - second_lead_of_change_in_required_capital_dummy 
   )
   
 
@@ -152,7 +170,8 @@ response_vec = c(
 
 predictor_vec = c(
   "change_in_required_capital_dummy",
-  "first_change",
+  "a",
+  "d",
   "lag(return_on_assets)",
   "lag(return_on_equity)",
   "lag(log_of_level_one_high_quality_liquid_assets_required_to_be_held)",
@@ -189,7 +208,8 @@ modelsummary(
   title = "first lag"
 )
  zero_one_vec <- c(
-  "first_change = 0"
+   "a = 0",
+   "d = 0"
 )
 joint_test_one <-
   map(one_month_ols_model_list,
@@ -198,8 +218,10 @@ joint_test_one <-
 # Second lag Model -------------------------------------------------------------------
 predictor_vec_two = c(
   "change_in_required_capital_dummy",
-  "first_change",
-  "second_change",
+  "a",
+  "b",
+  "d",
+  "e",
   "lag(return_on_assets)",
   "lag(return_on_equity)",
   "lag(log_of_level_one_high_quality_liquid_assets_required_to_be_held)",
@@ -235,8 +257,10 @@ modelsummary(
   title = "first lag"
 )
 zero_two_vec <- c(
-  "first_change = 0",
-  "second_change = 0"
+  "a = 0",
+  "b = 0",
+  "d = 0",
+  "e = 0"
 )
 joint_test_two <-
   map(two_month_ols_model_list,
@@ -246,9 +270,12 @@ joint_test_two <-
 # Third lag Model -------------------------------------------------------------------
 predictor_vec_three = c(
   "change_in_required_capital_dummy",
-  "first_change",
-  "second_change",
-  "third_change",
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
   "lag(return_on_assets)",
   "lag(return_on_equity)",
   "lag(log_of_level_one_high_quality_liquid_assets_required_to_be_held)",
@@ -284,9 +311,12 @@ modelsummary(
   title = "first lag"
 )
 zero_three_vec <- c(
-  "first_change = 0",
-  "second_change = 0",
-  "third_change = 0")
+  "a = 0",
+  "b = 0",
+  "c = 0",
+  "d = 0",
+  "e = 0",
+  "f = 0")
 joint_test_three <-
   map(three_month_ols_model_list,
       ~ linearHypothesis(.x, zero_three_vec), vcov. = vcovBS(.x, cluster = ~ bank))
