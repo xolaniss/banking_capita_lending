@@ -22,7 +22,7 @@ output:
 # abstract:
 #  "This document provides an introduction to R Markdown, argues for its...  \\par \\textbf{Keywords:} one, two, three " 
 # fontfamily: mathpazo
-# fontsize: 12
+fontsize: 12
 # spacing: double
 # documentclass: article
 # classoption: fleqn
@@ -35,10 +35,9 @@ natbiboptions: round
 # linkcolor: blue!000!black
 # urlcolor: blue!000!black
 # citecolor: blue!000!black
-# linestretch: 1.5
+linestretch: 1.5
 # indent: TRUE
 ---
-
 
 ```{r setup, include=FALSE}
 options(scipen=999)
@@ -246,7 +245,7 @@ $<0$&$<0$&$<0$&$>0$&$>0$
 
 ## Implications for empirical modelling
 
-How are the costs of funding $f(c-c^\ast,\lambda-\lambda^\ast)$ impacted by minimum capital and liquidity requirements $c^{min}$ and $\lambda^{min}$? It is necessary to distinguish long term and short term impacts. 
+How are the costs of funding $f(c-c^\ast,\lambda-\lambda^\ast)$ impacted by minimum capital and liquidity requirements $c^{min}$ and $\lambda^{min}$. It is necessary to distinguish long term and short term impacts. 
 	
 Over the longer run the desired target of market level of capitalisation is increased but with a relatively small impacts on the cost of funding $f(c-c^\ast,\lambda-\lambda^\ast)$ and supply of credit. Standard corporate finance theory suggests, somewhat against the intuitions of banking practitioners,  that regulatory capital and liquidity requirements will have only a minor long-run impact on the cost of bank funding and the supply of bank credit [for elaboration see; @hellwig2014bankers]. This is because the marginal benefits of higher leverage resulting from the separation of ownership and control and resulting agency costs of equity depend upon the threat of intervention and consequent loss of managerial control. A breach of regulatory minimum capital or liquidity requirements triggers intervention and disciplines management in much the same way as a default on debt payments. Therefore, the relevant leverage is that based on the buffer of excess capital or liquidity ratios over and above the required regulatory minima. 
 
@@ -543,7 +542,7 @@ preprocessing_monthly <-  read_rds(here("Outputs", "artifacts_preprocessing_mont
 Capital_monthly_tbl <- preprocessing_monthly$Totals$capital_buffer_tbl %>% 
   mutate(`Total capital held` = `Minimum requirement` + `Surplus capital`) %>% 
   rename(
-    "Minimum capital requirement" = `Minimum requirement`,
+    "Capital requirement" = `Minimum requirement`,
     "Capital buffer" = `Surplus capital`)
 Capital_monthly_combined_gg <- 
   Capital_monthly_tbl %>% 
@@ -577,24 +576,11 @@ $$
 
 $\Delta LOAN^i_{t, t-s}$ is the log difference of lending between months $t$ and $t-s$ for bank $i$. $\Delta KR^i_{t, t-1}$ is the bank level change in the minimum capital requirement between months $t$ and $t-1$, and similarly $\Delta KS^i_{t, t-1}$ is the change in the bank-level capital buffer between months $t$ and $t-1$. $\Delta Demand^i_{t, t-1}$ is the lending demand proxy represented by the bank-level change in the interest rate margin between months $t$ and $t-1$. $\pmb{X}^i_{t-s}$ is a bank level controls set at month $t-s$. Our choice of controls flows from @fang2020bank, which are at a bank-level return on assets, return on equity (profitability), and high liquid assets held (liquidity). The fixed effects ($\phi^i$) estimate other unobserved differences in bank characteristics. To account for other factors, such as changes in the macroeconomic environment, we employ time-fixed effects ($\tau_t$). In summary, we estimate this specification for each of the lending category with a panel of four banks between 2013 and 2019. As shown in Section \@ref(results) this amounts to six regressions per estimation, that is, three regressions for households and non-financial corporations (unsecured credit, secured credit and mortgages), respectively.
 
-
-#  Results {#results}
- 
-## Main results
-
-Tables \@ref(tab:HH1) and \@ref(tab:NFC1) in Section \@ref(main) of the Appendix report the main results. To ensure the robustness of the results, we increasingly add variables between columns 1 to 5. In column 1, we take the baseline impact of Basel III changes in capital requirements on credit growth. In column 2, we add the capital buffers; we add our lending demand proxies in column 3. Lastly, in columns 4 and 5, we add the bank-specific controls whilst excluding the demand proxy in column 4. As the methodology section explains, we estimate the regressions with month and bank effects in all cases. Lastly, we report on our estimates' joint significance (test for equality).
-
-The household results reveal a clear contemporaneous effect from changes in capital requirements, with highly significant estimates, for all credit categories (see Table \@ref(tab:HH1)). For households, a one percentage point change in the capital requirement is associated with a 0.23 to 0.8 percentage reduction in lending for the same month. Quarterly this equates to a reduction in lending of 0.69 to 2.4 percentage points. The same effect for the non-financial corporations was only significant for the secured credit category, and the reduction in lending was between 0.48 and 1.02 percentage points. The other categories were insignificant. Only non-financial corporations mortgages had a strong contemporaneous effect on changes in the capital buffer, which indicates strong risk aversion behaviour in this category.
-
-However, the effect of changes in capital requirements on lending categories did not dissipate immediately. The results of the effect of changes in capital requirements on a three-month change in lending were also significant (see Tables \@ref(tab:HH2) and \@ref(tab:NFC2)). That is, the effect fades gradually as the three-month change in lending results are generally less significant than the contemporaneous results. However, this gradual fading is not in all categories as, for example, the non-financial corporations unsecured credit category was highly significant over the 3-month period and was also positive. 
-
-
-
 <!-- Variable description table -->
 \blandscape 
 ```{r}
 #| summaries,
-#| ft.arraystretch = 1.5
+#| ft.arraystretch = 1
 
 models <- read_rds(here("Outputs", "artifacts_base_model.rds"))
 
@@ -690,6 +676,16 @@ flextable_word(
 \newpage
 
 
+#  Results {#results}
+ 
+## Main results
+
+Tables \@ref(tab:HH1) and \@ref(tab:NFC1) in Section \@ref(main) of the Appendix report the main results. To ensure the robustness of the results, we increasingly add variables between columns 1 to 5. In column 1, we take the baseline impact of Basel III changes in capital requirements on credit growth. In column 2, we add the capital buffers; we add our lending demand proxies in column 3. Lastly, in columns 4 and 5, we add the bank-specific controls whilst excluding the demand proxy in column 4. As the methodology section explains, we estimate the regressions with month and bank effects in all cases. Lastly, we report on our estimates' joint significance (test for equality).
+
+The household results reveal a clear contemporaneous effect from changes in capital requirements, with highly significant estimates, for all credit categories (see Table \@ref(tab:HH1)). For households, a one percentage point change in the capital requirement is associated with a 0.23 to 0.8 percentage reduction in lending for the same month. Quarterly this equates to a reduction in lending of 0.69 to 2.4 percentage points. The same effect for the non-financial corporations was only significant for the secured credit category, and the reduction in lending was between 0.48 and 1.02 percentage points. The other categories were insignificant. Only non-financial corporations mortgages had a strong contemporaneous effect on changes in the capital buffer, which indicates strong risk aversion behaviour in this category.
+
+However, the effect of changes in capital requirements on lending categories did not dissipate immediately. The results of the effect of changes in capital requirements on a three-month change in lending were also significant (see Tables \@ref(tab:HH2) and \@ref(tab:NFC2)). That is, the effect fades gradually as the three-month change in lending results are generally less significant than the contemporaneous results. However, this gradual fading is not in all categories as, for example, the non-financial corporations unsecured credit category was highly significant over the 3-month period and was also positive. 
+
 
 Almost all the household credit categories were jointly significant. This joint significance means adding more variables to the regressions added more information, which is evident in the relatively stable capital requirements estimates ($\Delta KR$) from columns 1 to 5. We found the same joint significance for non-financial corporation categories, except for the unsecured credit category. Lastly, we note cursory evidence of a demand effect in the capital requirement estimates. For example, the inclusion of the demand proxy in the household secured credit category resulted in a decline in the capital requirement estimate from -0.01 to -0.0048. This decline is well in line with the intuition that the demand factors reduce the effect of capital requirements on lending. However, we say this is cursory because this decline is inconsistent throughout all the credit categories.
 
@@ -697,21 +693,23 @@ Almost all the household credit categories were jointly significant. This joint 
 
 A natural concern about the contemporaneous effect is endogeneity in the capital requirements. We addressed the question of identification by using the Basel III related 'jumps' in the capital requirements and ignored the endogenous 'wiggles' that point to simultaneous changes in the balance sheets. Despite this, it is still possible that changes in the balance sheet composition (or what constitutes the risk-weighted assets (RWA)) could affect the size of these 'jumps'. 
 
-According to @fang2020bank, this change in the composition can bias our estimates upward. That is, suppose that the adjustment to the capital buffer is proportional to the change in credit growth due to changes to RWA or balance sheet composition. Then, this would have no operational impact. In the best-case scenario, this effect would be equivalent to an exogenous change in credit growth. However, if the change in credit growth were not proportional, the bank would have forgone opportunities due to the change in capital requirements. Therefore, not taking balance sheet composition changes would bias our estimates upward. One way to test for this is to allow for anticipation effects. Anticipation effects suggest that banks act or adjust balance sheets before implementing the change in the capital requirement. We do this by adjusting our initial specification to allow for a gradual change in the capital requirement by setting up a change window in the following manner: 
+According to @fang2020bank, this change in the composition can bias our estimates upward. That is, suppose that the adjustment to the capital buffer is proportional to the change in credit growth due to changes to RWA or balance sheet composition. Then, this would have no operational impact. In the best-case scenario, this effect would be equivalent to an exogenous change in credit growth. However, if the change in credit growth were not proportional, the bank would have forgone opportunities due to the change in capital requirements. Therefore, not taking balance sheet composition changes would bias our estimates upward. One way to test for this is to allow for anticipation effects. Anticipation effects suggest that banks act or adjust balance sheets before the implementation of changes to the capital requirement. It is therefore a question of how bank transition (before, or after) around the changes to the capital requirements. We do this by adjusting our initial specification to allow for a gradual change in the capital requirement by setting up a change window in the following manner: 
 
 $$
 \Delta LOAN^i_{t, t-s} = \sum_{s = -n_l}^{+n_f}\beta_s\Delta KR^i_{t+s, t+s-1} + \lambda \Delta KS^i_{t, t-1} + \gamma'  \pmb{X}^i_{t-s} + \phi^i + \tau_t + \varepsilon^i_t.
 $$
 
-The first term on the right-hand side is the important change to this specification compared to the main results. Also,  given that the demand term may be endogenous to separate its supply and demand effects, we excluded it. We add lead ($n_l$) and lag ($n_f$) terms to the capital requirement change ($\Delta KR^i$). The leads point to the anticipation effect and the lags to the lagged effect. The results are summarised in Section \@ref(transition) in the Appendix. In Tables \@ref(tab:trans1) and \@ref(tab:trans2) between columns 1 to 3, we increasingly introduce more lags and leads.
+The first term on the right-hand side is the important change to this specification compared to the main results. Also,  given that the demand term may be endogenous to separate its supply and demand effects, we excluded it. We add lead ($n_l$) and lag ($n_f$) terms to the capital requirement change ($\Delta KR^i$). The leads point to the anticipation effect and the lags to the lagged effect. It is important to note that the lags and leads are straddled on period $t$ when the change in $KR$ occurs. To account for the straddling, we place a negative sign on ($n_l$) and a positive sign on ($n_l$), which shows a 'break' at period $t$ from the lags to the leads. The results are summarised in Section \@ref(transition) in the Appendix. In Tables \@ref(tab:trans1) and \@ref(tab:trans2) between columns 1 to 3, we increasingly introduce more lags and leads. Furthermore, after running the regression according to the specification, we only report the lead and lag terms for brevity.
 
 Similar to the main results, all household credit categories have a clear lagged effect. The lagged effect was also mainly negative. The lagged effect evidence was mixed in the financial corporations' credit categories except for unsecured credit, which had a clear lagged effect. Therefore, statistically speaking, endogeneity is not a major issue. The anticipation effect evidence on the household side was convincing, except for mortgages which showed some significance. This was also the case for financial corporations. In most categories, the combined effect (that the sum of the $\beta_s$ is different from zero) of the leads and lags was insignificant. However, there was strong significance in household mortgages and financial corporations' secured and unsecured credit. Therefore, the results suggest that anticipation effects are limited. Lastly, one key observation is the impact of the capital requirement tends to last for up to a quarter or three months and can also be positive in some months.  
 
 
 ## Discussion
-@de2020bank
 
-@imbierowicz2018time
+The implementation of Basel III in South Africa has been gradual over seven years. Furthermore, the SARB has continuously monitored and adjusted the implementation path to reflect the economic and banking environment. According to our results, this gradual approach resulted in a comparably lower lending effect. For example, in Peru  @fang2020bank estimated a lending reduction of 4 to 6 percentage points, much higher than our estimate of 0.48 to 2.4 percentage points. The South Africa estimates are closer to those of the UK, where @aiyar2016does found a roughly 0.55 percentage points reduction. The lower estimates are not surprising as the extent of the reduction in lending primarily depends on how expensive it is for banks to raise equity [@aiyar2016does]. As noted before, South African banks, in addition, to the capital requirements, kept a significant capital buffer. 
+
+The results also revealed a more significant effect on household lending versus non-financial corporation lending. One explanation is that it is much easier for banks to discriminate between borrowers in their commercial business versus retail business when banks need to reduce their risk-weighted assets to meet higher capital requirements [@de2020bank]. There are fewer clients on the commercial side, and the assets are larger. This higher asset base also suggests that banks are more careful or place more risk-weights on lending on the commercial than the household side [@imbierowicz2018time]. In South Africa, this means that banks avoid having to pull back on lending on the commercial side as a result of higher capital requirements, with the capital buffer as a first 'shock-absorber'.
+
 
 
 # Conclusion {#conclusion}
@@ -726,7 +724,8 @@ Similar to the main results, all household credit categories have a clear lagged
 ```{r}
 #| data,
 #| cache = FALSE,
-#| include = TRUE
+#| include = TRUE,
+#| ft.arraystrech = .55
 
 tibble(
   " " = c("BA900", 
@@ -792,7 +791,7 @@ Bank specific data is private",
 #| data1,
 #| cache = FALSE,
 #| include = TRUE,
-#| ft.arraystretch = 1.5
+#| ft.arraystretch = 1
 
 model_variables <- c( "L_{b,t}",
                       "r_{b,t}",
@@ -875,7 +874,7 @@ total capital adequacy ratio, and leverage ratio."
 #| fig.cap = "Lending Rates. Source: South African Reserve Bank (2022)",
 #| cache = FALSE,
 #| include = TRUE,
-#| fig.height = 4
+#| fig.height = 6
 
 lending_rates_cleaned_tbl <- preprocessing_quarterly$Totals$combined_lending_tbl
 
@@ -886,7 +885,7 @@ lending_rates_cleaned_gg <-
   pivot_longer(-Date, values_to = "Value", names_to = "Series") %>% 
    multi_line_plot(variables_color = 7, legend_position = "none") +
      scale_y_continuous(labels = scales::label_percent()) +
-  facet_wrap(~ Series, scales = "free_y") 
+  facet_wrap(~ Series, scales = "free_y", ncol = 2) 
 
 lending_rates_cleaned_gg 
   
@@ -902,7 +901,7 @@ The following tabulation is derived from the BA900s is the balance sheet return 
 #| scheme,
 #| cache = FALSE,
 #| include = TRUE,
-#| ft.arraystretch = 0.8
+#| ft.arraystretch = .55
 
 tibble(
   "BA 900 Categories" = 
@@ -1086,7 +1085,8 @@ The loans quantities from the BA900s are then linked to the lending rate data fr
 ```{r}
 #| scheme1,
 #| cache = FALSE,
-#| include = TRUE
+#| include = TRUE,
+#| ft.arraystretch = .55
 
 tibble(
   "Sector" = c(
@@ -1352,7 +1352,7 @@ balance_sheet_gdp$graphs$capitec_gdp_gg
 ## Main results {#main}
 ```{r}
 #| HH1,
-#| ft.arraystretch = .9,
+#| ft.arraystretch = .55,
 #| cache = FALSE
 
 models_full_list <- list(
@@ -1541,11 +1541,10 @@ flextable(
 
 ```
 
-\newpage
 
 ```{r}
 #| NFC1,
-#| ft.arraystretch = .95,
+#| ft.arraystretch = .55,
 #| cache = FALSE
 
 models_full_list_NFC <- list(
@@ -1743,12 +1742,12 @@ models$graphs$path_gg
 
 ```
 
-
+\newpage
 ## Transition results {#transition}
 
 ```{r}
 #| trans1,
-#| ft.arraystretch = .8,
+#| ft.arraystretch = .5,
 #| cache = FALSE
 
 transition <- read_rds(here("Outputs", "artifacts_transition_model.rds"))
@@ -1925,7 +1924,7 @@ flextable(
 
 ```{r}
 #| trans2,
-#| ft.arraystretch = .8,
+#| ft.arraystretch = .5,
 #| cache = FALSE
 
 transition_models <- list(
@@ -2089,7 +2088,7 @@ flextable(
 
 ```{r}
 #| HH2,
-#| ft.arraystretch = .88,
+#| ft.arraystretch = .55,
 #| cache = FALSE
 
 models3 <- read_rds(here("Outputs", "artifacts_base_model_3_months.rds"))
@@ -2281,12 +2280,11 @@ flextable(
 
 ```
 
-
 \newpage
 
 ```{r}
 #| NFC2,
-#| ft.arraystretch = .89,
+#| ft.arraystretch = .55,
 #| cache = FALSE
 
 models3_full_list_NFC <- list(
@@ -2470,7 +2468,6 @@ flextable(
   autofit(add_w = -0.2)
 
 ```
-
 
 \newpage
 
