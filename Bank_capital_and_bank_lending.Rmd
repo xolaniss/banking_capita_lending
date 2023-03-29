@@ -680,7 +680,7 @@ flextable_word(
  
 ## Main results
 
-Tables \@ref(tab:HH1) and \@ref(tab:NFC1) in Section \@ref(main) of the Appendix report the main results. To ensure the robustness of the results, we increasingly add variables between columns 1 to 5. In column 1, we take the baseline impact of Basel III changes in capital requirements on credit growth. In column 2, we add the capital buffers; we add our lending demand proxies in column 3. Lastly, in columns 4 and 5, we add the bank-specific controls whilst excluding the demand proxy in column 4. As the methodology section explains, we estimate the regressions with month and bank effects in all cases. Lastly, we report on our estimates' joint significance (test for equality).
+Tables \@ref(tab:HH1) and \@ref(tab:NFC1) report the main results. To ensure the robustness of the results, we increasingly add variables between columns 1 to 5. In column 1, we take the baseline impact of Basel III changes in capital requirements on credit growth. In column 2, we add the capital buffers; we add our lending demand proxies in column 3. Lastly, in columns 4 and 5, we add the bank-specific controls whilst excluding the demand proxy in column 4. As the methodology section explains, we estimate the regressions with month and bank effects in all cases. Lastly, we report on our estimates' joint significance (test for equality).
 
 The household results reveal a clear contemporaneous effect from changes in capital requirements, with highly significant estimates, for all credit categories (see Table \@ref(tab:HH1)). For households, a one percentage point change in the capital requirement is associated with a 0.23 to 0.8 percentage reduction in lending for the same month. Quarterly this equates to a reduction in lending of 0.69 to 2.4 percentage points. The same effect for the non-financial corporations was only significant for the secured credit category, and the reduction in lending was between 0.48 and 1.02 percentage points. The other categories were insignificant. Only non-financial corporations mortgages had a strong contemporaneous effect on changes in the capital buffer, which indicates strong risk aversion behaviour in this category.
 
@@ -688,6 +688,400 @@ However, the effect of changes in capital requirements on lending categories did
 
 
 Almost all the household credit categories were jointly significant. This joint significance means adding more variables to the regressions added more information, which is evident in the relatively stable capital requirements estimates ($\Delta KR$) from columns 1 to 5. We found the same joint significance for non-financial corporation categories, except for the unsecured credit category. Lastly, we note cursory evidence of a demand effect in the capital requirement estimates. For example, the inclusion of the demand proxy in the household secured credit category resulted in a decline in the capital requirement estimate from -0.01 to -0.0048. This decline is well in line with the intuition that the demand factors reduce the effect of capital requirements on lending. However, we say this is cursory because this decline is inconsistent throughout all the credit categories.
+\newpage
+
+```{r}
+#| HH1,
+#| ft.arraystretch = .55,
+#| cache = FALSE
+
+models_full_list <- list(
+  household_secured_list  = list(
+  models$coef_models$one_month_buffer_coeftest_model_list[[1]],
+  models$coef_models$one_month_buffer_surplus_coeftest_model_list[[1]],
+  models$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[1]],
+  models$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[1]],
+  models$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[1]]
+  ),
+  household_unsecured_list = list(
+  models$coef_models$one_month_buffer_coeftest_model_list[[2]],
+  models$coef_models$one_month_buffer_surplus_coeftest_model_list[[2]],
+  models$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[2]],
+  models$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[2]],
+  models$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[2]]
+  ),
+  household_mortgage_list = list(
+  models$coef_models$one_month_buffer_coeftest_model_list[[3]],
+  models$coef_models$one_month_buffer_surplus_coeftest_model_list[[3]],
+  models$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[3]],
+  models$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[3]],
+  models$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[3]]
+  )
+)
+
+household_secured_joint_test_vec <- c(
+    models$joint_test$joint_test_buffer[[1]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus[[1]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand[[1]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_control[[1]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand_control[[1]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+household_unsecured_joint_test_vec <- c(
+    models$joint_test$joint_test_buffer[[2]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus[[2]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand[[2]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_control[[2]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand_control[[2]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+household_mortgage_joint_test_vec <- c(
+    models$joint_test$joint_test_buffer[[3]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus[[3]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand[[3]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_control[[3]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand_control[[3]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+
+household_secured_r_squared_vec <- c(
+  summary(models$lm_models$one_month_buffer_ols_model_list[[1]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_ols_model_list[[1]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_ols_model_list[[1]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_control_ols_model_list[[1]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[1]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+household_unsecured_r_squared_vec <- c(
+  summary(models$lm_models$one_month_buffer_ols_model_list[[2]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_ols_model_list[[2]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_ols_model_list[[2]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_control_ols_model_list[[2]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[2]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+household_mortgage_r_squared_vec <- c(
+  summary(models$lm_models$one_month_buffer_ols_model_list[[3]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_ols_model_list[[3]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_ols_model_list[[3]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_control_ols_model_list[[3]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[3]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+household_secured_model <- 
+  modelsummary_word(
+  models_full_list$household_secured_list,
+  coef_omit = 2:16
+) 
+household_unsecured_model <- 
+  modelsummary_word(
+  models_full_list$household_unsecured_list,
+  coef_omit = 2:16
+  )
+household_mortgage_model <- 
+  modelsummary_word(
+    models_full_list$household_mortgage_list,
+    coef_omit = 2:16
+  )
+
+dependant <-  c(
+    "Dep. Var:\\Delta LOAN_{t, t-1}"
+)
+estimates <- c(
+  "\\Delta KR_{t, t-1}",
+  "\\Delta KS_{t, t-1} ",
+  "\\Delta Demand_{t, t-1}",
+  "ROA_{t-1}",
+  "ROE_{t-1}",
+  "Liquidity_{t-1}"
+)
+
+flextable(
+  data = bind_rows(
+  household_secured_model$body$dataset,
+  household_unsecured_model$body$dataset,
+  household_mortgage_model$body$dataset
+  ) %>% 
+    add_row(.before = 1," " = "Household secured credit model") %>% 
+    add_row(.after = 14, " " = "Household unsecured credit model") %>% 
+    add_row(.after = 28, " " = "Household mortgage credit model") %>% 
+    add_row(.after = 14, 
+            " " = "Test of equality (p-value)",  
+            "(1)" = as.character(household_secured_joint_test_vec[1]), 
+            "(2)" = as.character(household_secured_joint_test_vec[2]),
+            "(3)" = as.character(household_secured_joint_test_vec[3]),
+            "(4)" = as.character(household_secured_joint_test_vec[4]),
+            "(5)" = as.character(household_secured_joint_test_vec[5])) %>% 
+   add_row(.after = 29, 
+            " " = "Test of equality (p-value)",  
+            "(1)" = as.character(household_unsecured_joint_test_vec[1]), 
+            "(2)" = as.character(household_unsecured_joint_test_vec[2]),
+            "(3)" = as.character(household_unsecured_joint_test_vec[3]),
+            "(4)" = as.character(household_unsecured_joint_test_vec[4]),
+            "(5)" = as.character(household_unsecured_joint_test_vec[5])) %>% 
+    add_row(.after = 45, 
+            " " = "Test of equality (p-value)",  
+            "(1)" = as.character(household_mortgage_joint_test_vec[1]), 
+            "(2)" = as.character(household_mortgage_joint_test_vec[2]),
+            "(3)" = as.character(household_mortgage_joint_test_vec[3]),
+            "(4)" = as.character(household_mortgage_joint_test_vec[4]),
+            "(5)" = as.character(household_mortgage_joint_test_vec[5])) %>% 
+       add_row(.after = 14, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(household_secured_r_squared_vec[1]), 
+            "(2)" = as.character(household_secured_r_squared_vec[2]),
+            "(3)" = as.character(household_secured_r_squared_vec[3]),
+            "(4)" = as.character(household_secured_r_squared_vec[4]),
+            "(5)" = as.character(household_secured_r_squared_vec[5])) %>% 
+   add_row(.after = 30, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(household_unsecured_r_squared_vec[1]), 
+            "(2)" = as.character(household_unsecured_r_squared_vec[2]),
+            "(3)" = as.character(household_unsecured_r_squared_vec[3]),
+            "(4)" = as.character(household_unsecured_r_squared_vec[4]),
+            "(5)" = as.character(household_unsecured_r_squared_vec[5])) %>% 
+    add_row(.after = 46, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(household_mortgage_r_squared_vec[1]), 
+            "(2)" = as.character(household_mortgage_r_squared_vec[2]),
+            "(3)" = as.character(household_mortgage_r_squared_vec[3]),
+            "(4)" = as.character(household_mortgage_r_squared_vec[4]),
+            "(5)" = as.character(household_mortgage_r_squared_vec[5]))
+ 
+) %>% 
+  hline(i = 1, border = border) %>% 
+  hline(i = 13, border = border)  %>% 
+  hline(i = 16, border = border) %>% 
+  hline(i = 17, border = border)  %>% 
+  hline(i = 29, border = border) %>% 
+  hline(i = 32, border = border) %>% 
+  hline(i = 33, border = border) %>% 
+  hline(i = 45, border = border) %>% 
+  bold(i = c(1, 17, 33)) %>% 
+  # set_header_labels(" " = "",
+  #                   "(1)" = "Min Requirement",
+  #                   "(2)" ="Surplus Capital",
+  #                   "(3)" = "Demand", 
+  #                   "(4)" = "Controls no Demand", 
+  #                   "(5)" = "Controls and Demand") %>% 
+  set_caption(caption = "Household results") %>% 
+  mk_par(j = 1, i= 1, part = "header", value = as_paragraph(as_equation(dependant
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(2, 4, 6, 8, 10, 12), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(18, 20, 22, 24, 26, 28), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(34, 36, 38, 40, 42, 44), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  flextable::align(part = "body", align = "center") %>% 
+  flextable::align(part = "header", align = "center") %>% 
+  flextable::align(j =1, part = "body", align = "left") %>% 
+  flextable::align(j =1, part = "header", align = "left") %>% 
+  add_footer_row(values = as_paragraph("Note: Household results. The depandant variables in loan growth at bank level at a monthly frequency, calculated as the log difference at t and t -1. All control variables are defined in Table 2. Standard errors are clustered at a bank level. All equations include both bank and monthly effects. A test for equality p-value of < 0.1 is significant.", " " , as_equation("*** p < 0.01, ** p < 0.05, * p < 0.1")), colwidths = 6) %>% 
+  hline(border = border, part = "footer" ) %>% 
+  autofit(add_w = 0.2)
+
+
+```
+
+\newpage
+```{r}
+#| NFC1,
+#| ft.arraystretch = .55,
+#| cache = FALSE
+
+models_full_list_NFC <- list(
+  corporation_secured_list  = list(
+  models$coef_models$one_month_buffer_coeftest_model_list[[4]],
+  models$coef_models$one_month_buffer_surplus_coeftest_model_list[[4]],
+  models$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[4]],
+  models$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[4]],
+  models$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[4]]
+  ),
+  corporation_unsecured_list = list(
+  models$coef_models$one_month_buffer_coeftest_model_list[[5]],
+  models$coef_models$one_month_buffer_surplus_coeftest_model_list[[5]],
+  models$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[5]],
+  models$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[5]],
+  models$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[5]]
+  ),
+  corporation_mortgage_list = list(
+  models$coef_models$one_month_buffer_coeftest_model_list[[6]],
+  models$coef_models$one_month_buffer_surplus_coeftest_model_list[[6]],
+  models$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[6]],
+  models$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[6]],
+  models$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[6]]
+  )
+)
+
+corporation_secured_joint_test_vec <- c(
+    models$joint_test$joint_test_buffer[[4]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus[[4]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand[[4]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_control[[4]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand_control[[4]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+corporation_unsecured_joint_test_vec <- c(
+    models$joint_test$joint_test_buffer[[5]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus[[5]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand[[5]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_control[[5]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand_control[[5]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+corporation_mortgage_joint_test_vec <- c(
+    models$joint_test$joint_test_buffer[[6]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus[[6]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand[[6]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_control[[6]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand_control[[6]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+
+corporation_secured_r_squared_vec <- c(
+  summary(models$lm_models$one_month_buffer_ols_model_list[[4]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_ols_model_list[[4]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_ols_model_list[[4]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_control_ols_model_list[[4]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[4]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+corporation_unsecured_r_squared_vec <- c(
+  summary(models$lm_models$one_month_buffer_ols_model_list[[5]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_ols_model_list[[5]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_ols_model_list[[5]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_control_ols_model_list[[5]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[5]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+corporation_mortgage_r_squared_vec <- c(
+  summary(models$lm_models$one_month_buffer_ols_model_list[[6]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_ols_model_list[[6]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_ols_model_list[[6]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_control_ols_model_list[[6]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[6]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+corporation_secured_model <- 
+  modelsummary_word(
+  models_full_list_NFC$corporation_secured_list,
+  coef_omit = 2:16
+) 
+corporation_unsecured_model <- 
+  modelsummary_word(
+  models_full_list_NFC$corporation_unsecured_list,
+  coef_omit = 2:16
+  )
+corporation_mortgage_model <- 
+  modelsummary_word(
+    models_full_list_NFC$corporation_mortgage_list,
+    coef_omit = 2:16
+  )
+
+estimates <- c(
+  "\\Delta KR_{t, t-1}",
+  "\\Delta KS_{t, t-1} ",
+  "\\Delta Demand_{t, t-1}",
+  "ROA_{t-1}",
+  "ROE_{t-1}",
+  "Liquidity_{t-1}"
+)
+
+flextable(
+  data = bind_rows(
+  corporation_secured_model$body$dataset,
+  corporation_unsecured_model$body$dataset,
+  corporation_mortgage_model$body$dataset
+  ) %>% 
+    add_row(.before = 1," " = "Non-financial corporations secured credit model") %>% 
+    add_row(.after = 14, " " = "Non-financial corporations unsecured credit model") %>% 
+    add_row(.after = 28, " " = "Non-financial corporations mortgage credit model") %>% 
+    add_row(.after = 14, 
+            " " = "Test of equality (p-value)",  
+            "(1)" = as.character(corporation_secured_joint_test_vec[1]), 
+            "(2)" = as.character(corporation_secured_joint_test_vec[2]),
+            "(3)" = as.character(corporation_secured_joint_test_vec[3]),
+            "(4)" = as.character(corporation_secured_joint_test_vec[4]),
+            "(5)" = as.character(corporation_secured_joint_test_vec[5])) %>% 
+   add_row(.after = 29, 
+            " " = "Test of equality (p-value)",  
+            "(1)" = as.character(corporation_unsecured_joint_test_vec[1]), 
+            "(2)" = as.character(corporation_unsecured_joint_test_vec[2]),
+            "(3)" = as.character(corporation_unsecured_joint_test_vec[3]),
+            "(4)" = as.character(corporation_unsecured_joint_test_vec[4]),
+            "(5)" = as.character(corporation_unsecured_joint_test_vec[5])) %>% 
+    add_row(.after = 45, 
+            " " = "Test of equality (p-value)",  
+            "(1)" = as.character(corporation_mortgage_joint_test_vec[1]), 
+            "(2)" = as.character(corporation_mortgage_joint_test_vec[2]),
+            "(3)" = as.character(corporation_mortgage_joint_test_vec[3]),
+            "(4)" = as.character(corporation_mortgage_joint_test_vec[4]),
+            "(5)" = as.character(corporation_mortgage_joint_test_vec[5])) %>% 
+       add_row(.after = 14, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(corporation_secured_r_squared_vec[1]), 
+            "(2)" = as.character(corporation_secured_r_squared_vec[2]),
+            "(3)" = as.character(corporation_secured_r_squared_vec[3]),
+            "(4)" = as.character(corporation_secured_r_squared_vec[4]),
+            "(5)" = as.character(corporation_secured_r_squared_vec[5])) %>% 
+   add_row(.after = 30, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(corporation_unsecured_r_squared_vec[1]), 
+            "(2)" = as.character(corporation_unsecured_r_squared_vec[2]),
+            "(3)" = as.character(corporation_unsecured_r_squared_vec[3]),
+            "(4)" = as.character(corporation_unsecured_r_squared_vec[4]),
+            "(5)" = as.character(corporation_unsecured_r_squared_vec[5])) %>% 
+    add_row(.after = 46, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(corporation_mortgage_r_squared_vec[1]), 
+            "(2)" = as.character(corporation_mortgage_r_squared_vec[2]),
+            "(3)" = as.character(corporation_mortgage_r_squared_vec[3]),
+            "(4)" = as.character(corporation_mortgage_r_squared_vec[4]),
+            "(5)" = as.character(corporation_mortgage_r_squared_vec[5]))
+ 
+) %>% 
+  hline(i = 1, border = border) %>% 
+  hline(i = 13, border = border)  %>% 
+  hline(i = 16, border = border) %>% 
+  hline(i = 17, border = border)  %>% 
+  hline(i = 29, border = border) %>% 
+  hline(i = 32, border = border) %>% 
+  hline(i = 33, border = border) %>% 
+  hline(i = 45, border = border) %>% 
+  bold(i = c(1, 17, 33)) %>% 
+  # set_header_labels(" " = "",
+  #                   "(1)" = "Min Requirement",
+  #                   "(2)" ="Surplus Capital",
+  #                   "(3)" = "Demand", 
+  #                   "(4)" = "Controls no Demand", 
+  #                   "(5)" = "Controls and Demand") %>% 
+  set_caption(caption = "Non-financial corporations results") %>% 
+  mk_par(j = 1, i= 1, part = "header", value = as_paragraph(as_equation(dependant
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(2, 4, 6, 8, 10, 12), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(18, 20, 22, 24, 26, 28), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(34, 36, 38, 40, 42, 44), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  flextable::align(part = "body", align = "center") %>% 
+  flextable::align(part = "header", align = "center") %>% 
+  flextable::align(j =1, part = "body", align = "left") %>% 
+  flextable::align(j =1, part = "header", align = "left") %>% 
+  add_footer_row(values = as_paragraph("Note: Non-financial corporations results. The depandant variables in loan growth at bank level at a monthly frequency, calculated as the log difference at t and t -1. All control variables are defined in Table 2. Standard errors are clustered at a bank level. All equations include both bank and monthly effects. A test for equality p-value of < 0.1 is significant.", " " , as_equation("*** p < 0.01, ** p < 0.05, * p < 0.1")), colwidths = 6) %>% 
+  hline(border = border, part = "footer" ) %>% 
+  autofit(add_w = 0)
+
+```
+
+<!-- Excluded local projections -->
+```{r}
+#| path,
+#| fig.cap = "Local projections (impulse responses)",
+#| cache = FALSE,
+#| include = FALSE,
+#| eval = TRUE,
+#| fig.height = 6
+
+models$graphs$path_gg
+
+```
+\newpage
 
 ## Transition results
 
@@ -699,10 +1093,350 @@ $$
 \Delta LOAN^i_{t, t-s} = \sum_{s = -n_l}^{+n_f}\beta_s\Delta KR^i_{t+s, t+s-1} + \lambda \Delta KS^i_{t, t-1} + \gamma'  \pmb{X}^i_{t-s} + \phi^i + \tau_t + \varepsilon^i_t.
 $$
 
-The first term on the right-hand side is the important change to this specification compared to the main results. Also,  given that the demand term may be endogenous to separate its supply and demand effects, we excluded it. We add lead ($n_l$) and lag ($n_f$) terms to the capital requirement change ($\Delta KR^i$). The leads point to the anticipation effect and the lags to the lagged effect. It is important to note that the lags and leads are straddled on period $t$ when the change in $KR$ occurs. To account for the straddling, we place a negative sign on ($n_l$) and a positive sign on ($n_l$), which shows a 'break' at period $t$ from the lags to the leads. The results are summarised in Section \@ref(transition) in the Appendix. In Tables \@ref(tab:trans1) and \@ref(tab:trans2) between columns 1 to 3, we increasingly introduce more lags and leads. Furthermore, after running the regression according to the specification, we only report the lead and lag terms for brevity.
+The first term on the right-hand side is the important change to this specification compared to the main results. Also,  given that the demand term may be endogenous to separate its supply and demand effects, we excluded it. We add lead ($n_l$) and lag ($n_f$) terms to the capital requirement change ($\Delta KR^i$). The leads point to the anticipation effect and the lags to the lagged effect. It is important to note that the lags and leads are straddled on period $t$ when the change in $KR$ occurs. To account for the straddling, we place a negative sign on ($n_l$) and a positive sign on ($n_l$), which shows a 'break' at period $t$ from the lags to the leads. In Tables \@ref(tab:trans1) and \@ref(tab:trans2) between columns 1 to 3, we increasingly introduce more lags and leads. Furthermore, after running the regression according to the specification, we only report the lead and lag terms for brevity.
 
-Similar to the main results, all household credit categories have a clear lagged effect. The lagged effect was also mainly negative. The lagged effect evidence was mixed in the financial corporations' credit categories except for unsecured credit, which had a clear lagged effect. Therefore, statistically speaking, endogeneity is not a major issue. The anticipation effect evidence on the household side was convincing, except for mortgages which showed some significance. This was also the case for financial corporations. In most categories, the combined effect (that the sum of the $\beta_s$ is different from zero) of the leads and lags was insignificant. However, there was strong significance in household mortgages and financial corporations' secured and unsecured credit. Therefore, the results suggest that anticipation effects are limited. Lastly, one key observation is the impact of the capital requirement tends to last for up to a quarter or three months and can also be positive in some months.  
+\newpage
+ 
+```{r}
+#| trans1,
+#| ft.arraystretch = .5,
+#| cache = FALSE
 
+transition <- read_rds(here("Outputs", "artifacts_transition_model.rds"))
+
+transition_models <- list(
+  household_secured_list  = list(
+  transition$coef_models$one_month_coeftest_model_list[[1]],
+  transition$coef_models$two_month_coeftest_model_list[[1]],
+  transition$coef_models$three_month_coeftest_model_list[[1]]
+  ),
+  household_unsecured_list = list(
+  transition$coef_models$one_month_coeftest_model_list[[2]],
+  transition$coef_models$two_month_coeftest_model_list[[2]],
+  transition$coef_models$three_month_coeftest_model_list[[2]]
+  ),
+  household_mortgage_list = list(
+  transition$coef_models$one_month_coeftest_model_list[[3]],
+  transition$coef_models$two_month_coeftest_model_list[[3]],
+  transition$coef_models$three_month_coeftest_model_list[[3]]
+  )
+)
+
+household_secured_joint_test_vec <- c(
+    transition$joint_test$joint_test_one[[1]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_two[[1]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_three[[1]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+household_unsecured_joint_test_vec <- c(
+    transition$joint_test$joint_test_one[[2]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_two[[2]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_three[[2]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+household_mortgage_joint_test_vec <- c(
+    transition$joint_test$joint_test_one[[3]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_two[[3]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_three[[3]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+
+household_secured_r_squared_vec <- c(
+  summary(transition$lm_models$one_month_ols_model_list[[1]])$adj.r.squared,
+  summary(transition$lm_models$two_month_ols_model_list[[1]])$adj.r.squared,
+  summary(transition$lm_models$three_month_ols_model_list[[1]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+household_unsecured_r_squared_vec <- c(
+  summary(transition$lm_models$one_month_ols_model_list[[2]])$adj.r.squared,
+  summary(transition$lm_models$two_month_ols_model_list[[2]])$adj.r.squared,
+  summary(transition$lm_models$three_month_ols_model_list[[2]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+household_mortgage_r_squared_vec <- c(
+  summary(transition$lm_models$one_month_ols_model_list[[3]])$adj.r.squared,
+  summary(transition$lm_models$two_month_ols_model_list[[3]])$adj.r.squared,
+  summary(transition$lm_models$three_month_ols_model_list[[3]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+
+order_vector <- 
+  c(
+    'change_in_required_capital_dummy' = "change_in_required_capital_dummy",
+    'a' = "a", 
+    'b' = "b",
+    'c' = "c",
+    'd' = "d",
+    'e' = "e",
+    'f' = "f"
+  ) 
+
+household_secured_model <- 
+  modelsummary_word(
+  transition_models$household_secured_list,
+  # coef_omit = 4:21,
+  coef_map = order_vector
+  )
+household_unsecured_model <- 
+  modelsummary_word(
+   transition_models$household_unsecured_list,
+  # coef_omit = 4:21,
+  coef_map = order_vector
+  )
+household_mortgage_model <- 
+  modelsummary_word(
+     transition_models$household_mortgage_list,
+    # coef_omit = 4:21,
+    coef_map = order_vector
+  )
+
+estimates <- c(
+   "\\Delta KR_{t, t-1}",
+   "\\Delta KR_{t-1, t-2}",
+   "\\Delta KR_{t-2, t-3}",
+   "\\Delta KR_{t-3, t-4}",
+   "\\Delta KR_{t+1, t}",
+   "\\Delta KR_{t+2, t-1}",
+  "\\Delta KR_{t+3, t-2}"
+)
+
+flextable(
+  data = bind_rows(
+  household_secured_model$body$dataset,
+  household_unsecured_model$body$dataset,
+  household_mortgage_model$body$dataset
+  ) %>% 
+    add_row(.before = 1," " = "Household secured credit model") %>% 
+    add_row(.after = 16, " " = "Household unsecured credit model") %>% 
+    add_row(.after = 32, " " = "Household mortgage credit model") %>% 
+    add_row(.after = 16, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(household_secured_r_squared_vec[1]), 
+            "(2)" = as.character(household_secured_r_squared_vec[2]),
+            "(3)" = as.character(household_secured_r_squared_vec[3])) %>% 
+    add_row(.after = 17, 
+            " " = "Cumulative effect (p-value)",  
+            "(1)" = as.character(household_secured_joint_test_vec[1]), 
+            "(2)" = as.character(household_secured_joint_test_vec[2]),
+            "(3)" = as.character(household_secured_joint_test_vec[3])) %>% 
+     add_row(.after = 34, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(household_unsecured_r_squared_vec[1]), 
+            "(2)" = as.character(household_unsecured_r_squared_vec[2]),
+            "(3)" = as.character(household_unsecured_r_squared_vec[3])) %>%  
+   add_row(.after = 35, 
+            " " = "Cumulative effect (p-value)",  
+            "(1)" = as.character(household_unsecured_joint_test_vec[1]), 
+            "(2)" = as.character(household_unsecured_joint_test_vec[2]),
+            "(3)" = as.character(household_unsecured_joint_test_vec[3])) %>% 
+    add_row(.after = 52, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(household_mortgage_r_squared_vec[1]), 
+            "(2)" = as.character(household_mortgage_r_squared_vec[2]),
+            "(3)" = as.character(household_mortgage_r_squared_vec[3])) %>% 
+    add_row(.after = 53, 
+            " " = "Cumulative effect (p-value)",  
+            "(1)" = as.character(household_mortgage_joint_test_vec[1]), 
+            "(2)" = as.character(household_mortgage_joint_test_vec[2]),
+            "(3)" = as.character(household_mortgage_joint_test_vec[3]))
+  
+) %>% 
+
+  hline(i = 1, border = border) %>% 
+  hline(i = 15, border = border) %>% 
+  hline(i = 18, border = border) %>% 
+  hline(i = 19, border = border) %>% 
+  hline(i = 33, border = border)  %>%  
+  hline(i = 36, border = border) %>% 
+  hline(i = 37, border = border) %>% 
+  hline(i = 51, border = border) %>% 
+  bold(i = c(1, 19, 37)) %>% 
+  # set_header_labels(" " = "",
+  #                   "(1)" = "1 Month Lag",
+  #                   "(2)" ="2 Month Lag",
+  #                   "(3)" = "3 Month Lag") %>% 
+  set_caption(caption = "Household transition results") %>% 
+  mk_par(j = 1, i= 1, part = "header", value = as_paragraph(as_equation(dependant
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(2, 4, 6, 8, 10, 12, 14), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(20, 22, 24, 26, 28, 30, 32), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(38, 40, 42, 44, 46, 48, 50), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  flextable::align(part = "body", align = "center") %>% 
+  flextable::align(part = "header", align = "center") %>% 
+  flextable::align(j =1, part = "body", align = "left") %>% 
+  flextable::align(j =1, part = "header", align = "left") %>% 
+  add_footer_row(values = as_paragraph("Note: Household transition results. The depandant variables in loan growth at bank level at a monthly frequency, calculated as the log difference at t and t -1. All control variables are defined in Table 2. Standard errors are clustered at a bank level. All equations include both bank and monthly effects. A cumulative effect p-value of < 0.1 is significant", " " , as_equation("*** p < 0.01, ** p < 0.05, * p < 0.1")), colwidths = 4) %>% 
+  hline(border = border, part = "footer" ) %>% 
+  autofit(add_w = 0.6)
+
+
+```
+
+\newpage
+
+```{r}
+#| trans2,
+#| ft.arraystretch = .5,
+#| cache = FALSE
+
+transition_models <- list(
+  corporation_secured_list  = list(
+  transition$coef_models$one_month_coeftest_model_list[[4]],
+  transition$coef_models$two_month_coeftest_model_list[[4]],
+  transition$coef_models$three_month_coeftest_model_list[[4]]
+  ),
+  corporation_unsecured_list = list(
+  transition$coef_models$one_month_coeftest_model_list[[5]],
+  transition$coef_models$two_month_coeftest_model_list[[5]],
+  transition$coef_models$three_month_coeftest_model_list[[5]]
+  ),
+  corporation_mortgage_list = list(
+  transition$coef_models$one_month_coeftest_model_list[[6]],
+  transition$coef_models$two_month_coeftest_model_list[[6]],
+  transition$coef_models$three_month_coeftest_model_list[[6]]
+  )
+)
+
+corporation_secured_joint_test_vec <- c(
+    transition$joint_test$joint_test_one[[4]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_two[[4]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_three[[4]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+corporation_unsecured_joint_test_vec <- c(
+    transition$joint_test$joint_test_one[[5]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_two[[5]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_three[[5]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+corporation_mortgage_joint_test_vec <- c(
+    transition$joint_test$joint_test_one[[6]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_two[[6]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_three[[6]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+
+corporation_secured_r_squared_vec <- c(
+  summary(transition$lm_models$one_month_ols_model_list[[4]])$adj.r.squared,
+  summary(transition$lm_models$two_month_ols_model_list[[4]])$adj.r.squared,
+  summary(transition$lm_models$three_month_ols_model_list[[4]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+corporation_unsecured_r_squared_vec <- c(
+  summary(transition$lm_models$one_month_ols_model_list[[5]])$adj.r.squared,
+  summary(transition$lm_models$two_month_ols_model_list[[5]])$adj.r.squared,
+  summary(transition$lm_models$three_month_ols_model_list[[5]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+corporation_mortgage_r_squared_vec <- c(
+  summary(transition$lm_models$one_month_ols_model_list[[6]])$adj.r.squared,
+  summary(transition$lm_models$two_month_ols_model_list[[6]])$adj.r.squared,
+  summary(transition$lm_models$three_month_ols_model_list[[6]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+corporation_secured_model <- 
+  modelsummary_word(
+  transition_models$corporation_secured_list,
+  # coef_omit = 3:20,
+  coef_map = order_vector
+) 
+corporation_unsecured_model <- 
+  modelsummary_word(
+   transition_models$corporation_unsecured_list,
+  # coef_omit = 3:20,
+  coef_map = order_vector
+  )
+corporation_mortgage_model <- 
+  modelsummary_word(
+     transition_models$corporation_mortgage_list,
+    # coef_omit = 3:20,
+    coef_map = order_vector
+  )
+
+estimates <- c(
+   "\\Delta KR_{t, t-1}",
+   "\\Delta KR_{t-1, t-2}",
+   "\\Delta KR_{t-2, t-3}",
+   "\\Delta KR_{t-3, t-4}",
+   "\\Delta KR_{t+1, t}",
+   "\\Delta KR_{t+2, t-1}",
+  "\\Delta KR_{t+3, t-2}"
+)
+
+
+flextable(
+  data = bind_rows(
+  corporation_secured_model$body$dataset,
+  corporation_unsecured_model$body$dataset,
+  corporation_mortgage_model$body$dataset
+  ) %>% 
+    add_row(.before = 1," " = "Non-financial corporations secured credit model") %>% 
+    add_row(.after = 16, " " = "Non-financial corporations unsecured credit model") %>% 
+    add_row(.after = 32, " " = "Non-financial corporations mortgage credit model") %>% 
+    add_row(.after = 16, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(corporation_secured_r_squared_vec[1]), 
+            "(2)" = as.character(corporation_secured_r_squared_vec[2]),
+            "(3)" = as.character(corporation_secured_r_squared_vec[3])) %>% 
+    add_row(.after = 17, 
+            " " = "Cumulative effect (p-value)",  
+            "(1)" = as.character(corporation_secured_joint_test_vec[1]), 
+            "(2)" = as.character(corporation_secured_joint_test_vec[2]),
+            "(3)" = as.character(corporation_secured_joint_test_vec[3])) %>% 
+     add_row(.after = 34, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(corporation_unsecured_r_squared_vec[1]), 
+            "(2)" = as.character(corporation_unsecured_r_squared_vec[2]),
+            "(3)" = as.character(corporation_unsecured_r_squared_vec[3])) %>%  
+   add_row(.after = 35, 
+            " " = "Cumulative effect (p-value)",  
+            "(1)" = as.character(corporation_unsecured_joint_test_vec[1]), 
+            "(2)" = as.character(corporation_unsecured_joint_test_vec[2]),
+            "(3)" = as.character(corporation_unsecured_joint_test_vec[3])) %>% 
+    add_row(.after = 52, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(corporation_mortgage_r_squared_vec[1]), 
+            "(2)" = as.character(corporation_mortgage_r_squared_vec[2]),
+            "(3)" = as.character(corporation_mortgage_r_squared_vec[3])) %>% 
+    add_row(.after = 53, 
+            " " = "Cumulative effect (p-value)",  
+            "(1)" = as.character(corporation_mortgage_joint_test_vec[1]), 
+            "(2)" = as.character(corporation_mortgage_joint_test_vec[2]),
+            "(3)" = as.character(corporation_mortgage_joint_test_vec[3]))
+) %>% 
+
+  hline(i = 1, border = border) %>% 
+  hline(i = 15, border = border) %>% 
+  hline(i = 18, border = border) %>% 
+  hline(i = 19, border = border) %>% 
+  hline(i = 33, border = border)  %>%  
+  hline(i = 36, border = border) %>% 
+  hline(i = 37, border = border) %>% 
+  hline(i = 51, border = border) %>% 
+  bold(i = c(1, 19, 37)) %>% 
+  # set_header_labels(" " = "",
+  #                   "(1)" = "1 Month Lag",
+  #                   "(2)" ="2 Month Lag",
+  #                   "(3)" = "3 Month Lag") %>% 
+  set_caption(caption = "Non-financial transition results") %>% 
+  mk_par(j = 1, i= 1, part = "header", value = as_paragraph(as_equation(dependant
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(2, 4, 6, 8, 10, 12, 14), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(20, 22, 24, 26, 28, 30, 32), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(38, 40, 42, 44, 46, 48, 50), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  flextable::align(part = "body", align = "center") %>% 
+  flextable::align(part = "header", align = "center") %>% 
+  flextable::align(j =1, part = "body", align = "left") %>% 
+  flextable::align(j = 1, part = "header", align = "left") %>% 
+  add_footer_row(values = as_paragraph("Note: Non-financial corporations transition results. The depandant variables in loan growth at bank level at a monthly frequency, calculated as the log difference at t and t -1. All control variables are defined in Table 2. Standard errors are clustered at a bank level. All equations include both bank and monthly effects. A cumulative effect p-value of < 0.1 is significant", " " , as_equation("*** p < 0.01, ** p < 0.05, * p < 0.1")), colwidths = 4) %>% 
+  hline(border = border, part = "footer" ) %>% 
+  autofit(add_w = 0.45)
+
+```
+
+\newpage
+
+Similar to the main results, all household credit categories have a clear lagged effect. The lagged effect was also mainly negative. The lagged effect evidence was mixed in the financial corporations' credit categories except for unsecured credit, which had a clear lagged effect. Therefore, statistically speaking, endogeneity is not a major issue. The anticipation effect evidence on the household side was convincing, except for mortgages which showed some significance. This was also the case for financial corporations. In most categories, the combined effect (that the sum of the $\beta_s$ is different from zero) of the leads and lags was insignificant. However, there was strong significance in household mortgages and financial corporations' secured and unsecured credit. Therefore, the results suggest that anticipation effects are limited. Lastly, one key observation is the impact of the capital requirement tends to last for up to a quarter or three months and can also be positive in some months. 
 
 ## Discussion
 
@@ -712,11 +1446,15 @@ The results also revealed a more significant effect on household lending versus 
 
 
 
+
+\newpage
 # Conclusion {#conclusion}
 
 
 \newpage
 
+
+\newpage
 # Appendix
 
 ## Data
@@ -1349,741 +2087,6 @@ balance_sheet_gdp$graphs$capitec_gdp_gg
 
 \newpage
 
-## Main results {#main}
-```{r}
-#| HH1,
-#| ft.arraystretch = .55,
-#| cache = FALSE
-
-models_full_list <- list(
-  household_secured_list  = list(
-  models$coef_models$one_month_buffer_coeftest_model_list[[1]],
-  models$coef_models$one_month_buffer_surplus_coeftest_model_list[[1]],
-  models$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[1]],
-  models$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[1]],
-  models$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[1]]
-  ),
-  household_unsecured_list = list(
-  models$coef_models$one_month_buffer_coeftest_model_list[[2]],
-  models$coef_models$one_month_buffer_surplus_coeftest_model_list[[2]],
-  models$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[2]],
-  models$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[2]],
-  models$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[2]]
-  ),
-  household_mortgage_list = list(
-  models$coef_models$one_month_buffer_coeftest_model_list[[3]],
-  models$coef_models$one_month_buffer_surplus_coeftest_model_list[[3]],
-  models$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[3]],
-  models$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[3]],
-  models$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[3]]
-  )
-)
-
-household_secured_joint_test_vec <- c(
-    models$joint_test$joint_test_buffer[[1]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus[[1]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus_demand[[1]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus_control[[1]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus_demand_control[[1]]$`Pr(>F)`[2]
-  ) %>% sprintf(fmt = '%#.2f')
-household_unsecured_joint_test_vec <- c(
-    models$joint_test$joint_test_buffer[[2]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus[[2]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus_demand[[2]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus_control[[2]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus_demand_control[[2]]$`Pr(>F)`[2]
-  ) %>% sprintf(fmt = '%#.2f')
-household_mortgage_joint_test_vec <- c(
-    models$joint_test$joint_test_buffer[[3]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus[[3]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus_demand[[3]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus_control[[3]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus_demand_control[[3]]$`Pr(>F)`[2]
-  ) %>% sprintf(fmt = '%#.2f')
-
-household_secured_r_squared_vec <- c(
-  summary(models$lm_models$one_month_buffer_ols_model_list[[1]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_ols_model_list[[1]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_demand_ols_model_list[[1]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_control_ols_model_list[[1]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[1]])$adj.r.squared
-) %>% sprintf(fmt = '%#.2f')
-
-household_unsecured_r_squared_vec <- c(
-  summary(models$lm_models$one_month_buffer_ols_model_list[[2]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_ols_model_list[[2]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_demand_ols_model_list[[2]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_control_ols_model_list[[2]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[2]])$adj.r.squared
-) %>% sprintf(fmt = '%#.2f')
-
-household_mortgage_r_squared_vec <- c(
-  summary(models$lm_models$one_month_buffer_ols_model_list[[3]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_ols_model_list[[3]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_demand_ols_model_list[[3]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_control_ols_model_list[[3]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[3]])$adj.r.squared
-) %>% sprintf(fmt = '%#.2f')
-
-household_secured_model <- 
-  modelsummary_word(
-  models_full_list$household_secured_list,
-  coef_omit = 2:16
-) 
-household_unsecured_model <- 
-  modelsummary_word(
-  models_full_list$household_unsecured_list,
-  coef_omit = 2:16
-  )
-household_mortgage_model <- 
-  modelsummary_word(
-    models_full_list$household_mortgage_list,
-    coef_omit = 2:16
-  )
-
-dependant <-  c(
-    "Dep. Var:\\Delta LOAN_{t, t-1}"
-)
-estimates <- c(
-  "\\Delta KR_{t, t-1}",
-  "\\Delta KS_{t, t-1} ",
-  "\\Delta Demand_{t, t-1}",
-  "ROA_{t-1}",
-  "ROE_{t-1}",
-  "Liquidity_{t-1}"
-)
-
-flextable(
-  data = bind_rows(
-  household_secured_model$body$dataset,
-  household_unsecured_model$body$dataset,
-  household_mortgage_model$body$dataset
-  ) %>% 
-    add_row(.before = 1," " = "Household secured credit model") %>% 
-    add_row(.after = 14, " " = "Household unsecured credit model") %>% 
-    add_row(.after = 28, " " = "Household mortgage credit model") %>% 
-    add_row(.after = 14, 
-            " " = "Test of equality (p-value)",  
-            "(1)" = as.character(household_secured_joint_test_vec[1]), 
-            "(2)" = as.character(household_secured_joint_test_vec[2]),
-            "(3)" = as.character(household_secured_joint_test_vec[3]),
-            "(4)" = as.character(household_secured_joint_test_vec[4]),
-            "(5)" = as.character(household_secured_joint_test_vec[5])) %>% 
-   add_row(.after = 29, 
-            " " = "Test of equality (p-value)",  
-            "(1)" = as.character(household_unsecured_joint_test_vec[1]), 
-            "(2)" = as.character(household_unsecured_joint_test_vec[2]),
-            "(3)" = as.character(household_unsecured_joint_test_vec[3]),
-            "(4)" = as.character(household_unsecured_joint_test_vec[4]),
-            "(5)" = as.character(household_unsecured_joint_test_vec[5])) %>% 
-    add_row(.after = 45, 
-            " " = "Test of equality (p-value)",  
-            "(1)" = as.character(household_mortgage_joint_test_vec[1]), 
-            "(2)" = as.character(household_mortgage_joint_test_vec[2]),
-            "(3)" = as.character(household_mortgage_joint_test_vec[3]),
-            "(4)" = as.character(household_mortgage_joint_test_vec[4]),
-            "(5)" = as.character(household_mortgage_joint_test_vec[5])) %>% 
-       add_row(.after = 14, 
-            " " = "Adj.R squared",  
-            "(1)" = as.character(household_secured_r_squared_vec[1]), 
-            "(2)" = as.character(household_secured_r_squared_vec[2]),
-            "(3)" = as.character(household_secured_r_squared_vec[3]),
-            "(4)" = as.character(household_secured_r_squared_vec[4]),
-            "(5)" = as.character(household_secured_r_squared_vec[5])) %>% 
-   add_row(.after = 30, 
-            " " = "Adj.R squared",  
-            "(1)" = as.character(household_unsecured_r_squared_vec[1]), 
-            "(2)" = as.character(household_unsecured_r_squared_vec[2]),
-            "(3)" = as.character(household_unsecured_r_squared_vec[3]),
-            "(4)" = as.character(household_unsecured_r_squared_vec[4]),
-            "(5)" = as.character(household_unsecured_r_squared_vec[5])) %>% 
-    add_row(.after = 46, 
-            " " = "Adj.R squared",  
-            "(1)" = as.character(household_mortgage_r_squared_vec[1]), 
-            "(2)" = as.character(household_mortgage_r_squared_vec[2]),
-            "(3)" = as.character(household_mortgage_r_squared_vec[3]),
-            "(4)" = as.character(household_mortgage_r_squared_vec[4]),
-            "(5)" = as.character(household_mortgage_r_squared_vec[5]))
- 
-) %>% 
-  hline(i = 1, border = border) %>% 
-  hline(i = 13, border = border)  %>% 
-  hline(i = 16, border = border) %>% 
-  hline(i = 17, border = border)  %>% 
-  hline(i = 29, border = border) %>% 
-  hline(i = 32, border = border) %>% 
-  hline(i = 33, border = border) %>% 
-  hline(i = 45, border = border) %>% 
-  bold(i = c(1, 17, 33)) %>% 
-  # set_header_labels(" " = "",
-  #                   "(1)" = "Min Requirement",
-  #                   "(2)" ="Surplus Capital",
-  #                   "(3)" = "Demand", 
-  #                   "(4)" = "Controls no Demand", 
-  #                   "(5)" = "Controls and Demand") %>% 
-  set_caption(caption = "Household results") %>% 
-  mk_par(j = 1, i= 1, part = "header", value = as_paragraph(as_equation(dependant
-                                                                   ))) %>% 
-  mk_par(j = 1, i= c(2, 4, 6, 8, 10, 12), part = "body", value = as_paragraph(as_equation(estimates
-                                                                   ))) %>% 
-  mk_par(j = 1, i= c(18, 20, 22, 24, 26, 28), part = "body", value = as_paragraph(as_equation(estimates
-                                                                   ))) %>% 
-  mk_par(j = 1, i= c(34, 36, 38, 40, 42, 44), part = "body", value = as_paragraph(as_equation(estimates
-                                                                   ))) %>% 
-  flextable::align(part = "body", align = "center") %>% 
-  flextable::align(part = "header", align = "center") %>% 
-  flextable::align(j =1, part = "body", align = "left") %>% 
-  flextable::align(j =1, part = "header", align = "left") %>% 
-  add_footer_row(values = as_paragraph("Note: Household results. The depandant variables in loan growth at bank level at a monthly frequency, calculated as the log difference at t and t -1. All control variables are defined in Table 2. Standard errors are clustered at a bank level. All equations include both bank and monthly effects. A test for equality p-value of < 0.1 is significant.", " " , as_equation("*** p < 0.01, ** p < 0.05, * p < 0.1")), colwidths = 6) %>% 
-  hline(border = border, part = "footer" ) %>% 
-  autofit(add_w = 0.2)
-
-
-```
-
-
-```{r}
-#| NFC1,
-#| ft.arraystretch = .55,
-#| cache = FALSE
-
-models_full_list_NFC <- list(
-  corporation_secured_list  = list(
-  models$coef_models$one_month_buffer_coeftest_model_list[[4]],
-  models$coef_models$one_month_buffer_surplus_coeftest_model_list[[4]],
-  models$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[4]],
-  models$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[4]],
-  models$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[4]]
-  ),
-  corporation_unsecured_list = list(
-  models$coef_models$one_month_buffer_coeftest_model_list[[5]],
-  models$coef_models$one_month_buffer_surplus_coeftest_model_list[[5]],
-  models$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[5]],
-  models$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[5]],
-  models$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[5]]
-  ),
-  corporation_mortgage_list = list(
-  models$coef_models$one_month_buffer_coeftest_model_list[[6]],
-  models$coef_models$one_month_buffer_surplus_coeftest_model_list[[6]],
-  models$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[6]],
-  models$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[6]],
-  models$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[6]]
-  )
-)
-
-corporation_secured_joint_test_vec <- c(
-    models$joint_test$joint_test_buffer[[4]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus[[4]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus_demand[[4]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus_control[[4]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus_demand_control[[4]]$`Pr(>F)`[2]
-  ) %>% sprintf(fmt = '%#.2f')
-corporation_unsecured_joint_test_vec <- c(
-    models$joint_test$joint_test_buffer[[5]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus[[5]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus_demand[[5]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus_control[[5]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus_demand_control[[5]]$`Pr(>F)`[2]
-  ) %>% sprintf(fmt = '%#.2f')
-corporation_mortgage_joint_test_vec <- c(
-    models$joint_test$joint_test_buffer[[6]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus[[6]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus_demand[[6]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus_control[[6]]$`Pr(>F)`[2],
-    models$joint_test$joint_test_buffer_surplus_demand_control[[6]]$`Pr(>F)`[2]
-  ) %>% sprintf(fmt = '%#.2f')
-
-corporation_secured_r_squared_vec <- c(
-  summary(models$lm_models$one_month_buffer_ols_model_list[[4]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_ols_model_list[[4]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_demand_ols_model_list[[4]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_control_ols_model_list[[4]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[4]])$adj.r.squared
-) %>% sprintf(fmt = '%#.2f')
-
-corporation_unsecured_r_squared_vec <- c(
-  summary(models$lm_models$one_month_buffer_ols_model_list[[5]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_ols_model_list[[5]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_demand_ols_model_list[[5]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_control_ols_model_list[[5]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[5]])$adj.r.squared
-) %>% sprintf(fmt = '%#.2f')
-
-corporation_mortgage_r_squared_vec <- c(
-  summary(models$lm_models$one_month_buffer_ols_model_list[[6]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_ols_model_list[[6]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_demand_ols_model_list[[6]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_control_ols_model_list[[6]])$adj.r.squared,
-  summary(models$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[6]])$adj.r.squared
-) %>% sprintf(fmt = '%#.2f')
-
-corporation_secured_model <- 
-  modelsummary_word(
-  models_full_list_NFC$corporation_secured_list,
-  coef_omit = 2:16
-) 
-corporation_unsecured_model <- 
-  modelsummary_word(
-  models_full_list_NFC$corporation_unsecured_list,
-  coef_omit = 2:16
-  )
-corporation_mortgage_model <- 
-  modelsummary_word(
-    models_full_list_NFC$corporation_mortgage_list,
-    coef_omit = 2:16
-  )
-
-estimates <- c(
-  "\\Delta KR_{t, t-1}",
-  "\\Delta KS_{t, t-1} ",
-  "\\Delta Demand_{t, t-1}",
-  "ROA_{t-1}",
-  "ROE_{t-1}",
-  "Liquidity_{t-1}"
-)
-
-flextable(
-  data = bind_rows(
-  corporation_secured_model$body$dataset,
-  corporation_unsecured_model$body$dataset,
-  corporation_mortgage_model$body$dataset
-  ) %>% 
-    add_row(.before = 1," " = "Non-financial corporations secured credit model") %>% 
-    add_row(.after = 14, " " = "Non-financial corporations unsecured credit model") %>% 
-    add_row(.after = 28, " " = "Non-financial corporations mortgage credit model") %>% 
-    add_row(.after = 14, 
-            " " = "Test of equality (p-value)",  
-            "(1)" = as.character(corporation_secured_joint_test_vec[1]), 
-            "(2)" = as.character(corporation_secured_joint_test_vec[2]),
-            "(3)" = as.character(corporation_secured_joint_test_vec[3]),
-            "(4)" = as.character(corporation_secured_joint_test_vec[4]),
-            "(5)" = as.character(corporation_secured_joint_test_vec[5])) %>% 
-   add_row(.after = 29, 
-            " " = "Test of equality (p-value)",  
-            "(1)" = as.character(corporation_unsecured_joint_test_vec[1]), 
-            "(2)" = as.character(corporation_unsecured_joint_test_vec[2]),
-            "(3)" = as.character(corporation_unsecured_joint_test_vec[3]),
-            "(4)" = as.character(corporation_unsecured_joint_test_vec[4]),
-            "(5)" = as.character(corporation_unsecured_joint_test_vec[5])) %>% 
-    add_row(.after = 45, 
-            " " = "Test of equality (p-value)",  
-            "(1)" = as.character(corporation_mortgage_joint_test_vec[1]), 
-            "(2)" = as.character(corporation_mortgage_joint_test_vec[2]),
-            "(3)" = as.character(corporation_mortgage_joint_test_vec[3]),
-            "(4)" = as.character(corporation_mortgage_joint_test_vec[4]),
-            "(5)" = as.character(corporation_mortgage_joint_test_vec[5])) %>% 
-       add_row(.after = 14, 
-            " " = "Adj.R squared",  
-            "(1)" = as.character(corporation_secured_r_squared_vec[1]), 
-            "(2)" = as.character(corporation_secured_r_squared_vec[2]),
-            "(3)" = as.character(corporation_secured_r_squared_vec[3]),
-            "(4)" = as.character(corporation_secured_r_squared_vec[4]),
-            "(5)" = as.character(corporation_secured_r_squared_vec[5])) %>% 
-   add_row(.after = 30, 
-            " " = "Adj.R squared",  
-            "(1)" = as.character(corporation_unsecured_r_squared_vec[1]), 
-            "(2)" = as.character(corporation_unsecured_r_squared_vec[2]),
-            "(3)" = as.character(corporation_unsecured_r_squared_vec[3]),
-            "(4)" = as.character(corporation_unsecured_r_squared_vec[4]),
-            "(5)" = as.character(corporation_unsecured_r_squared_vec[5])) %>% 
-    add_row(.after = 46, 
-            " " = "Adj.R squared",  
-            "(1)" = as.character(corporation_mortgage_r_squared_vec[1]), 
-            "(2)" = as.character(corporation_mortgage_r_squared_vec[2]),
-            "(3)" = as.character(corporation_mortgage_r_squared_vec[3]),
-            "(4)" = as.character(corporation_mortgage_r_squared_vec[4]),
-            "(5)" = as.character(corporation_mortgage_r_squared_vec[5]))
- 
-) %>% 
-  hline(i = 1, border = border) %>% 
-  hline(i = 13, border = border)  %>% 
-  hline(i = 16, border = border) %>% 
-  hline(i = 17, border = border)  %>% 
-  hline(i = 29, border = border) %>% 
-  hline(i = 32, border = border) %>% 
-  hline(i = 33, border = border) %>% 
-  hline(i = 45, border = border) %>% 
-  bold(i = c(1, 17, 33)) %>% 
-  # set_header_labels(" " = "",
-  #                   "(1)" = "Min Requirement",
-  #                   "(2)" ="Surplus Capital",
-  #                   "(3)" = "Demand", 
-  #                   "(4)" = "Controls no Demand", 
-  #                   "(5)" = "Controls and Demand") %>% 
-  set_caption(caption = "Non-financial corporations results") %>% 
-  mk_par(j = 1, i= 1, part = "header", value = as_paragraph(as_equation(dependant
-                                                                   ))) %>% 
-  mk_par(j = 1, i= c(2, 4, 6, 8, 10, 12), part = "body", value = as_paragraph(as_equation(estimates
-                                                                   ))) %>% 
-  mk_par(j = 1, i= c(18, 20, 22, 24, 26, 28), part = "body", value = as_paragraph(as_equation(estimates
-                                                                   ))) %>% 
-  mk_par(j = 1, i= c(34, 36, 38, 40, 42, 44), part = "body", value = as_paragraph(as_equation(estimates
-                                                                   ))) %>% 
-  flextable::align(part = "body", align = "center") %>% 
-  flextable::align(part = "header", align = "center") %>% 
-  flextable::align(j =1, part = "body", align = "left") %>% 
-  flextable::align(j =1, part = "header", align = "left") %>% 
-  add_footer_row(values = as_paragraph("Note: Non-financial corporations results. The depandant variables in loan growth at bank level at a monthly frequency, calculated as the log difference at t and t -1. All control variables are defined in Table 2. Standard errors are clustered at a bank level. All equations include both bank and monthly effects. A test for equality p-value of < 0.1 is significant.", " " , as_equation("*** p < 0.01, ** p < 0.05, * p < 0.1")), colwidths = 6) %>% 
-  hline(border = border, part = "footer" ) %>% 
-  autofit(add_w = 0)
-
-```
-
-<!-- Excluded local projections -->
-```{r}
-#| path,
-#| fig.cap = "Local projections (impulse responses)",
-#| cache = FALSE,
-#| include = FALSE,
-#| eval = TRUE,
-#| fig.height = 6
-
-models$graphs$path_gg
-
-```
-
-\newpage
-## Transition results {#transition}
-
-```{r}
-#| trans1,
-#| ft.arraystretch = .5,
-#| cache = FALSE
-
-transition <- read_rds(here("Outputs", "artifacts_transition_model.rds"))
-
-transition_models <- list(
-  household_secured_list  = list(
-  transition$coef_models$one_month_coeftest_model_list[[1]],
-  transition$coef_models$two_month_coeftest_model_list[[1]],
-  transition$coef_models$three_month_coeftest_model_list[[1]]
-  ),
-  household_unsecured_list = list(
-  transition$coef_models$one_month_coeftest_model_list[[2]],
-  transition$coef_models$two_month_coeftest_model_list[[2]],
-  transition$coef_models$three_month_coeftest_model_list[[2]]
-  ),
-  household_mortgage_list = list(
-  transition$coef_models$one_month_coeftest_model_list[[3]],
-  transition$coef_models$two_month_coeftest_model_list[[3]],
-  transition$coef_models$three_month_coeftest_model_list[[3]]
-  )
-)
-
-household_secured_joint_test_vec <- c(
-    transition$joint_test$joint_test_one[[1]]$`Pr(>F)`[2],
-    transition$joint_test$joint_test_two[[1]]$`Pr(>F)`[2],
-    transition$joint_test$joint_test_three[[1]]$`Pr(>F)`[2]
-  ) %>% sprintf(fmt = '%#.2f')
-household_unsecured_joint_test_vec <- c(
-    transition$joint_test$joint_test_one[[2]]$`Pr(>F)`[2],
-    transition$joint_test$joint_test_two[[2]]$`Pr(>F)`[2],
-    transition$joint_test$joint_test_three[[2]]$`Pr(>F)`[2]
-  ) %>% sprintf(fmt = '%#.2f')
-household_mortgage_joint_test_vec <- c(
-    transition$joint_test$joint_test_one[[3]]$`Pr(>F)`[2],
-    transition$joint_test$joint_test_two[[3]]$`Pr(>F)`[2],
-    transition$joint_test$joint_test_three[[3]]$`Pr(>F)`[2]
-  ) %>% sprintf(fmt = '%#.2f')
-
-household_secured_r_squared_vec <- c(
-  summary(transition$lm_models$one_month_ols_model_list[[1]])$adj.r.squared,
-  summary(transition$lm_models$two_month_ols_model_list[[1]])$adj.r.squared,
-  summary(transition$lm_models$three_month_ols_model_list[[1]])$adj.r.squared
-) %>% sprintf(fmt = '%#.2f')
-
-household_unsecured_r_squared_vec <- c(
-  summary(transition$lm_models$one_month_ols_model_list[[2]])$adj.r.squared,
-  summary(transition$lm_models$two_month_ols_model_list[[2]])$adj.r.squared,
-  summary(transition$lm_models$three_month_ols_model_list[[2]])$adj.r.squared
-) %>% sprintf(fmt = '%#.2f')
-
-household_mortgage_r_squared_vec <- c(
-  summary(transition$lm_models$one_month_ols_model_list[[3]])$adj.r.squared,
-  summary(transition$lm_models$two_month_ols_model_list[[3]])$adj.r.squared,
-  summary(transition$lm_models$three_month_ols_model_list[[3]])$adj.r.squared
-) %>% sprintf(fmt = '%#.2f')
-
-
-order_vector <- 
-  c(
-    'change_in_required_capital_dummy' = "change_in_required_capital_dummy",
-    'a' = "a", 
-    'b' = "b",
-    'c' = "c",
-    'd' = "d",
-    'e' = "e",
-    'f' = "f"
-  ) 
-
-household_secured_model <- 
-  modelsummary_word(
-  transition_models$household_secured_list,
-  # coef_omit = 4:21,
-  coef_map = order_vector
-  )
-household_unsecured_model <- 
-  modelsummary_word(
-   transition_models$household_unsecured_list,
-  # coef_omit = 4:21,
-  coef_map = order_vector
-  )
-household_mortgage_model <- 
-  modelsummary_word(
-     transition_models$household_mortgage_list,
-    # coef_omit = 4:21,
-    coef_map = order_vector
-  )
-
-estimates <- c(
-   "\\Delta KR_{t, t-1}",
-   "\\Delta KR_{t-1, t-2}",
-   "\\Delta KR_{t-2, t-3}",
-   "\\Delta KR_{t-3, t-4}",
-   "\\Delta KR_{t+1, t}",
-   "\\Delta KR_{t+2, t-1}",
-  "\\Delta KR_{t+3, t-2}"
-)
-
-flextable(
-  data = bind_rows(
-  household_secured_model$body$dataset,
-  household_unsecured_model$body$dataset,
-  household_mortgage_model$body$dataset
-  ) %>% 
-    add_row(.before = 1," " = "Household secured credit model") %>% 
-    add_row(.after = 16, " " = "Household unsecured credit model") %>% 
-    add_row(.after = 32, " " = "Household mortgage credit model") %>% 
-    add_row(.after = 16, 
-            " " = "Adj.R squared",  
-            "(1)" = as.character(household_secured_r_squared_vec[1]), 
-            "(2)" = as.character(household_secured_r_squared_vec[2]),
-            "(3)" = as.character(household_secured_r_squared_vec[3])) %>% 
-    add_row(.after = 17, 
-            " " = "Cumulative effect (p-value)",  
-            "(1)" = as.character(household_secured_joint_test_vec[1]), 
-            "(2)" = as.character(household_secured_joint_test_vec[2]),
-            "(3)" = as.character(household_secured_joint_test_vec[3])) %>% 
-     add_row(.after = 34, 
-            " " = "Adj.R squared",  
-            "(1)" = as.character(household_unsecured_r_squared_vec[1]), 
-            "(2)" = as.character(household_unsecured_r_squared_vec[2]),
-            "(3)" = as.character(household_unsecured_r_squared_vec[3])) %>%  
-   add_row(.after = 35, 
-            " " = "Cumulative effect (p-value)",  
-            "(1)" = as.character(household_unsecured_joint_test_vec[1]), 
-            "(2)" = as.character(household_unsecured_joint_test_vec[2]),
-            "(3)" = as.character(household_unsecured_joint_test_vec[3])) %>% 
-    add_row(.after = 52, 
-            " " = "Adj.R squared",  
-            "(1)" = as.character(household_mortgage_r_squared_vec[1]), 
-            "(2)" = as.character(household_mortgage_r_squared_vec[2]),
-            "(3)" = as.character(household_mortgage_r_squared_vec[3])) %>% 
-    add_row(.after = 53, 
-            " " = "Cumulative effect (p-value)",  
-            "(1)" = as.character(household_mortgage_joint_test_vec[1]), 
-            "(2)" = as.character(household_mortgage_joint_test_vec[2]),
-            "(3)" = as.character(household_mortgage_joint_test_vec[3]))
-  
-) %>% 
-
-  hline(i = 1, border = border) %>% 
-  hline(i = 15, border = border) %>% 
-  hline(i = 18, border = border) %>% 
-  hline(i = 19, border = border) %>% 
-  hline(i = 33, border = border)  %>%  
-  hline(i = 36, border = border) %>% 
-  hline(i = 37, border = border) %>% 
-  hline(i = 51, border = border) %>% 
-  bold(i = c(1, 19, 37)) %>% 
-  # set_header_labels(" " = "",
-  #                   "(1)" = "1 Month Lag",
-  #                   "(2)" ="2 Month Lag",
-  #                   "(3)" = "3 Month Lag") %>% 
-  set_caption(caption = "Household transition results") %>% 
-  mk_par(j = 1, i= 1, part = "header", value = as_paragraph(as_equation(dependant
-                                                                   ))) %>% 
-  mk_par(j = 1, i= c(2, 4, 6, 8, 10, 12, 14), part = "body", value = as_paragraph(as_equation(estimates
-                                                                   ))) %>% 
-  mk_par(j = 1, i= c(20, 22, 24, 26, 28, 30, 32), part = "body", value = as_paragraph(as_equation(estimates
-                                                                   ))) %>% 
-  mk_par(j = 1, i= c(38, 40, 42, 44, 46, 48, 50), part = "body", value = as_paragraph(as_equation(estimates
-                                                                   ))) %>% 
-  flextable::align(part = "body", align = "center") %>% 
-  flextable::align(part = "header", align = "center") %>% 
-  flextable::align(j =1, part = "body", align = "left") %>% 
-  flextable::align(j =1, part = "header", align = "left") %>% 
-  add_footer_row(values = as_paragraph("Note: Household transition results. The depandant variables in loan growth at bank level at a monthly frequency, calculated as the log difference at t and t -1. All control variables are defined in Table 2. Standard errors are clustered at a bank level. All equations include both bank and monthly effects. A cumulative effect p-value of < 0.1 is significant", " " , as_equation("*** p < 0.01, ** p < 0.05, * p < 0.1")), colwidths = 4) %>% 
-  hline(border = border, part = "footer" ) %>% 
-  autofit(add_w = 0.6)
-
-
-```
-
-\newpage
-
-```{r}
-#| trans2,
-#| ft.arraystretch = .5,
-#| cache = FALSE
-
-transition_models <- list(
-  corporation_secured_list  = list(
-  transition$coef_models$one_month_coeftest_model_list[[4]],
-  transition$coef_models$two_month_coeftest_model_list[[4]],
-  transition$coef_models$three_month_coeftest_model_list[[4]]
-  ),
-  corporation_unsecured_list = list(
-  transition$coef_models$one_month_coeftest_model_list[[5]],
-  transition$coef_models$two_month_coeftest_model_list[[5]],
-  transition$coef_models$three_month_coeftest_model_list[[5]]
-  ),
-  corporation_mortgage_list = list(
-  transition$coef_models$one_month_coeftest_model_list[[6]],
-  transition$coef_models$two_month_coeftest_model_list[[6]],
-  transition$coef_models$three_month_coeftest_model_list[[6]]
-  )
-)
-
-corporation_secured_joint_test_vec <- c(
-    transition$joint_test$joint_test_one[[4]]$`Pr(>F)`[2],
-    transition$joint_test$joint_test_two[[4]]$`Pr(>F)`[2],
-    transition$joint_test$joint_test_three[[4]]$`Pr(>F)`[2]
-  ) %>% sprintf(fmt = '%#.2f')
-corporation_unsecured_joint_test_vec <- c(
-    transition$joint_test$joint_test_one[[5]]$`Pr(>F)`[2],
-    transition$joint_test$joint_test_two[[5]]$`Pr(>F)`[2],
-    transition$joint_test$joint_test_three[[5]]$`Pr(>F)`[2]
-  ) %>% sprintf(fmt = '%#.2f')
-corporation_mortgage_joint_test_vec <- c(
-    transition$joint_test$joint_test_one[[6]]$`Pr(>F)`[2],
-    transition$joint_test$joint_test_two[[6]]$`Pr(>F)`[2],
-    transition$joint_test$joint_test_three[[6]]$`Pr(>F)`[2]
-  ) %>% sprintf(fmt = '%#.2f')
-
-corporation_secured_r_squared_vec <- c(
-  summary(transition$lm_models$one_month_ols_model_list[[4]])$adj.r.squared,
-  summary(transition$lm_models$two_month_ols_model_list[[4]])$adj.r.squared,
-  summary(transition$lm_models$three_month_ols_model_list[[4]])$adj.r.squared
-) %>% sprintf(fmt = '%#.2f')
-
-corporation_unsecured_r_squared_vec <- c(
-  summary(transition$lm_models$one_month_ols_model_list[[5]])$adj.r.squared,
-  summary(transition$lm_models$two_month_ols_model_list[[5]])$adj.r.squared,
-  summary(transition$lm_models$three_month_ols_model_list[[5]])$adj.r.squared
-) %>% sprintf(fmt = '%#.2f')
-
-corporation_mortgage_r_squared_vec <- c(
-  summary(transition$lm_models$one_month_ols_model_list[[6]])$adj.r.squared,
-  summary(transition$lm_models$two_month_ols_model_list[[6]])$adj.r.squared,
-  summary(transition$lm_models$three_month_ols_model_list[[6]])$adj.r.squared
-) %>% sprintf(fmt = '%#.2f')
-
-corporation_secured_model <- 
-  modelsummary_word(
-  transition_models$corporation_secured_list,
-  # coef_omit = 3:20,
-  coef_map = order_vector
-) 
-corporation_unsecured_model <- 
-  modelsummary_word(
-   transition_models$corporation_unsecured_list,
-  # coef_omit = 3:20,
-  coef_map = order_vector
-  )
-corporation_mortgage_model <- 
-  modelsummary_word(
-     transition_models$corporation_mortgage_list,
-    # coef_omit = 3:20,
-    coef_map = order_vector
-  )
-
-estimates <- c(
-   "\\Delta KR_{t, t-1}",
-   "\\Delta KR_{t-1, t-2}",
-   "\\Delta KR_{t-2, t-3}",
-   "\\Delta KR_{t-3, t-4}",
-   "\\Delta KR_{t+1, t}",
-   "\\Delta KR_{t+2, t-1}",
-  "\\Delta KR_{t+3, t-2}"
-)
-
-
-flextable(
-  data = bind_rows(
-  corporation_secured_model$body$dataset,
-  corporation_unsecured_model$body$dataset,
-  corporation_mortgage_model$body$dataset
-  ) %>% 
-    add_row(.before = 1," " = "Non-financial corporations secured credit model") %>% 
-    add_row(.after = 16, " " = "Non-financial corporations unsecured credit model") %>% 
-    add_row(.after = 32, " " = "Non-financial corporations mortgage credit model") %>% 
-    add_row(.after = 16, 
-            " " = "Adj.R squared",  
-            "(1)" = as.character(corporation_secured_r_squared_vec[1]), 
-            "(2)" = as.character(corporation_secured_r_squared_vec[2]),
-            "(3)" = as.character(corporation_secured_r_squared_vec[3])) %>% 
-    add_row(.after = 17, 
-            " " = "Cumulative effect (p-value)",  
-            "(1)" = as.character(corporation_secured_joint_test_vec[1]), 
-            "(2)" = as.character(corporation_secured_joint_test_vec[2]),
-            "(3)" = as.character(corporation_secured_joint_test_vec[3])) %>% 
-     add_row(.after = 34, 
-            " " = "Adj.R squared",  
-            "(1)" = as.character(corporation_unsecured_r_squared_vec[1]), 
-            "(2)" = as.character(corporation_unsecured_r_squared_vec[2]),
-            "(3)" = as.character(corporation_unsecured_r_squared_vec[3])) %>%  
-   add_row(.after = 35, 
-            " " = "Cumulative effect (p-value)",  
-            "(1)" = as.character(corporation_unsecured_joint_test_vec[1]), 
-            "(2)" = as.character(corporation_unsecured_joint_test_vec[2]),
-            "(3)" = as.character(corporation_unsecured_joint_test_vec[3])) %>% 
-    add_row(.after = 52, 
-            " " = "Adj.R squared",  
-            "(1)" = as.character(corporation_mortgage_r_squared_vec[1]), 
-            "(2)" = as.character(corporation_mortgage_r_squared_vec[2]),
-            "(3)" = as.character(corporation_mortgage_r_squared_vec[3])) %>% 
-    add_row(.after = 53, 
-            " " = "Cumulative effect (p-value)",  
-            "(1)" = as.character(corporation_mortgage_joint_test_vec[1]), 
-            "(2)" = as.character(corporation_mortgage_joint_test_vec[2]),
-            "(3)" = as.character(corporation_mortgage_joint_test_vec[3]))
-) %>% 
-
-  hline(i = 1, border = border) %>% 
-  hline(i = 15, border = border) %>% 
-  hline(i = 18, border = border) %>% 
-  hline(i = 19, border = border) %>% 
-  hline(i = 33, border = border)  %>%  
-  hline(i = 36, border = border) %>% 
-  hline(i = 37, border = border) %>% 
-  hline(i = 51, border = border) %>% 
-  bold(i = c(1, 19, 37)) %>% 
-  # set_header_labels(" " = "",
-  #                   "(1)" = "1 Month Lag",
-  #                   "(2)" ="2 Month Lag",
-  #                   "(3)" = "3 Month Lag") %>% 
-  set_caption(caption = "Non-financial transition results") %>% 
-  mk_par(j = 1, i= 1, part = "header", value = as_paragraph(as_equation(dependant
-                                                                   ))) %>% 
-  mk_par(j = 1, i= c(2, 4, 6, 8, 10, 12, 14), part = "body", value = as_paragraph(as_equation(estimates
-                                                                   ))) %>% 
-  mk_par(j = 1, i= c(20, 22, 24, 26, 28, 30, 32), part = "body", value = as_paragraph(as_equation(estimates
-                                                                   ))) %>% 
-  mk_par(j = 1, i= c(38, 40, 42, 44, 46, 48, 50), part = "body", value = as_paragraph(as_equation(estimates
-                                                                   ))) %>% 
-  flextable::align(part = "body", align = "center") %>% 
-  flextable::align(part = "header", align = "center") %>% 
-  flextable::align(j =1, part = "body", align = "left") %>% 
-  flextable::align(j = 1, part = "header", align = "left") %>% 
-  add_footer_row(values = as_paragraph("Note: Non-financial corporations transition results. The depandant variables in loan growth at bank level at a monthly frequency, calculated as the log difference at t and t -1. All control variables are defined in Table 2. Standard errors are clustered at a bank level. All equations include both bank and monthly effects. A cumulative effect p-value of < 0.1 is significant", " " , as_equation("*** p < 0.01, ** p < 0.05, * p < 0.1")), colwidths = 4) %>% 
-  hline(border = border, part = "footer" ) %>% 
-  autofit(add_w = 0.45)
-
-```
-
-
-\newpage
 ## Three month loans growth results
 
 ```{r}
