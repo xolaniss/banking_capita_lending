@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.5)  29 MAR 2023 13:37
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.5)  29 MAR 2023 19:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -5124,11 +5124,6 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (9.50124pt too wide) in alignment at lines 2160--2168
-[] [] [] [] 
- []
-
-
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
@@ -5223,72 +5218,13 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
 Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Package fontspec Info: Arial scale = 0.8311527808940205.
-
-
-Overfull \hbox (9.50124pt too wide) in alignment at lines 2168--2220
-[] [] [] [] 
- []
 
 [25]
 
 Package fontspec Info: Arial scale = 0.8311509466163689.
 
 LaTeX Font Info:    Font shape `TU/Arial(0)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 2254.
+(Font)              scaled to size 5.0pt on input line 2242.
 
 Package fontspec Info: Arial scale = 0.8311509466163689.
 
@@ -5305,9 +5241,13 @@ Package fontspec Info: Arial scale = 0.8311509466163689.
 Package fontspec Info: Arial scale = 0.8311509466163689.
 
 
-Overfull \hbox (11.20879pt too wide) in alignment at lines 2248--2256
-[] [] [] [] [] [] 
- []
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
 
 
 Package fontspec Info: Arial scale = 0.8311509466163689.
@@ -5502,9 +5442,13 @@ Package fontspec Info: Arial scale = 0.8311509466163689.
 Package fontspec Info: Arial scale = 0.8311509466163689.
 
 
-Overfull \hbox (11.20879pt too wide) in alignment at lines 2256--2296
-[] [] [] [] [] [] 
- []
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
+
+
+Package fontspec Info: Arial scale = 0.8311509466163689.
 
 [26
 
@@ -5513,12 +5457,12 @@ File: Bank_capital_and_bank_lending_files/figure-latex/lending-1.pdf Graphic fi
 le (type pdf)
 <use Bank_capital_and_bank_lending_files/figure-latex/lending-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 2317--2318
+Underfull \hbox (badness 10000) in paragraph at lines 2311--2312
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2317--2318
+Underfull \hbox (badness 10000) in paragraph at lines 2311--2312
 
  []
 
@@ -5538,7 +5482,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (4.44292pt too wide) in alignment at lines 2341--2349
+Overfull \hbox (4.44292pt too wide) in alignment at lines 2335--2343
 [] [] [] [] 
  []
 
@@ -5987,12 +5931,12 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (4.44292pt too wide) in alignment at lines 2349--2575
+Overfull \hbox (4.44292pt too wide) in alignment at lines 2343--2569
 [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2599--2601
+Underfull \hbox (badness 10000) in paragraph at lines 2593--2595
 
  []
 
@@ -6010,7 +5954,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (9.50014pt too wide) in alignment at lines 2620--2628
+Overfull \hbox (9.50014pt too wide) in alignment at lines 2614--2622
 [] [] [] [] 
  []
 
@@ -6231,7 +6175,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (9.50014pt too wide) in alignment at lines 2628--2740
+Overfull \hbox (9.50014pt too wide) in alignment at lines 2622--2734
 [] [] [] [] 
  []
 
@@ -6255,7 +6199,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (22.56877pt too wide) in alignment at lines 2788--2796
+Overfull \hbox (22.56877pt too wide) in alignment at lines 2782--2790
 [] [] [] [] [] [] 
  []
 
@@ -6269,7 +6213,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (22.56877pt too wide) in alignment at lines 2796--2802
+Overfull \hbox (22.56877pt too wide) in alignment at lines 2790--2796
 [] [] [] [] [] [] 
  []
 
@@ -7138,7 +7082,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (22.56877pt too wide) in alignment at lines 2802--3094
+Overfull \hbox (22.56877pt too wide) in alignment at lines 2796--3088
 [] [] [] [] [] [] 
  []
 
@@ -7162,7 +7106,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (11.7276pt too wide) in alignment at lines 3120--3128
+Overfull \hbox (11.7276pt too wide) in alignment at lines 3114--3122
 [] [] [] [] [] [] 
  []
 
@@ -7176,7 +7120,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (11.7276pt too wide) in alignment at lines 3128--3134
+Overfull \hbox (11.7276pt too wide) in alignment at lines 3122--3128
 [] [] [] [] [] [] 
  []
 
@@ -8045,7 +7989,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (11.7276pt too wide) in alignment at lines 3134--3426
+Overfull \hbox (11.7276pt too wide) in alignment at lines 3128--3420
 [] [] [] [] [] [] 
  []
 
@@ -8054,10 +7998,10 @@ ending.aux) )
 Here is how much of TeX's memory you used:
  23973 strings out of 476179
  443856 string characters out of 5809545
- 1035801 words of memory out of 5000000
+ 1035845 words of memory out of 5000000
  44311 multiletter control sequences out of 15000+600000
  475870 words of font info for 101 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 108i,15n,128p,3026b,549s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,15n,128p,3010b,549s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on Bank_capital_and_bank_lending.pdf (33 pages).

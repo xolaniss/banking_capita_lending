@@ -532,7 +532,7 @@ preprocessing_monthly$masters$total_master_tbl %>%
 
 ```{r}
 #| capital,
-#| fig.cap = "Capital requirements. Source: South African Reserve Bank (2022)",
+#| fig.cap = "Capital requirements. Source: South African Reserve Bank (2022). Note: RWA is risk weighted assets.",
 #| cache = FALSE,
 #| include = TRUE,
 #| fig.height = 3
@@ -550,7 +550,8 @@ Capital_monthly_combined_gg <-
   pivot_longer(-Date, values_to = "Value", names_to = "Series") %>% 
   multi_line_plot(variables_color = 7, legend_position = "none") +
      scale_y_continuous(labels = scales::label_percent()) +
-  facet_wrap(~ Series) 
+  facet_wrap(~ Series) +
+  labs(y = "% of RWA")
   
 Capital_monthly_combined_gg
 ```
@@ -564,7 +565,7 @@ We collected data on the four major South African banks; Absa Bank, Standard Ban
 
 Our focus is on the effect of higher capital buffer requirements on real economic activity lending. Real economic activity lending in the BA900s is represented by lending to households and non-financial corporations. However, the BA900s only report granular lending categories to households and non-financial corporations. Therefore, some aggregation was necessary. The process of aggregation, or combining related granular lending categories into broader categories, is clearly explained in Section \@ref(aggregation) in the Appendix. The result is lending three categories for households and non-financial corporations: unsecured credit, secured credit, and mortgages. These six categories form the foundation of our analysis. 
 
-Following @fang2020bank and @aiyar2016does, we transformed some data for modelling purposes as summarised in Table \@ref(tab:summaries). In the literature section, we explained the challenges in separating the bank lending effect of specific Basel III actions from banks' normal risk and portfolio adjustment actions. To solve the identification problem, we distinguish between Basel III "jumps" and normal bank activity "wiggles" (see Figure \@ref(fig:capital)). Therefore, $\Delta KR$ or minimum capital buffer requirement is a dummy that isolates the specific Basel III changes to the regulatory capital buffer requirements as explained in Section \@ref(capital-requirements). To reflect the its importance in the South African context, we clearly distinguish between the excess capital that the banks choose to hold above the minimum capital buffer requirement ($\Delta KS$). As explained in Section \@ref(capital-requirements) South African banks are encouraged to hold a significant portion in excess capital.
+Following @fang2020bank and @aiyar2016does, we transformed some data for modelling purposes as summarised in Table \@ref(tab:summaries). In the literature section, we explained the challenges in separating the bank lending effect of specific Basel III actions from banks' normal risk and portfolio adjustment actions. To solve the identification problem, we distinguish between Basel III 'jumps' and normal bank activity 'wiggles' (see Figure \@ref(fig:capital)). Therefore, $\Delta KR$ or minimum capital buffer requirement is a dummy that isolates the specific Basel III changes to the regulatory capital buffer requirements as explained in Section \@ref(capital-requirements). To reflect the its importance in the South African context, we clearly distinguish between the excess capital that the banks choose to hold above the minimum capital buffer requirement ($\Delta KS$). As explained in Section \@ref(capital-requirements) South African banks are encouraged to hold a significant portion in excess capital.
 
 @fang2020bank construct a demand measure based on sector-specific lending weights as a proportion of sector output. This approach is impossible as we do not have sector-specific lending weights. However, we can utilise the lending rates corresponding to our six broad lending categories (see Figure \@ref(fig:lending) in the Appendix). We define $\Delta Demand$ as the change in the interest rate margin (lending rate less the SARB policy rate) as a measure of lending demand.
 
@@ -665,7 +666,7 @@ summary_tbl_id <- summary_tbl %>%
 
 flextable_word(
   data = summary_tbl_id,
-  caption = "Definitions and Summary Statistics") %>%
+  caption = "Variable Definitions and Summary Statistics") %>%
   mk_par(j = 1, part = "body", value = as_paragraph(as_equation(group_names))) %>% 
   flextable::align(j = 1, part = "body", align = "left") %>% 
   autofit(add_w = 0) %>% 
@@ -1471,8 +1472,6 @@ tibble(
           "Controls",
           "GDP",
           "BA700",
-          "Credit cycle",
-          "Country comparison",
           "Repo rate"
           ),
   "Description" = c("Banking sector balance sheet data at a bank level",
@@ -1481,13 +1480,6 @@ tibble(
                     "Nominal gross domestic product
 in a calendar year",
                     "Regulatory capital buffer requirements",
-                    "Composite index of lending conditions in South Africa",
-                    "International data on:
-domestic credit to private sector (% of GDP), 
-bank return on assets (%, before tax), 
-bank capital to total assets (%), 
-and bank concentration (%)
-                    ",
 "Policy rate of the South African Reserve Bank"
                     ),
   
@@ -1499,8 +1491,6 @@ Bank specific data is private",
                      "Public data",
                      "Aggregated data is public. 
 Bank specific data is private",
-                     "Public data",
-                      "Public data",
 "Public data"
                      ),
   "Source" = c("South African Reserve Bank",
@@ -1508,8 +1498,6 @@ Bank specific data is private",
               "Prudential Authority",
                "Statistics South Africa",
                "Prudential Authority",
-               "South African Reserve Bank",
-               "World Bank",
               "South African Reserve Bank"
                )
 ) %>% 
@@ -1542,7 +1530,8 @@ model_variables <- c( "L_{b,t}",
 tibble(
   "Variable Description" = c("Loans by lending category and bank",
                  "Lending rate by lending category and bank",
-                 "Surplus capital",
+                 "Capital buffer",
+                 "Capital requirement",
                  "Repo rate",
                  "GDP",
                  "Bank level perfomance metrics"
@@ -1558,6 +1547,7 @@ by lending category. These were also summarised into the
 same six lending categories as shown in Section 8.2.",
 "Aggregate amount of qualifying capital and 
 reserve funds less minimum required capital and reserve funds.",
+"Basel III required level of capital as a percentage of risk-weighted assets",
 "South African Reserve Bank policy rate",
 "Nominal gross domestic product.",
 "The following are bank perfomance metrics are include in the data: 
@@ -1569,16 +1559,18 @@ aggregate risk weighted exposure, return on equity, return on assets,
 total capital adequacy ratio, and leverage ratio."
                     
                     ),
-  "Measure" = c("Rand","Percent", "Percent", "Percent", "Rand", "Rand and percent"),
-  "Cross-section" = c("Nedbank, First National Bank, Standard Bank, Absa, Capitec Bank",
-                      "Nedbank, First National Bank, Standard Bank, Absa, Capitec Bank",
-                      "Nedbank, First National Bank, Standard Bank, Absa, Capitec Bank",
+  "Measure" = c("Rand","Percent", "Percent", "Percent", "Percent", "Rand", "Rand and percent"),
+  "Cross-section" = c("Nedbank, First National Bank, Standard Bank, Absa",
+                      "Nedbank, First National Bank, Standard Bank, Absa",
+                      "Nedbank, First National Bank, Standard Bank, Absa",
+                      "Nedbank, First National Bank, Standard Bank, Absa",
                       "NA",
                       "NA",
-                      "Nedbank, First National Bank, Standard Bank, Absa, Capitec Bank"
+                      "Nedbank, First National Bank, Standard Bank, Absa"
                       ),
   "Sample" = c("January 2008 to November 2022", 
                "January 2012 to June 2022",
+               "January 2008 to September 2020",
                "January 2008 to September 2020",
                "January 2008 to February 2021",
                "March 2008 to March 2022",
@@ -1587,6 +1579,7 @@ total capital adequacy ratio, and leverage ratio."
   "Monthly",
   "Monthly",
   "Monthly",
+   "Monthly",
   "Monthly",
   "Quartely",
   "Monthly"
