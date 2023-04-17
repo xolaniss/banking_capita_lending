@@ -818,8 +818,6 @@ joint_test_buffer_surplus_control_bottom_liqudity <-
 
 
 ## Creating data -----------------------------------------------------------
-
-
 preprocessed_data_banks_base_tbl_irs <- 
   preprocessed_data_banks_base_tbl %>% 
   dplyr::select( 
@@ -848,6 +846,7 @@ result_nfc_unsecured <-
   data_set = preprocessed_data_banks_base_tbl_irs,
   endog_data = "change_in_log_of_non_financial_corporate_unsecured_credit",
   shock = "change_in_required_capital_dummy",
+  cumul_mult = FALSE,
   diff_shock = FALSE,
   panel_model = "within",
   panel_effect = "twoways",
@@ -858,13 +857,13 @@ result_nfc_unsecured <-
                   "log_of_level_one_high_quality_liquid_assets_required_to_be_held"),
   lags_exog_data = 1,
   confint = 1.96,
-  hor = 6
+  hor = 11
 )
 
 result_nfc_unsecured_gg <- 
   plot(result_nfc_unsecured) +
   labs(x = "Month (0 is the moment of implementation and the shock)", 
-       y = "Loan growth reponse",
+       y = "Estimated on KR",
        title = "Non-financial corporations unsecured") 
 
 
@@ -875,6 +874,7 @@ result_nfc_secured <-
     data_set = preprocessed_data_banks_base_tbl_irs,
     endog_data = "change_in_log_of_non_financial_corporate_secured_credit",
     shock = "change_in_required_capital_dummy",
+    cumul_mult = FALSE,
     diff_shock = FALSE,
     panel_model = "within",
     panel_effect = "twoways",
@@ -885,21 +885,22 @@ result_nfc_secured <-
                     "log_of_level_one_high_quality_liquid_assets_required_to_be_held"),
     lags_exog_data = 1,
     confint = 1.96,
-    hor = 6
+    hor = 11
   )
 
 result_nfc_secured_gg <- 
   plot(result_nfc_secured) +
   labs(x = "Month (0 is the moment of implementation and the shock)", 
-       y = "Loan growth reponse",
+       y = "Estimated on KR",
        title = "Non-financial corporations secured") 
 
-# Corporations mortgages --------------------------------------------------
+## Corporations mortgages --------------------------------------------------
 result_nfc_mortgage <- 
   lp_lin_panel(
     data_set = preprocessed_data_banks_base_tbl_irs,
     endog_data = "change_in_log_of_non_financial_corporate_sector_mortgages",
     shock = "change_in_required_capital_dummy",
+    cumul_mult = FALSE,
     diff_shock = FALSE,
     panel_model = "within",
     panel_effect = "twoways",
@@ -910,13 +911,13 @@ result_nfc_mortgage <-
                     "log_of_level_one_high_quality_liquid_assets_required_to_be_held"),
     lags_exog_data = 1,
     confint = 1.96,
-    hor = 6
+    hor = 11
   )
 
 result_nfc_mortgage_gg <- 
   plot(result_nfc_mortgage) +
   labs(x = "Month (0 is the moment of implementation and the shock)", 
-       y = "Loan growth reponse",
+       y = "Estimated on KR",
        title = "Non-financial corporations mortgages") 
 
 ## Household unsecured --------------------------------------------------
@@ -925,6 +926,7 @@ result_hh_unsecured <-
     data_set = preprocessed_data_banks_base_tbl_irs,
     endog_data = "change_in_log_of_household_sector_unsecured_credit",
     shock = "change_in_required_capital_dummy",
+    cumul_mult = FALSE,
     diff_shock = FALSE,
     panel_model = "within",
     panel_effect = "twoways",
@@ -935,13 +937,13 @@ result_hh_unsecured <-
                     "log_of_level_one_high_quality_liquid_assets_required_to_be_held"),
     lags_exog_data = 1,
     confint = 1.96,
-    hor = 6
+    hor = 11
   )
 
 result_hh_unsecured_gg <- 
   plot(result_hh_unsecured) +
   labs(x = "Month (0 is the moment of implementation and the shock)", 
-       y = "Loan growth reponse",
+       y = "Estimated on KR",
        title = "Household unsecured") 
 
 
@@ -951,6 +953,7 @@ result_hh_secured <-
     data_set = preprocessed_data_banks_base_tbl_irs,
     endog_data = "change_in_log_of_household_sector_secured_credit",
     shock = "change_in_required_capital_dummy",
+    cumul_mult = FALSE,
     diff_shock = FALSE,
     panel_model = "within",
     panel_effect = "twoways",
@@ -961,13 +964,13 @@ result_hh_secured <-
                     "log_of_level_one_high_quality_liquid_assets_required_to_be_held"),
     lags_exog_data = 1,
     confint = 1.96,
-    hor = 6
+    hor = 11
   )
 
 result_hh_secured_gg <- 
   plot(result_hh_secured) +
   labs(x = "Month (0 is the moment of implementation and the shock)", 
-       y = "Loan growth reponse",
+       y = "Estimated on KR",
        title = "Household secured") 
 
 ## Household mortgages --------------------------------------------------
@@ -975,6 +978,7 @@ result_hh_mortgage <-
   lp_lin_panel(
     data_set = preprocessed_data_banks_base_tbl_irs,
     endog_data = "change_in_log_of_households_residential_mortgages",
+    cumul_mult = FALSE,
     shock = "change_in_required_capital_dummy",
     diff_shock = FALSE,
     panel_model = "within",
@@ -986,13 +990,13 @@ result_hh_mortgage <-
                     "log_of_level_one_high_quality_liquid_assets_required_to_be_held"),
     lags_exog_data = 1,
     confint = 1.96,
-    hor = 6
+    hor = 11
   )
 
 result_hh_mortgage_gg <- 
   plot(result_hh_mortgage) +
   labs(x = "Month (0 is the moment of implementation and the shock)", 
-       y = "Loan growth reponse",
+       y = "Estimated on KR",
        title = "Household residential mortgages") 
 
 

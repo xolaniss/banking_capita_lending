@@ -430,7 +430,7 @@ Our focus is on the effect of higher capital buffer requirements on real economi
 
 Following @fang2020bank and @aiyar2016does, we transformed some data for modelling purposes as summarised in Table \@ref(tab:summaries). In the literature section, we explained the challenges in separating the bank lending effect of specific Basel III actions from banks' normal risk and portfolio adjustment actions. To solve the identification problem, we distinguish between Basel III 'jumps' and normal bank activity 'wiggles' (see Figure \@ref(fig:capital)). Therefore, $\Delta KR$ or minimum capital buffer requirement is a dummy that isolates the specific Basel III changes to the regulatory capital buffer requirements as explained in Section \@ref(capital-requirements). To reflect the its importance in the South African context, we clearly distinguish between the excess capital that the banks choose to hold above the minimum capital buffer requirement ($\Delta KS$). As explained in Section \@ref(capital-requirements) South African banks are encouraged to hold a significant portion in excess capital.
 
-@fang2020bank construct a demand measure based on sector-specific lending weights as a proportion of sector output. This approach is impossible as we do not have sector-specific lending weights. However, we can utilise the lending rates corresponding to our six broad lending categories (see Figure \@ref(fig:lending) in the Appendix). We define $\Delta Demand$ as the change in the interest rate margin (lending rate less the SARB policy rate) as a measure of lending demand.
+@fang2020bank construct a demand measure based on sector-specific lending weights as a proportion of sector output. In addition, @neryvia2023 construct the same measure in the South African context. However, both @fang2020bank and @neryvia2023 find that this measure was not significant. That is, it does not adequately measure to the demand aspect of changes in lending. In somewhat a novel approach we utilise the lending rates corresponding to our six broad lending categories (see Figure \@ref(fig:lending) in the Appendix). We define $\Delta Demand$ as the change in the interest rate margin (lending rate less the SARB policy rate) as a measure of lending demand. The intuition is that an increase in the lending rate suggests an increase in demand and vice versa, taking the effect of policy rate changes. 
 
 After adjusting the data in Table \@ref(tab:summaries) for outliers (winsorizing the data with a 1\% threshold), we estimate the following equation, for the six lending categories, using the ordinary least squares estimator:
 
@@ -546,10 +546,7 @@ flextable_word(
 
 Tables \@ref(tab:HH1) and \@ref(tab:NFC1) report the main results. To ensure the robustness of the results, we increasingly add variables between columns 1 to 5. In column 1, we take the baseline impact of Basel III changes in capital requirements on credit growth. In column 2, we add the capital buffers; we add our lending demand proxies in column 3. Lastly, in columns 4 and 5, we add the bank-specific controls whilst excluding the demand proxy in column 4. As the methodology section explains, we estimate the regressions with month and bank effects in all cases. Lastly, we report on our estimates' joint significance (test for equality).
 
-The household results reveal a clear contemporaneous effect from changes in capital requirements, with highly significant estimates, for all credit categories (see Table \@ref(tab:HH1)). For households, a one percentage point change in the capital requirement is associated with a 0.23 to 0.8 percentage reduction in lending for the same month. Quarterly this equates to a reduction in lending of 0.69 to 2.4 percentage points. The same effect for the non-financial corporations was only significant for the secured credit category, and the reduction in lending was between 0.48 and 1.02 percentage points. The other categories were insignificant. Only non-financial corporations mortgages had a strong contemporaneous effect on changes in the capital buffer, which indicates strong risk aversion behaviour in this category.
-
-However, the effect of changes in capital requirements on lending categories did not dissipate immediately. The results of the effect of changes in capital requirements on a three-month change in lending were also significant (see Tables \@ref(tab:HH2) and \@ref(tab:NFC2)). That is, the effect fades gradually as the three-month change in lending results are generally less significant than the contemporaneous results. However, this gradual fading is not in all categories as, for example, the non-financial corporations unsecured credit category was highly significant over the 3-month period and was also positive. 
-
+The household results reveal a clear contemporaneous effect from changes in capital requirements, with highly significant estimates, for all credit categories (see Table \@ref(tab:HH1)). For households, a one percentage point change in the capital requirement is associated with a 0.23 to 0.8 percentage reduction in lending for the same month. Quarterly this equates to a reduction in lending of 0.69 to 2.4 percentage points^[This is on a cumulative average basis. That is, assuming that the impact on lending is the same from month to month. The impulse responses via local projections below quantify the path of this impact over a twelve month period.]. The same effect for the non-financial corporations was only significant for the secured credit category, and the reduction in lending was between 0.48 and 1.02 percentage points. The other categories were insignificant. Only non-financial corporations mortgages had a strong contemporaneous effect on changes in the capital buffer, which indicates strong risk aversion behaviour in this category.
 
 Almost all the household credit categories were jointly significant. This joint significance means adding more variables to the regressions added more information, which is evident in the relatively stable capital requirements estimates ($\Delta KR$) from columns 1 to 5. We found the same joint significance for non-financial corporation categories, except for the unsecured credit category. Lastly, we note cursory evidence of a demand effect in the capital requirement estimates. For example, the inclusion of the demand proxy in the household secured credit category resulted in a decline in the capital requirement estimate from -0.01 to -0.0048. This decline is well in line with the intuition that the demand factors reduce the effect of capital requirements on lending. However, we say this is cursory because this decline is inconsistent throughout all the credit categories.
 \newpage
@@ -933,21 +930,26 @@ flextable(
 
 ```
 
-<!-- Excluded local projections -->
+
+
+However, the effect of changes in capital requirements on lending categories did not dissipate immediately. The results of the effect of changes in capital requirements on a three-month change in lending were also significant (see Tables \@ref(tab:HH2) and \@ref(tab:NFC2)). That is, the effect fades gradually as the three-month change in lending results are generally less significant than the contemporaneous results. However, this gradual fading is not in all categories as, for example, the non-financial corporations unsecured credit category was highly significant over the 3-month period and was also positive. 
+
+
 ```{r}
 #| path,
-#| fig.cap = "Local projections (impulse responses)",
-#| cache = FALSE,
-#| include = FALSE,
+#| fig.cap = "Impulse responses via local projections.",
+#| cache = TRUE,
+#| include = TRUE,
 #| eval = TRUE,
 #| fig.height = 6
 
 models$graphs$path_gg
-
 ```
-\newpage
 
-## Transition results
+
+The impact of capital requirements on lending may last more than three months. The total impact period is 12 months, the period in between changes in the capital requirements in South Africa. @jorda2005estimation provides a relevant approach to calculating impulse responses^[See @jorda2005estimation for comparing local projections based and VAR-based impulse responses.] called local projections, which utilises an expanding window impact on the dependant variables of a shock on the independent variables at a specific period, at each unit of the shock period. That is, we estimate a change in capital requirements  ($\Delta KR$) at each period of the expanding window of the change in the lending ($\Delta LOAN$). Figure \@ref(fig:path) shows the impact path of $\beta$ (the impact of $\Delta KR$). As with the 3-month case above, the impact bath does not quickly converge to zero in almost all cases. Unlike in @fang2020bank the impact of capital requirements on lending was persistent. 
+
+## Anticipation effect results
 
 A natural concern about the contemporaneous effect is endogeneity in the capital requirements. We addressed the question of identification by using the Basel III related 'jumps' in the capital requirements and ignored the endogenous 'wiggles' that point to simultaneous changes in the balance sheets. Despite this, it is still possible that changes in the balance sheet composition (or what constitutes the risk-weighted assets (RWA)) could affect the size of these 'jumps'. 
 
@@ -1304,7 +1306,7 @@ Similar to the main results, all household credit categories have a clear lagged
 
 ## Discussion
 
-The implementation of Basel III in South Africa has been gradual over seven years. Furthermore, the SARB has continuously monitored and adjusted the implementation path to reflect the economic and banking environment. According to our results, this gradual approach resulted in a comparably lower lending effect. For example, in Peru  @fang2020bank estimated a lending reduction of 4 to 6 percentage points, much higher than our estimate of 0.48 to 2.4 percentage points. The South Africa estimates are closer to those of the UK, where @aiyar2016does found a roughly 0.55 percentage points reduction. The lower estimates are not surprising as the extent of the reduction in lending primarily depends on how expensive it is for banks to raise equity [@aiyar2016does]. As noted before, South African banks, in addition, to the capital requirements, kept a significant capital buffer. 
+The implementation of Basel III in South Africa has been gradual over seven years. Furthermore, the SARB has continuously monitored and adjusted the implementation path to reflect the economic and banking environment. According to our results, this gradual approach resulted in a comparably lower lending effect. For example, in Peru  @fang2020bank estimated a lending reduction of 4 to 6 percentage points, much higher than our estimate of 0.48 to 2.4 percentage points. The South Africa estimates are closer to those of the UK, where @aiyar2016does found a roughly 0.55 percentage points reduction. Although they focus on the impact of the surplus capital buffer on lending in South Africa, in their estimations @neryvia2023 similar magnitudes on the impact of capital requirements on lending. The lower estimates are not surprising as the extent of the reduction in lending primarily depends on how expensive it is for banks to raise equity [@aiyar2016does]. As noted before, South African banks, in addition, to the capital requirements, kept a significant capital buffer. 
 
 The results also revealed a more significant effect on household lending versus non-financial corporation lending. One explanation is that it is much easier for banks to discriminate between borrowers in their commercial business versus retail business when banks need to reduce their risk-weighted assets to meet higher capital requirements [@de2020bank]. There are fewer clients on the commercial side, and the assets are larger. This higher asset base also suggests that banks are more careful or place more risk-weights on lending on the commercial than the household side [@imbierowicz2018time]. In South Africa, this means that banks avoid having to pull back on lending on the commercial side as a result of higher capital requirements, with the capital buffer as a first 'shock-absorber'.
 
