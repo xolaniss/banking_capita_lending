@@ -12,8 +12,8 @@ output:
       before_body: title.tex
       # after_body: appendix_backcover.tex
   bookdown::word_document2:
-    fig_width: 3 
-    fig_height: 3
+    fig_width: 5 
+    fig_height: 4
     reference_docx: new_template_no_numbering.docx
 # title: "A Pandoc Markdown Article Starter and Template"
 # thanks: "Replication files are available on the author's Github account..."
@@ -137,9 +137,9 @@ Following an established approach in the literature, the investigation reported 
 
 This focus on a small set of large banks has some advantages. The business models of these banks are similar. They all use sophisticated tools of capital management and take a substantial proportion of funding as  wholesale deposits from non-financial corporates and non-bank financial institutions which impacts in particular on their Basel III net stable funding ratios. It also though has the disadvantage of providing only a relative small data set, over a period in which banks faced no substantial problems of balance sheet capital. 
 
-Section \@ref(literature) is our literature review. This summarises  the findings of similar empirical studies of the impact of changes in capital and capital requirements on bank credit supply , most of which are for developed countries. An Appendix provides an intuitive review of the mechanisms through which balance sheet constraints can be expected to impact on the supply of bank credit, drawing on a substantial theoretical and empirical literature. 
+Section \@ref(literature) is our literature review. This summarises the findings of similar empirical studies of the impact of changes in capital and capital requirements on bank credit supply , most of which are for developed countries. An Appendix provides an intuitive review of the mechanisms through which balance sheet constraints can be expected to impact on the supply of bank credit, drawing on a substantial theoretical and empirical literature. 
 
-Section \@ref(economic) summarise the key developments in South African banking over our sample period. These include: the recovery of the banking sector from the impact of the global financial crisis 2009-2011 and an associated rebuilding of capital buffers, and the phasing in of Basel III from 2013 to 2019. Section \@ref(data) describes our data set and sets out our empirical specification. Section \@ref(results reports our empirical results. \@ref(conclusion) concludes.
+Section \@ref(economic) summarise the key developments in South African banking over our sample period. These include: the recovery of the banking sector from the impact of the global financial crisis 2009-2011 and an associated rebuilding of capital buffers, and the phasing in of Basel III from 2013 to 2019. Section \@ref(data) describes our data set and sets out our empirical specification. Section \@ref(conclusion) concludes.
 
 # Existing empirical literature {#literature}
 
@@ -549,6 +549,8 @@ Tables \@ref(tab:HH1) and \@ref(tab:NFC1) report the main results. To ensure the
 The household results reveal a clear contemporaneous effect from changes in capital requirements, with highly significant estimates, for all credit categories (see Table \@ref(tab:HH1)). For households, a one percentage point change in the capital requirement is associated with a 0.23 to 0.8 percentage reduction in lending for the same month. Quarterly this equates to a reduction in lending of 0.69 to 2.4 percentage points^[This is on a cumulative average basis. That is, assuming that the impact on lending is the same from month to month. The impulse responses via local projections below quantify the path of this impact over a twelve month period.]. The same effect for the non-financial corporations was only significant for the secured credit category, and the reduction in lending was between 0.48 and 1.02 percentage points. The other categories were insignificant. Only non-financial corporations mortgages had a strong contemporaneous effect on changes in the capital buffer, which indicates strong risk aversion behaviour in this category.
 
 Almost all the household credit categories were jointly significant. This joint significance means adding more variables to the regressions added more information, which is evident in the relatively stable capital requirements estimates ($\Delta KR$) from columns 1 to 5. We found the same joint significance for non-financial corporation categories, except for the unsecured credit category. Lastly, we note cursory evidence of a demand effect in the capital requirement estimates. For example, the inclusion of the demand proxy in the household secured credit category resulted in a decline in the capital requirement estimate from -0.01 to -0.0048. This decline is well in line with the intuition that the demand factors reduce the effect of capital requirements on lending. However, we say this is cursory because this decline is inconsistent throughout all the credit categories.
+
+However, the effect of changes in capital requirements on lending categories did not dissipate immediately. The results of the effect of changes in capital requirements on a three-month change in lending were also significant (see Tables \@ref(tab:HH2) and \@ref(tab:NFC2)). That is, the effect fades gradually as the three-month change in lending results are generally less significant than the contemporaneous results. However, this gradual fading is not in all categories as, for example, the non-financial corporations unsecured credit category was highly significant over the 3-month period and was also positive. 
 \newpage
 
 ```{r}
@@ -931,13 +933,9 @@ flextable(
 ```
 
 
-
-However, the effect of changes in capital requirements on lending categories did not dissipate immediately. The results of the effect of changes in capital requirements on a three-month change in lending were also significant (see Tables \@ref(tab:HH2) and \@ref(tab:NFC2)). That is, the effect fades gradually as the three-month change in lending results are generally less significant than the contemporaneous results. However, this gradual fading is not in all categories as, for example, the non-financial corporations unsecured credit category was highly significant over the 3-month period and was also positive. 
-
-
 ```{r}
 #| path,
-#| fig.cap = "Impulse responses via local projections.",
+#| fig.cap = "Impulse responses via local projections of lending ($LOAN$) to a shock in capital requirements ($KR$).",
 #| cache = TRUE,
 #| include = TRUE,
 #| eval = TRUE,
@@ -949,7 +947,13 @@ models$graphs$path_gg
 
 The impact of capital requirements on lending may last more than three months. The total impact period is 12 months, the period in between changes in the capital requirements in South Africa. @jorda2005estimation provides a relevant approach to calculating impulse responses^[See @jorda2005estimation for comparing local projections based and VAR-based impulse responses.] called local projections, which utilises an expanding window impact on the dependant variables of a shock on the independent variables at a specific period, at each unit of the shock period. That is, we estimate a change in capital requirements  ($\Delta KR$) at each period of the expanding window of the change in the lending ($\Delta LOAN$). Figure \@ref(fig:path) shows the impact path of $\beta$ (the impact of $\Delta KR$). As with the 3-month case above, the impact bath does not quickly converge to zero in almost all cases. Unlike in @fang2020bank the impact of capital requirements on lending was persistent. 
 
-## Anticipation effect results
+## Discussion
+
+The implementation of Basel III in South Africa has been gradual over seven years. Furthermore, the SARB has continuously monitored and adjusted the implementation path to reflect the economic and banking environment. According to our results, this gradual approach resulted in a comparably lower lending effect. For example, in Peru  @fang2020bank estimated a lending reduction of 4 to 6 percentage points, much higher than our estimate of 0.48 to 2.4 percentage points. The South Africa estimates are closer to those of the UK, where @aiyar2016does found a roughly 0.55 percentage points reduction. Although they focus on the impact of the surplus capital buffer on lending in South Africa, in their estimations @neryvia2023 similar magnitudes on the impact of capital requirements on lending. The lower estimates are not surprising as the extent of the reduction in lending primarily depends on how expensive it is for banks to raise equity [@aiyar2016does]. As noted before, South African banks, in addition, to the capital requirements, kept a significant capital buffer. 
+
+The results also revealed a more significant effect on household lending versus non-financial corporation lending. One explanation is that it is much easier for banks to discriminate between borrowers in their commercial business versus retail business when banks need to reduce their risk-weighted assets to meet higher capital requirements [@de2020bank]. There are fewer clients on the commercial side, and the assets are larger. This higher asset base also suggests that banks are more careful or place more risk-weights on lending on the commercial than the household side [@imbierowicz2018time]. In South Africa, this means that banks avoid having to pull back on lending on the commercial side as a result of higher capital requirements, with the capital buffer as a first 'shock-absorber'.
+
+## Addressing capital requirement endogeneity
 
 A natural concern about the contemporaneous effect is endogeneity in the capital requirements. We addressed the question of identification by using the Basel III related 'jumps' in the capital requirements and ignored the endogenous 'wiggles' that point to simultaneous changes in the balance sheets. Despite this, it is still possible that changes in the balance sheet composition (or what constitutes the risk-weighted assets (RWA)) could affect the size of these 'jumps'. 
 
@@ -1304,16 +1308,6 @@ flextable(
 
 Similar to the main results, all household credit categories have a clear lagged effect. The lagged effect was also mainly negative. The lagged effect evidence was mixed in the financial corporations' credit categories except for unsecured credit, which had a clear lagged effect. Therefore, statistically speaking, endogeneity is not a major issue. The anticipation effect evidence on the household side was convincing, except for mortgages which showed some significance. This was also the case for financial corporations. In most categories, the combined effect (that the sum of the $\beta_s$ is different from zero) of the leads and lags was insignificant. However, there was strong significance in household mortgages and financial corporations' secured and unsecured credit. Therefore, the results suggest that anticipation effects are limited. Lastly, one key observation is the impact of the capital requirement tends to last for up to a quarter or three months and can also be positive in some months. 
 
-## Discussion
-
-The implementation of Basel III in South Africa has been gradual over seven years. Furthermore, the SARB has continuously monitored and adjusted the implementation path to reflect the economic and banking environment. According to our results, this gradual approach resulted in a comparably lower lending effect. For example, in Peru  @fang2020bank estimated a lending reduction of 4 to 6 percentage points, much higher than our estimate of 0.48 to 2.4 percentage points. The South Africa estimates are closer to those of the UK, where @aiyar2016does found a roughly 0.55 percentage points reduction. Although they focus on the impact of the surplus capital buffer on lending in South Africa, in their estimations @neryvia2023 similar magnitudes on the impact of capital requirements on lending. The lower estimates are not surprising as the extent of the reduction in lending primarily depends on how expensive it is for banks to raise equity [@aiyar2016does]. As noted before, South African banks, in addition, to the capital requirements, kept a significant capital buffer. 
-
-The results also revealed a more significant effect on household lending versus non-financial corporation lending. One explanation is that it is much easier for banks to discriminate between borrowers in their commercial business versus retail business when banks need to reduce their risk-weighted assets to meet higher capital requirements [@de2020bank]. There are fewer clients on the commercial side, and the assets are larger. This higher asset base also suggests that banks are more careful or place more risk-weights on lending on the commercial than the household side [@imbierowicz2018time]. In South Africa, this means that banks avoid having to pull back on lending on the commercial side as a result of higher capital requirements, with the capital buffer as a first 'shock-absorber'.
-
-
-
-
-\newpage
 # Conclusion {#conclusion}
 
 
