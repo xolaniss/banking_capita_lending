@@ -2,7 +2,7 @@
 title: "The impact of Basel III implementation on bank lending in South Africa"
 author: "Xolani Sibande and Alistair Milne"
 institute: "South African Reserve Bank"
-date: "2023-05-10"
+date: "10 May 2023"
 fontsize: 14
 output: 
   beamer_presentation:
@@ -194,11 +194,11 @@ border <-  fp_border(color = "#537380",
 \end{itemize}
 \end{itemize} 
 
-## Developments in SA banking
+## SA banking sector
 
 - There are 34 active licensed banks in South Africa
 - As of April, 2020, the \% of banking sector assets: Standard Bank of South Africa (24.1\%), First Rand (20.4\%), ABSA (19.8\%), Nedbank (17.0\%) and Investec (7.8\%); the next largest bank is Capitec (2\%)
-- The ratio of bank assets to GDP is 112\% while total financial sector assets amount to 298\% of GDP
+- The ratio of bank assets to GDP is 112\%
 - This prudential regulation and South Africa’s well-capitalised banking sector has prevented the emergence any systemic financial crisis
 
 
@@ -258,7 +258,8 @@ Capital_monthly_combined_gg <-
   multi_line_plot(variables_color = 7, legend_position = "none") +
      scale_y_continuous(labels = scales::label_percent()) +
   facet_wrap(~ Series) +
-  labs(y = "% of RWA")
+  labs(y = "% of RWA") +
+  theme(text = element_text(size = 12))
   
 Capital_monthly_combined_gg
 ```
@@ -272,15 +273,18 @@ Capital_monthly_combined_gg
 - From the Prudential Authority, we also collected the controls data
 - We focus on real economic activity lending in the BA900s is represented by lending to households and non-financial corporations. 
 - However, the BA900s only report granular lending categories to households and non-financial corporations. Therefore, some aggregation was necessary.
-- This aggregation essentially limited our sample to the big four lenders - not an issue
+- This aggregation essentially limited our sample to the big four lenders
+- Three major categories for households and non financial corporations (secured, unsecured, and mortgages)
 
-## Asset aggregation (cont.) 
+<!-- ## Asset aggregation (cont.)  -->
 
 ```{r}
 #| assets,
 #| fig.cap = "Bank assets. Source: South African Reserve Bank (2022)",
 #| cache = FALSE,
-#| include = TRUE
+#| include = FALSE,
+#| fig.height = 4.5,
+#| fig.width = 7
 
 
 preprocessing_quarterly <-  read_rds(here("Outputs", "artifacts_preprocessing_quartely.rds"))
@@ -293,7 +297,8 @@ BA_900_to_GDP_combined_gg <- BA_900_to_GDP_tbl %>%
   multi_line_plot(variables_color = 7, legend_position = "none") +
      scale_y_continuous(labels = scales::label_percent()) +
   facet_wrap(~ Series, ncol = 2, scales = "free_y") +
-  labs(subtitle = "Bank assets as a percentage of GDP" )
+  labs(subtitle = "Bank assets as a percentage of GDP" ) +
+  theme(text = element_text(size = 10))
 
 BA_900_to_GDP_combined_gg 
 
@@ -304,13 +309,14 @@ Building on @fang2020bank:
 
 $\Delta LOAN^i_{t, t-s} = \beta \Delta KR^i_{t, t-1} + \lambda \Delta KS^i_{t, t-1} + \alpha \Delta Demand^i_{t, t-1} + \gamma'  \pmb{X}^i_{t-s} + \phi^i + \tau_t + \varepsilon^i_t.$
 
+- $^i$ refers to the four banks
 - $\Delta LOAN^i_{t, t-s}$ is the log difference of lending 
-- $\Delta KR^i_{t, t-1}$ is the bank level change in the minimum capital requirement
+- $\Delta KR^i_{t, t-1}$ is the change in the minimum capital requirement
 - $\Delta Demand^i_{t, t-1}$ is the lending demand proxy represented 
 - $\pmb{X}^i_{t-s}$ is a bank level controls set at month $t-s$. 
 - The fixed effects ($\phi^i$) estimate other unobserved differences in bank characteristics. 
 - To account for other factors, such as changes in the macroeconomic environment, we employ time-fixed effects ($\tau_t$). 
-- $\varepsilon^i_t$ using clustered standard errors
+- $\varepsilon^i_t$ using bank clustered standard errors
 
 ## Identification
 
@@ -634,7 +640,7 @@ models$graphs$path_gg
 - There are fewer clients on the commercial side, and the assets are larger. This higher asset base also suggests that banks are more careful or place more risk-weights on lending on the commercial than the household side [@imbierowicz2018time]. 
 - In South Africa, this means that banks avoid having to pull back on lending on the commercial side as a result of higher capital requirements, with the capital buffer as a first 'shock-absorber'.
 - The issue of demand effect remains a concern
-- Further capital requirement endogeneity is possible in the form of anticipation effects. We address these in the paper.
+- Further capital requirement endogeneity is possible in the form of anticipation effects. We attempt to address these in the paper.
 
 ## Thank You! {-}
 \centering Thank You!

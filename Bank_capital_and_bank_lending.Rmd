@@ -1310,6 +1310,7 @@ Similar to the main results, all household credit categories have a clear lagged
 
 # Conclusion {#conclusion}
 
+We sought to estimate the impact of Basel III mandatory capital requirements on bank lending in South Africa. The results show a small impact on bank lending in the order of 0.48 to 2.4 percentage points for every percentage point increase in mandatory capital requirement. These results are lower than others in the literature, even compared to Peru. There are several theoretical reasons why this may be the case. These include possible seasonality in the reallocation of credit by banks [@aiyar2014international], and lingering endogeneity given the insignificant demand proxies [@fang2020bank]. Despite these concerns, we argue that since this is the first study of its kind in South Africa, there is no way to know what is a reasonable estimate. Instead, the results suggest that the SARB managed the implementation of Basel III in South Africa well, with minimal impact on bank lending. Lastly, it is left to future studies to confirm or dispute our results.
 
 \newpage
 

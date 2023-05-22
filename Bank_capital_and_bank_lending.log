@@ -1,11 +1,11 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.5.6)  9 MAY 2023 12:57
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.5.15)  22 MAY 2023 08:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Bank_capital_and_bank_lending.tex
 (./Bank_capital_and_bank_lending.tex
 LaTeX2e <2022-11-01> patch level 1
-L3 programming layer <2023-05-05> (/Users/xolanisibande/Library/TinyTeX/texmf-dist/tex/latex/base/article.cls
+L3 programming layer <2023-05-11> (/Users/xolanisibande/Library/TinyTeX/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
 (/Users/xolanisibande/Library/TinyTeX/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2022/07/02 v1.4n Standard LaTeX file (size option)
@@ -132,7 +132,7 @@ Package: setspace 2022/12/04 v6.7b set line spacing
 ) (/Users/xolanisibande/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
 ) (/Users/xolanisibande/Library/TinyTeX/texmf-dist/tex/latex/unicode-math/unicode-math.sty (/Users/xolanisibande/Library/TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2023-05-05 L3 programming layer (loader) 
+Package: expl3 2023-05-11 L3 programming layer (loader) 
 (/Users/xolanisibande/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2023-04-19 L3 backend support: XeTeX
 \g__graphics_track_int=\count267
@@ -5143,7 +5143,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311509466163689.
 
 LaTeX Font Info:    Font shape `TU/Arial(0)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 2256.
+(Font)              scaled to size 5.0pt on input line 2258.
 
 Package fontspec Info: Arial scale = 0.8311509466163689.
 
@@ -5375,12 +5375,12 @@ Package fontspec Info: Arial scale = 0.8311509466163689.
 File: Bank_capital_and_bank_lending_files/figure-latex/lending-1.pdf Graphic file (type pdf)
 <use Bank_capital_and_bank_lending_files/figure-latex/lending-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 2327--2328
+Underfull \hbox (badness 10000) in paragraph at lines 2329--2330
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2327--2328
+Underfull \hbox (badness 10000) in paragraph at lines 2329--2330
 
  []
 
@@ -5400,7 +5400,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (4.44292pt too wide) in alignment at lines 2352--2360
+Overfull \hbox (4.44292pt too wide) in alignment at lines 2354--2362
 [] [] [] [] 
  []
 
@@ -5849,12 +5849,12 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (4.44292pt too wide) in alignment at lines 2360--2586
+Overfull \hbox (4.44292pt too wide) in alignment at lines 2362--2588
 [] [] [] [] 
  []
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 2610--2612
+Underfull \hbox (badness 10000) in paragraph at lines 2612--2614
 
  []
 
@@ -5871,7 +5871,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (9.50014pt too wide) in alignment at lines 2631--2639
+Overfull \hbox (9.50014pt too wide) in alignment at lines 2633--2641
 [] [] [] [] 
  []
 
@@ -6092,7 +6092,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (9.50014pt too wide) in alignment at lines 2639--2751
+Overfull \hbox (9.50014pt too wide) in alignment at lines 2641--2753
 [] [] [] [] 
  []
 
@@ -6116,7 +6116,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (22.56877pt too wide) in alignment at lines 2801--2809
+Overfull \hbox (22.56877pt too wide) in alignment at lines 2803--2811
 [] [] [] [] [] [] 
  []
 
@@ -6130,7 +6130,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (22.56877pt too wide) in alignment at lines 2809--2815
+Overfull \hbox (22.56877pt too wide) in alignment at lines 2811--2817
 [] [] [] [] [] [] 
  []
 
@@ -6999,7 +6999,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (22.56877pt too wide) in alignment at lines 2815--3107
+Overfull \hbox (22.56877pt too wide) in alignment at lines 2817--3109
 [] [] [] [] [] [] 
  []
 
@@ -7023,7 +7023,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (11.7276pt too wide) in alignment at lines 3133--3141
+Overfull \hbox (11.7276pt too wide) in alignment at lines 3135--3143
 [] [] [] [] [] [] 
  []
 
@@ -7037,7 +7037,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (11.7276pt too wide) in alignment at lines 3141--3147
+Overfull \hbox (11.7276pt too wide) in alignment at lines 3143--3149
 [] [] [] [] [] [] 
  []
 
@@ -7906,7 +7906,7 @@ Package fontspec Info: Arial scale = 0.8311527808940205.
 Package fontspec Info: Arial scale = 0.8311527808940205.
 
 
-Overfull \hbox (11.7276pt too wide) in alignment at lines 3147--3439
+Overfull \hbox (11.7276pt too wide) in alignment at lines 3149--3441
 [] [] [] [] [] [] 
  []
 
@@ -7915,10 +7915,10 @@ Package rerunfilecheck Info: File `Bank_capital_and_bank_lending.out' has not ch
 (rerunfilecheck)             Checksum: 369AD7747676E461FC025CEBBE668B41;3635.
  ) 
 Here is how much of TeX's memory you used:
- 22585 strings out of 478705
- 419657 string characters out of 5847803
- 1940879 words of memory out of 5000000
- 42288 multiletter control sequences out of 15000+600000
+ 22699 strings out of 478708
+ 422760 string characters out of 5847647
+ 1940630 words of memory out of 5000000
+ 42399 multiletter control sequences out of 15000+600000
  519004 words of font info for 106 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  108i,15n,128p,3010b,545s stack positions out of 10000i,1000n,20000p,200000b,200000s

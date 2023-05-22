@@ -141,7 +141,7 @@
 \title{The impact of Basel III implementation on bank lending in South
 Africa}
 \author{Xolani Sibande and Alistair Milne}
-\date{2023-05-10}
+\date{10 May 2023}
 \institute{South African Reserve Bank}
 
 \begin{document}
@@ -276,8 +276,8 @@ Africa}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Developments in SA banking}
-\protect\hypertarget{developments-in-sa-banking}{}
+\begin{frame}{SA banking sector}
+\protect\hypertarget{sa-banking-sector}{}
 \begin{itemize}
 \tightlist
 \item
@@ -287,8 +287,7 @@ Africa}
   South Africa (24.1\%), First Rand (20.4\%), ABSA (19.8\%), Nedbank
   (17.0\%) and Investec (7.8\%); the next largest bank is Capitec (2\%)
 \item
-  The ratio of bank assets to GDP is 112\% while total financial sector
-  assets amount to 298\% of GDP
+  The ratio of bank assets to GDP is 112\%
 \item
   This prudential regulation and South Africa's well-capitalised banking
   sector has prevented the emergence any systemic financial crisis
@@ -351,13 +350,11 @@ Countercyclical buffer & 0 to 2.5\\
   was necessary.
 \item
   This aggregation essentially limited our sample to the big four
-  lenders - not an issue
+  lenders
+\item
+  Three major categories for households and non financial corporations
+  (secured, unsecured, and mortgages)
 \end{itemize}
-\end{frame}
-
-\begin{frame}{Asset aggregation (cont.)}
-\protect\hypertarget{asset-aggregation-cont.}{}
-\includegraphics{baseIII_and_bank_lending_files/figure-beamer/assets-1.pdf}
 \end{frame}
 
 \begin{frame}{Methodology}
@@ -369,10 +366,12 @@ Building on Fang \emph{et al.} (2020):
 \begin{itemize}
 \tightlist
 \item
+  \(^i\) refers to the four banks
+\item
   \(\Delta LOAN^i_{t, t-s}\) is the log difference of lending
 \item
-  \(\Delta KR^i_{t, t-1}\) is the bank level change in the minimum
-  capital requirement
+  \(\Delta KR^i_{t, t-1}\) is the change in the minimum capital
+  requirement
 \item
   \(\Delta Demand^i_{t, t-1}\) is the lending demand proxy represented
 \item
@@ -384,7 +383,7 @@ Building on Fang \emph{et al.} (2020):
   To account for other factors, such as changes in the macroeconomic
   environment, we employ time-fixed effects (\(\tau_t\)).
 \item
-  \(\varepsilon^i_t\) using clustered standard errors
+  \(\varepsilon^i_t\) using bank clustered standard errors
 \end{itemize}
 \end{frame}
 
@@ -709,7 +708,7 @@ Adj.R squared & 0.12 & 0.13 & 0.13 & 0.14 & 0.14\\
   The issue of demand effect remains a concern
 \item
   Further capital requirement endogeneity is possible in the form of
-  anticipation effects. We address these in the paper.
+  anticipation effects. We attempt to address these in the paper.
 \end{itemize}
 \end{frame}
 
