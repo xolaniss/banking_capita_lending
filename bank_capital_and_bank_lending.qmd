@@ -1,0 +1,2447 @@
+---
+format:
+  pdf:
+    include-before-body: title.tex
+    include-in-header: 
+      - text: \usepackage{pdflscape}
+  docx:
+    reference-doc: new_template_no_numbering.docx
+bibliography: references.bib
+natbiboptions: round
+csl: ucl-institute-of-education-harvard.csl
+linestretch: 1.5
+number-sections: true
+fig-cap-location: bottom
+execute: 
+  echo: false
+  warning: false
+---
+
+```{r}
+library(tidyverse)
+library(readr)
+library(readxl)
+library(zoo)
+library(magick)
+library(stringi)
+library(patchwork)
+library(xtable)
+library(scales)
+library(rvest)
+library(rebus)
+library(PNWColors)
+library(lubridate)
+library(here)
+library(flextable)
+library(gt)
+library(officer)
+library(modelsummary)
+library(plm)
+library(datawizard)
+
+theme <-
+  theme_minimal(base_size = 6) +
+  theme(axis.text.x = element_text(angle = 90),
+        legend.position = "none",) # EU base theme
+theme_set(theme) # setting ggplot theme instead of using theme function
+```
+
+```{r}
+multi_line_plot <- function(data, plotname = "",
+                            variables_color = 3, 
+                            legend_position = "top"
+                            )  {
+  data %>% 
+  ggplot(aes(x = Date, y = Value)) +
+  geom_line(aes(color = Series, linetype = Series), size = 1) +
+  theme_bw() +
+    theme(
+      legend.position = legend_position,
+      legend.title = element_blank(),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      axis.line = element_line(colour = "black"),
+      panel.border = element_blank(),
+      text = element_text(size = 8),
+      strip.background = element_rect(colour = "white", fill = "white"),
+      axis.text.x = element_text(angle = 90),
+      axis.title = element_text(size = 7),
+      plot.tag = element_text(size = 7)
+    ) +
+    labs(x = "", y = plotname) +
+    scale_color_manual(values = pnw_palette("Cascades", variables_color)) 
+}
+
+source(here("Functions", "flextable_word.R"))
+source(here("Functions", "modelsummary_word.R"))
+source(here("Functions", "borderlines.R"))
+
+set_flextable_defaults(
+  font.size = 8,
+  digits = 2,
+  font.family = "Arial",
+  border.color = "#537380"
+)
+
+border <-  fp_border(color = "#537380",
+                     width = 1.5,
+                     style = "solid")
+
+```
+
+# Introduction
+
+
+This paper investigates the impact of the higher regulatory capital requirements of the implementation of the Basel III in South Africa between 2013 and 2019. Following an established approach in the literature, the investigation reported here focuses on the impact of changes in minimum required levels of bank capital and also of changes in the ‘buffers’ of capital and liquidity above these minima. The principal data employed is monthly balance sheet data, for the four largest South  African banks, which together account for more than 80\% of bank assets in South Africa. This data is both higher frequency (monthly) and more detailed (distinguishing several categories of both corporate and household credit) than the accounting statement data used in other related empirical studies. 
+
+This focus on a small set of large banks has some advantages. The business models of these banks are similar. They all use sophisticated tools of capital management and take a substantial proportion of funding as  wholesale deposits from non-financial corporates and non-bank financial institutions which impacts in particular on their Basel III net stable funding ratios. It also though has the disadvantage of providing only a relative small data set, over a period in which banks faced no substantial problems of balance sheet capital. 
+
+@sec-literature is our literature review. This summarises the findings of similar empirical studies of the impact of changes in capital and capital requirements on bank credit supply , most of which are for developed countries. An Appendix provides an intuitive review of the mechanisms through which balance sheet constraints can be expected to impact on the supply of bank credit, drawing on a substantial theoretical and empirical literature. 
+
+@sec-economic summarise the key developments in South African banking over our sample period. These include: the recovery of the banking sector from the impact of the global financial crisis 2009-2011 and an associated rebuilding of capital buffers, and the phasing in of Basel III from 2013 to 2019. @sec-data describes our data set and sets out our empirical specification. @sec-conclusion concludes.
+
+# Existing empirical literature {#sec-literature}
+
+An earlier branch of the literature exploits differences in capitalisation of bank holding companies and bank subsidiaries/ branches (to correct for the endogeneity of bank capital, resulting from the impact of credit demand on bank earnings and hence capital) to quantify the impact of a fall of capitalisation on the supply of bank credit. @peek1997international  find that in the period 1989H1 to 1995:H2 a 1\% reduction  in the Japanese bank parent risk-based capital ratio, due to the Japanese financial crisis , reduces the six-monthly growth rate of total lending by Japanese bank branches in the US by approximately 1.9\% of total branch assets and C\&I lending by 0.8\% of total assets. 
+
+@houston1997capital find that loan growth in US bank subsidiaries increases by 2\% following a 1\% addition to holding company capital, but there is no statistically significant impact from an addition to subsidiary capital, a supply effected resulting from the internal allocation of bank capital [@calomiris2003fundamentals; @calomiris1998bank on losses in the 1930s]. Several other papers find lower rates of credit expansion for banks close the regulatory minimum level of capital [see, @hancock1994bank; @berger1994lines; @nier2005bank; @van2008welfare; @gambacorta2004does; @berrospide2010effects].
+
+Another branch of the empirical literature investigates the impact of bank specific changes in regulatory capital requirements on bank credit growth. Much of this work has been undertaken using UK data, where bank regulators have set frequently adjusted individual bank ‘trigger ratios’ for minimum risk-weighted capital, higher than the Basel international minima, breach of which prompts additional supervisory intervention. @francis2012capital investigate the impact of changes in buffer capital, finding that a decline of risk weighted capital relative to an estimated target of 1\% reduces risk-weighted assets by 7\% (but the impact is relatively small when the result of a recent change in capital requirements and has not statistically significant impact on unweighted lending or total assets). @aiyar2014international and @aiyar2016does exploit the same UK data individual changes in bank capital requirements to quantify the direct impact of a change in the UK trigger ratios. 
+
+@aiyar2014international investigate the impact on credit growth, using quarterly data for the period 1998-2007, employing a the current and three lags of changes in the trigger ratio (i.e. a similar specification to that used in this paper). They report that “an increase in the capital requirement ratio of 100 basis points, induces on average a  cumulative fall in loan growth of 5.7 and 6 percentage points.” These estimates include a bank specific credit demand proxy, based on weighted average employment growth in 14 industrial sectors and bank lending shares, but this proxy is not statistically significant. @aiyar2016does extend the specification to include changes in interest rates, reporting a similar only slightly smaller loan responses to changes in the trigger ratio. @aiyar2016does focus on impact on international lending by UK banks, allowing a stronger control for credit demand based on country specific time effects, reporting cumulative fall of international lending of between 5.5\%.
+
+Related investigations for other countries obtain similar magnitude impacts: @jimenez2017macroprudential, exploiting the dynamic forward looking loan loss provisioning in Spain combined with firm-bank level data to identify credit supply impacts, find that countercyclical reductions in capital requirements in “bad times”, in the 2008Q4 and 2009Q4, help sustain credit growth  (A 1 percentage point increase in capital buffers extends credit to firms by 9 percentage points). @fraisse2020real look at the impact on French banks of the transition from Basel I to Basel II.
+
+
+There are relatively few studies for emerging markets investigating the impact of bank capital requirements on credit supply in emerging markets. @fang2020bank model bank loan growth, using a specification similar to @aiyar2016does, including a similar demand proxy, and quarterly bank data 2005- 2016 for Peru, including the period 2010-2011 when Basel III was phased  in together with an additional capital buffer in 2011. A one percentage increase in the capital requirement reduces lending by 4-6 percent in the same quarter.
+
+
+# Developments in South African Banking {#sec-economic}
+
+## Economic background.
+During the first fifteen years of democracy, from 1993 to 2008, real South African GDP grew at more than 3.5\% per year^[Macroeconomic data, except where otherwise specified, is from the IMF data mapper https://www.imf.org/external/datamapper/profile/ZAF];  supported by the post-apartheid reintegration into the global economy, trade liberalisation, a diversification of economic activity and a policy regime emphasising both fiscal and monetary discipline^[@nowak2005first; @nowak2006post].  Public debt was reduced from 48\% of GDP in 1995 to 28\% in 2007 ^[See the 2010 IMF Article IV consultation, Sept 2010, highlighting South Africa’s strong economic performance since the mid-1990s.].  Inflation fell from 9.1\% in 1993-95 to 3.2\% in 2004-2005,  with inflation targeting formally introduced in February 2000.
+
+```{r}
+#| fig.cap = "Long term economic developments. Source: World Bank (2022)",
+#| cache = FALSE,
+#| include = FALSE,
+#| eval = TRUE,
+#| fig.height = 3
+
+per_capita <- read_excel(here("Data", "GDP_per_capita.xlsx")) 
+credit_to_gdp <- read_excel(here("Data", "credit_to_gdp.xlsx"))
+
+long_term_tbl <- 
+  credit_to_gdp %>% 
+  left_join(per_capita, by = c("Date" = "Date")) %>% 
+  mutate(Date = parse_date_time(Date, orders = "Y")) %>% 
+  pivot_longer(-Date, names_to = "Series", values_to = "Value")
+
+long_term_gg <- long_term_tbl %>% 
+  multi_line_plot(legend_position = "none") +
+  scale_y_continuous() +
+  facet_wrap(~ Series, scales = "free_y") 
+
+long_term_gg
+```
+
+
+South Africa was also financially stable with a profitable and well capitalised albeit concentrated banking sector. GDP growth slowed temporarily on occasion, triggered by capital outflows and pressure on the exchange rate, both in 1998 during the aftermath of the Asian financial crisis and in 2001 during the post-dot.com global economic slowdown. There were some small bank failures during the latter episode, but neither episode had any systemic financial impact and demand and growth recovered relatively quickly.
+
+There were underlying economic weaknesses: most prominently high levels of poverty, unemployment and inequality, together with relatively low levels of educational achievement and skills-shortages. There was also a reliance for growth in domestic demand, with increasing household debt to income ratios, especially from mortgage borrowing by higher income households and rising prices for property and other assets. This bias is reflected in a comparatively high private sector credit to GDP ratio and a widening current account deficit, increasing from an average of -1\% in 1994-1999 to -3\% in 2003-2008. 
+
+South African economic performance has been notably weaker since 2008, when the global finance crisis (GFC) triggered the first economic recession in democratic South Africa.  From 2008 to 2022 GDP growth has averaged only 1.2\% per year, a reflection of the growing impact of underlying structural economic weaknesses. Output and employment fell more in South Africa than in most other emerging markets following the GFC  and export and investment levels recovered relatively slowly creating comparatively few jobs^[See the IMF Article IV consultations, that of  July 2011 which ascribes the lack of labour intensive growth, in part, to concentration and lack of competition in the non-financial corporate sector.]. International competitiveness had been based in part on low domestic energy prices based on electricity generation from South African mined coal, some 60\% below that of major economies;  but maintenance problems and lack of investment in generating capacity has led to supply shortfalls and rolling blackouts, first emerging in 2007-08 and, in the absence of co-ordinated investment, continuing since^[@ateba2019strategic; @folly2021competition]. 
+
+The global pandemic had a substantial impact on the South African economy, with a 6.4\% GDP contraction in 2020, resulting in unemployment rising to 35\%. Fiscal deficits, which had remained elevated since the global financial crisis, rose further to 9.7\% and 8.4\% in 2020 and 2021, and the ratio of public debt to GDP climbed to 70\%. 
+
+## Banking sector: structure and regulation
+
+There are 34 active licensed banks in South Africa^[https://www.resbank.co.za/en/home/what-we-do/Prudentialregulation/sa-registered-banks-and-representative-offices, January 2022; these consisted of 13 branches of foreign banks, 4 foreign controlled commercial bank subsidiaries, 14 locally controlled commercial banks and 3 mutual banks.];  but of these five domestically controlled commercial banks together account for around 90\% of banking sector assets^[As of April, 2020, these were (\% of banking sector assets): Standard Bank of South Africa (24.1\%), First Rand (20.4\%), ABSA (19.8\%), Nedbank (17.0\%) and Investec (7.8\%); the next largest bank is Capitec (2\%).].  South Africa also has a sophisticated non-bank financial services industry with large life- insurance, pension and unit-trust sectors. The ratio of bank assets to GDP is 112\% while total financial sector assets amount to 298\% of GDP. 
+
+South Africa has an well-developed regime of financial regulation that has evolved in line with international financial standards. A solvency regime, similar to the EU Solvency II, for the life insurance sector was introduced in 2011, along with a program of regulatory reform including a shift to a ‘twin peaks’ organisational structure legislated in 2017, with the SARB responsible for prudential and systemic risk while the Financial Sector Conduct Authority for market conduct and consumer protection.   
+
+This prudential regulation and South Africa’s well-capitalised banking sector has prevented the emergence any systemic financial crisis. There is concern about the reliance of the main South African banks on wholesale deposit funding, from non-financial corporates and non-bank financial institutions, which has created some challenges in meeting the Basel III ‘net stable funding requirements’ NSFR ratio. None of the episodes of financial stress, though, in the past three decade have triggered systemic financial problems. These episodes are the exchange rate depreciations of 1998 and 2001, the latter associated with a number of small bank failures, the impact of the 2008 GFC, the failure of a small lender Africa Bank in 2014 or the 2020 pandemic. Non-performing loans have risen substantially, as a share of bank loans, both in the early 2000’s and following the 2008 GFC and the 2020 pandemic to reach around 5\% of gross loans outstanding ^[IMF financial soundness indicators]. But the banking sector has remained profitable with return on assets close to 1.5\% and return on equity around 15\% over the years 2008-2020. 
+
+
+
+```{r}
+#| label: fig-assets
+#| fig.cap:  "Bank assets. Source: South African Reserve Bank (2022)"
+#| cache: FALSE
+#| include: TRUE
+#| fig.height: 5
+
+
+preprocessing_quarterly <-  read_rds(here("Outputs", "artifacts_preprocessing_quartely.rds"))
+
+BA_900_to_GDP_tbl <- preprocessing_quarterly$Totals$combined_gdp_ratio_data_tbl
+  
+BA_900_to_GDP_combined_gg <- BA_900_to_GDP_tbl %>% 
+   mutate(across(.cols = -Date, .fns = ~.x/100)) %>% 
+   pivot_longer(-Date, values_to = "Value", names_to = "Series") %>% 
+  multi_line_plot(variables_color = 7, legend_position = "none") +
+     scale_y_continuous(labels = scales::label_percent()) +
+  facet_wrap(~ Series, ncol = 2, scales = "free_y") +
+  labs(subtitle = "Bank assets as a percentage of GDP" )
+
+BA_900_to_GDP_combined_gg 
+
+```
+
+
+While banks have remained profitable, the growth of private sector credit in South Africa slowed substantially after the GFC (see @fig-assets). The share of banking sector household mortgage lending to GDP fell from 26\% in 2008 to 18\% in 2020. Other forms of household credit, secured and unsecured, grew by around 2\% of GDP between 2008 and 2013 but have since fallen back. Credit to non-financial corporations has also fallen somewhat since 2008. 
+
+## Capital requirements reforms in South Africa {#sec-capital}
+
+In line with international standards, South Africa implemented the Basel III bank capital regulation framework between 2013 and 2019. The structure of the regulations was well in line with the international norms (see @tbl-basel). Although the framework is specific to common equity Tier 1^[Mainly common shares, paid-in capital and retained earning.] and Tier 1^[common equity Tier 1 plus other instruments with no fixed maturity subordinate to debt.] capital, this study focuses on the total capital requirements. The structure of the requirements starts with the base minimum, which is the same as international standards. Pillar 2A is the systemic risk requirement; Pillar 2B is the bank-specific individual capital requirement and a range of buffers which can apply to domestic systemically important banks.
+
+
+```{r}
+#| label: tbl-basel
+#| tbl-cap: "Basel III capital requirements structure"
+#| ft.arraystretch: 0.8
+
+tibble(
+  " " = c(
+    "Basel III minima",
+    "South African minima",
+    "Pillar 2A",
+    "South Africa base minima",
+    "Pillar 2B (ICR)",
+    "Prudential minima",
+    "Systemically important buffer",
+    "Capital conservation buffer",
+    "Countercyclical buffer"
+         ),
+  "Percent" = c(
+    "8", 
+    "8", 
+    "0.5 to 2", 
+    "8+Pillar 2A", 
+    "no specific range",
+    "8+Pillar2A+ICR",
+    "0.5 to 2.5",
+    "0 to 2.5",
+    "0 to 2.5") 
+) %>% 
+  flextable_word(
+    caption = "Basel III capital requirements structure"
+  ) %>% 
+  autofit(add_w = 1.8) 
+
+
+```
+
+The authorities^[See Annexure A and B of Directive 5 of 2013 by the Office of the Register of Banks, South African Reserve Bank] stipulated the phase-in period shown in @tbl-phasein. Of interest is that the conservation buffer, countercyclical buffers, and the high liquid asset requirement for domestic systemically important banks were only introduced in 2016. At the same time, the systemic risk capital requirement (Pillar 2A) was reduced to avoid double counting. In the main, the authorities persisted with the phase-in schedule will only minor deviations regarding the range-bound measures.
+
+
+```{r}
+#| label: tbl-phasein
+#| tbl-cap: "Basel III implementation (%)"
+  
+tibble(
+  " " = c(
+    "Basel III minima",
+    "Pillar 2A for Total Capital",
+    "Minimum Total Capital Plus 2A",
+    "Phasing in of specified charge for systemically important banks (as % of Pillar 2A)",
+    "Capital conservation buffer",
+    "Countercyclical buffer"
+  ),
+  "2013" = c(
+    "8",
+    "1.5",
+    "9.5",
+    "",
+    "",
+    ""
+  ),
+  "2014" = c(
+    "8",
+    "2",
+    "10",
+    "",
+    "",
+    ""
+  ),
+  "2015" = c(
+    "8",
+    "2",
+    "10",
+    "",
+    "",
+    ""
+  ),
+  "2016" = c(
+    "8",
+    "1.8",
+    "9.8",
+    "25",
+    "0.625",
+    "0.625"
+  ),
+  "2017" = c(
+    "8",
+    "1.5",
+    "9.5",
+    "50",
+    "1.25",
+    "1.25"
+  ),
+  "2018" = c(
+    "8",
+    "1.3",
+    "9.3",
+    "75",
+    "1.875",
+    "1.875"
+  ),
+  "2019" = c(
+    "8",
+    "1",
+    "9",
+    "100",
+    "2.5",
+    "2.5"
+  )
+) %>% 
+  flextable_word(
+  ) %>% 
+  autofit(add_w = -.15) 
+
+
+```
+
+
+Regarding bank regulations^[That is regulation 38 of the Bank Regulations (Bank Act, 1990)], South African banks must hold a discretionary buffer above the regulated minimum requirements. This discretionary buffer is determined, amongst others, by environmental factors. For example, the buffer of bank capital over minimum regulatory requirements for the sector has varied, rising from around 2\% in 2008 to 6\% in 2013, but with the introduction of the higher Basel III requirements has since fallen, fluctuating in range of 2-4\% since 2015 (see @fig-capital). 
+
+
+```{r}
+#| cache: FALSE
+#| include: FALSE
+#| tbl-capl: "Banking Sector Descriptives"
+
+preprocessing_monthly <-  read_rds(here("Outputs", "artifacts_preprocessing_monthly.rds"))
+preprocessing_monthly$masters$total_master_tbl %>% 
+  mutate(across(.cols = 2:8, .fns = ~.x/1000000000)) %>% 
+  pivot_longer(-Date, names_to = "Series", values_to = "Value") %>% 
+  mutate(Groups = case_when(
+    str_detect(Series, "rate$") ~ "Lending Rates (%)",
+    str_detect(Series, "Surplus|Minimum") ~ "Regulatory Capital (%)",
+    TRUE ~ "Total Assets (R Billions)"
+  )) %>% 
+  drop_na() %>% 
+  group_by(Groups, Series) %>% 
+  summarise(across(.cols = -c(Date),
+                   .fns = list(Median = median, 
+                               SD = sd,
+                               Min = min,
+                               Max = max,
+                               Obs = ~ n()), 
+                   .names = "{.fn}")) %>% 
+  as_grouped_data(groups = "Groups") %>% 
+  flextable_word(
+  caption = "Banking Sector Descriptives",
+  ) %>%
+  align(align = "left", part = "all") %>%
+  autofit(add_w = -.10) %>% 
+  set_header_labels(
+    Groups = " ",
+    Series = " "
+  )
+
+```
+
+```{r}
+#| label: fig-capital
+#| fig.cap: "Capital requirements. Source: South African Reserve Bank (2022). Note: RWA is risk weighted assets."
+#| cache: false 
+#| include: true
+#| fig.height: 3
+
+preprocessing_monthly <-  read_rds(here("Outputs", "artifacts_preprocessing_monthly.rds"))
+
+Capital_monthly_tbl <- preprocessing_monthly$Totals$capital_buffer_tbl %>% 
+  mutate(`Total capital held` = `Minimum requirement` + `Surplus capital`) %>% 
+  rename(
+    "Capital requirement" = `Minimum requirement`,
+    "Capital buffer" = `Surplus capital`)
+Capital_monthly_combined_gg <- 
+  Capital_monthly_tbl %>% 
+  mutate(across(.cols = -Date, .fns = ~.x/100)) %>% 
+  pivot_longer(-Date, values_to = "Value", names_to = "Series") %>% 
+  multi_line_plot(variables_color = 7, legend_position = "none") +
+     scale_y_continuous(labels = scales::label_percent()) +
+  facet_wrap(~ Series) +
+  labs(y = "% of RWA")
+  
+Capital_monthly_combined_gg
+```
+
+# Data and Methodology {#sec-data}
+
+We collected data on the four major South African banks; Absa Bank, Standard Bank, First National Bank, and Nedbank. Together these constitute over 80\% of the banking sector assets. Our main data sources were the monthly Banks Act (BA) statutory disclosures collected by the South African Reserve Bank (SARB). The Banks Act obliges the SARB to collect and publish bank balance sheets and other data to understand the country's banking activity scale. We mainly utilised the BA900s (bank economic returns) and the BA930s (bank product lending rates). The Basel III capital requirements (BA700s) data was collected from the South African Prudential Authority (PA) - the financial sector regulator. From the same source, we also collected the controls data. @tbl-data and @tbl-data1 in the Appendix summarise the specific data. Lastly, most bank-level data is private or internal to the SARB; however, the BA900s bank-level data is public.
+
+Our focus is on the effect of higher capital buffer requirements on real economic activity lending. Real economic activity lending in the BA900s is represented by lending to households and non-financial corporations. However, the BA900s only report granular lending categories to households and non-financial corporations. Therefore, some aggregation was necessary. The process of aggregation, or combining related granular lending categories into broader categories, is clearly explained in @sec-aggregation in the Appendix. The result is lending three categories for households and non-financial corporations: unsecured credit, secured credit, and mortgages. These six categories form the foundation of our analysis. 
+
+Following @fang2020bank and @aiyar2016does, we transformed some data for modelling purposes as summarised in @tbl-summaries. In the literature section, we explained the challenges in separating the bank lending effect of specific Basel III actions from banks' normal risk and portfolio adjustment actions. To solve the identification problem, we distinguish between Basel III 'jumps' and normal bank activity 'wiggles' (see @fig-capital). Therefore, $\Delta KR$ or minimum capital buffer requirement is a dummy that isolates the specific Basel III changes to the regulatory capital buffer requirements as explained in @sec-capital. To reflect the its importance in the South African context, we clearly distinguish between the excess capital that the banks choose to hold above the minimum capital buffer requirement ($\Delta KS$). As explained in @sec-capital South African banks are encouraged to hold a significant portion in excess capital.
+
+@fang2020bank construct a demand measure based on sector-specific lending weights as a proportion of sector output. In addition, @neryvia2023 construct the same measure in the South African context. However, both @fang2020bank and @neryvia2023 find that this measure was not significant. That is, it does not adequately measure to the demand aspect of changes in lending. In somewhat a novel approach we utilise the lending rates corresponding to our six broad lending categories (see @fig-lending in the Appendix). We define $\Delta Demand$ as the change in the interest rate margin (lending rate less the SARB policy rate) as a measure of lending demand. The intuition is that an increase in the lending rate suggests an increase in demand and vice versa, taking the effect of policy rate changes. 
+
+After adjusting the data in @tbl-summaries for outliers (winsorizing the data with a 1\% threshold), we estimate the following equation, for the six lending categories, using the ordinary least squares estimator:
+
+$$
+\Delta LOAN^i_{t, t-s} = \beta \Delta KR^i_{t, t-1} + \lambda \Delta KS^i_{t, t-1} + \alpha \Delta Demand^i_{t, t-1} + \gamma'  \pmb{X}^i_{t-s} + \phi^i + \tau_t + \varepsilon^i_t.
+$$
+
+$\Delta LOAN^i_{t, t-s}$ is the log difference of lending between months $t$ and $t-s$ for bank $i$. $\Delta KR^i_{t, t-1}$ is the bank level change in the minimum capital requirement between months $t$ and $t-1$, and similarly $\Delta KS^i_{t, t-1}$ is the change in the bank-level capital buffer between months $t$ and $t-1$. $\Delta Demand^i_{t, t-1}$ is the lending demand proxy represented by the bank-level change in the interest rate margin between months $t$ and $t-1$. $\pmb{X}^i_{t-s}$ is a bank level controls set at month $t-s$. Our choice of controls flows from @fang2020bank, which are at a bank-level return on assets, return on equity (profitability), and high liquid assets held (liquidity). The fixed effects ($\phi^i$) estimate other unobserved differences in bank characteristics. To account for other factors, such as changes in the macroeconomic environment, we employ time-fixed effects ($\tau_t$). In summary, we estimate this specification for each of the lending category with a panel of four banks between 2013 and 2019. As shown in @sec-results this amounts to six regressions per estimation, that is, three regressions for households and non-financial corporations (unsecured credit, secured credit and mortgages), respectively.
+\newpage
+<!-- Variable description table -->
+
+\begin{landscape}
+
+```{r}
+#| label: tbl-summaries
+#| tbl-cap: "Variable Definitions and Summary Statistics"
+#| ft.arraystretch: 0.6
+
+
+models <- read_rds(here("Outputs", "artifacts_base_model.rds"))
+
+summary_tbl <- models$summaries$summaries_tbl
+
+
+group_names <- c(
+  "\\Delta LOAN",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  "\\Delta KR",
+  "\\Delta KS ",
+  "\\Delta Demand",
+  " ",
+  " ",
+  " ",
+  " ",
+  " ",
+  "ROA",
+  "ROE",
+  "Liquidity"
+)
+
+sub_groups <- c(
+  "Household secured credit",
+  "Household unsecured credit",
+  "Household mortgage credit",
+  "Non-financial corporations secured credit",
+  "Non-financial corporations unsecured credit",
+  "Non-financial corporations mortgage credit",
+  " ",
+  " ",
+  "Household secured credit",
+  "Household unsecured credit",
+  "Household mortgage credit",
+  "Non-financial corporations secured credit",
+  "Non-financial corporations unsecured credit",
+  "Non-financial corporations mortgage credit",
+  " ",
+  " ",
+  " "
+)
+
+definitions <- c(
+  "Month on month change in the natural logarithm of nominal loans.",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "Month on month jumps (up or down) in the minimum capital requirement (Basel III).",
+  "Monthly difference between the total capital buffer requirement and the minimum capital requirement.",
+  "Monthly change in the interest rate margin (category credit rate less the policy rate or repo).",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "Return on assets during the month, that is, net income divided by total assets.",
+  "Return on equity during the month, that is, net income divided by shareholder equity.",
+  "Natual logarithm of the montly level of high quality liquid assets required to be held."
+)
+
+summary_tbl_id <- summary_tbl %>% 
+  mutate(id = if_else(str_detect(variable, "^change_in_log"), 1, 
+                                     if_else(str_detect(variable, "required_capital"), 2, 
+                                             if_else(str_detect(variable, "surplus_capital"), 3, 
+                                                     if_else(str_detect(variable, "^change_in_interest_margin"), 4, 
+                                                             if_else(str_detect(variable, "return_on_assets"), 5, 
+                                                                     if_else(str_detect(variable, "return_on_equity"), 6,
+                                                                             if_else(str_detect(variable, "^log_of_level_on"), 7, 0)))))))) %>% 
+  relocate(id, .before = variable) %>% 
+  arrange(id) %>% 
+  dplyr::select(-id) %>%  
+  add_column(Category = sub_groups, .before = "Median") %>% 
+  add_column(Definition = definitions, .before = "Category") %>% 
+  rename("Variable" = variable)
+
+
+flextable_word(
+  data = summary_tbl_id,
+  caption = "Variable Definitions and Summary Statistics") %>%
+  mk_par(j = 1, part = "body", value = as_paragraph(as_equation(group_names))) %>% 
+  flextable::align(j = 1, part = "body", align = "left") %>% 
+  autofit(add_w = 0) %>% 
+  fit_to_width(max_width = 10)
+
+```
+
+
+\end{landscape}
+
+
+#  Results {#sec-results}
+ 
+## Main results
+
+<!-- @tbl-HH1 and @tbl-NFC1 report the main results. To ensure the robustness of the results, we increasingly add variables between columns 1 to 5. In column 1, we take the baseline impact of Basel III changes in capital requirements on credit growth. In column 2, we add the capital buffers; we add our lending demand proxies in column 3. Lastly, in columns 4 and 5, we add the bank-specific controls whilst excluding the demand proxy in column 4. As the methodology section explains, we estimate the regressions with month and bank effects in all cases. Lastly, we report on our estimates' joint significance (test for equality). -->
+
+<!-- The household results reveal a clear contemporaneous effect from changes in capital requirements, with highly significant estimates, for all credit categories (see @tbl-HH1). For households, a one percentage point change in the capital requirement is associated with a 0.23 to 0.8 percentage reduction in lending for the same month. Quarterly this equates to a reduction in lending of 0.69 to 2.4 percentage points^[This is on a cumulative average basis. That is, assuming that the impact on lending is the same from month to month. The impulse responses via local projections below quantify the path of this impact over a twelve month period.]. The same effect for the non-financial corporations was only significant for the secured credit category, and the reduction in lending was between 0.48 and 1.02 percentage points. The other categories were insignificant. Only non-financial corporations mortgages had a strong contemporaneous effect on changes in the capital buffer, which indicates strong risk aversion behaviour in this category. -->
+
+<!-- Almost all the household credit categories were jointly significant. This joint significance means adding more variables to the regressions added more information, which is evident in the relatively stable capital requirements estimates ($\Delta KR$) from columns 1 to 5. We found the same joint significance for non-financial corporation categories, except for the unsecured credit category. Lastly, we note cursory evidence of a demand effect in the capital requirement estimates. For example, the inclusion of the demand proxy in the household secured credit category resulted in a decline in the capital requirement estimate from -0.01 to -0.0048. This decline is well in line with the intuition that the demand factors reduce the effect of capital requirements on lending. However, we say this is cursory because this decline is inconsistent throughout all the credit categories. -->
+
+<!-- However, the effect of changes in capital requirements on lending categories did not dissipate immediately. The results of the effect of changes in capital requirements on a three-month change in lending were also significant (see @tbl-HH2 and @tbl-NFC2). That is, the effect fades gradually as the three-month change in lending results are generally less significant than the contemporaneous results. However, this gradual fading is not in all categories as, for example, the non-financial corporations unsecured credit category was highly significant over the 3-month period and was also positive.  -->
+\newpage
+
+```{r}
+#| label: tbl-HH1
+#| tbl-cap: "Household results"
+#| ft.arraystretch: .4
+#| cache: FALSE
+
+models_full_list <- list(
+  household_secured_list  = list(
+  models$coef_models$one_month_buffer_coeftest_model_list[[1]],
+  models$coef_models$one_month_buffer_surplus_coeftest_model_list[[1]],
+  models$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[1]],
+  models$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[1]],
+  models$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[1]]
+  ),
+  household_unsecured_list = list(
+  models$coef_models$one_month_buffer_coeftest_model_list[[2]],
+  models$coef_models$one_month_buffer_surplus_coeftest_model_list[[2]],
+  models$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[2]],
+  models$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[2]],
+  models$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[2]]
+  ),
+  household_mortgage_list = list(
+  models$coef_models$one_month_buffer_coeftest_model_list[[3]],
+  models$coef_models$one_month_buffer_surplus_coeftest_model_list[[3]],
+  models$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[3]],
+  models$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[3]],
+  models$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[3]]
+  )
+)
+
+household_secured_joint_test_vec <- c(
+    models$joint_test$joint_test_buffer[[1]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus[[1]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand[[1]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_control[[1]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand_control[[1]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+household_unsecured_joint_test_vec <- c(
+    models$joint_test$joint_test_buffer[[2]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus[[2]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand[[2]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_control[[2]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand_control[[2]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+household_mortgage_joint_test_vec <- c(
+    models$joint_test$joint_test_buffer[[3]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus[[3]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand[[3]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_control[[3]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand_control[[3]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+
+household_secured_r_squared_vec <- c(
+  summary(models$lm_models$one_month_buffer_ols_model_list[[1]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_ols_model_list[[1]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_ols_model_list[[1]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_control_ols_model_list[[1]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[1]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+household_unsecured_r_squared_vec <- c(
+  summary(models$lm_models$one_month_buffer_ols_model_list[[2]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_ols_model_list[[2]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_ols_model_list[[2]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_control_ols_model_list[[2]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[2]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+household_mortgage_r_squared_vec <- c(
+  summary(models$lm_models$one_month_buffer_ols_model_list[[3]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_ols_model_list[[3]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_ols_model_list[[3]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_control_ols_model_list[[3]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[3]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+household_secured_model <- 
+  modelsummary_word(
+  models_full_list$household_secured_list,
+  coef_omit = 2:16
+) 
+household_unsecured_model <- 
+  modelsummary_word(
+  models_full_list$household_unsecured_list,
+  coef_omit = 2:16
+  )
+household_mortgage_model <- 
+  modelsummary_word(
+    models_full_list$household_mortgage_list,
+    coef_omit = 2:16
+  )
+
+dependant <-  c(
+    "Dep. Var:\\Delta LOAN_{t, t-1}"
+)
+estimates <- c(
+  "\\Delta KR_{t, t-1}",
+  "\\Delta KS_{t, t-1} ",
+  "\\Delta Demand_{t, t-1}",
+  "ROA_{t-1}",
+  "ROE_{t-1}",
+  "Liquidity_{t-1}"
+)
+
+flextable(
+  data = bind_rows(
+  household_secured_model$body$dataset,
+  household_unsecured_model$body$dataset,
+  household_mortgage_model$body$dataset
+  ) %>% 
+    add_row(.before = 1," " = "Household secured credit model") %>% 
+    add_row(.after = 14, " " = "Household unsecured credit model") %>% 
+    add_row(.after = 28, " " = "Household mortgage credit model") %>% 
+    add_row(.after = 14, 
+            " " = "Test of equality (p-value)",  
+            "(1)" = as.character(household_secured_joint_test_vec[1]), 
+            "(2)" = as.character(household_secured_joint_test_vec[2]),
+            "(3)" = as.character(household_secured_joint_test_vec[3]),
+            "(4)" = as.character(household_secured_joint_test_vec[4]),
+            "(5)" = as.character(household_secured_joint_test_vec[5])) %>% 
+   add_row(.after = 29, 
+            " " = "Test of equality (p-value)",  
+            "(1)" = as.character(household_unsecured_joint_test_vec[1]), 
+            "(2)" = as.character(household_unsecured_joint_test_vec[2]),
+            "(3)" = as.character(household_unsecured_joint_test_vec[3]),
+            "(4)" = as.character(household_unsecured_joint_test_vec[4]),
+            "(5)" = as.character(household_unsecured_joint_test_vec[5])) %>% 
+    add_row(.after = 45, 
+            " " = "Test of equality (p-value)",  
+            "(1)" = as.character(household_mortgage_joint_test_vec[1]), 
+            "(2)" = as.character(household_mortgage_joint_test_vec[2]),
+            "(3)" = as.character(household_mortgage_joint_test_vec[3]),
+            "(4)" = as.character(household_mortgage_joint_test_vec[4]),
+            "(5)" = as.character(household_mortgage_joint_test_vec[5])) %>% 
+       add_row(.after = 14, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(household_secured_r_squared_vec[1]), 
+            "(2)" = as.character(household_secured_r_squared_vec[2]),
+            "(3)" = as.character(household_secured_r_squared_vec[3]),
+            "(4)" = as.character(household_secured_r_squared_vec[4]),
+            "(5)" = as.character(household_secured_r_squared_vec[5])) %>% 
+   add_row(.after = 30, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(household_unsecured_r_squared_vec[1]), 
+            "(2)" = as.character(household_unsecured_r_squared_vec[2]),
+            "(3)" = as.character(household_unsecured_r_squared_vec[3]),
+            "(4)" = as.character(household_unsecured_r_squared_vec[4]),
+            "(5)" = as.character(household_unsecured_r_squared_vec[5])) %>% 
+    add_row(.after = 46, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(household_mortgage_r_squared_vec[1]), 
+            "(2)" = as.character(household_mortgage_r_squared_vec[2]),
+            "(3)" = as.character(household_mortgage_r_squared_vec[3]),
+            "(4)" = as.character(household_mortgage_r_squared_vec[4]),
+            "(5)" = as.character(household_mortgage_r_squared_vec[5]))
+ 
+) %>% 
+  hline(i = 1, border = border) %>% 
+  hline(i = 13, border = border)  %>% 
+  hline(i = 16, border = border) %>% 
+  hline(i = 17, border = border)  %>% 
+  hline(i = 29, border = border) %>% 
+  hline(i = 32, border = border) %>% 
+  hline(i = 33, border = border) %>% 
+  hline(i = 45, border = border) %>% 
+  bold(i = c(1, 17, 33)) %>% 
+  # set_header_labels(" " = "",
+  #                   "(1)" = "Min Requirement",
+  #                   "(2)" ="Surplus Capital",
+  #                   "(3)" = "Demand", 
+  #                   "(4)" = "Controls no Demand", 
+  #                   "(5)" = "Controls and Demand") %>% 
+  set_caption(caption = "Household results") %>% 
+  mk_par(j = 1, i= 1, part = "header", value = as_paragraph(as_equation(dependant
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(2, 4, 6, 8, 10, 12), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(18, 20, 22, 24, 26, 28), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(34, 36, 38, 40, 42, 44), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  flextable::align(part = "body", align = "center") %>% 
+  flextable::align(part = "header", align = "center") %>% 
+  flextable::align(j =1, part = "body", align = "left") %>% 
+  flextable::align(j =1, part = "header", align = "left") %>% 
+  add_footer_row(values = as_paragraph("Note: Household results. The depandant variables in loan growth at bank level at a monthly frequency, calculated as the log difference at t and t -1. All control variables are defined in Table 2. Standard errors are clustered at a bank level. All equations include both bank and monthly effects. A test for equality p-value of < 0.1 is significant.", " " , as_equation("*** p < 0.01, ** p < 0.05, * p < 0.1")), colwidths = 6) %>% 
+  hline(border = border, part = "footer" ) %>% 
+  autofit(add_w = 0.2)
+
+
+```
+
+\newpage
+```{r}
+#| label: tbl-NFC1
+#| tbl-cap: "Non-financial corporations results"
+#| ft.arraystretch: .4
+#| cache: FALSE
+
+models_full_list_NFC <- list(
+  corporation_secured_list  = list(
+  models$coef_models$one_month_buffer_coeftest_model_list[[4]],
+  models$coef_models$one_month_buffer_surplus_coeftest_model_list[[4]],
+  models$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[4]],
+  models$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[4]],
+  models$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[4]]
+  ),
+  corporation_unsecured_list = list(
+  models$coef_models$one_month_buffer_coeftest_model_list[[5]],
+  models$coef_models$one_month_buffer_surplus_coeftest_model_list[[5]],
+  models$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[5]],
+  models$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[5]],
+  models$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[5]]
+  ),
+  corporation_mortgage_list = list(
+  models$coef_models$one_month_buffer_coeftest_model_list[[6]],
+  models$coef_models$one_month_buffer_surplus_coeftest_model_list[[6]],
+  models$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[6]],
+  models$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[6]],
+  models$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[6]]
+  )
+)
+
+corporation_secured_joint_test_vec <- c(
+    models$joint_test$joint_test_buffer[[4]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus[[4]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand[[4]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_control[[4]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand_control[[4]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+corporation_unsecured_joint_test_vec <- c(
+    models$joint_test$joint_test_buffer[[5]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus[[5]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand[[5]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_control[[5]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand_control[[5]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+corporation_mortgage_joint_test_vec <- c(
+    models$joint_test$joint_test_buffer[[6]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus[[6]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand[[6]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_control[[6]]$`Pr(>F)`[2],
+    models$joint_test$joint_test_buffer_surplus_demand_control[[6]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+
+corporation_secured_r_squared_vec <- c(
+  summary(models$lm_models$one_month_buffer_ols_model_list[[4]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_ols_model_list[[4]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_ols_model_list[[4]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_control_ols_model_list[[4]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[4]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+corporation_unsecured_r_squared_vec <- c(
+  summary(models$lm_models$one_month_buffer_ols_model_list[[5]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_ols_model_list[[5]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_ols_model_list[[5]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_control_ols_model_list[[5]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[5]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+corporation_mortgage_r_squared_vec <- c(
+  summary(models$lm_models$one_month_buffer_ols_model_list[[6]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_ols_model_list[[6]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_ols_model_list[[6]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_control_ols_model_list[[6]])$adj.r.squared,
+  summary(models$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[6]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+corporation_secured_model <- 
+  modelsummary_word(
+  models_full_list_NFC$corporation_secured_list,
+  coef_omit = 2:16
+) 
+corporation_unsecured_model <- 
+  modelsummary_word(
+  models_full_list_NFC$corporation_unsecured_list,
+  coef_omit = 2:16
+  )
+corporation_mortgage_model <- 
+  modelsummary_word(
+    models_full_list_NFC$corporation_mortgage_list,
+    coef_omit = 2:16
+  )
+
+estimates <- c(
+  "\\Delta KR_{t, t-1}",
+  "\\Delta KS_{t, t-1} ",
+  "\\Delta Demand_{t, t-1}",
+  "ROA_{t-1}",
+  "ROE_{t-1}",
+  "Liquidity_{t-1}"
+)
+
+flextable(
+  data = bind_rows(
+  corporation_secured_model$body$dataset,
+  corporation_unsecured_model$body$dataset,
+  corporation_mortgage_model$body$dataset
+  ) %>% 
+    add_row(.before = 1," " = "Non-financial corporations secured credit model") %>% 
+    add_row(.after = 14, " " = "Non-financial corporations unsecured credit model") %>% 
+    add_row(.after = 28, " " = "Non-financial corporations mortgage credit model") %>% 
+    add_row(.after = 14, 
+            " " = "Test of equality (p-value)",  
+            "(1)" = as.character(corporation_secured_joint_test_vec[1]), 
+            "(2)" = as.character(corporation_secured_joint_test_vec[2]),
+            "(3)" = as.character(corporation_secured_joint_test_vec[3]),
+            "(4)" = as.character(corporation_secured_joint_test_vec[4]),
+            "(5)" = as.character(corporation_secured_joint_test_vec[5])) %>% 
+   add_row(.after = 29, 
+            " " = "Test of equality (p-value)",  
+            "(1)" = as.character(corporation_unsecured_joint_test_vec[1]), 
+            "(2)" = as.character(corporation_unsecured_joint_test_vec[2]),
+            "(3)" = as.character(corporation_unsecured_joint_test_vec[3]),
+            "(4)" = as.character(corporation_unsecured_joint_test_vec[4]),
+            "(5)" = as.character(corporation_unsecured_joint_test_vec[5])) %>% 
+    add_row(.after = 45, 
+            " " = "Test of equality (p-value)",  
+            "(1)" = as.character(corporation_mortgage_joint_test_vec[1]), 
+            "(2)" = as.character(corporation_mortgage_joint_test_vec[2]),
+            "(3)" = as.character(corporation_mortgage_joint_test_vec[3]),
+            "(4)" = as.character(corporation_mortgage_joint_test_vec[4]),
+            "(5)" = as.character(corporation_mortgage_joint_test_vec[5])) %>% 
+       add_row(.after = 14, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(corporation_secured_r_squared_vec[1]), 
+            "(2)" = as.character(corporation_secured_r_squared_vec[2]),
+            "(3)" = as.character(corporation_secured_r_squared_vec[3]),
+            "(4)" = as.character(corporation_secured_r_squared_vec[4]),
+            "(5)" = as.character(corporation_secured_r_squared_vec[5])) %>% 
+   add_row(.after = 30, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(corporation_unsecured_r_squared_vec[1]), 
+            "(2)" = as.character(corporation_unsecured_r_squared_vec[2]),
+            "(3)" = as.character(corporation_unsecured_r_squared_vec[3]),
+            "(4)" = as.character(corporation_unsecured_r_squared_vec[4]),
+            "(5)" = as.character(corporation_unsecured_r_squared_vec[5])) %>% 
+    add_row(.after = 46, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(corporation_mortgage_r_squared_vec[1]), 
+            "(2)" = as.character(corporation_mortgage_r_squared_vec[2]),
+            "(3)" = as.character(corporation_mortgage_r_squared_vec[3]),
+            "(4)" = as.character(corporation_mortgage_r_squared_vec[4]),
+            "(5)" = as.character(corporation_mortgage_r_squared_vec[5]))
+ 
+) %>% 
+  hline(i = 1, border = border) %>% 
+  hline(i = 13, border = border)  %>% 
+  hline(i = 16, border = border) %>% 
+  hline(i = 17, border = border)  %>% 
+  hline(i = 29, border = border) %>% 
+  hline(i = 32, border = border) %>% 
+  hline(i = 33, border = border) %>% 
+  hline(i = 45, border = border) %>% 
+  bold(i = c(1, 17, 33)) %>% 
+  # set_header_labels(" " = "",
+  #                   "(1)" = "Min Requirement",
+  #                   "(2)" ="Surplus Capital",
+  #                   "(3)" = "Demand", 
+  #                   "(4)" = "Controls no Demand", 
+  #                   "(5)" = "Controls and Demand") %>% 
+  set_caption(caption = "Non-financial corporations results") %>% 
+  mk_par(j = 1, i= 1, part = "header", value = as_paragraph(as_equation(dependant
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(2, 4, 6, 8, 10, 12), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(18, 20, 22, 24, 26, 28), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(34, 36, 38, 40, 42, 44), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  flextable::align(part = "body", align = "center") %>% 
+  flextable::align(part = "header", align = "center") %>% 
+  flextable::align(j =1, part = "body", align = "left") %>% 
+  flextable::align(j =1, part = "header", align = "left") %>% 
+  add_footer_row(values = as_paragraph("Note: Non-financial corporations results. The depandant variables in loan growth at bank level at a monthly frequency, calculated as the log difference at t and t -1. All control variables are defined in Table 2. Standard errors are clustered at a bank level. All equations include both bank and monthly effects. A test for equality p-value of < 0.1 is significant.", " " , as_equation("*** p < 0.01, ** p < 0.05, * p < 0.1")), colwidths = 6) %>% 
+  hline(border = border, part = "footer" ) %>% 
+  autofit(add_w = 0)
+
+```
+
+
+```{r}
+#| label: fig-path
+#| fig.cap: "Impulse responses via local projections of lending ($LOAN$) to a shock in capital requirements ($KR$)."
+#| cache: TRUE
+#| include: false
+#| eval: false
+#| fig.height: 6
+
+models$graphs$path_gg
+```
+
+
+<!-- The impact of capital requirements on lending may last more than three months. The total impact period is 12 months, the period in between changes in the capital requirements in South Africa. @jorda2005estimation provides a relevant approach to calculating impulse responses^[See @jorda2005estimation for comparing local projections based and VAR-based impulse responses.] called local projections, which utilises an expanding window impact on the dependant variables of a shock on the independent variables at a specific period, at each unit of the shock period. That is, we estimate a change in capital requirements  ($\Delta KR$) at each period of the expanding window of the change in the lending ($\Delta LOAN$). @fig-path shows the impact path of $\beta$ (the impact of $\Delta KR$). As with the 3-month case above, the impact bath does not quickly converge to zero in almost all cases. Unlike in @fang2020bank the impact of capital requirements on lending was persistent.  -->
+
+## Discussion
+
+<!-- The implementation of Basel III in South Africa has been gradual over seven years. Furthermore, the SARB has continuously monitored and adjusted the implementation path to reflect the economic and banking environment. According to our results, this gradual approach resulted in a comparably lower lending effect. For example, in Peru  @fang2020bank estimated a lending reduction of 4 to 6 percentage points, much higher than our estimate of 0.48 to 2.4 percentage points. The South Africa estimates are closer to those of the UK, where @aiyar2016does found a roughly 0.55 percentage points reduction. Although they focus on the impact of the surplus capital buffer on lending in South Africa, in their estimations @neryvia2023 similar magnitudes on the impact of capital requirements on lending. The lower estimates are not surprising as the extent of the reduction in lending primarily depends on how expensive it is for banks to raise equity [@aiyar2016does]. As noted before, South African banks, in addition, to the capital requirements, kept a significant capital buffer.  -->
+
+<!-- The results also revealed a more significant effect on household lending versus non-financial corporation lending. One explanation is that it is much easier for banks to discriminate between borrowers in their commercial business versus retail business when banks need to reduce their risk-weighted assets to meet higher capital requirements [@de2020bank]. There are fewer clients on the commercial side, and the assets are larger. This higher asset base also suggests that banks are more careful or place more risk-weights on lending on the commercial than the household side [@imbierowicz2018time]. In South Africa, this means that banks avoid having to pull back on lending on the commercial side as a result of higher capital requirements, with the capital buffer as a first 'shock-absorber'. -->
+
+<!-- ## Addressing capital requirement endogeneity -->
+
+<!-- A natural concern about the contemporaneous effect is endogeneity in the capital requirements. We addressed the question of identification by using the Basel III related 'jumps' in the capital requirements and ignored the endogenous 'wiggles' that point to simultaneous changes in the balance sheets. Despite this, it is still possible that changes in the balance sheet composition (or what constitutes the risk-weighted assets (RWA)) could affect the size of these 'jumps'.  -->
+
+<!-- According to @fang2020bank, this change in the composition can bias our estimates upward. That is, suppose that the adjustment to the capital buffer is proportional to the change in credit growth due to changes to RWA or balance sheet composition. Then, this would have no operational impact. In the best-case scenario, this effect would be equivalent to an exogenous change in credit growth. However, if the change in credit growth were not proportional, the bank would have forgone opportunities due to the change in capital requirements. Therefore, not taking balance sheet composition changes would bias our estimates upward. One way to test for this is to allow for anticipation effects. Anticipation effects suggest that banks act or adjust balance sheets before the implementation of changes to the capital requirement. It is therefore a question of how bank transition (before, or after) around the changes to the capital requirements. We do this by adjusting our initial specification to allow for a gradual change in the capital requirement by setting up a change window in the following manner:  -->
+
+<!-- $$ -->
+<!-- \Delta LOAN^i_{t, t-s} = \sum_{s = -n_l}^{+n_f}\beta_s\Delta KR^i_{t+s, t+s-1} + \lambda \Delta KS^i_{t, t-1} + \gamma'  \pmb{X}^i_{t-s} + \phi^i + \tau_t + \varepsilon^i_t. -->
+<!-- $$ -->
+
+<!-- The first term on the right-hand side is the important change to this specification compared to the main results. Also,  given that the demand term may be endogenous to separate its supply and demand effects, we excluded it. We add lead ($n_l$) and lag ($n_f$) terms to the capital requirement change ($\Delta KR^i$). The leads point to the anticipation effect and the lags to the lagged effect. It is important to note that the lags and leads are straddled on period $t$ when the change in $KR$ occurs. To account for the straddling, we place a negative sign on ($n_l$) and a positive sign on ($n_l$), which shows a 'break' at period $t$ from the lags to the leads. In @tbl-trans1 and @tbl-trans2 between columns 1 to 3, we increasingly introduce more lags and leads. Furthermore, after running the regression according to the specification, we only report the lead and lag terms for brevity. -->
+
+\newpage
+ 
+```{r}
+#| label: tbl-trans1
+#| tbl-cap: "Household transition results"
+#| ft.arraystretch: .5
+#| cache: false
+#| include: false
+
+transition <- read_rds(here("Outputs", "artifacts_transition_model.rds"))
+
+transition_models <- list(
+  household_secured_list  = list(
+  transition$coef_models$one_month_coeftest_model_list[[1]],
+  transition$coef_models$two_month_coeftest_model_list[[1]],
+  transition$coef_models$three_month_coeftest_model_list[[1]]
+  ),
+  household_unsecured_list = list(
+  transition$coef_models$one_month_coeftest_model_list[[2]],
+  transition$coef_models$two_month_coeftest_model_list[[2]],
+  transition$coef_models$three_month_coeftest_model_list[[2]]
+  ),
+  household_mortgage_list = list(
+  transition$coef_models$one_month_coeftest_model_list[[3]],
+  transition$coef_models$two_month_coeftest_model_list[[3]],
+  transition$coef_models$three_month_coeftest_model_list[[3]]
+  )
+)
+
+household_secured_joint_test_vec <- c(
+    transition$joint_test$joint_test_one[[1]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_two[[1]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_three[[1]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+household_unsecured_joint_test_vec <- c(
+    transition$joint_test$joint_test_one[[2]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_two[[2]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_three[[2]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+household_mortgage_joint_test_vec <- c(
+    transition$joint_test$joint_test_one[[3]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_two[[3]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_three[[3]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+
+household_secured_r_squared_vec <- c(
+  summary(transition$lm_models$one_month_ols_model_list[[1]])$adj.r.squared,
+  summary(transition$lm_models$two_month_ols_model_list[[1]])$adj.r.squared,
+  summary(transition$lm_models$three_month_ols_model_list[[1]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+household_unsecured_r_squared_vec <- c(
+  summary(transition$lm_models$one_month_ols_model_list[[2]])$adj.r.squared,
+  summary(transition$lm_models$two_month_ols_model_list[[2]])$adj.r.squared,
+  summary(transition$lm_models$three_month_ols_model_list[[2]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+household_mortgage_r_squared_vec <- c(
+  summary(transition$lm_models$one_month_ols_model_list[[3]])$adj.r.squared,
+  summary(transition$lm_models$two_month_ols_model_list[[3]])$adj.r.squared,
+  summary(transition$lm_models$three_month_ols_model_list[[3]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+
+order_vector <- 
+  c(
+    'change_in_required_capital_dummy' = "change_in_required_capital_dummy",
+    'a' = "a", 
+    'b' = "b",
+    'c' = "c",
+    'd' = "d",
+    'e' = "e",
+    'f' = "f"
+  ) 
+
+household_secured_model <- 
+  modelsummary_word(
+  transition_models$household_secured_list,
+  # coef_omit = 4:21,
+  coef_map = order_vector
+  )
+household_unsecured_model <- 
+  modelsummary_word(
+   transition_models$household_unsecured_list,
+  # coef_omit = 4:21,
+  coef_map = order_vector
+  )
+household_mortgage_model <- 
+  modelsummary_word(
+     transition_models$household_mortgage_list,
+    # coef_omit = 4:21,
+    coef_map = order_vector
+  )
+
+estimates <- c(
+   "\\Delta KR_{t, t-1}",
+   "\\Delta KR_{t-1, t-2}",
+   "\\Delta KR_{t-2, t-3}",
+   "\\Delta KR_{t-3, t-4}",
+   "\\Delta KR_{t+1, t}",
+   "\\Delta KR_{t+2, t-1}",
+  "\\Delta KR_{t+3, t-2}"
+)
+
+flextable(
+  data = bind_rows(
+  household_secured_model$body$dataset,
+  household_unsecured_model$body$dataset,
+  household_mortgage_model$body$dataset
+  ) %>% 
+    add_row(.before = 1," " = "Household secured credit model") %>% 
+    add_row(.after = 16, " " = "Household unsecured credit model") %>% 
+    add_row(.after = 32, " " = "Household mortgage credit model") %>% 
+    add_row(.after = 16, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(household_secured_r_squared_vec[1]), 
+            "(2)" = as.character(household_secured_r_squared_vec[2]),
+            "(3)" = as.character(household_secured_r_squared_vec[3])) %>% 
+    add_row(.after = 17, 
+            " " = "Cumulative effect (p-value)",  
+            "(1)" = as.character(household_secured_joint_test_vec[1]), 
+            "(2)" = as.character(household_secured_joint_test_vec[2]),
+            "(3)" = as.character(household_secured_joint_test_vec[3])) %>% 
+     add_row(.after = 34, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(household_unsecured_r_squared_vec[1]), 
+            "(2)" = as.character(household_unsecured_r_squared_vec[2]),
+            "(3)" = as.character(household_unsecured_r_squared_vec[3])) %>%  
+   add_row(.after = 35, 
+            " " = "Cumulative effect (p-value)",  
+            "(1)" = as.character(household_unsecured_joint_test_vec[1]), 
+            "(2)" = as.character(household_unsecured_joint_test_vec[2]),
+            "(3)" = as.character(household_unsecured_joint_test_vec[3])) %>% 
+    add_row(.after = 52, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(household_mortgage_r_squared_vec[1]), 
+            "(2)" = as.character(household_mortgage_r_squared_vec[2]),
+            "(3)" = as.character(household_mortgage_r_squared_vec[3])) %>% 
+    add_row(.after = 53, 
+            " " = "Cumulative effect (p-value)",  
+            "(1)" = as.character(household_mortgage_joint_test_vec[1]), 
+            "(2)" = as.character(household_mortgage_joint_test_vec[2]),
+            "(3)" = as.character(household_mortgage_joint_test_vec[3]))
+  
+) %>% 
+
+  hline(i = 1, border = border) %>% 
+  hline(i = 15, border = border) %>% 
+  hline(i = 18, border = border) %>% 
+  hline(i = 19, border = border) %>% 
+  hline(i = 33, border = border)  %>%  
+  hline(i = 36, border = border) %>% 
+  hline(i = 37, border = border) %>% 
+  hline(i = 51, border = border) %>% 
+  bold(i = c(1, 19, 37)) %>% 
+  # set_header_labels(" " = "",
+  #                   "(1)" = "1 Month Lag",
+  #                   "(2)" ="2 Month Lag",
+  #                   "(3)" = "3 Month Lag") %>% 
+  set_caption(caption = "Household transition results") %>% 
+  mk_par(j = 1, i= 1, part = "header", value = as_paragraph(as_equation(dependant
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(2, 4, 6, 8, 10, 12, 14), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(20, 22, 24, 26, 28, 30, 32), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(38, 40, 42, 44, 46, 48, 50), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  flextable::align(part = "body", align = "center") %>% 
+  flextable::align(part = "header", align = "center") %>% 
+  flextable::align(j =1, part = "body", align = "left") %>% 
+  flextable::align(j =1, part = "header", align = "left") %>% 
+  add_footer_row(values = as_paragraph("Note: Household transition results. The depandant variables in loan growth at bank level at a monthly frequency, calculated as the log difference at t and t -1. All control variables are defined in Table 2. Standard errors are clustered at a bank level. All equations include both bank and monthly effects. A cumulative effect p-value of < 0.1 is significant", " " , as_equation("*** p < 0.01, ** p < 0.05, * p < 0.1")), colwidths = 4) %>% 
+  hline(border = border, part = "footer" ) %>% 
+  autofit(add_w = 0.6)
+
+
+```
+
+\newpage
+
+```{r}
+#| label: tbl-trans2 
+#| tbl-cap:  "Non-financial transition results"
+#| ft.arraystretch: .5
+#| cache: FALSE
+#| include: false
+
+transition_models <- list(
+  corporation_secured_list  = list(
+  transition$coef_models$one_month_coeftest_model_list[[4]],
+  transition$coef_models$two_month_coeftest_model_list[[4]],
+  transition$coef_models$three_month_coeftest_model_list[[4]]
+  ),
+  corporation_unsecured_list = list(
+  transition$coef_models$one_month_coeftest_model_list[[5]],
+  transition$coef_models$two_month_coeftest_model_list[[5]],
+  transition$coef_models$three_month_coeftest_model_list[[5]]
+  ),
+  corporation_mortgage_list = list(
+  transition$coef_models$one_month_coeftest_model_list[[6]],
+  transition$coef_models$two_month_coeftest_model_list[[6]],
+  transition$coef_models$three_month_coeftest_model_list[[6]]
+  )
+)
+
+corporation_secured_joint_test_vec <- c(
+    transition$joint_test$joint_test_one[[4]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_two[[4]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_three[[4]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+corporation_unsecured_joint_test_vec <- c(
+    transition$joint_test$joint_test_one[[5]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_two[[5]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_three[[5]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+corporation_mortgage_joint_test_vec <- c(
+    transition$joint_test$joint_test_one[[6]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_two[[6]]$`Pr(>F)`[2],
+    transition$joint_test$joint_test_three[[6]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+
+corporation_secured_r_squared_vec <- c(
+  summary(transition$lm_models$one_month_ols_model_list[[4]])$adj.r.squared,
+  summary(transition$lm_models$two_month_ols_model_list[[4]])$adj.r.squared,
+  summary(transition$lm_models$three_month_ols_model_list[[4]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+corporation_unsecured_r_squared_vec <- c(
+  summary(transition$lm_models$one_month_ols_model_list[[5]])$adj.r.squared,
+  summary(transition$lm_models$two_month_ols_model_list[[5]])$adj.r.squared,
+  summary(transition$lm_models$three_month_ols_model_list[[5]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+corporation_mortgage_r_squared_vec <- c(
+  summary(transition$lm_models$one_month_ols_model_list[[6]])$adj.r.squared,
+  summary(transition$lm_models$two_month_ols_model_list[[6]])$adj.r.squared,
+  summary(transition$lm_models$three_month_ols_model_list[[6]])$adj.r.squared
+) %>% sprintf(fmt = '%#.2f')
+
+corporation_secured_model <- 
+  modelsummary_word(
+  transition_models$corporation_secured_list,
+  # coef_omit = 3:20,
+  coef_map = order_vector
+) 
+corporation_unsecured_model <- 
+  modelsummary_word(
+   transition_models$corporation_unsecured_list,
+  # coef_omit = 3:20,
+  coef_map = order_vector
+  )
+corporation_mortgage_model <- 
+  modelsummary_word(
+     transition_models$corporation_mortgage_list,
+    # coef_omit = 3:20,
+    coef_map = order_vector
+  )
+
+estimates <- c(
+   "\\Delta KR_{t, t-1}",
+   "\\Delta KR_{t-1, t-2}",
+   "\\Delta KR_{t-2, t-3}",
+   "\\Delta KR_{t-3, t-4}",
+   "\\Delta KR_{t+1, t}",
+   "\\Delta KR_{t+2, t-1}",
+  "\\Delta KR_{t+3, t-2}"
+)
+
+
+flextable(
+  data = bind_rows(
+  corporation_secured_model$body$dataset,
+  corporation_unsecured_model$body$dataset,
+  corporation_mortgage_model$body$dataset
+  ) %>% 
+    add_row(.before = 1," " = "Non-financial corporations secured credit model") %>% 
+    add_row(.after = 16, " " = "Non-financial corporations unsecured credit model") %>% 
+    add_row(.after = 32, " " = "Non-financial corporations mortgage credit model") %>% 
+    add_row(.after = 16, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(corporation_secured_r_squared_vec[1]), 
+            "(2)" = as.character(corporation_secured_r_squared_vec[2]),
+            "(3)" = as.character(corporation_secured_r_squared_vec[3])) %>% 
+    add_row(.after = 17, 
+            " " = "Cumulative effect (p-value)",  
+            "(1)" = as.character(corporation_secured_joint_test_vec[1]), 
+            "(2)" = as.character(corporation_secured_joint_test_vec[2]),
+            "(3)" = as.character(corporation_secured_joint_test_vec[3])) %>% 
+     add_row(.after = 34, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(corporation_unsecured_r_squared_vec[1]), 
+            "(2)" = as.character(corporation_unsecured_r_squared_vec[2]),
+            "(3)" = as.character(corporation_unsecured_r_squared_vec[3])) %>%  
+   add_row(.after = 35, 
+            " " = "Cumulative effect (p-value)",  
+            "(1)" = as.character(corporation_unsecured_joint_test_vec[1]), 
+            "(2)" = as.character(corporation_unsecured_joint_test_vec[2]),
+            "(3)" = as.character(corporation_unsecured_joint_test_vec[3])) %>% 
+    add_row(.after = 52, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(corporation_mortgage_r_squared_vec[1]), 
+            "(2)" = as.character(corporation_mortgage_r_squared_vec[2]),
+            "(3)" = as.character(corporation_mortgage_r_squared_vec[3])) %>% 
+    add_row(.after = 53, 
+            " " = "Cumulative effect (p-value)",  
+            "(1)" = as.character(corporation_mortgage_joint_test_vec[1]), 
+            "(2)" = as.character(corporation_mortgage_joint_test_vec[2]),
+            "(3)" = as.character(corporation_mortgage_joint_test_vec[3]))
+) %>% 
+
+  hline(i = 1, border = border) %>% 
+  hline(i = 15, border = border) %>% 
+  hline(i = 18, border = border) %>% 
+  hline(i = 19, border = border) %>% 
+  hline(i = 33, border = border)  %>%  
+  hline(i = 36, border = border) %>% 
+  hline(i = 37, border = border) %>% 
+  hline(i = 51, border = border) %>% 
+  bold(i = c(1, 19, 37)) %>% 
+  # set_header_labels(" " = "",
+  #                   "(1)" = "1 Month Lag",
+  #                   "(2)" ="2 Month Lag",
+  #                   "(3)" = "3 Month Lag") %>% 
+  set_caption(caption = "Non-financial transition results") %>% 
+  mk_par(j = 1, i= 1, part = "header", value = as_paragraph(as_equation(dependant
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(2, 4, 6, 8, 10, 12, 14), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(20, 22, 24, 26, 28, 30, 32), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(38, 40, 42, 44, 46, 48, 50), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  flextable::align(part = "body", align = "center") %>% 
+  flextable::align(part = "header", align = "center") %>% 
+  flextable::align(j =1, part = "body", align = "left") %>% 
+  flextable::align(j = 1, part = "header", align = "left") %>% 
+  add_footer_row(values = as_paragraph("Note: Non-financial corporations transition results. The depandant variables in loan growth at bank level at a monthly frequency, calculated as the log difference at t and t -1. All control variables are defined in Table 2. Standard errors are clustered at a bank level. All equations include both bank and monthly effects. A cumulative effect p-value of < 0.1 is significant", " " , as_equation("*** p < 0.01, ** p < 0.05, * p < 0.1")), colwidths = 4) %>% 
+  hline(border = border, part = "footer" ) %>% 
+  autofit(add_w = 0.45)
+
+```
+
+<!-- \newpage -->
+
+<!-- Similar to the main results, all household credit categories have a clear lagged effect. The lagged effect was also mainly negative. The lagged effect evidence was mixed in the financial corporations' credit categories except for unsecured credit, which had a clear lagged effect. Therefore, statistically speaking, endogeneity is not a major issue. The anticipation effect evidence on the household side was convincing, except for mortgages which showed some significance. This was also the case for financial corporations. In most categories, the combined effect (that the sum of the $\beta_s$ is different from zero) of the leads and lags was insignificant. However, there was strong significance in household mortgages and financial corporations' secured and unsecured credit. Therefore, the results suggest that anticipation effects are limited. Lastly, one key observation is the impact of the capital requirement tends to last for up to a quarter or three months and can also be positive in some months.  -->
+
+# Conclusion {#sec-conclusion}
+
+<!-- We sought to estimate the impact of Basel III mandatory capital requirements on bank lending in South Africa. The results show a small impact on bank lending in the order of 0.48 to 2.4 percentage points for every percentage point increase in mandatory capital requirement. These results are lower than others in the literature, even compared to Peru. There are several theoretical reasons why this may be the case. These include possible seasonality in the reallocation of credit by banks [@aiyar2014international], and lingering endogeneity given the insignificant demand proxies [@fang2020bank]. Despite these concerns, we argue that since this is the first study of its kind in South Africa, there is no way to know what is a reasonable estimate. Instead, the results suggest that the SARB managed the implementation of Basel III in South Africa well, with minimal impact on bank lending. Lastly, it is left to future studies to confirm or dispute our results. -->
+
+\newpage
+
+
+\newpage
+# Appendix
+## Theory review {.appendix}
+This appendix is a review of the theory of bank capital and bank lending. It identifies several key points relevant to the empirical investigation:
+
+\begin{itemize}
+    \item Consistent with the observed behaviour of banks in South Africa, banks can be expected to manage their balance sheets by maintaining buffers of excess capital and liquidity, over and above required regulatory minima.
+    \item Changes in capital and liquidity requirements and changes in the actual levels of capital and liquidity will have similar but oppositely signed impacts on capital and liquidity buffers (expressed as an asset share, an increase in the regulatory minimum of 1\% has the same impact on the buffer as a 1\% decrease in the actual level of capital). 
+    \item The impact of balance sheet constraints on the supply of credit depends on the probability of a breach of regulatory minima and hence the impact of changes in buffers on bank lending is highly non-linear, being very greater when buffers are low than when they are high. 
+    \item These impacts are portfolio wide, affecting all categories of credit, allowing us to explore the imposition of cross equation restrictions to increase the power of our hypothesis testing.  
+\end{itemize}
+
+### A conceptual framework drawing on corporate finance and banking theory {.appendix}
+
+A large literature examines the impact of regulatory capital requirements on bank credit supply. To draw a consistent picture of the findings from this literature, it is helpful to review the mechanisms linking bank capital to credit supply, employing a conceptual framework based on standard corporate finance theory.  In the complete markets setting of @modigliani58 the mix of equity and debt funding, and therefore also capital regulation, is irrelevant; but there are several reasons why the mix of funding will in practice impact on lending and other business decisions.  Some of these reasons apply broadly to banks, non-bank financial intermediaries and non-financial corporates, while others are bank specific.
+
+The focus of what follows is on how capital structure and capital regulation impacts on the on the overall costs of bank funding and hence on the supply of bank credit; and in empirical estimation on distinguishing credit supply from the demand for credit:
+$$
+\begin{split}
+L^d =\alpha_0+\alpha_1 r^l+\alpha_2 y + \mu\\
+L^s =\beta_0+\beta_1 (r^l-\omega)+\nu 
+\end{split}
+$$
+
+Where $\beta$ represents the cost of bank funding and $y$ represents factors such as income and expected income growth that affect the demand for bank credit. 
+
+
+The composition of the bank balance sheet can be represented, schematically as:
+\begin{center}
+\begin{tabular}{ l | r}
+Assets	& Liabilities \\
+\hline
+$L_1$	& $D$ \\
+$L_2$	& $W$ \\
+$B$ & $E$ \\
+\hline
+\end{tabular}
+\end{center}
+
+distinguishing different categories of loans ($L_1$, $L_2$), security investments ($B$), core deposits ($D$), wholesale funding ($W$) and equity capital ($E$). 
+
+Bank capitalisation $c$, the buffer of capital $c^b$ above the minimum regulatory capital requirement, funding liquidity $\lambda$ and the liquidity buffer above minimum regulatory liquidity ratio (the NSF $\lambda^{min}$) can then be represented (with risk weights $w_1$, $w_2$) as
+$$
+\begin{split}
+c=E/(w_1 L_1+ w_2 L_2)\\
+c^b =c-c^{min}\\
+\lambda =(D+E)/(L_1+L_2)\\
+\lambda^{b}=\lambda-\lambda^{min}
+\end{split}
+$$
+
+For capital structure and capital regulation to have any impact at all: equity must be more expensive than debt funding, whether in the form of core deposits or in other forms of debt. If there are then also costs associated with renegotiation of debt obligations or any corporate restructuring following a default on debt obligations, then the expected frequency and hence costs of debt default costs will rise as leverage is increased 
+
+This implies that there is a desired target or market driven level of capitalisation $c^\ast$ at which the marginal benefit of higher capitalisation (reducing the expected frequency and hence cost of debt default) equals the marginal higher funding cost (the higher costs of equity relative to debt). Raising new capital and returning new capital to shareholders is, for tax and signalling reasons, costly. This further implies that capital cannot always be maintained at the desired level ($c \neq c^\ast$). Similarly changing the composition of debt finance, for example attracting additional core deposits, is also costly, so while we can expect a desired level of liquidity $\lambda^\ast$ actual liquidity can depart from desired liquidity ($\lambda \neq \lambda^\ast$).
+
+A further  factors determining the desired capital buffer is the ‘charter’ or ‘franchise’ value of an institution and the extent to which a bank can alter the balance of risk and returns on its balance sheet without outside stakeholders especially debt holders and regulators being aware. Charter value loosely represents the value of claims on future earnings lost in the event of a reorganisation following a breach of minimum levels of capital and liquidity that triggers a resolution and reorganisation of the liabilities with equity holders potentially losing their claims. 
+
+The observation of risk taking is critical because of the possibility of ‘moral hazard’, that if an institution can take high risks without a corresponding increase in the costs of debt finance then it may be induced to take deliberately high levels of risks that create value through ‘risk shifting’ i.e. transferring the costs of risk and resulting resolution from equity to debt holders. One insight from theoretical modelling of bank capital buffers [for example; @milne2002bank] is that there are two potential qualitatively different solutions: one with a relatively high charter value, in which incentives for risk shifting are low and are dominated by the desire to preserve charter value, so there is as a result an ‘internal optimum’ with a high level of desired capital and relatively low levels of risk taking; the other with low charter value in which incentives for risk shifting dominate those for preservation of charter value, leading to a  ‘corner solution’ in which capital buffers are maintained at very low levels and there are high levels of risk taking.
+
+The overall cost of funding ($\omega$) will depend on the market rate of interest ($r$), the departure between actual and desired bank capital and actual and desired liquidity:
+$$
+\omega=r+f(c-c^\ast,\lambda-\lambda^\ast ) 
+$$
+
+The consequence is that, according to this basic theory, the impact of a change in capital on the supply of lending is non-linear. The function $f(c-c^\ast,\lambda-\lambda^\ast )$ falls to a minimum $\gamma$ when $c \geq c^\ast$,  $\lambda\geq\lambda^\ast$ at which point $\omega=r+ \gamma$ ($\gamma$ reflecting bank specific operational and other costs); but when capital falls or liquidity fall short of the target levels ($c^\ast$, $\lambda^\ast$)  then costs of funding rise and $\omega >r+ \gamma$.
+
+The extent to which a shortfall of capital or liquidity increases the cost of funding $f(c-c^\ast,\lambda-\lambda^\ast)$ will depend on the probability of a breach of minimum levels of either capital or liquidity. When shortfall from desired levels are relatively small then the probability of a breach and impact on funding costs of a change in capital or liquidity are also relatively small; but when shortfall from desired levels are large small then the probability of a breach and impact on funding costs of any change in capital or liquidity are relatively large. Thus $f(c-c^\ast,\lambda-\lambda^\ast)$ is non-linear and we can expect the first and second derivatives to be signed as follows:
+
+\begin{center}
+\begin{tabular}{ r r r r r r r}
+$c-c^\ast$&$\lambda-\lambda^\ast$&$f_c$&$f_\lambda$&$f_{cc}$&$f_{c\lambda}$&$f_{\lambda\lambda}$\\
+$\geq 0$&$\geq 0$&$0$&$0$&$0$&$0$&$0$\\
+$<0$&$\geq 0$&$<0$&$0$&$>0$&$0$&$0$\\
+$\geq 0$&$<0$&$0$&$<0$&$0$&$0$&$>0$\\
+$<0$&$<0$&$<0$&$<0$&$>0$&$>0$&$>0$
+\end{tabular}
+\end{center}
+
+
+These higher cost of funding ($\omega - r = f(c-c^\ast,\lambda-\lambda^\ast )>\gamma$) arise because of the costs of altering capital and liquidity towards their desired or target levels. Again there is a trade-off: the further capital or liquidity falls below target the more balance sheet resources are allocated to increasing capital and liquidity and the less to the funding of lending. We can expect the expected rate of accumulation of capital and liquidity to be (approximately) proportional to the marginal costs of reduced capital or liquidity 
+$$
+c \propto -f_c
+\lambda \propto -f_\lambda
+$$
+
+and (employing a somewhat loose notation) the dynamic evolution of funding costs, capital and liquidity can be summarised as:
+\begin{center}
+\begin{tabular}{ r r r r r}
+$\varepsilon\frac{{d}c-c^\ast}{{d}t}$&
+$\varepsilon\frac{{d}\lambda-\lambda^\ast}{{d}t}$&
+$\varepsilon\frac{{d}(\omega- r)}{{d}t}$&
+$\varepsilon\frac{{d}c}{{d}t}$&
+$\varepsilon\frac{{d}\lambda}{{d}t} $\\
+$\geq 0$&$\geq 0$&$0$&$0$&$0$\\
+$<0$&$\geq 0$&$<0$&$>0$&$0$\\
+$\geq 0$&$<0$&$<0$&$0$&$>0$\\
+$<0$&$<0$&$<0$&$>0$&$>0$
+\end{tabular}
+\end{center}
+
+
+
+How are the costs of funding $f(c-c^\ast,\lambda-\lambda^\ast)$ impacted by minimum capital and liquidity requirements $c^{min}$ and $\lambda^{min}$. It is necessary to distinguish long term and short term impacts. 
+	
+Over the longer run the desired target of market level of capitalisation is increased but with a relatively small impacts on the cost of funding $f(c-c^\ast,\lambda-\lambda^\ast)$ and supply of credit. Standard corporate finance theory suggests, somewhat against the intuitions of banking practitioners,  that regulatory capital and liquidity requirements will have only a minor long-run impact on the cost of bank funding and the supply of bank credit [for elaboration see; @hellwig2014bankers]. This is because the marginal benefits of higher leverage resulting from the separation of ownership and control and resulting agency costs of equity depend upon the threat of intervention and consequent loss of managerial control. A breach of regulatory minimum capital or liquidity requirements triggers intervention and disciplines management in much the same way as a default on debt payments. Therefore, the relevant leverage is that based on the buffer of excess capital or liquidity ratios over and above the required regulatory minima. 
+
+If these buffers are independent of the regulatory minima i.e. if the desired capital and desired liquidity are determined by a fixed buffers $c^{(b^*)}$ and $\lambda^{(b^*)}$ independently of the regulatory minima $c^{min}$  and $\lambda^{min}$ so:
+$$
+\begin{split}
+c^*=c^{(b^*)}+c^{min} \\
+\lambda^\ast=\lambda^{(b^*)}+\lambda^{min} 
+\end{split}
+$$
+
+Over the longer run, once balance sheets have fully adjusted, $c$ and $\lambda$ increase in line with $c^\ast$ and $\lambda^\ast$ and there is no impact on funding costs or credit supply.
+
+This is not the entire story, even over the long run. Taxation may increase costs of debt relative to equity and hence raise minimum funding costs $\gamma$. On the other hand – in the event of a breach of minimum capital or liquidity requirements – resolution may be less costly, avoiding for example protracted legal disputes,. In this case the desired buffers $c^(b*)$ and minimum funding costs $\gamma$ could be reduced by higher capital requirements. Thus both the sign and magnitude of the long run impact of minimimum capital requirements is an empirical question. Since many factors will influence funding costs over the long run it is these are likely to be difficult to quantify empirically. 
+
+What the theory indicates is that these  effects can be expected to be , second order impacts, relatively smaller than the short-term impact of changing capital requirements arising when either:
+\begin{itemize}
+    \item an increase in regulatory minimum levels
+    \item a shock to earnings or balance sheet composition
+\end{itemize}
+leads to a fall in the buffers of capital and liquidity over their long run levels. 
+
+For example, following an increase in regulatory capital requirements or an unexpectedly high level of loan loss provisions, a bank may find that its buffer of excess capital is below the level it desires and, in response, increase the margins on lending rates and limit lending capital is rebuilt. 
+
+### Implications for empirical modelling {.appendix}
+
+This discussion of corporate finance and banking theory, leads to an insight that can be exploited empirically in estimating the impact of regulatory requirements on the supply of lending.  The short term impact of an increase in required bank capital or liquidity will be quantitatively very similar to a decline in actual capital or liquidity resulting from earnings of balance sheet shocks. is useful because it allows conclusions about the impact of higher capital and liquidity requirements on the costs and  volume of loans, from to be based on observations of the impact shocks to observed bank capital and liquidity due to market, credit or other risks.
+
+All this indicates that empirical modelling of the impact on regulatory requirements on capital and liquidity on the supply of bank lending is a challenging research task.  This task is made even more challenging by variation in bank risk appetite and in the perception of loan and other asset risks, both cross-sectionally between banks and in time series cyclically. Some banks may have relatively conservative business models seeking to avoid substantial portfolio tail risk and doing all they can to avoid potential financial distress; other business models may involve much greater risk taking. These differences affect both desired capital buffers and the response to discrepancy between desired and actual capital.  In periods of credit expansion banks across the industry may perceive risks of loss as relatively small and be unconcerned about low levels of capital buffers; while episodes of credit loss and especially  systemic financial crisis may trigger perceptions of high levels risk and more cautious behaviour. 
+
+
+Relatively high costs of bank equity arise for several reasons, most obviously agency costs arising from the separation of ownership and control in larger institutions: senior management are disciplined by greater leverage and the resulting greater impact of their decisions on returns to equity holders. Debt may also have relatively lower cost than equity for institutional reasons, for example tax deductibility or access to strong retail deposit franchises, reasons that are especially important in an environment of high nominal interest rates. Arguably short-term wholesale debt funding is also relatively less costly than long term debt or equity because it exerts a stronger disciplinary role on management [@calomiris1991role].  
+
+Costs of debt renegotiation and corporate restructuring are more difficult to characterise, arising for several reasons including: (i) the legal and administrative costs of valuing assets and assessing liabilities; (ii) the loss of value associated with finding purchasers of illiquid assets in ‘fire sales’  and (iii) resolution of conflicting claims in debt renegotiation or corporate restructuring; (iv) the loss of value from not continuing future value creating operations or selling them at a discount, what is referred to in the banking context as loss of ‘charter’ or ‘franchise’ value. Offsetting these costs, creating value for equity and debt holders, is the possibility of ‘risk shifting’ i.e. transferring losses onto third parties, in particular through government backed bailouts or deposit insurance arrangements. 
+
+A further factor magnifying the costs and reducing the supply of bank credit is opacity. As long as bank portfolio risks are understood by outside investors, then the marginal benefit of higher capitalisation depends only on the resulting reduction in the expected costs of debt renegotiation and corporate restructuring, not on the allocation of return on loans or other investment assets between debt and equity holders. Equity holders, in response to higher capitalisation, will require higher returns to compensate them for greater risk exposure, but this is offset by lower required returns for debt holders leaving overall funding costs unchanged.  Opacity of risk imposes further costs on all outside investors, holders of both debt and of equity. If risks are better understood by bank management and employees than by outside investors, then these costs can in theory be reduced through sharing equity with employees and management i.e. giving them ‘skin in the game’, but the extent of such reductions are unclear. Opacity of risk is also a major reason why low income households and small businesses are excluded from access to credit. This implies that financial technologies can potentially reduce the opacity of bank credit portfolios and improve the supply of bank credit.
+
+
+\newpage
+## Data {.appendix}
+
+```{r}
+#| label: tbl-data
+#| tbl-cap: "Data Sources"
+#| cache: FALSE
+#| include: TRUE
+#| ft.arraystrech: .4
+
+tibble(
+  " " = c("BA900", 
+          "BA930", 
+          "Controls",
+          "GDP",
+          "BA700",
+          "Repo rate"
+          ),
+  "Description" = c("Banking sector balance sheet data at a bank level",
+                    "Banking sector lending rates at a bank level",
+                    "Banking sector performance data at a bank level",
+                    "Nominal gross domestic product
+in a calendar year",
+                    "Regulatory capital buffer requirements",
+"Policy rate of the South African Reserve Bank"
+                    ),
+  
+  "Availability" = c("Public data",
+                     "Aggregated data is public. 
+Bank specific data is private",
+                     "Aggregated data is public. 
+Bank specific data is private",
+                     "Public data",
+                     "Aggregated data is public. 
+Bank specific data is private",
+"Public data"
+                     ),
+  "Source" = c("South African Reserve Bank",
+               "South African Reserve Bank",
+              "Prudential Authority",
+               "Statistics South Africa",
+               "Prudential Authority",
+              "South African Reserve Bank"
+               )
+) %>% 
+  flextable_word() %>%
+  flextable::align(align = "left", part = "all")
+```
+
+
+\newpage
+
+<!-- \blandscape -->
+<!-- \begin{landscape} -->
+
+```{r}
+#| label: tbl-data1
+#| tbl-cap: "Data Description"
+#| cache: FALSE
+#| include: TRUE
+#| ft.arraystretch: 0.5
+#| geometry: 
+
+model_variables <- c( "L_{b,t}",
+                      "r_{b,t}",
+                      "C - C_{min}",
+                      "r_t",
+                      "\\Omega_{b,t}"
+  
+)
+
+tibble(
+  "Variable Description" = c("Loans by lending category and bank",
+                 "Lending rate by lending category and bank",
+                 "Capital buffer",
+                 "Capital requirement",
+                 "Repo rate",
+                 "GDP",
+                 "Bank level perfomance metrics"
+                 ),
+  "Data Description" = c("BA 900 data on bank level credit at a monthly frequency. 
+We have summarised to six lending categories: 
+Household secured credit, Household unsecured credit, Household residential mortgages, 
+Non financial sector secured credit, Non financial sector unsecured credit, 
+and Non financial sector mortgages as explain in Section 8.2.",
+"BA 930 data on bank level lending rates at a monthly frequency. 
+Lending rates are defined as the weighted average rate 
+by lending category. These were also summarised into the 
+same six lending categories as shown in Section 8.2.",
+"Aggregate amount of qualifying capital and 
+reserve funds less minimum required capital and reserve funds.",
+"Basel III required level of capital as a percentage of risk-weighted assets",
+"South African Reserve Bank policy rate",
+"Nominal gross domestic product.",
+"The following are bank perfomance metrics are include in the data: 
+total assets, gross loan advances, retained earnings,
+net interest income (12 months), level one high-quality liquid assets required to be held, 
+average daily amount of level one high-quality liquid assets held up to 
+fourteenth business day of the month following the month to which this return relates, 
+aggregate risk weighted exposure, return on equity, return on assets, 
+total capital adequacy ratio, and leverage ratio."
+                    
+                    ),
+  "Measure" = c("Rand","Percent", "Percent", "Percent", "Percent", "Rand", "Rand and percent"),
+  "Cross-section" = c("Nedbank, First National Bank, Standard Bank, Absa",
+                      "Nedbank, First National Bank, Standard Bank, Absa",
+                      "Nedbank, First National Bank, Standard Bank, Absa",
+                      "Nedbank, First National Bank, Standard Bank, Absa",
+                      "NA",
+                      "NA",
+                      "Nedbank, First National Bank, Standard Bank, Absa"
+                      ),
+  "Sample" = c("January 2008 to November 2022", 
+               "January 2012 to June 2022",
+               "January 2008 to September 2020",
+               "January 2008 to September 2020",
+               "January 2008 to February 2021",
+               "March 2008 to March 2022",
+               "January 2008 to September 2022"),
+  "Frequency" = c (
+  "Monthly",
+  "Monthly",
+  "Monthly",
+   "Monthly",
+  "Monthly",
+  "Quartely",
+  "Monthly"
+  ),
+  
+) %>% 
+  flextable_word(
+    caption = "Data Description") %>%
+  align(j = 1, part = "all", align = "left") %>% 
+  fit_to_width(max_width = 10) 
+
+```
+
+<!-- \end{landscape} -->
+<!-- \elandscape -->
+
+
+\newpage
+## Lending rates (BA930s) {.appendix}
+
+```{r}
+#| label: fig-lending
+#| fig.cap: "Lending Rates. Source: South African Reserve Bank (2022)"
+#| cache: FALSE
+#| include: TRUE
+#| fig.height: 5
+
+lending_rates_cleaned_tbl <- preprocessing_quarterly$Totals$combined_lending_tbl
+
+lending_rates_cleaned_gg <- 
+  lending_rates_cleaned_tbl %>% 
+  mutate(across(.cols = -Date, .fns = ~.x/100)) %>% 
+  mutate(across(.cols = -Date, .fns = ~ winsorize(.x, threshold = .01))) %>%
+  pivot_longer(-Date, values_to = "Value", names_to = "Series") %>% 
+   multi_line_plot(variables_color = 7, legend_position = "none") +
+     scale_y_continuous(labels = scales::label_percent()) +
+  facet_wrap(~ Series, scales = "free_y", ncol = 2) 
+
+lending_rates_cleaned_gg 
+  
+```
+
+
+\newpage
+\newpage
+## Aggregation schema {#sec-aggregation}
+
+The following tabulation is derived from the BA900s is the balance sheet return loan data (lines 103 to 277) and  gives relative magnitudes by financial corporate sector, non-financial corporate sector and household sector. This is the most granular data provided. The missing item numbers are all aggregations of these numbers.
+
+```{r}
+#| label: tbl-scheme
+#| tbl-cap: Aggregation schema
+#| cache: FALSE
+#| include: TRUE
+#| ft.arraystretch: .55
+
+tibble(
+  "BA 900 Categories" = 
+    c(
+      "Installment sales",
+      "",
+      "",
+      "",
+      "Leasing transactions",
+      "",
+      "",
+      "",
+      "Farm mortgages",
+      "",
+      "",
+      "Residential mortgages",
+      "",
+      "",
+      "Commercial and other mortgages",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Credit cards",
+      "",
+      "",
+      "",
+      "Overdrafts",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Factoring debtors",
+      "Other loans and advances", 
+      "",
+      "", 
+      "",
+      "",
+      ""
+    ),
+  "Item Number" = c(
+    141,
+    142,
+    143,
+    144,
+    146,
+    147,
+    148,
+    149,
+    152,
+    153,
+    154,
+    156,
+    157,
+    158,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    167,
+    168,
+    169,
+    170,
+    178,
+    181,
+    182,
+    183,
+    184,
+    185,
+    187,
+    189,
+    190, 
+    191, 
+    192,
+    193,
+    ""
+    
+  ),
+  "Sector" = c(
+    "Financial corporate sector",
+    "Non financial corporate sector",
+    "Household sector",
+    "Other",
+    "Financial corporate sector",
+    "Non financial corporate sector",
+    "Household sector",
+    "Other",
+    "Non financial corporate sector",
+    "Household sector",
+    "Other",
+    "Non financial corporate sector",
+    "Household sector",
+    "Other",
+    "Public financial corporates",
+    "Public non-financial corporates",
+    "Private financial corporate",
+    "Private non-financial corporates",
+    "Household sector",
+    "Other",
+    "Financial corporate sector",
+    "Non financial corporate sector",
+    "Household sector",
+    "Other",
+    "Public sector (includes public corporations and local government)",
+    "Financial corporate sector",
+    "Non financial corporate sector",
+    "Unincorporated business enterprises",
+    "Other Household sector",
+    "Non-profit organisations serving households",
+    "",
+    "Financial corporate sector",
+    "Non financial corporate sector",
+    "Unincorporated business enterprises",
+    "Other Household sector",
+    "Non-profit organisations serving households",
+    ""
+  ),
+  "Aggregation Key" = c(
+    "-",
+    "a",
+    "c",
+    "a",
+    "-",
+    "a",
+    "c",
+    "a",
+    "b",
+    "b",
+    "b",
+    "b",
+    "d",
+    "b",
+    "-",
+    "-",
+    "-",
+    "b",
+    "b",
+    "b",
+    "-",
+    "a",
+    "c",
+    "c",
+    "-",
+    "-",
+    "a",
+    "e",
+    "c",
+    "c",
+    "a",
+    "-",
+    "b",
+    "e",
+    "-",
+    "-",
+    ""
+  ),
+) %>% 
+  flextable_word(caption = "Aggregation schema") %>% 
+  align(align = "left", part = "all") %>%
+  colformat_num(digits = 0, j = 2) %>% 
+  autofit(add_w = -0.2)
+
+
+```
+
+The following aggregation scheme which results in six categories was followed based on @tbl-scheme, with unincorporated enterprise credit as part of household unsecured lending.
+
+a.	Non-financial corporate sector secured credit: Items 142 + 147 
+b.	Non-financial corporate sector unsecured credit: Items 168 + 182 + 187+ 190
+c.	Non-financial corporate sector mortgages (commercial and other mortgage advances): Items 152 + 153 + 154 + 156 + 158 + 163 + 164 + 165
+d.	Household sector secured credit: Items 143 + 148  
+e.	Household sector unsecured credit: Items 169 + 184 + 185 +  192 + 193 + 183 + 191 (note includes unincorporated business enterprise credit last two items)
+f.	Household sector residential mortgages: Item 157
+
+The loans quantities from the BA900s are then linked to the lending rate data from the BA930s using table to create six lending rate categories the schema on @tbl-scheme1.
+
+\newpage
+
+```{r}
+#| label: tbl-scheme1
+#| tbl-cap: Weighting schema
+#| cache: FALSE
+#| include: TRUE
+#| ft.arraystretch: .55
+
+tibble(
+  "Sector" = c(
+   "Corporate sector",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "Household sector",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   "",
+   ""
+  ),
+  "BA 930 Categories" = c(
+    "Overdrafts",
+    "Instalment sale agreements flexible rate",
+    "Instalment sale fixed rate",
+    "Leasing transactions flexible rate",
+    "Leasing transactions fixed rate",
+    "Mortgage advances flexible rate",
+    "Mortgage advances fixed rate",
+    "Credit cards",
+    "Other",
+    "Overdrafts",
+    "Instalment sale agreements flexible rate",
+    "Instalment sale fixed rate",
+    "Leasing transactions flexible rate",
+    "Leasing transactions fixed rate",
+    "Mortgage advances flexible rate",
+    "Mortgage advances fixed rate",
+    "Credit cards",
+    "Other"
+  ),
+  "Item Number" = c(
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66
+  ),
+  "Weighting Key" = c(
+    "b",
+    "a",
+    "-",
+    "a",
+    "-",
+    "c",
+    "-",
+    "b",
+    "b",
+    "e",
+    "d",
+    "-",
+    "d",
+    "-",
+    "f",
+    "-",
+    "e",
+    "e"
+  )
+) %>% 
+  flextable_word() %>% 
+  align(align = "left", part = "all") %>%
+  colformat_num(digits = 0, j = 2) %>% 
+  autofit(add_w = .35)
+
+
+
+
+```
+
+The six categories, therefore, are as follows:
+
+a. Non-financial corporate sector secured credit rate: Weighted average of items 49 + 51
+b. Non-financial corporate sector unsecured credit rate: Weighted average items 48 + 55 + 56
+c. Non-financial corporate sector mortgage rate: Item 53
+d. Household sector secured credit rate: Weighted average of items 59 + 61
+e. Household sector unsecured credit rate: Weighted average of items 58 + 65 + 66
+f. Household sector residential mortgages: Item 63
+
+<!-- \newpage -->
+<!-- # Appendix: Descriptive Analysis -->
+
+
+<!-- ## Data -->
+
+<!-- ### Capital Buffers -->
+
+```{r}
+#| capbuf,
+#| fig.cap = "Capital buffers. Source: South African Reserve Bank (2022) REMOVE",
+#| cache = FALSE,
+#| include = FALSE,
+#| eval = FALSE
+
+capital_buffers <- read_rds(here("Outputs", "artifacts_capital_buffers.rds"))
+
+capital_buffers$graphs$big_banks_gg  #delete from the final draft
+
+```
+
+<!-- ### BA 900 Quartelty Data -->
+
+```{r}
+#| ba900totals,
+#| fig.cap = "Bank lending totals. Source: South African Reserve Bank (2022)",
+#| cache = FALSE,
+#| include = FALSE,
+#| eval = FALSE
+
+ba900 <- read_rds(here("Outputs", "artifacts_balance_sheet_quartely.rds"))
+ba900$quartely_graphs$Total_quartely_gg
+```
+
+```{r, include=FALSE}
+#| ba900absa,
+#| fig.cap = "Absa bank lending. Source: South African Reserve Bank (2022) ",
+#| cache = FALSE,
+#| include = FALSE,
+#| eval = FALSE
+
+ba900$quartely_graphs$absa_quartely_gg
+```
+
+```{r, include=FALSE}
+#| ba900fnb,
+#| fig.cap = "FNB bank lending. Source: South African Reserve Bank (2022) ",
+#| cache = FALSE,
+#| include = FALSE,
+#| eval = FALSE
+
+ba900$quartely_graphs$fnb_quartely_gg
+```
+
+```{r}
+#| ba900nedbank,
+#| fig.cap = "Nedbank bank lending. Source: South African Reserve Bank (2022) ",
+#| cache = FALSE,
+#| include = FALSE,
+#| eval = FALSE
+
+ba900$quartely_graphs$nedbank_quartely_gg
+```
+
+```{r}
+#| ba900standard,
+#| fig.cap = "Standard bank lending. Source: South African Reserve Bank (2022) ",
+#| cache = FALSE,
+#| include = FALSE,
+#| eval = FALSE
+
+ba900$quartely_graphs$standard_quartely_gg
+```
+
+```{r}
+#| ba900capitec,
+#| fig.cap = "Capitec bank lending. Source: South African Reserve Bank (2022)",
+#| cache = FALSE,
+#| include = FALSE,
+#| eval = FALSE
+
+ba900$quartely_graphs$capitec_quartely_gg
+```
+
+<!-- ### BA 900 to GDP -->
+
+```{r}
+#| nominal,
+#| fig.cap = "Nominal GDP. Source: South African Reserve Bank (2022)",
+#| cache = FALSE,
+#| fig.height = 3,
+#| include = FALSE,
+#| eval = FALSE
+
+balance_sheet_gdp <- read_rds(here("Outputs", "artifacts_balance_sheet_gdp.rds"))
+balance_sheet_gdp$graphs$nominal_GDP_gg
+```
+
+```{r}
+#| ba900gdptotals,
+#| fig.cap = "Total bank lending as a percent of GDP. Source: South African Reserve Bank (2022)",
+#| cache = FALSE,
+#| include = FALSE,
+#| eval = FALSE
+
+balance_sheet_gdp$graphs$total_gdp_gg
+```
+
+```{r}
+#| ba900gdpfnb,
+#| fig.cap = "FNB lending as a percent of GDP. Source: South African Reserve Bank (2022)",
+#| cache = FALSE,
+#| include = FALSE,
+#| eval = FALSE
+
+balance_sheet_gdp$graphs$fnb_gdp_gg
+```
+
+```{r}
+#| ba900gdpabsa,
+#| fig.cap = "Absa lending as a percent of GDP. Source: South African Reserve Bank (2022)",
+#| cache = FALSE,
+#| include = FALSE,
+#| eval = FALSE
+
+balance_sheet_gdp$graphs$absa_gdp_gg
+```
+
+```{r}
+#| ba900gdpstandard,
+#| fig.cap = "Standard bank lending as percent of GDP. Source: South African Reserve Bank (2022)",
+#| cache = FALSE,
+#| include = FALSE,
+#| eval = FALSE
+
+balance_sheet_gdp$graphs$standard_gdp_gg
+```
+
+```{r}
+#| ba900gdpnedbank,
+#| fig.cap = "Nedbank lending as percent of GDP. Source: South African Reserve Bank (2022)",
+#| cache = FALSE,
+#| include = FALSE,
+#| eval = FALSE
+
+balance_sheet_gdp$graphs$nedbank_gdp_gg
+```
+
+```{r, include=TRUE}
+#| ba900gdpcapitec,
+#| fig.cap = "Capitec lending as percent of GDP. Source: South African Reserve Bank (2022)",
+#| cache = FALSE,
+#| include = FALSE,
+#| eval = FALSE
+
+balance_sheet_gdp$graphs$capitec_gdp_gg
+```
+
+\newpage
+<!-- ## Three month loans growth results {.appendix} -->
+
+```{r}
+#| label: tbl-HH2
+#| tbl-cap: "Household 3 month loan growth results"
+#| ft.arraystretch: .55
+#| cache: false
+#| eval: false
+#| include: false
+
+models3 <- read_rds(here("Outputs", "artifacts_base_model_3_months.rds"))
+
+models3_full_list <- list(
+  household_secured_list  = list(
+  models3$coef_models$one_month_buffer_coeftest_model_list[[1]],
+  models3$coef_models$one_month_buffer_surplus_coeftest_model_list[[1]],
+  models3$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[1]],
+  models3$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[1]],
+  models3$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[1]]
+  ),
+  household_unsecured_list = list(
+  models3$coef_models$one_month_buffer_coeftest_model_list[[2]],
+  models3$coef_models$one_month_buffer_surplus_coeftest_model_list[[2]],
+  models3$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[2]],
+  models3$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[2]],
+  models3$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[2]]
+  ),
+  household_mortgage_list = list(
+  models3$coef_models$one_month_buffer_coeftest_model_list[[3]],
+  models3$coef_models$one_month_buffer_surplus_coeftest_model_list[[3]],
+  models3$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[3]],
+  models3$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[3]],
+  models3$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[3]]
+  )
+)
+
+household_secured_joint_test_vec <- c(
+    models3$joint_test$joint_test_buffer[[1]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus[[1]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus_demand[[1]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus_control[[1]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus_demand_control[[1]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+household_unsecured_joint_test_vec <- c(
+    models3$joint_test$joint_test_buffer[[2]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus[[2]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus_demand[[2]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus_control[[2]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus_demand_control[[2]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+household_mortgage_joint_test_vec <- c(
+    models3$joint_test$joint_test_buffer[[3]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus[[3]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus_demand[[3]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus_control[[3]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus_demand_control[[3]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+
+household_secured_r_squared_vec <- c(
+  summary(models3$lm_models$one_month_buffer_ols_model_list[[1]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_ols_model_list[[1]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_demand_ols_model_list[[1]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_control_ols_model_list[[1]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[1]])$adj.r.squared
+) %>% sprintf(fmt = '%#.3f')
+
+household_unsecured_r_squared_vec <- c(
+  summary(models3$lm_models$one_month_buffer_ols_model_list[[2]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_ols_model_list[[2]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_demand_ols_model_list[[2]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_control_ols_model_list[[2]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[2]])$adj.r.squared
+) %>% sprintf(fmt = '%#.3f')
+
+household_mortgage_r_squared_vec <- c(
+  summary(models3$lm_models$one_month_buffer_ols_model_list[[3]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_ols_model_list[[3]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_demand_ols_model_list[[3]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_control_ols_model_list[[3]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[3]])$adj.r.squared
+) %>% sprintf(fmt = '%#.3f')
+
+household_secured_model <- 
+  modelsummary_word(
+  models3_full_list$household_secured_list,
+  coef_omit = 2:16
+) 
+household_unsecured_model <- 
+  modelsummary_word(
+  models3_full_list$household_unsecured_list,
+  coef_omit = 2:16
+  )
+household_mortgage_model <- 
+  modelsummary_word(
+    models3_full_list$household_mortgage_list,
+    coef_omit = 2:16
+  )
+
+dependant <-  c(
+    "Dep. Var:\\Delta LOAN_{t, t-3}"
+)
+
+estimates <- c(
+  "\\Delta KR_{t, t-1}",
+  "\\Delta KS_{t, t-1} ",
+  "\\Delta Demand_{t, t-1}",
+  "ROA_{t-3}",
+  "ROE_{t-3}",
+  "Liquidity_{t-3}"
+)
+
+flextable(
+  data = bind_rows(
+  household_secured_model$body$dataset,
+  household_unsecured_model$body$dataset,
+  household_mortgage_model$body$dataset
+  ) %>% 
+    add_row(.before = 1," " = "Household secured credit model") %>% 
+    add_row(.after = 14, " " = "Household unsecured credit model") %>% 
+    add_row(.after = 28, " " = "Household mortgage credit model") %>% 
+    add_row(.after = 14, 
+            " " = "Test of equality (p-value)",  
+            "(1)" = as.character(household_secured_joint_test_vec[1]), 
+            "(2)" = as.character(household_secured_joint_test_vec[2]),
+            "(3)" = as.character(household_secured_joint_test_vec[3]),
+            "(4)" = as.character(household_secured_joint_test_vec[4]),
+            "(5)" = as.character(household_secured_joint_test_vec[5])) %>% 
+   add_row(.after = 29, 
+            " " = "Test of equality (p-value)",  
+            "(1)" = as.character(household_unsecured_joint_test_vec[1]), 
+            "(2)" = as.character(household_unsecured_joint_test_vec[2]),
+            "(3)" = as.character(household_unsecured_joint_test_vec[3]),
+            "(4)" = as.character(household_unsecured_joint_test_vec[4]),
+            "(5)" = as.character(household_unsecured_joint_test_vec[5])) %>% 
+    add_row(.after = 45, 
+            " " = "Test of equality (p-value)",  
+            "(1)" = as.character(household_mortgage_joint_test_vec[1]), 
+            "(2)" = as.character(household_mortgage_joint_test_vec[2]),
+            "(3)" = as.character(household_mortgage_joint_test_vec[3]),
+            "(4)" = as.character(household_mortgage_joint_test_vec[4]),
+            "(5)" = as.character(household_mortgage_joint_test_vec[5])) %>% 
+       add_row(.after = 14, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(household_secured_r_squared_vec[1]), 
+            "(2)" = as.character(household_secured_r_squared_vec[2]),
+            "(3)" = as.character(household_secured_r_squared_vec[3]),
+            "(4)" = as.character(household_secured_r_squared_vec[4]),
+            "(5)" = as.character(household_secured_r_squared_vec[5])) %>% 
+   add_row(.after = 30, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(household_unsecured_r_squared_vec[1]), 
+            "(2)" = as.character(household_unsecured_r_squared_vec[2]),
+            "(3)" = as.character(household_unsecured_r_squared_vec[3]),
+            "(4)" = as.character(household_unsecured_r_squared_vec[4]),
+            "(5)" = as.character(household_unsecured_r_squared_vec[5])) %>% 
+    add_row(.after = 46, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(household_mortgage_r_squared_vec[1]), 
+            "(2)" = as.character(household_mortgage_r_squared_vec[2]),
+            "(3)" = as.character(household_mortgage_r_squared_vec[3]),
+            "(4)" = as.character(household_mortgage_r_squared_vec[4]),
+            "(5)" = as.character(household_mortgage_r_squared_vec[5]))
+ 
+) %>% 
+  hline(i = 1, border = border) %>% 
+  hline(i = 13, border = border)  %>% 
+  hline(i = 16, border = border) %>% 
+  hline(i = 17, border = border)  %>% 
+  hline(i = 29, border = border) %>% 
+  hline(i = 32, border = border) %>% 
+  hline(i = 33, border = border) %>% 
+  hline(i = 45, border = border) %>% 
+  bold(i = c(1, 17, 33)) %>% 
+  # set_header_labels(" " = "",
+  #                   "(1)" = "Min Requirement",
+  #                   "(2)" ="Surplus Capital",
+  #                   "(3)" = "Demand", 
+  #                   "(4)" = "Controls no Demand", 
+  #                   "(5)" = "Controls and Demand") %>% 
+  set_caption(caption = "Household 3 month loan growth results") %>% 
+  mk_par(j = 1, i= 1, part = "header", value = as_paragraph(as_equation(dependant
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(2, 4, 6, 8, 10, 12), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(18, 20, 22, 24, 26, 28), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(34, 36, 38, 40, 42, 44), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  flextable::align(part = "body", align = "center") %>% 
+  flextable::align(part = "header", align = "center") %>% 
+  flextable::align(j =1, part = "body", align = "left") %>% 
+  flextable::align(j =1, part = "header", align = "left") %>% 
+  add_footer_row(values = as_paragraph("Note: Household sector results with longer 3 month loan growth period. The depandant variables in loan growth at bank level at a monthly frequency, calculated as the log difference at t and t -3. All control variables are defined in Table 2. Standard errors are clustered at a bank level. All equations include both bank and monthly effects. A test for equality p-value of < 0.1 is significant.", " " , as_equation("*** p < 0.01, ** p < 0.05, * p < 0.1")), colwidths = 6) %>% 
+  hline(border = border, part = "footer" ) %>% 
+  autofit(add_w = 0.2)
+
+
+```
+
+
+
+```{r}
+#| label: tbl-NFC2
+#| tbl-cap: "Non-financial corporations 3 month loan growth results"
+#| ft.arraystretch: .55
+#| cache: false
+#| eval: false
+#| include: false
+
+models3_full_list_NFC <- list(
+  corporation_secured_list  = list(
+  models3$coef_models$one_month_buffer_coeftest_model_list[[4]],
+  models3$coef_models$one_month_buffer_surplus_coeftest_model_list[[4]],
+  models3$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[4]],
+  models3$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[4]],
+  models3$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[4]]
+  ),
+  corporation_unsecured_list = list(
+  models3$coef_models$one_month_buffer_coeftest_model_list[[5]],
+  models3$coef_models$one_month_buffer_surplus_coeftest_model_list[[5]],
+  models3$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[5]],
+  models3$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[5]],
+  models3$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[5]]
+  ),
+  corporation_mortgage_list = list(
+  models3$coef_models$one_month_buffer_coeftest_model_list[[6]],
+  models3$coef_models$one_month_buffer_surplus_coeftest_model_list[[6]],
+  models3$coef_models$one_month_buffer_surplus_demand_coeftest_model_list[[6]],
+  models3$coef_models$one_month_buffer_surplus_control_coeftest_model_list[[6]],
+  models3$coef_models$one_month_buffer_surplus_demand_control_coeftest_model_list[[6]]
+  )
+)
+
+corporation_secured_joint_test_vec <- c(
+    models3$joint_test$joint_test_buffer[[4]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus[[4]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus_demand[[4]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus_control[[4]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus_demand_control[[4]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+corporation_unsecured_joint_test_vec <- c(
+    models3$joint_test$joint_test_buffer[[5]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus[[5]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus_demand[[5]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus_control[[5]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus_demand_control[[5]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+corporation_mortgage_joint_test_vec <- c(
+    models3$joint_test$joint_test_buffer[[6]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus[[6]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus_demand[[6]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus_control[[6]]$`Pr(>F)`[2],
+    models3$joint_test$joint_test_buffer_surplus_demand_control[[6]]$`Pr(>F)`[2]
+  ) %>% sprintf(fmt = '%#.2f')
+
+corporation_secured_r_squared_vec <- c(
+  summary(models3$lm_models$one_month_buffer_ols_model_list[[4]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_ols_model_list[[4]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_demand_ols_model_list[[4]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_control_ols_model_list[[4]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[4]])$adj.r.squared
+) %>% sprintf(fmt = '%#.3f')
+
+corporation_unsecured_r_squared_vec <- c(
+  summary(models3$lm_models$one_month_buffer_ols_model_list[[5]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_ols_model_list[[5]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_demand_ols_model_list[[5]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_control_ols_model_list[[5]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[5]])$adj.r.squared
+) %>% sprintf(fmt = '%#.3f')
+
+corporation_mortgage_r_squared_vec <- c(
+  summary(models3$lm_models$one_month_buffer_ols_model_list[[6]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_ols_model_list[[6]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_demand_ols_model_list[[6]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_control_ols_model_list[[6]])$adj.r.squared,
+  summary(models3$lm_models$one_month_buffer_surplus_demand_control_ols_model_list[[6]])$adj.r.squared
+) %>% sprintf(fmt = '%#.3f')
+
+corporation_secured_model <- 
+  modelsummary_word(
+  models3_full_list_NFC$corporation_secured_list,
+  coef_omit = 2:16
+) 
+corporation_unsecured_model <- 
+  modelsummary_word(
+  models3_full_list_NFC$corporation_unsecured_list,
+  coef_omit = 2:16
+  )
+corporation_mortgage_model <- 
+  modelsummary_word(
+    models3_full_list_NFC$corporation_mortgage_list,
+    coef_omit = 2:16
+  )
+
+estimates <- c(
+  "\\Delta KR_{t, t-1}",
+  "\\Delta KS_{t, t-1} ",
+  "\\Delta Demand_{t, t-1}",
+  "ROA_{t-3}",
+  "ROE_{t-3}",
+  "Liquidity_{t-3}"
+)
+
+flextable(
+  data = bind_rows(
+  corporation_secured_model$body$dataset,
+  corporation_unsecured_model$body$dataset,
+  corporation_mortgage_model$body$dataset
+  ) %>% 
+    add_row(.before = 1," " = "Non-financial corporations secured credit model") %>% 
+    add_row(.after = 14, " " = "Non-financial corporations unsecured credit model") %>% 
+    add_row(.after = 28, " " = "Non-financial corporations mortgage credit model") %>% 
+    add_row(.after = 14, 
+            " " = "Test of equality (p-value)",  
+            "(1)" = as.character(household_secured_joint_test_vec[1]), 
+            "(2)" = as.character(household_secured_joint_test_vec[2]),
+            "(3)" = as.character(household_secured_joint_test_vec[3]),
+            "(4)" = as.character(household_secured_joint_test_vec[4]),
+            "(5)" = as.character(household_secured_joint_test_vec[5])) %>% 
+   add_row(.after = 29, 
+            " " = "Test of equality (p-value)",  
+            "(1)" = as.character(household_unsecured_joint_test_vec[1]), 
+            "(2)" = as.character(household_unsecured_joint_test_vec[2]),
+            "(3)" = as.character(household_unsecured_joint_test_vec[3]),
+            "(4)" = as.character(household_unsecured_joint_test_vec[4]),
+            "(5)" = as.character(household_unsecured_joint_test_vec[5])) %>% 
+    add_row(.after = 45, 
+            " " = "Test of equality (p-value)",  
+            "(1)" = as.character(household_mortgage_joint_test_vec[1]), 
+            "(2)" = as.character(household_mortgage_joint_test_vec[2]),
+            "(3)" = as.character(household_mortgage_joint_test_vec[3]),
+            "(4)" = as.character(household_mortgage_joint_test_vec[4]),
+            "(5)" = as.character(household_mortgage_joint_test_vec[5])) %>% 
+       add_row(.after = 14, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(household_secured_r_squared_vec[1]), 
+            "(2)" = as.character(household_secured_r_squared_vec[2]),
+            "(3)" = as.character(household_secured_r_squared_vec[3]),
+            "(4)" = as.character(household_secured_r_squared_vec[4]),
+            "(5)" = as.character(household_secured_r_squared_vec[5])) %>% 
+   add_row(.after = 30, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(household_unsecured_r_squared_vec[1]), 
+            "(2)" = as.character(household_unsecured_r_squared_vec[2]),
+            "(3)" = as.character(household_unsecured_r_squared_vec[3]),
+            "(4)" = as.character(household_unsecured_r_squared_vec[4]),
+            "(5)" = as.character(household_unsecured_r_squared_vec[5])) %>% 
+    add_row(.after = 46, 
+            " " = "Adj.R squared",  
+            "(1)" = as.character(household_mortgage_r_squared_vec[1]), 
+            "(2)" = as.character(household_mortgage_r_squared_vec[2]),
+            "(3)" = as.character(household_mortgage_r_squared_vec[3]),
+            "(4)" = as.character(household_mortgage_r_squared_vec[4]),
+            "(5)" = as.character(household_mortgage_r_squared_vec[5]))
+ 
+) %>% 
+  hline(i = 1, border = border) %>% 
+  hline(i = 13, border = border)  %>% 
+  hline(i = 16, border = border) %>% 
+  hline(i = 17, border = border)  %>% 
+  hline(i = 29, border = border) %>% 
+  hline(i = 32, border = border) %>% 
+  hline(i = 33, border = border) %>% 
+  hline(i = 45, border = border) %>% 
+  bold(i = c(1, 17, 33)) %>% 
+  # set_header_labels(" " = "",
+  #                   "(1)" = "Min Requirement",
+  #                   "(2)" ="Surplus Capital",
+  #                   "(3)" = "Demand", 
+  #                   "(4)" = "Controls no Demand", 
+  #                   "(5)" = "Controls and Demand") %>% 
+  set_caption(caption = "Non-financial corporations 3 month loan growth results") %>% 
+  mk_par(j = 1, i= 1, part = "header", value = as_paragraph(as_equation(dependant
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(2, 4, 6, 8, 10, 12), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(18, 20, 22, 24, 26, 28), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  mk_par(j = 1, i= c(34, 36, 38, 40, 42, 44), part = "body", value = as_paragraph(as_equation(estimates
+                                                                   ))) %>% 
+  flextable::align(part = "body", align = "center") %>% 
+  flextable::align(part = "header", align = "center") %>% 
+  flextable::align(j =1, part = "body", align = "left") %>% 
+  flextable::align(j =1, part = "header", align = "left") %>% 
+  add_footer_row(values = as_paragraph("Note: Non-financial corporations results with 3 month loan growth period. The depandant variables in loan growth at bank level at a monthly frequency, calculated as the log difference at t and t -3. All control variables are defined in Table 2. Standard errors are clustered at a bank level. All equations include both bank and monthly effects. A test for equality p-value of < 0.1 is significant.", " " , as_equation("*** p < 0.01, ** p < 0.05, * p < 0.1")), colwidths = 6) %>% 
+  hline(border = border, part = "footer" ) %>% 
+  autofit(add_w = -0.2)
+
+```
+
+
+
+# References

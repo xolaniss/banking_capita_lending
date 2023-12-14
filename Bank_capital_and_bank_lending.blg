@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2023)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Bank_capital_and_bank_lending.aux
+The style file: sarb.bst.bst
+Database file #1: references.bib
+Warning--empty journal in berrospide2010effects
+Warning--empty journal in milne2002bank
+Warning--empty journal in nowak2006post
+Warning--empty journal in neryvia2023
+You've used 25 entries,
+            2887 wiz_defined-function locations,
+            746 strings with 9182 characters,
+and the built_in function-call counts, 14246 in all, are:
+= -- 1295
+> -- 514
+< -- 19
++ -- 217
+- -- 175
+* -- 1072
+:= -- 2255
+add.period$ -- 93
+call.type$ -- 25
+change.case$ -- 182
+chr.to.int$ -- 26
+cite$ -- 29
+duplicate$ -- 1016
+empty$ -- 1029
+format.name$ -- 275
+if$ -- 2827
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 189
+newline$ -- 82
+num.names$ -- 100
+pop$ -- 397
+preamble$ -- 1
+purify$ -- 183
+quote$ -- 0
+skip$ -- 363
+stack$ -- 0
+substring$ -- 766
+swap$ -- 503
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 222
+warning$ -- 4
+while$ -- 115
+width$ -- 0
+write$ -- 270
+(There were 4 warnings)
